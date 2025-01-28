@@ -21,6 +21,7 @@
           <a href="#">Proyectos</a>
         </li>
       </ul>
+      <a href="#contact">Inscríbete</a>
     </nav>
   </header>
   <main>
@@ -40,6 +41,25 @@
               height="144">
           </a>
         </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div>
+        <h2>Inscríbete</h2>
+        <form>
+          <label for="name">Nombre</label>
+          <input type="text" name="name" id="name" placeholder="Ingresa tu nombre" required>
+          <label for="lastName">Apellido</label>
+          <input type="text" name="last-name" id="lastName" placeholder="Ingresa tu apellido" required>
+          <label for="phone">Celular</label>
+          <input type="tel" name="phone" id="phone" placeholder="Ingresa tu celular" maxlength="9" pattern="[0-9]{9}"
+            required>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="Ingresa tu email" required>
+          <label for="DNI">DNI</label>
+          <input type="number" name="DNI" id="DNI" placeholder="Ingresa tu DNI" min="00000000" max="99999999">
+          <input type="submit" value="Enviar">
+        </form>
       </div>
     </section>
   </main>
