@@ -31,6 +31,16 @@
   padding-block: 1rem;
 }
 
+.hero {
+  padding-block: 8rem;
+  text-align: center;
+}
+
+.hero__title {
+  margin: 0;
+  font-size: 3rem;
+}
+
 .list {
   padding: 0;
   margin: 0;
@@ -65,4 +75,8 @@
 
 .g-2 {
   gap: 0.5rem
+}
+
+.c-primary {
+  color: #23b5e8;
 }
