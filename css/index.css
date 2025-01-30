@@ -48,17 +48,18 @@
 }
 
 /* elements */
-.link {
+.interactive {
   font-size: 0.875rem;
   font-weight: 600;
+}
+
+.link {
   color: white;
   text-decoration: none;
 }
 
 .button {
   padding: 0.5em 1em;
-  font-size: 0.875rem;
-  font-weight: 600;
   text-decoration: none;
   border-radius: 0.5rem;
 }
@@ -74,7 +75,7 @@
 }
 
 .g-2 {
-  gap: 0.5rem
+  gap: 0.5rem;
 }
 
 .c-primary {
