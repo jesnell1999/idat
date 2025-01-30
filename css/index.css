@@ -1,17 +1,23 @@
 /* globals */
 :root {
   color-scheme: dark;
+  --primary-color: #23b5e8;
+  --black-color: #010508;
+  --white-color: #f1f5f8;
+  --size: 0.25rem;
+  --max-width: 1024px;
+  --primary-font: monospace;
 }
 
 .body {
   margin: 0;
-  font-family: monospace;
+  font-family: var(--primary-font);
 }
 
 /* layout */
 .container {
-  max-width: 1024px;
-  padding-inline: 1rem;
+  max-width: var(--max-width);
+  padding-inline: calc(var(--size) * 4);
   margin-inline: auto;
 }
 
@@ -28,17 +34,17 @@
 /* .header {} */
 
 .nav {
-  padding-block: 1rem;
+  padding-block: calc(var(--size) * 4);
 }
 
 .hero {
-  padding-block: 8rem;
+  padding-block: calc(var(--size) * 32);
   text-align: center;
 }
 
 .hero__title {
   margin: 0;
-  font-size: 3rem;
+  font-size: calc(var(--size) * 12);
 }
 
 .list {
@@ -49,24 +55,24 @@
 
 /* elements */
 .interactive {
-  font-size: 0.875rem;
+  font-size: calc(var(--size) * 3.5);
   font-weight: 600;
 }
 
 .link {
-  color: white;
+  color: var(--white-color);
   text-decoration: none;
 }
 
 .button {
   padding: 0.5em 1em;
   text-decoration: none;
-  border-radius: 0.5rem;
+  border-radius: calc(var(--size) * 2);
 }
 
 .button--primary {
-  background-color: #23b5e8;
-  color: black;
+  background-color: var(--primary-color);
+  color: var(--black-color);
 }
 
 /* utils */
@@ -75,9 +81,9 @@
 }
 
 .g-2 {
-  gap: 0.5rem;
+  gap: calc(var(--size) * 2);
 }
 
 .c-primary {
-  color: #23b5e8;
+  color: var(--primary-color);
 }
