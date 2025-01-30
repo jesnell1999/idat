@@ -1,7 +1,54 @@
+/* globals */
 :root {
   color-scheme: dark;
 }
 
 .body {
+  margin: 0;
   font-family: monospace;
+}
+
+/* layout */
+.container {
+  max-width: 1024px;
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.flexbox--centered-spaced {
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* components */
+.header {
+  background-color: green;
+}
+
+.nav {
+  padding-block: 1rem;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* elements */
+.link {}
+
+.button {}
+
+/* utils */
+.d-flex {
+  display: flex;
+}
+
+.g-2 {
+  gap: 0.5rem
 }
