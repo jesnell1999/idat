@@ -53,6 +53,11 @@
   font-size: calc(var(--size) * 12);
 }
 
+.hero__paragraph {
+  margin: 0;
+  font-size: calc(var(--size) * 5);
+}
+
 .list {
   padding: 0;
   margin: 0;
@@ -86,8 +91,20 @@
   display: flex;
 }
 
+.f-direction-column {
+  flex-direction: column;
+}
+
+.a-items-center {
+  align-items: center;
+}
+
 .g-2 {
   gap: calc(var(--size) * 2);
+}
+
+.g-4 {
+  gap: calc(var(--size) * 4);
 }
 
 .c-primary {
