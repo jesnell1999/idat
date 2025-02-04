@@ -6,7 +6,7 @@
   --white-color: #f1f5f8;
   --size: 0.21875rem;
   --max-width: 1024px;
-  --primary-font: monospace;
+  --primary-font: "Source Code Pro", monospace;
 }
 
 @media (width >=768px) {
