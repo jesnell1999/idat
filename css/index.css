@@ -4,9 +4,15 @@
   --primary-color: #23b5e8;
   --black-color: #010508;
   --white-color: #f1f5f8;
-  --size: 0.25rem;
+  --size: 0.21875rem;
   --max-width: 1024px;
   --primary-font: monospace;
+}
+
+@media (width >=768px) {
+  :root {
+    --size: 0.25rem;
+  }
 }
 
 .body {
