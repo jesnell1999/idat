@@ -70,6 +70,10 @@
   font-weight: 600;
 }
 
+.interactive--lg {
+  font-size: calc(var(--size) * 4);
+}
+
 .link {
   color: var(--white-color);
   text-decoration: none;
