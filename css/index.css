@@ -79,15 +79,19 @@
 }
 
 /* elements */
-.img {
-  display: block;
+.title {
+  margin: 0;
+  font-size: calc(var(--size) * 8);
+  font-weight: 800;
 }
 
-.img--background {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  opacity: 0.5;
+.title--sm {
+  font-size: calc(var(--size) * 7);
+}
+
+.text {
+  margin: 0;
+  font-size: calc(var(--size) * 4);
 }
 
 .interactive {
@@ -97,6 +101,17 @@
 
 .interactive--lg {
   font-size: calc(var(--size) * 4);
+}
+
+.img {
+  display: block;
+}
+
+.img--background {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0.5;
 }
 
 .link {
@@ -117,7 +132,6 @@
 
 .badge {
   padding: 0.25em 0.5em;
-  text-decoration: none;
   border-radius: calc(var(--size) * 2);
 }
 
