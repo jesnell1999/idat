@@ -4,6 +4,7 @@
   --primary-color: #23b5e8;
   --black-color: #010508;
   --white-color: #f1f5f8;
+  --shadow: #f1f5f880;
   --size: 0.21875rem;
   --max-width: 1024px;
   --primary-font: "Source Code Pro", monospace;
@@ -67,6 +68,8 @@
 
 .card {
   border-radius: calc(var(--border-radius) * 2);
+  box-shadow: 0.0625rem 0.125rem 0.25rem 0.0625rem var(--shadow);
+  box-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) var(--size) calc(var(--size) * 0.25) var(--shadow);
   overflow: hidden;
 }
 
