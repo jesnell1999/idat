@@ -53,6 +53,7 @@
 .hero__title {
   margin: 0;
   font-size: calc(var(--size) * 12);
+  text-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) calc(var(--size) * 4) var(--primary-color);
 }
 
 .hero__paragraph {
