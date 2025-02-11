@@ -49,6 +49,7 @@
 .hero {
   padding-block: calc(var(--size) * 32);
   text-align: center;
+  background-image: linear-gradient(135deg, var(--primary-color) -150%, var(--primary-background));
 }
 
 .hero__title {
