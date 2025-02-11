@@ -2,6 +2,7 @@
 :root {
   color-scheme: dark;
   --primary-color: #23B5E8;
+  --secondary-color: #234B96;
   --black-color: #010508;
   --white-color: #F1F5F8;
   --neutral-950: #191B1C;
@@ -42,6 +43,21 @@
 /* components */
 /* .header {} */
 
+
+.main {
+
+  &>.hero,
+  &>section {
+    &:nth-child(odd) {
+      background-image: conic-gradient(from 90deg at -25% 100%, var(--primary-color) 90deg, var(--primary-background));
+    }
+
+    &:nth-child(even) {
+      background-image: conic-gradient(from -90deg at 125% 100%, var(--secondary-background), var(--secondary-color) 90deg);
+    }
+  }
+}
+
 .nav {
   padding-block: calc(var(--size) * 4);
 }
@@ -49,7 +65,6 @@
 .hero {
   padding-block: calc(var(--size) * 32);
   text-align: center;
-  background-image: conic-gradient(from 90deg at -10% 100%, var(--primary-color) 90deg, var(--primary-background));
 }
 
 .hero__title {
