@@ -43,7 +43,6 @@
 /* components */
 /* .header {} */
 
-
 .main {
 
   &>.hero,
@@ -76,6 +75,10 @@
 .hero__paragraph {
   margin: 0;
   font-size: calc(var(--size) * 5);
+}
+
+.section {
+  padding-block: calc(var(--size) * 8);
 }
 
 .list {
