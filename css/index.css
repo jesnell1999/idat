@@ -7,6 +7,7 @@
   --white-color: #F1F5F8;
   --neutral-950: #191B1C;
   --shadow: #F1F5F880;
+  --light-shadow: #01050880;
   --size: 0.21875rem;
   --max-width: 1024px;
   --primary-font: "Source Code Pro", monospace;
@@ -41,7 +42,15 @@
 }
 
 /* components */
-/* .header {} */
+.header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 0 calc(var(--size) * 0.5) calc(var(--size) * 0.25) var(--shadow);
+  background-color: var(--light-shadow);
+  backdrop-filter: blur(calc(var(--size) * 0.5));
+}
 
 .main {
 
