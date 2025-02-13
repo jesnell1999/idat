@@ -46,7 +46,7 @@
 .main {
 
   &>.hero,
-  &>section {
+  &>.section {
     &:nth-child(odd) {
       background-image: conic-gradient(from 90deg at -25% 100%, var(--primary-color) 90deg, var(--primary-background));
     }
@@ -109,6 +109,16 @@
   padding: calc(var(--size) * 4);
 }
 
+.form {
+  max-width: 512px;
+}
+
+.form__input {
+  padding: 0.5em 1em;
+  font-family: var(--primary-font);
+  border-radius: var(--border-radius);
+}
+
 /* elements */
 .title {
   margin: 0;
@@ -167,12 +177,16 @@
 
 .button {
   padding: 0.5em 1em;
-  text-decoration: none;
+  border: calc(var(--size) * 0.125) solid var(--primary-background);
   border-radius: calc(var(--size) * 2);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--primary-font);
 }
 
 .button--primary {
   background-color: var(--primary-color);
+  border: calc(var(--size) * 0.125) solid var(--primary-color);
   color: var(--black-color);
 }
 
@@ -199,12 +213,20 @@
   align-items: center;
 }
 
+.g-1 {
+  gap: var(--size);
+}
+
 .g-2 {
   gap: calc(var(--size) * 2);
 }
 
 .g-4 {
   gap: calc(var(--size) * 4);
+}
+
+.f-1 {
+  flex: 1;
 }
 
 .c-primary {
