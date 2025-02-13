@@ -10,6 +10,7 @@
   --light-shadow: #01050880;
   --size: 0.21875rem;
   --max-width: 1024px;
+  --transition-duration: 0.25s;
   --primary-font: "Source Code Pro", monospace;
   --primary-background: var(--black-color);
   --secondary-background: var(--neutral-950);
@@ -182,6 +183,11 @@
 .link {
   color: var(--white-color);
   text-decoration: none;
+  transition: color var(--transition-duration);
+
+  &:hover {
+    color: var(--primary-color);
+  }
 }
 
 .button {
@@ -191,6 +197,11 @@
   cursor: pointer;
   text-decoration: none;
   font-family: var(--primary-font);
+  transition: filter var(--transition-duration);
+
+  &:hover {
+    filter: opacity(0.875);
+  }
 }
 
 .button--primary {
