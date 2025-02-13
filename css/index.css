@@ -101,6 +101,12 @@
   border-radius: calc(var(--border-radius) * 2);
   box-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) var(--size) calc(var(--size) * 0.25) var(--shadow);
   overflow: hidden;
+  transition: box-shadow var(--transition-duration), transform var(--transition-duration);
+
+  &:hover {
+    box-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) var(--size) calc(var(--size) * 0.25) var(--primary-color);
+    transform: scale(1.0625);
+  }
 }
 
 .card--overlay {
@@ -110,6 +116,7 @@
   align-items: flex-end;
   max-width: calc(var(--size) * 106.5);
   height: calc(var(--size) * 60);
+  text-decoration: none;
 }
 
 .card__body {
@@ -251,4 +258,8 @@
 
 .c-primary {
   color: var(--primary-color);
+}
+
+.c-white {
+  color: var(--white-color);
 }
