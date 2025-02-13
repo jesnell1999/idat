@@ -78,13 +78,13 @@
 
 .hero__title {
   margin: 0;
-  font-size: calc(var(--size) * 12);
+  font-size: clamp(2rem, 5vw, 4rem);
   text-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) calc(var(--size) * 4) var(--primary-color);
 }
 
 .hero__paragraph {
   margin: 0;
-  font-size: calc(var(--size) * 5);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
 }
 
 .section {
