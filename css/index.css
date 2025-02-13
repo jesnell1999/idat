@@ -42,6 +42,16 @@
   justify-content: space-between;
 }
 
+.g-layout {
+  display: grid;
+  place-items: center;
+  place-content: center;
+}
+
+.g-layout--auto-fit-columns-lg {
+  grid-template-columns: repeat(auto-fit, minmax(calc(var(--size) * 80), 1fr));
+}
+
 /* components */
 .header {
   position: fixed;
@@ -176,6 +186,7 @@
 
 .img {
   display: block;
+  object-fit: cover;
 }
 
 .img--background {
