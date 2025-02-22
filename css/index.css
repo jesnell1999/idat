@@ -1,6 +1,7 @@
 /* globals */
 :root {
   color-scheme: dark;
+  scroll-behavior: smooth;
   --primary-color: #23B5E8;
   --secondary-color: #234B96;
   --black-color: #010508;
@@ -98,7 +99,7 @@
 }
 
 .section {
-  padding-block: calc(var(--size) * 8);
+  padding-block: calc(var(--size) * 16);
 }
 
 .list {
@@ -126,6 +127,7 @@
   align-items: flex-end;
   max-width: calc(var(--size) * 106.5);
   height: calc(var(--size) * 60);
+  background-color: var(--primary-background);
   text-decoration: none;
 }
 
