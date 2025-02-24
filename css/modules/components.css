@@ -1,0 +1,94 @@
+.header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 0 calc(var(--size) * 0.5) calc(var(--size) * 0.25) var(--shadow);
+  background-color: var(--light-shadow);
+  backdrop-filter: blur(calc(var(--size) * 0.5));
+}
+
+.main {
+
+  &>.hero,
+  &>.section {
+    &:nth-child(odd) {
+      background-image: conic-gradient(from 90deg at -25% 100%, var(--primary-color) 90deg, var(--primary-background));
+    }
+
+    &:nth-child(even) {
+      background-image: conic-gradient(from -90deg at 125% 100%, var(--secondary-background), var(--secondary-color) 90deg);
+    }
+  }
+}
+
+.nav {
+  padding-block: calc(var(--size) * 4);
+}
+
+.hero {
+  padding-block: calc(var(--size) * 32);
+  text-align: center;
+}
+
+.hero__title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  text-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) calc(var(--size) * 4) var(--primary-color);
+}
+
+.hero__paragraph {
+  margin: 0;
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+}
+
+.section {
+  padding-block: calc(var(--size) * 16);
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.card {
+  --primary-card-color: var(--shadow);
+  border-radius: calc(var(--border-radius) * 2);
+  box-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) var(--size) calc(var(--size) * 0.25) var(--primary-card-color);
+  overflow: hidden;
+  transition: box-shadow var(--transition-duration), transform var(--transition-duration);
+
+  &:hover {
+    --primary-card-color: var(--primary-color);
+    transform: scale(1.0625);
+  }
+}
+
+.card--overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  max-width: calc(var(--size) * 106.5);
+  height: calc(var(--size) * 60);
+  background-color: var(--primary-background);
+  text-decoration: none;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size);
+  padding: calc(var(--size) * 4);
+}
+
+.form {
+  max-width: 512px;
+}
+
+.form__input {
+  padding: 0.5em 1em;
+  font-family: var(--primary-font);
+  border-radius: var(--border-radius);
+}
