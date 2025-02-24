@@ -22,6 +22,10 @@
   font-size: calc(var(--size) * 3.5);
 }
 
+.text--xs {
+  font-size: calc(var(--size) * 3);
+}
+
 .interactive {
   margin: 0;
   font-size: calc(var(--size) * 3.5);
@@ -34,6 +38,10 @@
 
 .interactive--sm {
   font-size: calc(var(--size) * 3);
+}
+
+.interactive--xs {
+  font-size: calc(var(--size) * 2.5);
 }
 
 .img {

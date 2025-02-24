@@ -92,3 +92,17 @@
   font-family: var(--primary-font);
   border-radius: var(--border-radius);
 }
+
+.footer {
+  box-shadow: 0 0 calc(var(--size) * 0.5) calc(var(--size) * 0.25) var(--shadow);
+
+  &>.nav {
+    &:nth-child(odd) {
+      background-color: var(--secondary-background);
+    }
+
+    &:nth-child(even) {
+      background-color: var(--primary-background);
+    }
+  }
+}

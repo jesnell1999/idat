@@ -22,6 +22,10 @@
   gap: calc(var(--size) * 4);
 }
 
+.g-5 {
+  gap: calc(var(--size) * 5);
+}
+
 .f-1 {
   flex: 1;
 }
