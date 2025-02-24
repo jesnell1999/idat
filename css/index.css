@@ -15,6 +15,8 @@
   --primary-font: "Source Code Pro", monospace;
   --primary-background: var(--black-color);
   --secondary-background: var(--neutral-950);
+  --primary-text: var(--white-color);
+  --light-primary-text: var(--black-color);
   --border-radius: calc(var(--size) * 2);
 
   @media (width >=768px) {
@@ -38,13 +40,16 @@
   display: flex;
 }
 
-.flexbox--centered-spaced {
+.flexbox--centered-spacing {
   align-items: center;
   justify-content: space-between;
 }
 
 .g-layout {
   display: grid;
+}
+
+.g-layout--center {
   place-items: center;
   place-content: center;
 }
@@ -109,13 +114,14 @@
 }
 
 .card {
+  --primary-card-color: var(--shadow);
   border-radius: calc(var(--border-radius) * 2);
-  box-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) var(--size) calc(var(--size) * 0.25) var(--shadow);
+  box-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) var(--size) calc(var(--size) * 0.25) var(--primary-card-color);
   overflow: hidden;
   transition: box-shadow var(--transition-duration), transform var(--transition-duration);
 
   &:hover {
-    box-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) var(--size) calc(var(--size) * 0.25) var(--primary-color);
+    --primary-card-color: var(--primary-color);
     transform: scale(1.0625);
   }
 }
@@ -174,6 +180,7 @@
 }
 
 .interactive {
+  margin: 0;
   font-size: calc(var(--size) * 3.5);
   font-weight: 600;
 }
@@ -211,9 +218,13 @@
 }
 
 .button {
+  --primary-button-color: var(--primary-background);
+  --primary-button-text: var(--primary-text);
   padding: 0.5em 1em;
-  border: calc(var(--size) * 0.125) solid var(--primary-background);
+  border: calc(var(--size) * 0.125) solid var(--primary-button-color);
   border-radius: calc(var(--size) * 2);
+  background-color: var(--primary-button-color);
+  color: var(--primary-button-text);
   cursor: pointer;
   text-decoration: none;
   font-family: var(--primary-font);
@@ -225,19 +236,22 @@
 }
 
 .button--primary {
-  background-color: var(--primary-color);
-  border: calc(var(--size) * 0.125) solid var(--primary-color);
-  color: var(--black-color);
+  --primary-button-color: var(--primary-color);
+  --primary-button-text: var(--light-primary-text);
 }
 
 .badge {
+  --primary-badge-color: var(--primary-background);
+  --primary-badge-text: var(--primary-text);
   padding: 0.25em 0.5em;
   border-radius: calc(var(--size) * 2);
+  background-color: var(--primary-badge-color);
+  color: var(--primary-badge-text);
 }
 
 .badge--primary {
-  background-color: var(--primary-color);
-  color: var(--black-color);
+  --primary-badge-color: var(--primary-color);
+  --primary-badge-text: var(--light-primary-text);
 }
 
 /* utils */
