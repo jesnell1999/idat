@@ -20,7 +20,7 @@
         <a href="#">
           <img src="./assets/img/logo.svg" alt="Logo de Idat" width="24" height="40" class="img">
         </a>
-        <ul class="list d-flex g-2">
+        <ul class="list list--menu flexbox flexbox--center flexbox--responsive g-2" id="menu">
           <li>
             <a href="#school" class="link interactive">Escuela</a>
           </li>
@@ -28,7 +28,12 @@
             <a href="#" class="link interactive">Proyectos</a>
           </li>
         </ul>
-        <a href="#contact" class="button button--primary interactive">Inscríbete</a>
+        <div class="d-flex a-items-center g-2">
+          <a href="#contact" class="button button--primary interactive">Inscríbete</a>
+          <a href="#menu" class="link title title--sm md:d-none">
+            <i class="bi bi-list"></i>
+          </a>
+        </div>
       </div>
     </nav>
   </header>

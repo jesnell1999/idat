@@ -8,6 +8,11 @@
   display: flex;
 }
 
+.flexbox--center {
+  place-items: center;
+  place-content: center;
+}
+
 .flexbox--centered-spacing {
   align-items: center;
   justify-content: space-between;

@@ -52,6 +52,31 @@
   list-style: none;
 }
 
+.list--menu {
+  position: fixed;
+  width: 100%;
+  height: 100dvh;
+  inset: 0;
+  background-color: var(--light-shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-duration);
+
+  &:target {
+    opacity: initial;
+    pointer-events: initial;
+  }
+
+  @media (width >=768px) {
+    position: initial;
+    width: initial;
+    height: initial;
+    background-color: initial;
+    opacity: initial;
+    pointer-events: initial;
+  }
+}
+
 .card {
   --primary-card-color: var(--shadow);
   border-radius: calc(var(--border-radius) * 2);

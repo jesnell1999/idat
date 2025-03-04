@@ -37,3 +37,9 @@
 .c-white {
   color: var(--white-color);
 }
+
+@media (width >=768px) {
+  .md\:d-none {
+    display: none;
+  }
+}
