@@ -1,4 +1,7 @@
 .body {
   margin: 0;
   font-family: var(--primary-font);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
