@@ -243,11 +243,16 @@
       <div>
         <h2>Contact</h2>
         <form>
-          <input type="text" placeholder="First name" name="first-name">
-          <input type="text" placeholder="Last name" name="last-name">
-          <input type="text" placeholder="Phone" name="phone">
-          <input type="email" placeholder="Email" name="email">
-          <textarea placeholder="Message" name="message"></textarea>
+          <div>
+            <input type="text" placeholder="First name" name="first-name" required>
+            <input type="text" placeholder="Last name" name="last-name" required>
+          </div>
+          <div>
+            <input type="text" placeholder="Phone" name="phone" required>
+            <input type="email" placeholder="Email" name="email" required>
+          </div>
+          <textarea placeholder="Message" name="message" required></textarea>
+          <br>
           <button>Send</button>
         </form>
       </div>
@@ -256,4 +261,3 @@
 </body>
 
 </html>
-
