@@ -26,10 +26,26 @@
 }
 
 .img {
-  width: 224px;
-  height: 224px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: #bbb;
+}
+
+.text {
+  margin: 0;
+  font-size: 0.875rem;
 }
 
 .list {
