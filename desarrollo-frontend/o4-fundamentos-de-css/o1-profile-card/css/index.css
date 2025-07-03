@@ -1,4 +1,4 @@
-body {
+.body {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +9,7 @@ body {
   font-family: monospace;
 }
 
-main {
+.main {
   max-width: 320px;
   padding: 1rem;
   border-radius: 16px;
@@ -17,7 +17,7 @@ main {
   text-align: center;
 }
 
-ul {
+.list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -27,6 +27,6 @@ ul {
   gap: 8px;
 }
 
-a {
+.link {
   color: #fefefe;
 }
