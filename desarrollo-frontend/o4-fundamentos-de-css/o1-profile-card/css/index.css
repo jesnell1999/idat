@@ -49,15 +49,35 @@
 }
 
 .list {
-  list-style: none;
   padding: 0;
   margin: 0;
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
+}
+
+.badge {
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  background-color: #23b5e8;
+  color: #010508;
+  font-weight: bold;
+  transition: box-shadow 0.25s, filter 0.25s;
+
+  &:hover {
+    box-shadow: 0 0.125rem 0.25rem 0 #23b5e8;
+    filter: brightness(1.25);
+  }
 }
 
 .link {
   color: #fefefe;
+  font-weight: bold;
+  transition: color 0.25s;
+
+  &:hover {
+    color: #23b5e8;
+  }
 }
