@@ -4,17 +4,32 @@
   justify-content: center;
   min-height: 100dvh;
   margin: 0;
-  background-color: #010508;
+  background-image: url("https://i.postimg.cc/x9MyhM3D/react-system.webp");
+  background-size: cover;
+  background-position: center;
   color: #fefefe;
   font-family: monospace;
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
   max-width: 320px;
   padding: 1rem;
-  border-radius: 16px;
-  background-color: #234B96;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.25rem 0 #fefefe80;
+  background-color: #01050880;
+  backdrop-filter: blur(0.5rem);
   text-align: center;
+}
+
+.img {
+  width: 224px;
+  height: 224px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .list {
