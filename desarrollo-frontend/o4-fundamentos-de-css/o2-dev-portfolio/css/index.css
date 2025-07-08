@@ -32,6 +32,14 @@
   display: flex;
 }
 
+.a-items-center {
+  align-items: center;
+}
+
+.j-content-end {
+  justify-content: flex-end;
+}
+
 .f-1 {
   flex: 1;
 }
