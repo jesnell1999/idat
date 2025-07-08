@@ -7,6 +7,12 @@
   font-family: "Roboto", sans-serif;
 }
 
+.container {
+  max-width: 1280px;
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
 .header {
   box-shadow: 0 0 0.125rem 0.0625rem #fefefe80;
   background-color: #01050880;
@@ -16,8 +22,16 @@
   padding-block: 1rem;
 }
 
-.container {
-  max-width: 1280px;
-  padding-inline: 1rem;
-  margin-inline: auto;
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.f-1 {
+  flex: 1;
 }
