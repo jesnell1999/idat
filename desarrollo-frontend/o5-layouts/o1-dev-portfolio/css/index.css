@@ -14,8 +14,12 @@
 }
 
 .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   box-shadow: 0 0 0.125rem 0.0625rem #fefefe80;
   background-color: #01050880;
+  backdrop-filter: blur(0.25rem);
 }
 
 .nav {
