@@ -1,0 +1,66 @@
+:root {
+  color-scheme: light dark;
+}
+
+.body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 1280px;
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
+.header {
+  box-shadow: 0 0 0.125rem 0.0625rem #fefefe80;
+  background-color: #01050880;
+}
+
+.nav {
+  padding-block: 1rem;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.link {
+  color: #fefefe;
+  text-decoration: none;
+}
+
+.button {
+  padding: 0.5em 1em;
+  border-radius: 0.5rem;
+  background-color: #23b5e8;
+  color: black;
+  text-decoration: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.a-items-center {
+  align-items: center;
+}
+
+.j-content-center {
+  justify-content: center;
+}
+
+.j-content-end {
+  justify-content: flex-end;
+}
+
+.g-2 {
+  gap: 0.5rem;
+}
+
+.f-1 {
+  flex: 1;
+}
