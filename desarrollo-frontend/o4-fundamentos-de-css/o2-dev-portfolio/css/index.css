@@ -28,6 +28,19 @@
   list-style: none;
 }
 
+.link {
+  color: #fefefe;
+  text-decoration: none;
+}
+
+.button {
+  padding: 0.5em 1em;
+  border-radius: 0.5rem;
+  background-color: #23b5e8;
+  color: black;
+  text-decoration: none;
+}
+
 .d-flex {
   display: flex;
 }
