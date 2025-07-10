@@ -131,8 +131,16 @@
   display: flex;
 }
 
+.f-direction-column {
+  flex-direction: column;
+}
+
 .d-grid {
   display: grid;
+}
+
+.a-items-start {
+  align-items: flex-start;
 }
 
 .a-items-center {
@@ -155,6 +163,14 @@
   gap: calc(var(--size) * 2);
 }
 
+.g-3 {
+  gap: calc(var(--size) * 3);
+}
+
+.g-5 {
+  gap: calc(var(--size) * 5);
+}
+
 .f-1 {
   flex: 1;
 }
@@ -163,4 +179,8 @@
   .md\:g-template-columns-1fr-1fr {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.c-secondary-text {
+  color: var(--secondary-text);
 }
