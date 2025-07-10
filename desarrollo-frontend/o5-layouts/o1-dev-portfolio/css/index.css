@@ -48,7 +48,7 @@
 
 .hero {
   position: relative;
-  padding-block: calc(var(--size) * 16);
+  padding-block: calc(var(--size) * 20);
 }
 
 .list {
@@ -95,6 +95,28 @@
       transform: scale(1);
     }
   }
+}
+
+.title {
+  margin: 0;
+  font-size: calc(var(--size) * 8);
+  font-weight: 800;
+}
+
+.title--lg {
+  font-size: calc(var(--size) * 9);
+}
+
+.subtitle {
+  margin: 0;
+  /* ToDo: Update font */
+  font-size: calc(var(--size) * 6);
+  font-weight: 700;
+}
+
+.text {
+  margin: 0;
+  font-size: calc(var(--size) * 4);
 }
 
 .button {
