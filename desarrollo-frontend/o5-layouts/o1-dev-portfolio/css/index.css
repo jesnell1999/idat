@@ -1,15 +1,34 @@
 :root {
-  color-scheme: dark;
+  --color-scheme: dark;
+
+  --primary-color: #23b5e8;
+  --white-color: #fefefe;
+
+  --neutral-200: #bbb;
+  --shadow: #fefefe80;
+  --light-shadow: #01050880;
+
+  --size: 0.25rem;
+  --max-width: 1280px;
+  --transition-duration: 0.25s;
+
+  --primary-font: "Roboto", sans-serif;
+
+  --primary-text: var(--white-color);
+  --secondary-text: var(--neutral-200);
+  --border-radius: calc(var(--size) * 2);
+
+  color-scheme: var(--color-scheme);
 }
 
 .body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--primary-font);
 }
 
 .container {
-  max-width: 1280px;
-  padding-inline: 1rem;
+  max-width: var(--max-width);
+  padding-inline: calc(var(--size) * 4);
   margin-inline: auto;
 }
 
@@ -18,18 +37,18 @@
   z-index: 5;
   top: 0;
   width: 100%;
-  box-shadow: 0 0 0.125rem 0.0625rem #fefefe80;
-  background-color: #01050880;
-  backdrop-filter: blur(0.25rem);
+  box-shadow: 0 0 calc(var(--size) * 0.5) calc(var(--size) * 0.25) var(--shadow);
+  background-color: var(--light-shadow);
+  backdrop-filter: blur(var(--size));
 }
 
 .nav {
-  padding-block: 1rem;
+  padding-block: calc(var(--size) * 4);
 }
 
 .hero {
   position: relative;
-  padding-block: 4rem;
+  padding-block: calc(var(--size) * 16);
 }
 
 .list {
@@ -54,9 +73,9 @@
 
 .link {
   position: relative;
-  color: #fefefe;
+  color: var(--primary-text);
   text-decoration: none;
-  transition: color 0.25s;
+  transition: color var(--transition-duration);
 
   &::before {
     content: "";
@@ -64,13 +83,13 @@
     bottom: -0.125em;
     width: 100%;
     height: 0.0625em;
-    background-color: #23b5e8;
+    background-color: var(--primary-color);
     transform: scale(0);
-    transition: transform 0.25s;
+    transition: transform var(--transition-duration);
   }
 
   &:hover {
-    color: #23b5e8;
+    color: var(--primary-color);
 
     &::before {
       transform: scale(1);
@@ -81,7 +100,7 @@
 .button {
   padding: 0.5em 1em;
   border-radius: 0.5em;
-  background-color: #23b5e8;
+  background-color: var(--primary-color);
   color: black;
   text-decoration: none;
 }
@@ -111,7 +130,7 @@
 }
 
 .g-2 {
-  gap: 0.5rem;
+  gap: calc(var(--size) * 2);
 }
 
 .f-1 {
