@@ -56,9 +56,12 @@
 
 .hero {
   position: relative;
+  display: flex;
+  min-height: min(calc(var(--size) * 128), 50dvh);
   padding-block: calc(var(--size) * 20);
+  overflow: hidden;
 
-  & img {
+  &>img {
     mask-image: linear-gradient(var(--primary-background) 87.5%, transparent);
   }
 }
