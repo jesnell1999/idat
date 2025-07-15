@@ -83,6 +83,11 @@
   object-fit: cover;
 }
 
+.img--logo {
+  width: calc(var(--size) * 10.5);
+  height: calc(var(--size) * 8);
+}
+
 .img--background {
   position: absolute;
   z-index: -1;
@@ -173,6 +178,16 @@
 
 .text {
   margin: 0;
+  font-size: calc(var(--size) * 4);
+}
+
+.interactive {
+  margin: 0;
+  font-size: calc(var(--size) * 3.5);
+  font-weight: 600;
+}
+
+.interactive--lg {
   font-size: calc(var(--size) * 4);
 }
 
