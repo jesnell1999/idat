@@ -71,6 +71,12 @@
   opacity: 0.75;
 }
 
+.img--cover {
+  width: calc(var(--size) * 80);
+  height: calc(var(--size) * 80);
+  border-radius: 50%;
+}
+
 .link {
   position: relative;
   color: var(--primary-text);
