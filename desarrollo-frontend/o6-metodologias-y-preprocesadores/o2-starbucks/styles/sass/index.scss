@@ -153,6 +153,27 @@
   }
 }
 
+.button {
+  padding: 0.5em 1em;
+  border: calc(var(--size) * 0.125) solid var(--primary-background);
+  border-radius: var(--border-radius);
+  background-color: var(--primary-background);
+  color: var(--primary-text);
+  text-decoration: none;
+  transition: box-shadow var(--transition-duration), filter var(--transition-duration);
+
+  &:hover {
+    box-shadow: 0 0 calc(var(--size) * 0.75) calc(var(--size) * 0.5) var(--primary-background);
+    filter: contrast(0.875);
+  }
+}
+
+.button--primary {
+  border: calc(var(--size) * 0.125) solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--dark-primary-text);
+}
+
 .title {
   margin: 0;
   font-size: calc(var(--size) * 8);
@@ -185,25 +206,9 @@
   font-size: calc(var(--size) * 4);
 }
 
-.button {
-  padding: 0.5em 1em;
-  border: calc(var(--size) * 0.125) solid var(--primary-background);
-  border-radius: 0.5em;
-  background-color: var(--primary-background);
-  color: var(--primary-text);
-  text-decoration: none;
-  transition: box-shadow var(--transition-duration), filter var(--transition-duration);
-
-  &:hover {
-    box-shadow: 0 0 calc(var(--size) * 0.75) calc(var(--size) * 0.5) var(--primary-background);
-    filter: contrast(0.875);
-  }
-}
-
-.button--primary {
-  border: calc(var(--size) * 0.125) solid var(--primary-color);
-  background-color: var(--primary-color);
-  color: var(--light-primary-text);
+.interactive--xl {
+  font-size: calc(var(--size) * 4.5);
+  font-weight: 700;
 }
 
 .p-relative {
@@ -256,6 +261,10 @@
 
 .g-4 {
   gap: calc(var(--size) * 4);
+}
+
+.g-5 {
+  gap: calc(var(--size) * 5);
 }
 
 .f-1 {
