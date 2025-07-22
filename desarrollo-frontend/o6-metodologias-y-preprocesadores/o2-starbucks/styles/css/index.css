@@ -56,10 +56,17 @@
 .hero > img {
   mask-image: linear-gradient(var(--primary-background) 87.5%, transparent);
 }
-.hero__cover-decorators {
-  position: absolute;
-  inset: 0;
-  animation: spin 10s linear infinite;
+
+.hero__title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+}
+
+.hero__paragraph {
+  margin: 0;
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 500;
 }
 
 .list {
@@ -244,6 +251,10 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+.c-primary {
+  color: var(--primary-color);
+}
+
 .c-secondary-text {
   color: var(--secondary-text);
 }
