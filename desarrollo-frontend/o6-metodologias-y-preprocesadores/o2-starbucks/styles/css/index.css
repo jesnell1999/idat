@@ -93,9 +93,9 @@
 }
 
 .img--cover {
-  width: calc(var(--size) * 80);
-  height: calc(var(--size) * 80);
-  border-radius: 50%;
+  width: calc(var(--size) * 74.5);
+  height: calc(var(--size) * 128);
+  transform: rotate(-12.5deg);
 }
 
 .img--cover-decorators {
