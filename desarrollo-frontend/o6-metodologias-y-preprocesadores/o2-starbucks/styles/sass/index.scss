@@ -1,9 +1,9 @@
 :root {
-  --color-scheme: dark;
+  --color-scheme: light;
 
   --primary-color: #23b5e8;
-  --black-color: #010508;
   --white-color: #fefefe;
+  --black-color: #010508;
 
   --neutral-200: #bbb;
   --shadow: #fefefe80;
@@ -15,8 +15,8 @@
 
   --primary-font: "Roboto", sans-serif;
 
-  --primary-background: var(--black-color);
-  --primary-text: var(--white-color);
+  --primary-background: var(--white-color);
+  --primary-text: var(--black-color);
   --secondary-text: var(--neutral-200);
   --light-primary-text: var(--black-color);
   --border-radius: calc(var(--size) * 2);
@@ -46,9 +46,9 @@
   z-index: 5;
   top: 0;
   width: 100%;
-  box-shadow: 0 0 calc(var(--size) * 0.5) calc(var(--size) * 0.25) var(--shadow);
-  background-color: var(--light-shadow);
-  backdrop-filter: blur(var(--size));
+  // box-shadow: 0 0 calc(var(--size) * 0.5) calc(var(--size) * 0.25) var(--shadow);
+  // background-color: var(--light-shadow);
+  // backdrop-filter: blur(var(--size));
 }
 
 .nav {
@@ -86,8 +86,8 @@
 }
 
 .img--logo {
-  width: calc(var(--size) * 10.5);
-  height: calc(var(--size) * 8);
+  width: calc(var(--size) * 12);
+  height: calc(var(--size) * 12);
 }
 
 .img--background {
@@ -246,6 +246,10 @@
   justify-content: flex-end;
 }
 
+.j-content-between {
+  justify-content: space-between;
+}
+
 .j-items-center {
   justify-items: center;
 }
@@ -258,8 +262,8 @@
   gap: calc(var(--size) * 3);
 }
 
-.g-5 {
-  gap: calc(var(--size) * 5);
+.g-4 {
+  gap: calc(var(--size) * 4);
 }
 
 .f-1 {
