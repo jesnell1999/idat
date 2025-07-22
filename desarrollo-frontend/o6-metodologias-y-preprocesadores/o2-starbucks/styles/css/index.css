@@ -49,12 +49,37 @@
 .hero {
   position: relative;
   display: flex;
-  min-height: min(var(--size) * 128, 50dvh);
+  min-height: 100dvh;
   padding-block: calc(var(--size) * 20);
+  box-sizing: border-box;
   overflow: hidden;
 }
 .hero > img {
   mask-image: linear-gradient(var(--primary-background) 87.5%, transparent);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 50dvh;
+  height: 50dvh;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 50dvh;
+  height: 50dvh;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  z-index: -1;
+  transform: translate(-50%, -50%);
 }
 
 .hero__title {
