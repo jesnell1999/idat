@@ -30,6 +30,21 @@
   animation: spin 10s linear infinite;
 }
 
+.off-canvas {
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  opacity: 0;
+  pointer-events: none;
+
+  &:target {
+    opacity: initial;
+    pointer-events: initial;
+  }
+}
+
 .list {
   padding: 0;
   margin: 0;
