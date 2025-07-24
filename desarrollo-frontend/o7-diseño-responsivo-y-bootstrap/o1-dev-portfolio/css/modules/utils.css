@@ -59,6 +59,10 @@
 }
 
 @media (width >=768px) {
+  .md\:d-none {
+    display: none;
+  }
+
   .md\:g-template-columns-1fr-1fr {
     grid-template-columns: 1fr 1fr;
   }
