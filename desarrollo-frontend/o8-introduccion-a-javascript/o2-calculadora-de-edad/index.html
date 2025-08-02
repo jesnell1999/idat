@@ -9,6 +9,21 @@
 
 <body>
   <h1>Calculadora de Edad</h1>
+
+  <script>
+    const currentYear = new Date().getFullYear();
+    const birthYear = +"2023";
+    let message = '';
+
+    if (birthYear) {
+      const age = currentYear - birthYear;
+      message = `Tienes ${age} años.`;
+    } else {
+      message = "Por favor, ingresa un año válido.";
+    }
+    // console.log(typeof message === 'string');
+    console.log(message);
+  </script>
 </body>
 
 </html>
