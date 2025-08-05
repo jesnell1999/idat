@@ -20,6 +20,7 @@
     let dragonHealth = parseInt(prompt(`¿Cuánta vida tiene ${dragonName}? 💚`));
     let dragonAttack = parseInt(prompt(`¿Cuánto poder de ataque tiene ${dragonName}? ⚔️`));
     let turn = 1;
+    let message = '';
 
     if (warriorName && warriorHealth && warriorAttack && dragonName && dragonHealth && dragonAttack) {
       if (warriorHealth > 0 && dragonHealth > 0 && warriorAttack > 0 && dragonAttack > 0) {
@@ -37,22 +38,26 @@
           warriorHealth -= dragonAttack;
           if (warriorHealth <= 0) warriorHealth = 0;
           alert(`🐉 ${dragonName} ataca al 👨‍🚀 ${warriorName} y le resta ${dragonAttack} vida ❤️.\n Vida restante: ${warriorHealth} ❤️`);
+
           turn++;
         }
 
         if (warriorHealth > 0) {
-          alert(`👨‍🚀 El guerrero ganó el duelo 💥💥💥`);
+          message = `👨‍🚀 El guerrero ganó el duelo 💥💥💥`;
         } else if (dragonHealth > 0) {
-          alert(`🐉 El dragón ganó el duelo 💥💥💥`);
+          message = `🐉 El dragón ganó el duelo 💥💥💥`;
         } else {
-          alert(`😕 ¡Ningún gana! 😕`);
+          message = `😕 ¡Ningún gana! 😕`;
         }
       } else {
-        alert('⚠️ Los valores de ataque y vida deben ser positivos.');
+        message = '⚠️ Los valores de ataque y vida deben ser positivos.';
       }
     } else {
-      alert('⚠️ Por favor, ingresa todos los datos correctamente.');
+      message = '⚠️ Por favor, ingresa todos los datos correctamente.';
     }
+
+    // alert(typeof message === 'string');
+    alert(message);
   </script>
 </body>
 
