@@ -308,7 +308,7 @@ testResults.forEach(result => console.log(result));
 // Practical demonstration
 console.log('\n=== 🎯 Demostración Práctica ===');
 console.log(greet("Amorosa"));
-console.log(`Área de círculo radio 3: ${calculateCircleArea(3).toFixed(2)} unidades²`);
+console.log(`Área de círculo radio 3: ${calculateCircleArea(3)} unidades²`);
 console.log(`¿12 es par? ${isEven(12)}`);
 console.log(`Mayor entre 8, 15, 12: ${findMax(8, 15, 12)}`);
 console.log(`25°C = ${celsiusToFahrenheit(25)}°F`);
