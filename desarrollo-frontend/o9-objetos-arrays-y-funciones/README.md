@@ -41,36 +41,36 @@ Necesitas crear un objeto que represente a tu personaje favorito (Mijael, Fernan
 #### 💻 Código base
 
 ```js
-// Test system setup
+// Test system setup 🧪✨
 const testResults = [];
 const recordTest = (testName, condition) => {
     const emoji = condition ? "✅" : "❌";
     testResults.push(`${emoji} ${testName}`);
 };
 
-// Create your first character object here 🛠️
+// Create your first character object here 🛠️💫
 const character = {
-    // Your code here
+    // ✨ Your magical code here ✨
 };
 
-// Automated test function
+// Automated test function 🤖
 const testCharacterObject = () => {
-    // Test 1: Happy path - name is "Mijael"
+    // Test 1: Happy path - name is "Mijael" 👦
     recordTest("o2.1.1 name is Mijael", character.name === "Mijael");
     
-    // Test 2: Happy path - age is 8 and favoriteColor is "azul"  
+    // Test 2: Happy path - age is 8 and favoriteColor is "azul" 🎨
     recordTest("o2.1.2 age and color correct", 
         character.age === 8 && character.favoriteColor === "azul");
     
-    // Test 3: Happy path - isHappy is true initially
+    // Test 3: Happy path - isHappy is true initially 😊
     recordTest("o2.1.3 isHappy is true", character.isHappy === true);
     
-    // Test 4: Object has all required properties
+    // Test 4: Object has all required properties 📋
     const requiredProps = ['name', 'age', 'favoriteColor', 'isHappy'];
     const hasAllProps = requiredProps.every(prop => character.hasOwnProperty(prop));
     recordTest("o2.1.4 has all required properties", hasAllProps);
     
-    // Test 5: Properties have correct data types
+    // Test 5: Properties have correct data types ⚡
     recordTest("o2.1.5 correct data types", 
         typeof character.name === "string" && 
         typeof character.age === "number" && 
@@ -78,26 +78,26 @@ const testCharacterObject = () => {
         typeof character.isHappy === "boolean");
 };
 
-// Run tests
+// Run tests 🏃‍♂️💨
 testCharacterObject();
 
-// Show results
+// Show results 📊
 console.log('=== 🧪 Resultados de las Pruebas ===');
 testResults.forEach(result => console.log(result));
 
-// Show character info
+// Show character info 👤✨
 console.log('\n=== 👤 Información del Personaje ===');
-console.log(`Nombre: ${character.name}`);
-console.log(`Edad: ${character.age}`);
-console.log(`Color favorito: ${character.favoriteColor}`);
-console.log(`¿Está feliz?: ${character.isHappy}`);
+console.log(`Nombre: ${character.name} 🌟`);
+console.log(`Edad: ${character.age} 🎂`);
+console.log(`Color favorito: ${character.favoriteColor} 🎨`);
+console.log(`¿Está feliz?: ${character.isHappy} 😊`);
 
-// Demo: Modify property and add new one
+// Demo: Modify property and add new one 🔄
 character.isHappy = false;
 character.hobby = "programar";
 console.log(`\n🔄 Después de modificar:`);
-console.log(`¿Está feliz?: ${character.isHappy}`);
-console.log(`Nuevo hobby: ${character.hobby}`);
+console.log(`¿Está feliz?: ${character.isHappy} 😢`);
+console.log(`Nuevo hobby: ${character.hobby} 💻`);
 ```
 
 ---
@@ -113,7 +113,7 @@ console.log(`Nuevo hobby: ${character.hobby}`);
 
 #### 🌟 Motivación
 
-¡Tu primer paso hacia la programación orientada a objetos! Los objetos son la base de todo en JavaScript. ¡Mijael estaría orgulloso de ver su versión digital! 👦
+¡Tu primer paso hacia la programación orientada a objetos! Los objetos son la base de todo en JavaScript. ¡Mijael estaría orgulloso de ver su versión digital! 👦✨
 
 ---
 
@@ -144,60 +144,60 @@ Tienes que gestionar una lista de aventureros (nombres) y realizar operaciones b
 #### 💻 Código base
 
 ```js
-// Test system setup
+// Test system setup 🧪⚡
 const testResults = [];
 const recordTest = (testName, condition) => {
     const emoji = condition ? "✅" : "❌";
     testResults.push(`${emoji} ${testName}`);
 };
 
-// Create your adventurers array here 🛠️
+// Create your adventurers array here 🛠️⚔️
 const adventurers = [
-    // Add initial adventurers
+    // ✨ Add initial adventurers here 🌟
 ];
 
-// Automated test function
+// Automated test function 🤖🧪
 const testAdventurersArray = () => {
-    // Test 1: Happy path - initial array setup
+    // Test 1: Happy path - initial array setup 🚀
     recordTest("o2.2.1 initial array has correct values", 
         adventurers.length === 3 && adventurers[0] === "Fernanda" && adventurers[2] === "Fe");
     
-    // Test 2: Happy path - add and remove operations
+    // Test 2: Happy path - add and remove operations ➕➖
     adventurers.push("Elliot");
     const removed = adventurers.pop();
     recordTest("o2.2.2 push and pop operations work", 
         removed === "Elliot" && adventurers.length === 3);
     
-    // Test 3: Happy path - array access and modification
+    // Test 3: Happy path - array access and modification 🔍📝
     adventurers.push("Doky", "Amorosa");
     recordTest("o2.2.3 array access and multiple additions", 
         adventurers[1] === "Mijael" && adventurers.includes("Amorosa"));
     
-    // Test 4: Input validation - array handles different operations
+    // Test 4: Input validation - array handles different operations 🛡️
     const lengthBeforeEmpty = adventurers.length;
     adventurers.push(); // Push nothing
     recordTest("o2.2.4 handles edge cases properly", 
         adventurers.length === lengthBeforeEmpty && adventurers[0] !== undefined);
     
-    // Test 5: Data type validation - is proper array
+    // Test 5: Data type validation - is proper array 📊
     recordTest("o2.2.5 maintains array data type", 
         Array.isArray(adventurers) && typeof adventurers.length === "number");
 };
 
-// Run tests
+// Run tests 🏃‍♂️💨
 testAdventurersArray();
 
-// Show results
+// Show results 📊✨
 console.log('=== 🧪 Resultados de las Pruebas ===');
 testResults.forEach(result => console.log(result));
 
-// Show team info
+// Show team info 👥🗡️
 console.log('\n=== 👥 Lista de Aventureros ===');
 adventurers.forEach((adventurer, index) => {
-    console.log(`${index + 1}. ${adventurer} ⚔️`);
+    console.log(`${index + 1}. ${adventurer} ⚔️✨`);
 });
 
-console.log(`\n📊 Total de aventureros: ${adventurers.length}`);
+console.log(`\n📊 Total de aventureros: ${adventurers.length} 🌟`);
 ```
 
 ---
@@ -214,7 +214,7 @@ console.log(`\n📊 Total de aventureros: ${adventurers.length}`);
 
 #### 🌟 Motivación
 
-¡Ahora puedes manejar listas de datos! Los arrays son fundamentales para gestionar múltiples elementos. ¡Perfecto para formar el equipo épico de Fernanda y amigos! 🎉
+¡Ahora puedes manejar listas de datos! Los arrays son fundamentales para gestionar múltiples elementos. ¡Perfecto para formar el equipo épico de Fernanda y amigos! 🎉⚔️
 
 ---
 
@@ -245,77 +245,77 @@ El reino digital necesita funciones útiles para tareas cotidianas: saludar a vi
 #### 💻 Código base
 
 ```js
-// Test system setup
+// Test system setup 🧪⚡
 const testResults = [];
 const recordTest = (testName, condition) => {
     const emoji = condition ? "✅" : "❌";
     testResults.push(`${emoji} ${testName}`);
 };
 
-// Create your magical functions here 🛠️
+// Create your magical functions here 🛠️✨
 
 const greet = (name) => {
-    // Your code here
+    // 🌟 Your greeting magic here 👋
 };
 
 const calculateCircleArea = (radius) => {
-    // Your code here - use Math.PI and ** for power
+    // 📐 Your mathematical magic here - use Math.PI and ** for power ⚡
 };
 
 const isEven = (number) => {
-    // Your code here
+    // 🔢 Your number checking magic here ✨
 };
 
 const findMax = (a, b, c) => {
-    // Your code here
+    // 🏆 Your maximum finding magic here 🎯
 };
 
 const celsiusToFahrenheit = (celsius) => {
-    // Your code here
+    // 🌡️ Your temperature conversion magic here 🔥
 };
 
-// Automated test function
+// Automated test function 🤖🧪
 const testFunctionsAutomated = () => {
-    // Test 1: Happy path - greeting function works correctly
+    // Test 1: Happy path - greeting function works correctly 👋
     recordTest("o2.3.1 greet function works correctly", 
         greet("Doky") === "¡Hola, Doky! Bienvenido al reino digital 👋");
     
-    // Test 2: Happy path - mathematical functions work
+    // Test 2: Happy path - mathematical functions work 📐
     const area = calculateCircleArea(5);
     recordTest("o2.3.2 math functions work correctly", 
         Math.abs(area - 78.54) < 0.01 && findMax(10, 25, 15) === 25);
     
-    // Test 3: Happy path - boolean and conversion functions  
+    // Test 3: Happy path - boolean and conversion functions 🔢🌡️
     recordTest("o2.3.3 boolean and conversion functions", 
         isEven(4) === true && isEven(7) === false && celsiusToFahrenheit(100) === 212);
     
-    // Test 4: Input validation - functions handle invalid inputs
+    // Test 4: Input validation - functions handle invalid inputs 🛡️
     recordTest("o2.3.4 input validation works", 
         isEven("not a number") === false && 
         calculateCircleArea(-5) >= 0 && 
         typeof greet() === "string");
     
-    // Test 5: Return type validation - functions return correct types
+    // Test 5: Return type validation - functions return correct types ⚡
     recordTest("o2.3.5 return type validation", 
         typeof greet("test") === "string" && 
         typeof calculateCircleArea(3) === "number" && 
         typeof isEven(6) === "boolean");
 };
 
-// Run automated tests
+// Run automated tests 🏃‍♂️💨
 testFunctionsAutomated();
 
-// Show results
+// Show results 📊✨
 console.log('=== 🧪 Resultados de las Pruebas Automatizadas ===');
 testResults.forEach(result => console.log(result));
 
-// Practical demonstration
+// Practical demonstration 🎯✨
 console.log('\n=== 🎯 Demostración Práctica ===');
-console.log(greet("Amorosa"));
-console.log(`Área de círculo radio 3: ${calculateCircleArea(3).toFixed(2)} unidades²`);
-console.log(`¿12 es par? ${isEven(12)}`);
-console.log(`Mayor entre 8, 15, 12: ${findMax(8, 15, 12)}`);
-console.log(`25°C = ${celsiusToFahrenheit(25)}°F`);
+console.log(greet("Amorosa") + " 💖");
+console.log(`Área de círculo radio 3: ${calculateCircleArea(3).toFixed(2)} unidades² 📐✨`);
+console.log(`¿12 es par? ${isEven(12)} 🔢`);
+console.log(`Mayor entre 8, 15, 12: ${findMax(8, 15, 12)} 🏆`);
+console.log(`25°C = ${celsiusToFahrenheit(25)}°F 🌡️`);
 ```
 
 ---
@@ -332,7 +332,7 @@ console.log(`25°C = ${celsiusToFahrenheit(25)}°F`);
 
 #### 🌟 Motivación
 
-¡Chévere! Ahora dominas las funciones en JavaScript. ¡Doky y Amorosa van a alucinar con estas funciones tan bacanes! 💫
+¡Chévere! Ahora dominas las funciones en JavaScript. ¡Doky y Amorosa van a alucinar con estas funciones tan bacanes! 💫⚡
 
 ---
 
@@ -352,25 +352,25 @@ La Academia de Héroes Digitales necesita un sistema para registrar estudiantes,
 
 #### 📝 Descripción
 
-* Función `enrollStudent(name, age, magicLevel, speciality)` que agregue estudiante al array
-* Función `findStudentByName(name)` que retorne el objeto estudiante o null si no existe  
-* Función `getAcademyStats()` que retorne objeto con: `{totalStudents, averageAge, averageMagicLevel}`
-* Función `getTopStudent()` que retorne el estudiante con mayor magicLevel
-* Función `generateReport()` que muestre información formateada de todos los estudiantes
+* `enrollStudent = (name: string, age: number, magicLevel: number, speciality: string): void` - Agregar estudiante al array
+* `findStudentByName = (name: string): object | null` - Retornar el objeto estudiante o null si no existe  
+* `getAcademyStats = (): object` - Retornar objeto con: `{totalStudents, averageAge, averageMagicLevel}`
+* `getTopStudent = (): object` - Retornar el estudiante con mayor magicLevel
+* `generateReport = (): void` - Mostrar información formateada de todos los estudiantes con `alert()`
 
 ---
 
 #### 💻 Código base
 
 ```js
-// Test system setup
+// Test system setup 🧪✨
 const testResults = [];
 const recordTest = (testName, condition) => {
     const emoji = condition ? "✅" : "❌";
     testResults.push(`${emoji} ${testName}`);
 };
 
-// Academy students registry
+// Academy students registry 🏰📚
 const students = [
     {
         name: "Fernanda",
@@ -386,106 +386,114 @@ const students = [
     }
 ];
 
-// Create your academy functions here 🛠️
+// Create your academy functions here 🛠️🎓
 
 const enrollStudent = (name, age, magicLevel, speciality) => {
-    // Your code here
+    // 🌟 Your student enrollment magic here ✨
+    // Validate inputs: name must be non-empty string, age > 0, magicLevel 0-100, speciality non-empty
 };
 
 const findStudentByName = (name) => {
-    // Your code here
+    // 🔍 Your student search magic here 🎯
 };
 
 const getAcademyStats = () => {
-    // Your code here
+    // 📊 Your statistics calculation magic here ⚡
 };
 
 const getTopStudent = () => {
-    // Your code here
+    // 🏆 Your top student finding magic here 👑
 };
 
 const generateReport = () => {
-    // Your code here
+    // 📝 Your epic report generation magic here using alert() 🚀
+    // Format: "🏰 Academia Report 🎓\n👤 Name: X\n📊 Stats: age Y, magic Z\n🌟 Specialty: W\n\n..."
 };
 
-// Automated test function
+// Automated test function 🤖🧪
 const testAcademySystemAutomated = () => {
     const initialCount = students.length;
     
-    // Test 1: Happy path - enroll student works correctly
+    // Test 1: Happy path - enroll student works correctly ✨
     enrollStudent("Fe", 22, 88, "Magia de Datos");
     recordTest("o2.4.1 enrollment works correctly", 
         students.length === initialCount + 1 && 
-        students[students.length - 1].name === "Fe");
+        students[students.length - 1]?.name === "Fe");
     
-    // Test 2: Happy path - search functionality works
+    // Test 2: Happy path - search functionality works 🔍
     const foundStudent = findStudentByName("Mijael");
     recordTest("o2.4.2 search functionality works", 
-        foundStudent !== null && foundStudent.age === 8 && 
-        foundStudent.magicLevel === 95);
+        foundStudent !== null && foundStudent?.age === 8 && 
+        foundStudent?.magicLevel === 95);
     
-    // Test 3: Happy path - statistics and top student calculation
+    // Test 3: Happy path - statistics and top student calculation 📊🏆
     const stats = getAcademyStats();
     const topStudent = getTopStudent();
     recordTest("o2.4.3 stats and top student work", 
-        stats.totalStudents > 0 && topStudent.name === "Mijael");
+        stats?.totalStudents === 3 && topStudent?.name === "Mijael");
     
-    // Test 4: Input validation - handles invalid searches and enrollment
+    // Test 4: Input validation - handles invalid searches and enrollment 🛡️
     const notFound = findStudentByName("Inexistente");
-    enrollStudent("", -1, "invalid", 123); // Invalid data
+    const beforeInvalid = students.length;
+    enrollStudent("", -1, 150, 123); // Invalid data
     recordTest("o2.4.4 input validation works", 
-        notFound === null && students[students.length - 1].name !== "");
+        notFound === null && students.length === beforeInvalid);
     
-    // Test 5: Return type validation - functions return correct types
+    // Test 5: Return type validation - functions return correct types ⚡
     recordTest("o2.4.5 return types are correct", 
-        typeof stats === "object" && stats.hasOwnProperty("totalStudents") && 
-        typeof topStudent === "object" && topStudent.hasOwnProperty("magicLevel"));
+        typeof stats === "object" && stats?.hasOwnProperty("totalStudents") && 
+        typeof topStudent === "object" && topStudent?.hasOwnProperty("magicLevel"));
 };
 
-// Run automated tests
+// Run automated tests 🏃‍♂️💨
 testAcademySystemAutomated();
 
-// Show test results
-console.log('=== 🧪 Resultados de Tests Automatizados ===');
-testResults.forEach(result => console.log(result));
+// Show test results 📊✨
+alert('🧪 Resultados de Tests:\n' + testResults.join('\n'));
 
-// Practical system demonstration
-console.log('\n=== 🏰 Sistema de Academia en Acción ===');
+// Practical system demonstration 🏰⚡
+alert('🏰 ¡Sistema de Academia Activado! ✨\n\n🎯 Vamos a probar todas las funciones mágicas...');
 
-// Add more students for demonstration
+// Add more students for demonstration 🌟
 enrollStudent("Elliot", 30, 82, "Arquitectura Mágica");
 enrollStudent("Doky", 5, 100, "Prodigio Digital");
 
-// Show statistics
+// Show statistics 📊
 const stats = getAcademyStats();
-console.log(`📊 Total estudiantes: ${stats.totalStudents}`);
-console.log(`📊 Edad promedio: ${stats.averageAge.toFixed(1)} años`);
-console.log(`📊 Nivel mágico promedio: ${stats.averageMagicLevel.toFixed(1)}`);
+alert(`📊 Estadísticas de la Academia 🏰\n\n` +
+      `👥 Total estudiantes: ${stats?.totalStudents || 0} 🌟\n` +
+      `📈 Edad promedio: ${stats?.averageAge?.toFixed(1) || 0} años 🎂\n` +
+      `⚡ Nivel mágico promedio: ${stats?.averageMagicLevel?.toFixed(1) || 0} ✨`);
 
-// Show top student
+// Show top student 🏆
 const topStudent = getTopStudent();
-console.log(`👑 Estudiante más poderoso: ${topStudent.name} (Nivel ${topStudent.magicLevel})`);
+alert(`👑 Estudiante Más Poderoso 🏆\n\n` +
+      `🌟 ${topStudent?.name || 'N/A'}\n` +
+      `⚡ Nivel Mágico: ${topStudent?.magicLevel || 0}\n` +
+      `🎯 Especialidad: ${topStudent?.speciality || 'N/A'}`);
 
-// Generate complete report
-console.log('\n=== 📝 Reporte de la Academia ===');
+// Generate complete report 📝
+alert('📝 Generando Reporte Completo... ✨');
 generateReport();
+
+alert('🎉 ¡Academia de Héroes completamente funcional! 🏰✨');
 ```
 
 ---
 
 #### 💡 Tips
 
-📝 Para inscribir: crear objeto `{name, age, magicLevel, speciality}` y usar `push()`  
-🔍 Para buscar: usar `find()` método o loop tradicional  
-📊 Para promedios: sumar valores y dividir entre cantidad total  
-🏆 Para máximo: usar `Math.max()` con map o comparar en loop  
-📄 Para reporte: usar `forEach()` y `console.log()` con formato  
+📝 Para inscribir: crear objeto `{name, age, magicLevel, speciality}` y usar `push()` 🌟  
+🔍 Para buscar: usar `find()` método o loop tradicional 🎯  
+📊 Para promedios: sumar valores y dividir entre cantidad total ⚡  
+🏆 Para máximo: usar `Math.max()` con map o comparar en loop 👑  
+📄 Para reporte: usar `forEach()` y `alert()` con formato épico ✨  
 
 ---
 
 #### 🌟 Motivación
 
-¡Ahora manejas sistemas reales! Esta es la base de aplicaciones del mundo real: datos estructurados, búsquedas, estadísticas. ¡La Academia de Héroes Digitales está en buenas manos! 🎓
+¡Ahora manejas sistemas reales! Esta es la base de aplicaciones del mundo real: datos estructurados, búsquedas, estadísticas. ¡La Academia de Héroes Digitales está en buenas manos! 🎓✨
 
 ---
 
@@ -499,206 +507,278 @@ Crea tu épico sistema de RPG donde la programación es magia y los bugs son dra
 
 #### 🎯 Problema 
 
-El Reino Digital está bajo amenaza de los Bugs Malignos. Necesitas crear un sistema completo de RPG donde los programadores son héroes con diferentes especialidades, pueden formar equipos épicos, entrenar habilidades y enfrentar desafíos de código.
+El Reino Digital está bajo amenaza de los Bugs Malignos 🐛👹. Necesitas crear un sistema completo de RPG donde los programadores son héroes con diferentes especialidades, pueden formar equipos épicos, entrenar habilidades y enfrentar desafíos de código.
 
 ---
 
 #### 📝 Descripción
 
-* Función `createHero(name, heroClass)` que retorne objeto héroe con stats copiados de `heroClasses` más: `{level: 1, experience: 0, victories: 0}`
-* Función `recruitHero(hero)` que agregue héroe al array `heroesLeague`
-* Función `trainHero(heroName)` que aumente stats aleatoriamente (1-5) y experience +10
-* Función `fightBug(heroName, bugDifficulty)` que simule batalla. Héroe gana si `(coding + debugging)/2 > bugDifficulty * 10`
-* Función `getLeagueStats()` que retorne: `{totalHeroes, averageLevel, totalVictories, topHero}`
-* Función `getHeroRanking()` que retorne top 3 héroes ordenados por victorias
-* Función `generateEpicReport()` que muestre info detallada de todos los héroes
+* `createHero = (name: string, heroClass: string): object | null` - Retornar objeto héroe con stats de `heroClasses` más: `{level: 1, experience: 0, victories: 0}`
+* `recruitHero = (hero: object): void` - Agregar héroe al array `heroesLeague` si es válido
+* `trainHero = (heroName: string): boolean` - Aumentar stats aleatoriamente (1-5) y experience +10, retornar success
+* `fightBug = (heroName: string, bugDifficulty: number): object` - Simular batalla, retornar resultado con detalles
+* `getLeagueStats = (): object` - Retornar: `{totalHeroes, averageLevel, totalVictories, topHero}`
+* `getHeroRanking = (): array` - Retornar top 3 héroes ordenados por victorias
+* `generateEpicReport = (): void` - Mostrar info detallada de todos los héroes con `alert()`
+
+**⚔️ Lógica de Batalla:** Héroe gana si `(coding + debugging) / 2 > bugDifficulty * 10`
 
 ---
 
 #### 💻 Código base
 
 ```js
-// Test system setup
+// Test system setup 🧪⚡
 const testResults = [];
 const recordTest = (testName, condition) => {
     const emoji = condition ? "✅" : "❌";
     testResults.push(`${emoji} ${testName}`);
 };
 
-// Hero classes configuration
+// Hero classes configuration 🏰⚔️
 const heroClasses = {
     frontend: { 
         health: 100, 
         coding: 90, 
         creativity: 95, 
         debugging: 70,
-        specialty: "Interfaces Mágicas" 
+        specialty: "Interfaces Mágicas 🎨" 
     },
     backend: { 
         health: 120, 
         coding: 95, 
         creativity: 70, 
         debugging: 90,
-        specialty: "Lógica del Servidor" 
+        specialty: "Lógica del Servidor 🔧" 
     },
     fullstack: { 
         health: 110, 
         coding: 85, 
         creativity: 85, 
         debugging: 85,
-        specialty: "Maestro Universal" 
+        specialty: "Maestro Universal ⚡" 
     },
     devops: { 
         health: 115, 
         coding: 80, 
         creativity: 75, 
         debugging: 100,
-        specialty: "Automatización Épica" 
+        specialty: "Automatización Épica 🚀" 
     }
 };
 
-// Heroes league array
+// Heroes league array 👥🏆
 const heroesLeague = [];
 
-// Create your epic RPG system functions here 🛠️
+// Create your epic RPG system functions here 🛠️🎮
 
 const createHero = (name, heroClass) => {
-    // Your code here
+    // 🌟 Your hero creation magic here ⚡
+    // Validate: name non-empty string, heroClass exists in heroClasses
+    // Copy stats with Object.assign and add level: 1, experience: 0, victories: 0
 };
 
 const recruitHero = (hero) => {
-    // Your code here
+    // 🏰 Your hero recruitment magic here 👥
+    // Validate hero object has required properties before adding
 };
 
 const trainHero = (heroName) => {
-    // Your code here
+    // 💪 Your training magic here ⚡
+    // Find hero, add random 1-5 to each stat, add 10 experience
+    // Use Math.floor(Math.random() * 5) + 1
 };
 
 const fightBug = (heroName, bugDifficulty) => {
-    // Your code here
+    // ⚔️ Your epic battle magic here 🐛
+    // Find hero, calculate (coding + debugging) / 2 vs bugDifficulty * 10
+    // Return object: {hero: heroName, bugDifficulty, victory: boolean, heroStrength, bugStrength}
+    // If victory: hero.victories++, hero.experience += bugDifficulty * 5
 };
 
 const getLeagueStats = () => {
-    // Your code here
+    // 📊 Your league statistics magic here 🏆
+    // Return: totalHeroes, averageLevel, totalVictories, topHero (most victories)
 };
 
 const getHeroRanking = () => {
-    // Your code here
+    // 🥇 Your ranking magic here 👑
+    // Sort by victories DESC, return top 3
 };
 
 const generateEpicReport = () => {
-    // Your code here
+    // 📜 Your epic report magic here using alert() 🌟
+    // Format each hero: "👑 NAME 🎯\n⚡ Level: X | 🏆 Victories: Y\n💪 Stats: Health X, Code Y, etc.\n🌟 Specialty: Z"
 };
 
-// Automated test function
+// Automated test function 🤖🧪
 const testRPGSystemAutomated = () => {
-    // Test 1: Happy path - hero creation works correctly
+    // Test 1: Happy path - hero creation works correctly 🌟
     const fernanda = createHero("Fernanda", "frontend");
     recordTest("o2.5.1 hero creation works correctly", 
-        fernanda.name === "Fernanda" && fernanda.coding === 90 && 
-        fernanda.level === 1 && fernanda.experience === 0);
+        fernanda?.name === "Fernanda" && fernanda?.coding === 90 && 
+        fernanda?.level === 1 && fernanda?.experience === 0);
     
-    // Test 2: Happy path - recruitment and training systems
-    recruitHero(fernanda);
+    // Test 2: Happy path - recruitment and training systems 🏰💪
+    if (fernanda) recruitHero(fernanda);
     const mijael = createHero("Mijael", "backend");
-    recruitHero(mijael);
-    trainHero("Mijael");
-    recordTest("o2.5.2 recruitment and training work", 
-        heroesLeague.length === 2 && mijael.experience === 10);
+    if (mijael) {
+        recruitHero(mijael);
+        const trainSuccess = trainHero("Mijael");
+        recordTest("o2.5.2 recruitment and training work", 
+            heroesLeague.length === 2 && mijael?.experience === 10 && trainSuccess === true);
+    }
     
-    // Test 3: Happy path - battle and stats systems
-    fightBug("Fernanda", 5);
+    // Test 3: Happy path - battle and stats systems ⚔️📊
+    const battleResult = fightBug("Fernanda", 5);
     const stats = getLeagueStats();
     recordTest("o2.5.3 battle and stats systems work", 
-        stats.totalHeroes === 2 && typeof stats.averageLevel === "number" && 
-        stats.totalVictories >= 0);
+        battleResult?.hasOwnProperty("victory") && 
+        stats?.totalHeroes === 2 && 
+        typeof stats?.averageLevel === "number");
     
-    // Test 4: Input validation - handles invalid inputs
+    // Test 4: Input validation - handles invalid inputs 🛡️
     const invalidHero = createHero("", "invalidClass");
-    trainHero("NonExistent");
-    fightBug("NonExistent", -1);
+    const invalidTrain = trainHero("NonExistent");
+    const invalidBattle = fightBug("NonExistent", -1);
     recordTest("o2.5.4 input validation works", 
-        (invalidHero === null || invalidHero.name !== "") && 
-        heroesLeague.length === 2); // No invalid heroes added
+        invalidHero === null && 
+        invalidTrain === false && 
+        invalidBattle?.victory === false);
     
-    // Test 5: Return type validation - functions return correct types
+    // Test 5: Return type validation - functions return correct types ⚡
     const ranking = getHeroRanking();
     recordTest("o2.5.5 return types are correct", 
-        typeof stats === "object" && Array.isArray(ranking) && 
-        typeof createHero === "function" && typeof generateEpicReport === "function");
+        typeof stats === "object" && 
+        Array.isArray(ranking) && 
+        ranking.length <= 3);
 };
 
-// Epic demonstration system
-console.log('=== 🎮 ¡BIENVENIDO AL REINO DE LOS HÉROES PROGRAMADORES! ===\n');
+// Epic demonstration system 🎮✨
+alert('🎮 ¡BIENVENIDO AL REINO DE LOS HÉROES PROGRAMADORES! 🏰⚡\n\n🌟 Prepárate para la aventura más épica... 🚀');
 
-// Create epic team
+// Create epic team 👥
 const fernanda = createHero("Fernanda", "frontend");
 const mijael = createHero("Mijael", "backend");
 const fe = createHero("Fe", "fullstack");
 const elliot = createHero("Elliot", "devops");
 
-// Recruit heroes
-[fernanda, mijael, fe, elliot].forEach(hero => recruitHero(hero));
-
-console.log('🏰 Héroes reclutados para salvar el Reino Digital...\n');
-
-// Epic training session
-console.log('💪 ¡SESIÓN DE ENTRENAMIENTO ÉPICA!');
-["Fernanda", "Mijael", "Fe", "Elliot"].forEach(name => {
-    console.log(`⚡ ${name} entra en entrenamiento intensivo...`);
-    trainHero(name);
+// Recruit heroes 🏰
+[fernanda, mijael, fe, elliot].forEach(hero => {
+    if (hero) recruitHero(hero);
 });
 
-console.log('\n⚔️ ¡HORA DE LA BATALLA CONTRA LOS BUGS!');
-// Epic battles
-fightBug("Fernanda", 6);
-fightBug("Mijael", 8);
-fightBug("Fe", 7);
-fightBug("Elliot", 9);
+alert('🏰 ¡Héroes Reclutados Exitosamente! ⚔️\n\n' +
+      '🌟 Fernanda - Interfaces Mágicas 🎨\n' +
+      '🌟 Mijael - Lógica del Servidor 🔧\n' +
+      '🌟 Fe - Maestro Universal ⚡\n' +
+      '🌟 Elliot - Automatización Épica 🚀\n\n' +
+      '💪 ¡Listos para salvar el Reino Digital!');
 
-// Run tests
+// Epic training session 💪⚡
+alert('💪 ¡SESIÓN DE ENTRENAMIENTO ÉPICA! 🏋️‍♀️✨\n\n🔥 Cada héroe va a entrenar intensivamente...');
+
+const trainingResults = [];
+["Fernanda", "Mijael", "Fe", "Elliot"].forEach(name => {
+    const success = trainHero(name);
+    trainingResults.push(`${success ? '✅' : '❌'} ${name} ${success ? 'entrenó como campeón' : 'no pudo entrenar'} ${success ? '💪⚡' : '😔'}`);
+});
+
+alert('💪 Resultados del Entrenamiento:\n\n' + trainingResults.join('\n') + '\n\n🌟 ¡Listos para la batalla!');
+
+// Epic battles ⚔️🐛
+alert('⚔️ ¡HORA DE LA BATALLA CONTRA LOS BUGS MALIGNOS! 🐛👹\n\n🔥 Cada héroe enfrentará un desafío épico...');
+
+const battles = [
+    {hero: "Fernanda", difficulty: 6, enemy: "Bug de CSS 🎨🐛"},
+    {hero: "Mijael", difficulty: 8, enemy: "Error de Base de Datos 🗄️👹"},
+    {hero: "Fe", difficulty: 7, enemy: "Bug Full-Stack 🌐🐉"},
+    {hero: "Elliot", difficulty: 9, enemy: "Falla de Deploy 🚀💥"}
+];
+
+const battleResults = [];
+battles.forEach(battle => {
+    const result = fightBug(battle.hero, battle.difficulty);
+    const outcome = result?.victory ? '🏆 VICTORIA' : '💀 DERROTA';
+    const emoji = result?.victory ? '🎉⚡' : '😭💔';
+    battleResults.push(`${outcome}: ${battle.hero} vs ${battle.enemy}\n   💪 Poder: ${result?.heroStrength || 0} vs 👹 Bug: ${result?.bugStrength || 0} ${emoji}`);
+});
+
+alert('⚔️ Resultados de las Batallas Épicas:\n\n' + battleResults.join('\n\n') + '\n\n🌟 ¡El Reino Digital tiembla!');
+
+// Run tests 🧪
 testRPGSystemAutomated();
 
-// Show results
-console.log('\n=== 🧪 Resultados de Tests del Reino ===');
-testResults.forEach(result => console.log(result));
+// Show results 📊
+alert('🧪 Resultados de Tests del Reino:\n\n' + testResults.join('\n'));
 
-// Final statistics
-console.log('\n=== 📊 ESTADÍSTICAS DEL REINO ===');
+// Final statistics 📊👑
 const stats = getLeagueStats();
-console.log(`👥 Héroes totales: ${stats.totalHeroes}`);
-console.log(`📈 Nivel promedio: ${stats.averageLevel.toFixed(1)}`);
-console.log(`🏆 Victorias totales: ${stats.totalVictories}`);
+alert('📊 ¡ESTADÍSTICAS FINALES DEL REINO! 🏰✨\n\n' +
+      `👥 Héroes Totales: ${stats?.totalHeroes || 0} ⚔️\n` +
+      `📈 Nivel Promedio: ${stats?.averageLevel?.toFixed(1) || 0} 🌟\n` +
+      `🏆 Victorias Totales: ${stats?.totalVictories || 0} 👑\n` +
+      `👤 Héroe Legendario: ${stats?.topHero?.name || 'N/A'} 🌟`);
 
-// Epic ranking
-console.log('\n=== 🏆 RANKING DE HÉROES LEGENDARIOS ===');
+// Epic ranking 🏆
 const ranking = getHeroRanking();
+const medals = ['🥇', '🥈', '🥉'];
+let rankingText = '🏆 ¡RANKING DE HÉROES LEGENDARIOS! 👑\n\n';
 ranking.forEach((hero, index) => {
-    const medals = ['🥇', '🥈', '🥉'];
-    console.log(`${medals[index]} ${hero.name} - ${hero.victories} victorias (${hero.specialty})`);
+    if (index < 3 && hero) {
+        rankingText += `${medals[index]} ${hero.name} - ${hero.victories} victorias\n`;
+        rankingText += `   🌟 ${hero.specialty}\n`;
+        rankingText += `   ⚡ Nivel ${hero.level} | 💪 Exp: ${hero.experience}\n\n`;
+    }
 });
 
-// Final epic report
-console.log('\n=== 📜 CRÓNICAS DEL REINO DIGITAL ===');
-generateEpicReport();
+alert(rankingText);
 
-console.log('\n🎉 ¡El Reino Digital está a salvo gracias a los Héroes Programadores!');
+// Final epic report 📜
+alert('📜 Generando las Crónicas del Reino Digital... ✨🏰');
+generateReport();
+
+alert('🎉 ¡MISIÓN COMPLETADA! 🏆✨\n\n' +
+      '👑 El Reino Digital está a salvo gracias a los Héroes Programadores\n' +
+      '🌟 Los Bugs Malignos han sido derrotados\n' +
+      '⚡ La paz y el código limpio reinan una vez más\n\n' +
+      '🎓 ¡Felicidades, Maestro del RPG JavaScript! 🚀');
+
+// Show final console summary for debugging 🐛
+console.log('=== 🎮 REINO DE HÉROES - RESUMEN FINAL ===');
+console.log('👥 Héroes en la Liga:', heroesLeague.map(h => `${h?.name} (${h?.victories} victorias)`));
+console.log('📊 Estadísticas Finales:', stats);
+console.log('🏆 Top 3 Ranking:', ranking.map(h => `${h?.name}: ${h?.victories} victorias`));
+console.log('🌟 ¡Sistema RPG completamente funcional! 🎉');
 ```
 
+## 💡 Tips
+
+🏭 Usa `Object.assign({}, heroClasses[clase])` para copiar stats sin referencia ✨  
+🎲 `Math.floor(Math.random() * 5) + 1` para números aleatorios 1-5 🎯  
+⚔️ Compara `(coding + debugging) / 2` vs `bugDifficulty * 10` para batalla épica 🐛  
+📊 Usa `reduce()` para calcular totales y promedios como un pro 🏆  
+🏆 Usa `sort()` con `slice(0, 3)` para top 3 ranking 👑  
+🔍 Usa optional chaining `?.` en todas las validaciones 🛡️  
+📱 `alert()` con formato épico para mostrar todo al usuario ✨  
+
 ---
 
-#### 💡 Tips
+## 🌟 Motivación
 
-🏭 Usa `Object.assign({}, heroClasses[clase])` para copiar stats  
-🎲 `Math.floor(Math.random() * 5) + 1` para números aleatorios 1-5  
-⚔️ Compara `(coding + debugging) / 2` vs `bugDifficulty * 10` para batalla  
-📊 Usa `reduce()` para calcular totales y promedios  
-🏆 Usa `sort()` con `slice(0, 3)` para top 3  
+¡Felicidades, crack! 🎓✨ Has creado un sistema RPG completo que integra TODO lo aprendido de forma magistral. Los objetos, arrays y funciones ahora trabajan en perfecta armonía como una sinfonía de código épico. 
 
----
+🏰 Tu Reino Digital está protegido por el mejor sistema de gestión de héroes  
+⚔️ Los Bugs Malignos tiemblan ante tu código poderoso  
+🌟 Fernanda, Mijael, Fe, Elliot, Doky y Amorosa están orgullosos de su creador  
 
-#### 🌟 Motivación
+¡Eres oficialmente un Héroe Programador de Nivel 2! 🚀👑🎮
 
-¡Felicidades, crack! 🎓 Has creado un sistema RPG completo que integra todo lo aprendido. Los objetos, arrays y funciones ahora trabajan en perfecta armonía. ¡Fernanda, Mijael, Fe, Elliot, Doky y Amorosa están listos para conquistar cualquier reino digital! 
+**🎯 Logros Desbloqueados:**
+- 🏆 Maestro de Objetos Mágicos
+- 📝 Señor de los Arrays Épicos  
+- ⚡ Rey de las Funciones Legendarias
+- 🎮 Creador de Sistemas RPG
+- 🌟 Héroe del Reino Digital
 
-¡Eres oficialmente un Héroe Programador de Nivel 2! 🚀👑
+¡Prepárate para el Nivel 3: Aventuras Asíncronas y APIs Mágicas! 🚀🌟
