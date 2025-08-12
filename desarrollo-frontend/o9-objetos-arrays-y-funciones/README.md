@@ -448,8 +448,9 @@ const testAcademySystemAutomated = () => {
 // Run automated tests 🏃‍♂️💨
 testAcademySystemAutomated();
 
-// Show test results 📊✨
-alert('🧪 Resultados de Tests:\n' + testResults.join('\n'));
+// Show test results
+console.log('=== 🧪 Resultados de Tests Automatizados ===');
+testResults.forEach(result => console.log(result));
 
 // Practical system demonstration 🏰⚡
 alert('🏰 ¡Sistema de Academia Activado! ✨\n\n🎯 Vamos a probar todas las funciones mágicas...');
@@ -515,11 +516,12 @@ El Reino Digital está bajo amenaza de los Bugs Malignos 🐛👹. Necesitas cre
 
 * `createHero = (name: string, heroClass: string): object | null` - Retornar objeto héroe con stats de `heroClasses` más: `{level: 1, experience: 0, victories: 0}`
 * `recruitHero = (hero: object): void` - Agregar héroe al array `heroesLeague` si es válido
-* `trainHero = (heroName: string): boolean` - Aumentar stats aleatoriamente (1-5) y experience +10, retornar success
+* `trainHero = (heroName: string): boolean` - Aumentar stats aleatoriamente (1-5) y experience +10, retornar success (puede fallar)
 * `fightBug = (heroName: string, bugDifficulty: number): object` - Simular batalla, retornar resultado con detalles
 * `getLeagueStats = (): object` - Retornar: `{totalHeroes, averageLevel, totalVictories, topHero}`
 * `getHeroRanking = (): array` - Retornar top 3 héroes ordenados por victorias
 * `generateEpicReport = (): void` - Mostrar info detallada de todos los héroes con `alert()`
+* `runEpicDemo = (): void` - Ejecutar demostración completa del sistema con alerts épicos
 
 **⚔️ Lógica de Batalla:** Héroe gana si `(coding + debugging) / 2 > bugDifficulty * 10`
 
@@ -538,7 +540,7 @@ const recordTest = (testName, condition) => {
 // Hero classes configuration 🏰⚔️
 const heroClasses = {
     frontend: { 
-        health: 100, 
+        health: 120, 
         coding: 90, 
         creativity: 95, 
         debugging: 70,
@@ -570,45 +572,39 @@ const heroClasses = {
 // Heroes league array 👥🏆
 const heroesLeague = [];
 
-// Create your epic RPG system functions here 🛠️🎮
+// Create your epic RPG system functions 🛠️🎮
 
 const createHero = (name, heroClass) => {
-    // 🌟 Your hero creation magic here ⚡
-    // Validate: name non-empty string, heroClass exists in heroClasses
-    // Copy stats with Object.assign and add level: 1, experience: 0, victories: 0
+    // 🌟 Your hero creation magic ⚡
 };
 
 const recruitHero = (hero) => {
-    // 🏰 Your hero recruitment magic here 👥
-    // Validate hero object has required properties before adding
+    // 🏰 Your hero recruitment magic 👥
 };
 
 const trainHero = (heroName) => {
-    // 💪 Your training magic here ⚡
-    // Find hero, add random 1-5 to each stat, add 10 experience
-    // Use Math.floor(Math.random() * 5) + 1
+    // 💪 Your training magic ⚡
 };
 
 const fightBug = (heroName, bugDifficulty) => {
-    // ⚔️ Your epic battle magic here 🐛
-    // Find hero, calculate (coding + debugging) / 2 vs bugDifficulty * 10
-    // Return object: {hero: heroName, bugDifficulty, victory: boolean, heroStrength, bugStrength}
-    // If victory: hero.victories++, hero.experience += bugDifficulty * 5
+    // ⚔️ Your epic battle magic 🐛
 };
 
 const getLeagueStats = () => {
-    // 📊 Your league statistics magic here 🏆
-    // Return: totalHeroes, averageLevel, totalVictories, topHero (most victories)
+    // 📊 Your league statistics magic 🏆
 };
 
 const getHeroRanking = () => {
-    // 🥇 Your ranking magic here 👑
-    // Sort by victories DESC, return top 3
+    // 🥇 Your ranking magic 👑
 };
 
 const generateEpicReport = () => {
-    // 📜 Your epic report magic here using alert() 🌟
-    // Format each hero: "👑 NAME 🎯\n⚡ Level: X | 🏆 Victories: Y\n💪 Stats: Health X, Code Y, etc.\n🌟 Specialty: Z"
+    // 📜 Your epic report magic using alert() 🌟
+};
+
+const runEpicDemo = () => {
+    // 🎮 Your epic demonstration magic ✨
+    // Create heroes, recruit them, train, fight bugs, show final epic report
 };
 
 // Automated test function 🤖🧪
@@ -654,105 +650,42 @@ const testRPGSystemAutomated = () => {
         ranking.length <= 3);
 };
 
-// Epic demonstration system 🎮✨
-alert('🎮 ¡BIENVENIDO AL REINO DE LOS HÉROES PROGRAMADORES! 🏰⚡\n\n🌟 Prepárate para la aventura más épica... 🚀');
-
-// Create epic team 👥
-const fernanda = createHero("Fernanda", "frontend");
-const mijael = createHero("Mijael", "backend");
-const fe = createHero("Fe", "fullstack");
-const elliot = createHero("Elliot", "devops");
-
-// Recruit heroes 🏰
-[fernanda, mijael, fe, elliot].forEach(hero => {
-    if (hero) recruitHero(hero);
-});
-
-alert('🏰 ¡Héroes Reclutados Exitosamente! ⚔️\n\n' +
-      '🌟 Fernanda - Interfaces Mágicas 🎨\n' +
-      '🌟 Mijael - Lógica del Servidor 🔧\n' +
-      '🌟 Fe - Maestro Universal ⚡\n' +
-      '🌟 Elliot - Automatización Épica 🚀\n\n' +
-      '💪 ¡Listos para salvar el Reino Digital!');
-
-// Epic training session 💪⚡
-alert('💪 ¡SESIÓN DE ENTRENAMIENTO ÉPICA! 🏋️‍♀️✨\n\n🔥 Cada héroe va a entrenar intensivamente...');
-
-const trainingResults = [];
-["Fernanda", "Mijael", "Fe", "Elliot"].forEach(name => {
-    const success = trainHero(name);
-    trainingResults.push(`${success ? '✅' : '❌'} ${name} ${success ? 'entrenó como campeón' : 'no pudo entrenar'} ${success ? '💪⚡' : '😔'}`);
-});
-
-alert('💪 Resultados del Entrenamiento:\n\n' + trainingResults.join('\n') + '\n\n🌟 ¡Listos para la batalla!');
-
-// Epic battles ⚔️🐛
-alert('⚔️ ¡HORA DE LA BATALLA CONTRA LOS BUGS MALIGNOS! 🐛👹\n\n🔥 Cada héroe enfrentará un desafío épico...');
-
-const battles = [
-    {hero: "Fernanda", difficulty: 6, enemy: "Bug de CSS 🎨🐛"},
-    {hero: "Mijael", difficulty: 8, enemy: "Error de Base de Datos 🗄️👹"},
-    {hero: "Fe", difficulty: 7, enemy: "Bug Full-Stack 🌐🐉"},
-    {hero: "Elliot", difficulty: 9, enemy: "Falla de Deploy 🚀💥"}
-];
-
-const battleResults = [];
-battles.forEach(battle => {
-    const result = fightBug(battle.hero, battle.difficulty);
-    const outcome = result?.victory ? '🏆 VICTORIA' : '💀 DERROTA';
-    const emoji = result?.victory ? '🎉⚡' : '😭💔';
-    battleResults.push(`${outcome}: ${battle.hero} vs ${battle.enemy}\n   💪 Poder: ${result?.heroStrength || 0} vs 👹 Bug: ${result?.bugStrength || 0} ${emoji}`);
-});
-
-alert('⚔️ Resultados de las Batallas Épicas:\n\n' + battleResults.join('\n\n') + '\n\n🌟 ¡El Reino Digital tiembla!');
-
-// Run tests 🧪
+// Run automated tests 🏃‍♂️💨
 testRPGSystemAutomated();
 
-// Show results 📊
-alert('🧪 Resultados de Tests del Reino:\n\n' + testResults.join('\n'));
+// Show test results 📊✨
+console.log('=== 🧪 Resultados de Tests del Reino ===');
+testResults.forEach(result => console.log(result));
 
-// Final statistics 📊👑
-const stats = getLeagueStats();
-alert('📊 ¡ESTADÍSTICAS FINALES DEL REINO! 🏰✨\n\n' +
-      `👥 Héroes Totales: ${stats?.totalHeroes || 0} ⚔️\n` +
-      `📈 Nivel Promedio: ${stats?.averageLevel?.toFixed(1) || 0} 🌟\n` +
-      `🏆 Victorias Totales: ${stats?.totalVictories || 0} 👑\n` +
-      `👤 Héroe Legendario: ${stats?.topHero?.name || 'N/A'} 🌟`);
+// Demo functions for admin/debugging 🔧
+const showLeagueStats = () => {
+    const stats = getLeagueStats();
+    console.log('📊 Estadísticas de la Liga:');
+    console.log(`👥 Total Héroes: ${stats?.totalHeroes || 0}`);
+    console.log(`📈 Nivel Promedio: ${stats?.averageLevel?.toFixed(1) || 0}`);
+    console.log(`🏆 Victorias Totales: ${stats?.totalVictories || 0}`);
+    console.log(`👑 Héroe Top: ${stats?.topHero?.name || 'N/A'}`);
+};
 
-// Epic ranking 🏆
-const ranking = getHeroRanking();
-const medals = ['🥇', '🥈', '🥉'];
-let rankingText = '🏆 ¡RANKING DE HÉROES LEGENDARIOS! 👑\n\n';
-ranking.forEach((hero, index) => {
-    if (index < 3 && hero) {
-        rankingText += `${medals[index]} ${hero.name} - ${hero.victories} victorias\n`;
-        rankingText += `   🌟 ${hero.specialty}\n`;
-        rankingText += `   ⚡ Nivel ${hero.level} | 💪 Exp: ${hero.experience}\n\n`;
-    }
-});
+const showHeroRanking = () => {
+    const ranking = getHeroRanking();
+    console.log('🏆 Ranking de Héroes:');
+    ranking.forEach((hero, index) => {
+        console.log(`${index + 1}. ${hero?.name} - ${hero?.victories} victorias`);
+    });
+};
 
-alert(rankingText);
+// User experience function - uncomment to run epic adventure! 🎮
+// runEpicDemo();
 
-// Final epic report 📜
-alert('📜 Generando las Crónicas del Reino Digital... ✨🏰');
-generateReport();
-
-alert('🎉 ¡MISIÓN COMPLETADA! 🏆✨\n\n' +
-      '👑 El Reino Digital está a salvo gracias a los Héroes Programadores\n' +
-      '🌟 Los Bugs Malignos han sido derrotados\n' +
-      '⚡ La paz y el código limpio reinan una vez más\n\n' +
-      '🎓 ¡Felicidades, Maestro del RPG JavaScript! 🚀');
-
-// Show final console summary for debugging 🐛
-console.log('=== 🎮 REINO DE HÉROES - RESUMEN FINAL ===');
-console.log('👥 Héroes en la Liga:', heroesLeague.map(h => `${h?.name} (${h?.victories} victorias)`));
-console.log('📊 Estadísticas Finales:', stats);
-console.log('🏆 Top 3 Ranking:', ranking.map(h => `${h?.name}: ${h?.victories} victorias`));
-console.log('🌟 ¡Sistema RPG completamente funcional! 🎉');
+console.log('\n🎮 Para iniciar la aventura épica, ejecuta: runEpicDemo() 🚀');
+console.log('📊 Para ver estadísticas, ejecuta: showLeagueStats() 📈');
+console.log('🏆 Para ver ranking, ejecuta: showHeroRanking() 👑');
 ```
 
-## 💡 Tips
+---
+
+#### 💡 Tips
 
 🏭 Usa `Object.assign({}, heroClasses[clase])` para copiar stats sin referencia ✨  
 🎲 `Math.floor(Math.random() * 5) + 1` para números aleatorios 1-5 🎯  
@@ -764,7 +697,7 @@ console.log('🌟 ¡Sistema RPG completamente funcional! 🎉');
 
 ---
 
-## 🌟 Motivación
+#### 🌟 Motivación
 
 ¡Felicidades, crack! 🎓✨ Has creado un sistema RPG completo que integra TODO lo aprendido de forma magistral. Los objetos, arrays y funciones ahora trabajan en perfecta armonía como una sinfonía de código épico. 
 
@@ -782,3 +715,23 @@ console.log('🌟 ¡Sistema RPG completamente funcional! 🎉');
 - 🌟 Héroe del Reino Digital
 
 ¡Prepárate para el Nivel 3: Aventuras Asíncronas y APIs Mágicas! 🚀🌟
+
+---
+
+## 🎉 ¡Fin del Nivel 2!
+
+¡Increíble! Has completado todos los desafíos de JavaScript Nivel 2 🚀✨ Ahora dominas:
+
+🎯 **Objetos Mágicos** - Creación, propiedades y manipulación  
+📝 **Arrays Épicos** - Gestión de listas y operaciones  
+⚡ **Funciones Legendarias** - Arrow functions y lógica avanzada  
+🏰 **Sistemas Integrados** - Academia de héroes y RPG completo  
+🎮 **Aplicaciones Reales** - Manejo de datos y experiencia de usuario  
+
+**🌟 Próximos Desafíos:**
+- Nivel 3: DOM Manipulation y Eventos 🎯
+- Nivel 4: Asincronía y APIs 🌐  
+- Nivel 5: Frameworks Modernos ⚡
+- Nivel 6: Proyectos Full-Stack 🏗️
+
+¡Sigue programando y conquistando nuevos reinos digitales! 👑💻✨
