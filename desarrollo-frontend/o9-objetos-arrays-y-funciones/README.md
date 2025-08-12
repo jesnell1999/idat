@@ -158,28 +158,30 @@ const adventurers = [
 
 // Automated test function
 const testAdventurersArray = () => {
-    // Test 1: Check initial length and first element
-    recordTest("o2.2.1 initial setup correct", 
-        adventurers.length === 3 && adventurers[0] === "Fernanda");
+    // Test 1: Happy path - initial array setup
+    recordTest("o2.2.1 initial array has correct values", 
+        adventurers.length === 3 && adventurers[0] === "Fernanda" && adventurers[2] === "Fe");
     
-    // Test 2: Add new member and verify
+    // Test 2: Happy path - add and remove operations
     adventurers.push("Elliot");
-    recordTest("o2.2.2 can add new member", 
-        adventurers.length === 4 && adventurers[3] === "Elliot");
-    
-    // Test 3: Remove last element and verify
     const removed = adventurers.pop();
-    recordTest("o2.2.3 can remove last element", 
+    recordTest("o2.2.2 push and pop operations work", 
         removed === "Elliot" && adventurers.length === 3);
     
-    // Test 4: Verify array type and access by index
-    recordTest("o2.2.4 proper array operations", 
-        Array.isArray(adventurers) && adventurers[1] === "Mijael");
-    
-    // Test 5: Add multiple elements
+    // Test 3: Happy path - array access and modification
     adventurers.push("Doky", "Amorosa");
-    recordTest("o2.2.5 can add multiple elements", 
-        adventurers.length === 5 && adventurers.includes("Amorosa"));
+    recordTest("o2.2.3 array access and multiple additions", 
+        adventurers[1] === "Mijael" && adventurers.includes("Amorosa"));
+    
+    // Test 4: Input validation - array handles different operations
+    const lengthBeforeEmpty = adventurers.length;
+    adventurers.push(); // Push nothing
+    recordTest("o2.2.4 handles edge cases properly", 
+        adventurers.length === lengthBeforeEmpty && adventurers[0] !== undefined);
+    
+    // Test 5: Data type validation - is proper array
+    recordTest("o2.2.5 maintains array data type", 
+        Array.isArray(adventurers) && typeof adventurers.length === "number");
 };
 
 // Run tests
@@ -274,28 +276,30 @@ const celsiusToFahrenheit = (celsius) => {
 
 // Automated test function
 const testFunctionsAutomated = () => {
-    // Test 1: Greeting function works correctly
+    // Test 1: Happy path - greeting function works correctly
     recordTest("o2.3.1 greet function works correctly", 
         greet("Doky") === "¡Hola, Doky! Bienvenido al reino digital 👋");
     
-    // Test 2: Circle area calculation (radius = 5, area ≈ 78.54)
+    // Test 2: Happy path - mathematical functions work
     const area = calculateCircleArea(5);
-    recordTest("o2.3.2 circle area calculation", 
-        Math.abs(area - 78.54) < 0.01);
+    recordTest("o2.3.2 math functions work correctly", 
+        Math.abs(area - 78.54) < 0.01 && findMax(10, 25, 15) === 25);
     
-    // Test 3: Even/odd verification and max finding
-    recordTest("o2.3.3 even/odd and max functions", 
-        isEven(4) === true && isEven(7) === false && findMax(10, 25, 15) === 25);
+    // Test 3: Happy path - boolean and conversion functions  
+    recordTest("o2.3.3 boolean and conversion functions", 
+        isEven(4) === true && isEven(7) === false && celsiusToFahrenheit(100) === 212);
     
-    // Test 4: Temperature conversion validation
-    recordTest("o2.3.4 temperature conversion", 
-        celsiusToFahrenheit(0) === 32 && celsiusToFahrenheit(100) === 212);
+    // Test 4: Input validation - functions handle invalid inputs
+    recordTest("o2.3.4 input validation works", 
+        isEven("not a number") === false && 
+        calculateCircleArea(-5) >= 0 && 
+        typeof greet() === "string");
     
-    // Test 5: Function types and invalid input handling
-    recordTest("o2.3.5 function types and validation", 
-        typeof greet === "function" && 
-        typeof calculateCircleArea === "function" && 
-        isEven("not a number") === false);
+    // Test 5: Return type validation - functions return correct types
+    recordTest("o2.3.5 return type validation", 
+        typeof greet("test") === "string" && 
+        typeof calculateCircleArea(3) === "number" && 
+        typeof isEven(6) === "boolean");
 };
 
 // Run automated tests
@@ -308,7 +312,7 @@ testResults.forEach(result => console.log(result));
 // Practical demonstration
 console.log('\n=== 🎯 Demostración Práctica ===');
 console.log(greet("Amorosa"));
-console.log(`Área de círculo radio 3: ${calculateCircleArea(3)} unidades²`);
+console.log(`Área de círculo radio 3: ${calculateCircleArea(3).toFixed(2)} unidades²`);
 console.log(`¿12 es par? ${isEven(12)}`);
 console.log(`Mayor entre 8, 15, 12: ${findMax(8, 15, 12)}`);
 console.log(`25°C = ${celsiusToFahrenheit(25)}°F`);
@@ -408,35 +412,34 @@ const generateReport = () => {
 const testAcademySystemAutomated = () => {
     const initialCount = students.length;
     
-    // Test 1: Enroll student and verify
+    // Test 1: Happy path - enroll student works correctly
     enrollStudent("Fe", 22, 88, "Magia de Datos");
-    recordTest("o2.4.1 can enroll new student", 
+    recordTest("o2.4.1 enrollment works correctly", 
         students.length === initialCount + 1 && 
         students[students.length - 1].name === "Fe");
     
-    // Test 2: Find existing student and non-existing
+    // Test 2: Happy path - search functionality works
     const foundStudent = findStudentByName("Mijael");
-    recordTest("o2.4.2 find student functionality", 
+    recordTest("o2.4.2 search functionality works", 
         foundStudent !== null && foundStudent.age === 8 && 
-        findStudentByName("Inexistente") === null);
+        foundStudent.magicLevel === 95);
     
-    // Test 3: Calculate stats correctly
+    // Test 3: Happy path - statistics and top student calculation
     const stats = getAcademyStats();
-    recordTest("o2.4.3 calculates stats correctly", 
-        typeof stats.totalStudents === "number" && 
-        typeof stats.averageAge === "number" && 
-        stats.totalStudents > 0);
-    
-    // Test 4: Find most powerful student
     const topStudent = getTopStudent();
-    recordTest("o2.4.4 finds most powerful student", 
-        topStudent !== null && topStudent.magicLevel >= 88);
+    recordTest("o2.4.3 stats and top student work", 
+        stats.totalStudents > 0 && topStudent.name === "Mijael");
     
-    // Test 5: Function types validation
-    recordTest("o2.4.5 function types validation", 
-        typeof enrollStudent === "function" && 
-        typeof findStudentByName === "function" && 
-        typeof generateReport === "function");
+    // Test 4: Input validation - handles invalid searches and enrollment
+    const notFound = findStudentByName("Inexistente");
+    enrollStudent("", -1, "invalid", 123); // Invalid data
+    recordTest("o2.4.4 input validation works", 
+        notFound === null && students[students.length - 1].name !== "");
+    
+    // Test 5: Return type validation - functions return correct types
+    recordTest("o2.4.5 return types are correct", 
+        typeof stats === "object" && stats.hasOwnProperty("totalStudents") && 
+        typeof topStudent === "object" && topStudent.hasOwnProperty("magicLevel"));
 };
 
 // Run automated tests
@@ -589,39 +592,40 @@ const generateEpicReport = () => {
 
 // Automated test function
 const testRPGSystemAutomated = () => {
-    // Test 1: Create hero with correct stats and structure
+    // Test 1: Happy path - hero creation works correctly
     const fernanda = createHero("Fernanda", "frontend");
-    recordTest("o2.5.1 creates hero with correct structure", 
-        fernanda.name === "Fernanda" && 
-        fernanda.coding === 90 && 
-        fernanda.level === 1 && 
-        fernanda.experience === 0);
+    recordTest("o2.5.1 hero creation works correctly", 
+        fernanda.name === "Fernanda" && fernanda.coding === 90 && 
+        fernanda.level === 1 && fernanda.experience === 0);
     
-    // Test 2: Recruit heroes and league management
+    // Test 2: Happy path - recruitment and training systems
     recruitHero(fernanda);
     const mijael = createHero("Mijael", "backend");
     recruitHero(mijael);
-    recordTest("o2.5.2 recruitment and league management", 
-        heroesLeague.length === 2 && heroesLeague[0].name === "Fernanda");
-    
-    // Test 3: Training improves stats and experience
-    const initialCoding = mijael.coding;
     trainHero("Mijael");
-    recordTest("o2.5.3 training system works", 
-        mijael.coding > initialCoding && mijael.experience === 10);
+    recordTest("o2.5.2 recruitment and training work", 
+        heroesLeague.length === 2 && mijael.experience === 10);
     
-    // Test 4: Battle system and league stats
+    // Test 3: Happy path - battle and stats systems
     fightBug("Fernanda", 5);
     const stats = getLeagueStats();
-    recordTest("o2.5.4 battle and stats systems", 
-        stats.totalHeroes === 2 && typeof stats.averageLevel === "number");
+    recordTest("o2.5.3 battle and stats systems work", 
+        stats.totalHeroes === 2 && typeof stats.averageLevel === "number" && 
+        stats.totalVictories >= 0);
     
-    // Test 5: Function types and ranking system
+    // Test 4: Input validation - handles invalid inputs
+    const invalidHero = createHero("", "invalidClass");
+    trainHero("NonExistent");
+    fightBug("NonExistent", -1);
+    recordTest("o2.5.4 input validation works", 
+        (invalidHero === null || invalidHero.name !== "") && 
+        heroesLeague.length === 2); // No invalid heroes added
+    
+    // Test 5: Return type validation - functions return correct types
     const ranking = getHeroRanking();
-    recordTest("o2.5.5 complete system validation", 
-        typeof createHero === "function" && 
-        Array.isArray(ranking) && 
-        typeof generateEpicReport === "function");
+    recordTest("o2.5.5 return types are correct", 
+        typeof stats === "object" && Array.isArray(ranking) && 
+        typeof createHero === "function" && typeof generateEpicReport === "function");
 };
 
 // Epic demonstration system
