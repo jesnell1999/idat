@@ -64,6 +64,8 @@
           experience: 0,
           victories: 0
         }
+      } else {
+        return null;
       }
     };
 
@@ -83,13 +85,15 @@
           hero.creativity += Math.floor(Math.random() * 5) + 1;
           hero.debugging += Math.floor(Math.random() * 5) + 1;
           return true;
+        } else {
+          return false;
         }
       }
       return false;
     };
 
     const fightBug = (heroName, bugDifficulty) => {
-      if (heroName && bugDifficulty) {
+      if (heroName && bugDifficulty > 0) {
         const hero = heroesLeague.find(hero => hero.name === heroName);
         if (hero) {
           const heroPower = (hero.coding + hero.debugging) / 2;
@@ -103,6 +107,14 @@
             bugPower,
             victory
           }
+        } else {
+          return {
+            victory: false
+          }
+        }
+      } else {
+        return {
+          victory: false
         }
       }
     };
