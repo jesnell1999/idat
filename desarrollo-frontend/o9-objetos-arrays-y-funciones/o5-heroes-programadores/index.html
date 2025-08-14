@@ -68,7 +68,9 @@
     };
 
     const recruitHero = (hero) => {
-      // 🏰 Your hero recruitment magic 👥
+      if (hero) {
+        heroesLeague.push(hero);
+      }
     };
 
     const trainHero = (heroName) => {
