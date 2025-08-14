@@ -56,7 +56,15 @@
     // Create your epic RPG system functions 🛠️🎮
 
     const createHero = (name, heroClass) => {
-      // 🌟 Your hero creation magic ⚡
+      if (name && heroClasses[heroClass]) {
+        return {
+          ...heroClasses[heroClass],
+          name,
+          level: 1,
+          experience: 0,
+          victories: 0
+        }
+      }
     };
 
     const recruitHero = (hero) => {
