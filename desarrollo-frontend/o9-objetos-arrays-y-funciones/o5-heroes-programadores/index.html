@@ -78,10 +78,10 @@
         const hero = heroesLeague.find(hero => hero.name === heroName);
         if (hero) {
           hero.experience += 10;
-          hero.health += Math.floor(Math.random() * 5 + 1);
-          hero.coding += Math.floor(Math.random() * 5 + 1);
-          hero.creativity += Math.floor(Math.random() * 5 + 1);
-          hero.debugging += Math.floor(Math.random() * 5 + 1);
+          hero.health += Math.floor(Math.random() * 5) + 1;
+          hero.coding += Math.floor(Math.random() * 5) + 1;
+          hero.creativity += Math.floor(Math.random() * 5) + 1;
+          hero.debugging += Math.floor(Math.random() * 5) + 1;
           return true;
         }
       }
@@ -89,7 +89,22 @@
     };
 
     const fightBug = (heroName, bugDifficulty) => {
-      // ⚔️ Your epic battle magic 🐛
+      if (heroName && bugDifficulty) {
+        const hero = heroesLeague.find(hero => hero.name === heroName);
+        if (hero) {
+          const heroPower = (hero.coding + hero.debugging) / 2;
+          const bugPower = bugDifficulty * 10;
+          const victory = heroPower > bugPower;
+
+          return {
+            hero: hero.name,
+            heroPower,
+            bugDifficulty,
+            bugPower,
+            victory
+          }
+        }
+      }
     };
 
     const getLeagueStats = () => {
