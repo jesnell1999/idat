@@ -4,7 +4,9 @@
 
 ---
 
-## 👤 o2.1 Mi Primer Objeto Mágico
+## 🏆✨ Retos
+
+### 👤 o2.1 Mi Primer Objeto Mágico
 
 Crea tu primer objeto para representar a un personaje con propiedades básicas 🧙‍♂️
 
@@ -117,7 +119,7 @@ console.log(`Nuevo hobby: ${character.hobby} 💻`);
 
 ---
 
-## 📝 o2.2 Lista de Aventureros
+### 📝 o2.2 Lista de Aventureros
 
 Maneja tu primer array de personajes y aprende operaciones básicas 🗡️
 
@@ -218,7 +220,7 @@ console.log(`\n📊 Total de aventureros: ${adventurers.length} 🌟`);
 
 ---
 
-## ⚡ o2.3 La Máquina de Funciones Épicas
+### ⚡ o2.3 La Máquina de Funciones Épicas
 
 Crea funciones útiles para resolver problemas del día a día como un verdadero programador 🚀
 
@@ -336,7 +338,7 @@ console.log(`25°C = ${celsiusToFahrenheit(25)}°F 🌡️`);
 
 ---
 
-## 🏰 o2.4 El Gran Libro de Aventureros
+### 🏰 o2.4 El Gran Libro de Aventureros
 
 Combina objetos, arrays y funciones para gestionar tu propia academia de héroes 🎓
 
@@ -498,7 +500,7 @@ alert('🎉 ¡Academia de Héroes completamente funcional! 🏰✨');
 
 ---
 
-## 🎮 o2.5 El Reino de los Héroes Programadores
+### 🎮 o2.5 El Reino de los Héroes Programadores
 
 Crea tu épico sistema de RPG donde la programación es magia y los bugs son dragones 🐉
 
