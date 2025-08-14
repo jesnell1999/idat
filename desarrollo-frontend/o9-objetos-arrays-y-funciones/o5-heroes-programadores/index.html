@@ -108,7 +108,12 @@
     };
 
     const getLeagueStats = () => {
-      // 📊 Your league statistics magic 🏆
+      return {
+        totalHeroes: heroesLeague.length,
+        averageLevel: heroesLeague.reduce((sum, hero) => sum + hero.level, 0) / heroesLeague.length || 0,
+        totalVictories: heroesLeague.reduce((sum, hero) => sum + hero.victories, 0),
+        topHero: heroesLeague.reduce((top, hero) => hero.victories > (top?.victories || 0) ? hero : top, null)
+      }
     };
 
     const getHeroRanking = () => {
