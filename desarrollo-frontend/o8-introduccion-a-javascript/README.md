@@ -20,13 +20,13 @@ Este nivel está diseñado para ser práctico, divertido y lleno de personalidad
 
 ```
     🎭✨ VARIABLES & DATOS          🧠⚡ LÓGICA & DECISIONES
-    ┌─────────────────────┐       ┌─────────────────────┐
-    │ • const, let, var 📝│       │ • if/else 🤔        │
-    │ • strings 📜        │       │ • operadores ➕➖    │
-    │ • numbers 🔢        │  ──►  │ • comparaciones ⚖️   │
+    ┌──────────────────────┐       ┌──────────────────────┐
+    │ • const, let, var 📝 │       │ • if/else 🤔         │
+    │ • strings 📜         │       │ • operadores ➕➖    │
+    │ • numbers 🔢         │  ──►  │ • comparaciones ⚖️   │
     │ • template strings 🎯│       │ • validaciones ✅    │
-    │ • typeof 🔍         │       │ • flujo de control 🌊│
-    └─────────────────────┘       └─────────────────────┘
+    │ • typeof 🔍          │       │ • flujo de control 🌊│
+    └──────────────────────┘       └──────────────────────┘
              │                             │
              ▼                             ▼
     🎲🎪 ALEATORIEDAD & ARRAYS      💬🎉 INTERACCIÓN USUARIO
@@ -40,13 +40,13 @@ Este nivel está diseñado para ser práctico, divertido y lleno de personalidad
              │                             │
              ▼                             ▼
     🔄🌀 BUCLES & REPETICIÓN        🎮🚀 APLICACIONES
-    ┌─────────────────────┐       ┌─────────────────────┐
-    │ • while loops 🔁    │       │ • calculadoras 🧮   │
-    │ • condiciones 🎚️    │       │ • generadores 🎲    │
+    ┌─────────────────────┐       ┌───────────────────────┐
+    │ • while loops 🔁    │       │ • calculadoras 🧮     │
+    │ • condiciones 🎚️    │       │ • generadores 🎲      │
     │ • iteración 🔄      │  ──►  │ • tests interactivos🧪│
-    │ • contadores 📊     │       │ • simuladores 🎭    │
-    │ • estados 📡        │       │ • mini-juegos 🎮    │
-    └─────────────────────┘       └─────────────────────┘
+    │ • contadores 📊     │       │ • simuladores 🎭      │
+    │ • estados 📡        │       │ • mini-juegos 🎮      │
+    └─────────────────────┘       └───────────────────────┘
 
         🎯🏆 RESULTADO: ¡Tu primera app JavaScript completa! 🎉✨
 ```
@@ -428,7 +428,6 @@ Este reto cierra el Nivel 1 con todo lo aprendido:
 **input de usuario, validación, bucles, decisiones, narrativa e interactividad**.
 ¡Una pequeña app sin HTML, pero con mucha lógica! 🎯🔥
 ¡Ideal para jugar con tu hijo Mijael, dedicarle la victoria a Fernanda o enfrentar a Amorosa contra un dragón! 🐶💖🐲
-
 
 ---
 
