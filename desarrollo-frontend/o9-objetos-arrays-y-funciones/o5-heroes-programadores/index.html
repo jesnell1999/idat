@@ -74,7 +74,18 @@
     };
 
     const trainHero = (heroName) => {
-      // 💪 Your training magic ⚡
+      if (heroName) {
+        const hero = heroesLeague.find(hero => hero.name === heroName);
+        if (hero) {
+          hero.experience += 10;
+          hero.health += Math.floor(Math.random() * 5 + 1);
+          hero.coding += Math.floor(Math.random() * 5 + 1);
+          hero.creativity += Math.floor(Math.random() * 5 + 1);
+          hero.debugging += Math.floor(Math.random() * 5 + 1);
+          return true;
+        }
+      }
+      return false;
     };
 
     const fightBug = (heroName, bugDifficulty) => {
