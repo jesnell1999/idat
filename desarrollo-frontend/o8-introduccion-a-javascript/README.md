@@ -435,20 +435,23 @@ Este reto cierra el Nivel 1 con todo lo aprendido:
 
 Una vez que completes este nivel, estarás listo para avanzar en el [JavaScript Roadmap](https://roadmap.sh/javascript) 🗺️✨:
 
-### 📈🚀 Nivel 2: Estructuras de Datos Avanzadas
-- 🎨 **Arrays avanzados** - métodos como map(), filter(), reduce() 🔄✨
-- 🏗️ **Objetos complejos** - propiedades, métodos, destructuring 📦🔧
-- ⚡ **Funciones profundas** - parámetros, return, scope, arrow functions 🏹💫
+### 📈🚀 Nivel 2: Objetos, Arrays y Funciones
+- 🏗️ **Objetos JavaScript** - propiedades, métodos, object literals, destructuring 📦🔧
+- 📋 **Arrays dinámicos** - push, pop, forEach, find, manipulación de listas 🔄✨
+- ⚡ **Funciones Arrow** - sintaxis moderna, parámetros, return, scope 🏹💫
+- 🎮 **Integración completa** - sistemas que combinan objetos + arrays + funciones 🏰⚔️
 
-### 🔮🌟 Nivel 3: Programación Moderna
-- ✨ **ES6+ Features** - destructuring, spread operator, modules 📚🎯
-- ⏰ **Asynchronous JavaScript** - callbacks, promises, async/await 🔄⚡
+### 🔮🌟 Nivel 3: JavaScript Moderno & DOM
 - 🎨 **DOM Manipulation** - seleccionar elementos, eventos, HTML dinámico 🖱️🎭
+- ⏰ **JavaScript Asíncrono** - fetch, async/await, manejo de APIs 🔄⚡
+- ✨ **ES6+ Moderno** - destructuring, spread operator, modules 📚🎯
+- 💾 **Local Storage** - persistencia de datos en el navegador 🗄️💎
 
-### 🎨🚀 Nivel 4: Aplicaciones Web
-- ⚛️ **Frontend Frameworks** - React, Vue o Angular 🎪🔥
-- 🌐 **APIs y HTTP** - fetch, REST, JSON 📡💎
-- 🛠️ **Build Tools** - npm, webpack, vite ⚙️🎯
+### 🎨🚀 Nivel 4: React Foundations
+- ⚛️ **React Básico** - componentes, JSX, props, state 🎪🔥
+- 🎯 **Event Handling** - onClick, onChange, forms en React 🖱️⚡
+- 🔄 **State Management** - useState, lifting state up 📊🌊
+- 🎨 **Component Patterns** - reutilización, composición, children 🧩✨
 
 ---
 
