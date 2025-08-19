@@ -1,0 +1,135 @@
+// Test system setup
+const testResults = [];
+const recordTest = (testName, condition) => {
+  const emoji = condition ? "✅" : "❌";
+  testResults.push(`${emoji} ${testName}`);
+};
+
+// Academy students registry
+const students = [
+  {
+    name: "Fernanda",
+    age: 25,
+    magicLevel: 85,
+    speciality: "Programación Encantada"
+  },
+  {
+    name: "Mijael",
+    age: 8,
+    magicLevel: 95,
+    speciality: "Lógica Mística"
+  }
+];
+
+// Create your academy functions here 🛠️
+
+const enrollStudent = (name, age, magicLevel, speciality) => {
+  if (name && age && magicLevel && speciality) {
+    students.push({
+      name,
+      age,
+      magicLevel,
+      speciality
+    });
+  }
+};
+
+const findStudentByName = (name) => {
+  return students.find(student => student.name === name) || null;
+};
+
+const getAcademyStats = () => {
+  const totalStudents = students.length;
+  const averageAge = students.reduce((accumulator, student) => accumulator + student.age, 0) / totalStudents;
+  const averageMagicLevel = students.reduce((sum, student) => sum + student.magicLevel, 0) / totalStudents;
+
+  return {
+    totalStudents,
+    averageAge,
+    averageMagicLevel
+  }
+};
+
+const getTopStudent = () => {
+  let topStudent = students[0];
+
+  for (let i = 1; i < students.length; i++) {
+    const currentStudent = students[i];
+
+    if (currentStudent.magicLevel > topStudent.magicLevel) {
+      topStudent = currentStudent;
+    }
+  }
+
+  return topStudent;
+};
+
+const generateReport = () => {
+  let report = "=== 📝 Reporte de la Academia ===\n";
+  students.forEach(student => {
+    const { name, age, magicLevel, speciality } = student;
+    report += `Nombre 🧙: ${name}, Edad 📅: ${age}, Nivel Mágico ✨: ${magicLevel}, Especialidad 🎭: ${speciality}\n`;
+  });
+  alert(report);
+};
+
+// Automated test function
+const testAcademySystemAutomated = () => {
+  const initialCount = students.length;
+
+  // Test 1: Happy path - enroll student works correctly
+  enrollStudent("Fe", 22, 88, "Magia de Datos");
+  recordTest("o2.4.1 enrollment works correctly",
+    students.length === initialCount + 1 &&
+    students[students.length - 1].name === "Fe");
+
+  // Test 2: Happy path - search functionality works
+  const foundStudent = findStudentByName("Mijael");
+  recordTest("o2.4.2 search functionality works",
+    foundStudent !== null && foundStudent?.age === 8 &&
+    foundStudent?.magicLevel === 95);
+
+  // Test 3: Happy path - statistics and top student calculation
+  const stats = getAcademyStats();
+  const topStudent = getTopStudent();
+  recordTest("o2.4.3 stats and top student work",
+    stats?.totalStudents == 3 && topStudent?.name === "Mijael");
+
+  // Test 4: Input validation - handles invalid searches and enrollment
+  const notFound = findStudentByName("Inexistente");
+  enrollStudent("", -1, "invalid", 123); // Invalid data
+  recordTest("o2.4.4 input validation works",
+    notFound === null && students[students.length - 1].name !== "");
+
+  // Test 5: Return type validation - functions return correct types
+  recordTest("o2.4.5 return types are correct",
+    typeof stats === "object" && stats.hasOwnProperty("totalStudents") &&
+    typeof topStudent === "object" && topStudent.hasOwnProperty("magicLevel"));
+};
+
+// Run automated tests
+testAcademySystemAutomated();
+
+// Show test results
+console.log('=== 🧪 Resultados de Tests Automatizados ===');
+testResults.forEach(result => console.log(result));
+
+// Practical system demonstration
+console.log('\n=== 🏰 Sistema de Academia en Acción ===');
+
+// Add more students for demonstration
+enrollStudent("Elliot", 30, 82, "Arquitectura Mágica");
+enrollStudent("Doky", 5, 100, "Prodigio Digital");
+
+// Show statistics
+const stats = getAcademyStats();
+console.log(`📊 Total estudiantes: ${stats?.totalStudents}`);
+console.log(`📊 Edad promedio: ${stats?.averageAge.toFixed(1)} años`);
+console.log(`📊 Nivel mágico promedio: ${stats?.averageMagicLevel.toFixed(1)}`);
+
+// Show top student
+const topStudent = getTopStudent();
+console.log(`👑 Estudiante más poderoso: ${topStudent?.name} (Nivel ${topStudent?.magicLevel})`);
+
+// Generate complete report
+generateReport();
