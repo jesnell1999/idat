@@ -486,11 +486,11 @@ alert('🎉 ¡Academia de Héroes completamente funcional! 🏰✨');
 
 #### 💡 Tips
 
-📝 Para inscribir: crear objeto `{name, age, magicLevel, speciality}` y usar `push()` 🌟  
-🔍 Para buscar: usar `find()` método o loop tradicional 🎯  
-📊 Para promedios: sumar valores y dividir entre cantidad total ⚡  
-🏆 Para máximo: usar `Math.max()` con map o comparar en loop 👑  
-📄 Para reporte: usar `forEach()` y `alert()` con formato épico ✨  
+📝 Para inscribir: crear objeto `{name, age, magicLevel, speciality}` y usar `push()` 🌟
+🔍 Para buscar: usar `find()` método o loop tradicional 🎯
+📊 Para promedios: sumar valores y dividir entre cantidad total ⚡
+🏆 Para máximo: usar `Math.max()` con map o comparar en loop 👑
+📄 Para reporte: usar `forEach()` y `alert()` con formato épico ✨
 
 ---
 
@@ -500,240 +500,297 @@ alert('🎉 ¡Academia de Héroes completamente funcional! 🏰✨');
 
 ---
 
-### 🎮 o2.5 El Reino de los Héroes Programadores
+### 🎮 o2.5 El Reino de los Héroes Programadores 🐛
 
-Crea tu épico sistema de RPG donde la programación es magia y los bugs son dragones 🐉
+> Crea tu épico sistema de RPG donde la programación es magia y los bugs son dragones 🐉
 
 **🧠 Fundamentos:** complete system integration, game mechanics, data processing, application flow
 
 ---
 
-#### 🎯 Problema 
+#### 🎯 Problema
 
 El Reino Digital está bajo amenaza de los Bugs Malignos 🐛👹. Necesitas crear un sistema completo de RPG donde los programadores son héroes con diferentes especialidades, pueden formar equipos épicos, entrenar habilidades y enfrentar desafíos de código.
 
 ---
 
-#### 📝 Descripción
+#### ⚡ Funcionalidades Épicas
 
-* `createHero = (name: string, heroClass: string): object | null` - Retornar objeto héroe con stats de `heroClasses` más: `{level: 1, experience: 0, victories: 0}`
-* `recruitHero = (hero: object): void` - Agregar héroe al array `heroesLeague` si es válido
-* `trainHero = (heroName: string): boolean` - Aumentar stats aleatoriamente (1-5) y experience +10, retornar success (puede fallar)
-* `fightBug = (heroName: string, bugDifficulty: number): object` - Simular batalla, retornar resultado con detalles
-* `getLeagueStats = (): object` - Retornar: `{totalHeroes, averageLevel, totalVictories, topHero}`
-* `getHeroRanking = (): array` - Retornar top 3 héroes ordenados por victorias
-* `generateEpicReport = (): void` - Mostrar info detallada de todos los héroes con `alert()`
-* `runEpicDemo = (): void` - Ejecutar demostración completa del sistema con alerts épicos
+> **🌟 Como héroe del reino, quiero crear nuevos programadores**
+```typescript
+createHero(name: string, heroClass: string): Hero | null
+```
+- Crear héroe con stats de su clase + `{level: 1, experience: 0, victories: 0}`
+- Retorna `null` si `name` es falsy o `heroClass` no existe en `heroClasses`
+- Usa spread operator para copiar propiedades de la clase
 
-**⚔️ Lógica de Batalla:** Héroe gana si `(coding + debugging) / 2 > bugDifficulty * 10`
+> **🏰 Como maestro de la liga, quiero reclutar héroes válidos**
+```typescript
+recruitHero(hero: Hero): void
+```
+- Agregar héroe válido al array `heroesLeague`
+- Ignora si `hero` es falsy o ya existe un héroe con el mismo nombre
+- Solo acepta objetos válidos con propiedades requeridas
+
+> **💪 Como entrenador, quiero mejorar las habilidades de mis héroes**
+```typescript
+trainHero(heroName: string): boolean
+```
+- Busca héroe por nombre en `heroesLeague`
+- Aumenta stats aleatoriamente (1-5 puntos) en: health, coding, creativity, debugging
+- Suma `experience += 10` y recalcula nivel: `Math.floor(experience / 50) + 1`
+- Retorna `false` si el héroe no existe o parámetros inválidos
+
+> **⚔️ Como comandante, quiero que mis héroes luchen contra bugs**
+```typescript
+fightBug(heroName: string, bugDifficulty: number): BattleResult
+```
+- Valida parámetros: `heroName` debe ser string, `bugDifficulty > 0`
+- Lógica épica: Héroe gana si `(coding + debugging) / 2 > bugDifficulty * 10`
+- Si gana: `victories++`, `experience += bugDifficulty * 5`, recalcula nivel
+- Retorna: `{hero, heroPower, bugDifficulty, bugPower, victory, experienceGained?, message, reason?}`
+
+> **📊 Como administrador, quiero ver estadísticas de la liga**
+```typescript
+getLeagueStats(): LeagueStats
+```
+- Usa `reduce()` para calcular totales y promedios
+- Retorna `{totalHeroes, averageLevel, totalVictories, topHero}`
+- `averageLevel` debe manejar división por cero correctamente
+
+> **🥇 Como fanático, quiero ver el ranking de héroes**
+```typescript
+getHeroRanking(): Hero[]
+```
+- Ordena por victorias (descendente), luego por nivel (descendente)
+- Usa spread operator para no mutar el array original: `[...heroesLeague]`
+- Retorna máximo 3 elementos con `.slice(0, 3)`
+
+> **📜 Como cronista, quiero generar reportes épicos**
+```typescript
+generateEpicReport(): void
+```
+- Muestra múltiples `alert()` con formato épico y emojis abundantes
+- Incluye: estadísticas generales, hall de la fama, lista completa de héroes
+- Maneja caso cuando no hay héroes o no hay victorias registradas
+
+> **🎮 Como jugador, quiero vivir una aventura completa**
+```typescript
+runEpicDemo(): void
+```
+- Secuencia épica: crear 8 héroes legendarios → entrenar aleatoriamente → batallas finales → reporte
+- Usa múltiples `alert()` para narrativa inmersiva
+- Calcula estadísticas finales y determina el estado del reino
 
 ---
 
-#### 💻 Código base
+#### 🏗️ Tipos de Datos
 
-```js
-// Test system setup 🧪⚡
-const testResults = [];
-const recordTest = (testName, condition) => {
-    const emoji = condition ? "✅" : "❌";
-    testResults.push(`${emoji} ${testName}`);
-};
+```typescript
+interface Hero {
+  name: string;
+  class: string;
+  level: number;
+  experience: number;
+  victories: number;
+  health: number;
+  coding: number;
+  creativity: number;
+  debugging: number;
+  specialty: string;
+}
 
-// Hero classes configuration 🏰⚔️
-const heroClasses = {
-    frontend: { 
-        health: 120, 
-        coding: 90, 
-        creativity: 95, 
-        debugging: 70,
-        specialty: "Interfaces Mágicas 🎨" 
-    },
-    backend: { 
-        health: 120, 
-        coding: 95, 
-        creativity: 70, 
-        debugging: 90,
-        specialty: "Lógica del Servidor 🔧" 
-    },
-    fullstack: { 
-        health: 110, 
-        coding: 85, 
-        creativity: 85, 
-        debugging: 85,
-        specialty: "Maestro Universal ⚡" 
-    },
-    devops: { 
-        health: 115, 
-        coding: 80, 
-        creativity: 75, 
-        debugging: 100,
-        specialty: "Automatización Épica 🚀" 
-    }
-};
+interface BattleResult {
+  hero: string;
+  heroPower: number;
+  bugDifficulty: number;
+  bugPower: number;
+  victory: boolean;
+  experienceGained?: number;
+  message: string;
+  reason?: string;
+}
 
-// Heroes league array 👥🏆
-const heroesLeague = [];
-
-// Create your epic RPG system functions 🛠️🎮
-
-const createHero = (name, heroClass) => {
-    // 🌟 Your hero creation magic ⚡
-};
-
-const recruitHero = (hero) => {
-    // 🏰 Your hero recruitment magic 👥
-};
-
-const trainHero = (heroName) => {
-    // 💪 Your training magic ⚡
-};
-
-const fightBug = (heroName, bugDifficulty) => {
-    // ⚔️ Your epic battle magic 🐛
-};
-
-const getLeagueStats = () => {
-    // 📊 Your league statistics magic 🏆
-};
-
-const getHeroRanking = () => {
-    // 🥇 Your ranking magic 👑
-};
-
-const generateEpicReport = () => {
-    // 📜 Your epic report magic using alert() 🌟
-};
-
-const runEpicDemo = () => {
-    // 🎮 Your epic demonstration magic ✨
-    // Create heroes, recruit them, train, fight bugs, show final epic report
-};
-
-// Automated test function 🤖🧪
-const testRPGSystemAutomated = () => {
-    // Test 1: Happy path - hero creation works correctly 🌟
-    const fernanda = createHero("Fernanda", "frontend");
-    recordTest("o2.5.1 hero creation works correctly", 
-        fernanda?.name === "Fernanda" && fernanda?.coding === 90 && 
-        fernanda?.level === 1 && fernanda?.experience === 0);
-    
-    // Test 2: Happy path - recruitment and training systems 🏰💪
-    if (fernanda) recruitHero(fernanda);
-    const mijael = createHero("Mijael", "backend");
-    if (mijael) {
-        recruitHero(mijael);
-        const trainSuccess = trainHero("Mijael");
-        recordTest("o2.5.2 recruitment and training work", 
-            heroesLeague.length === 2 && mijael?.experience === 10 && trainSuccess === true);
-    }
-    
-    // Test 3: Happy path - battle and stats systems ⚔️📊
-    const battleResult = fightBug("Fernanda", 5);
-    const stats = getLeagueStats();
-    recordTest("o2.5.3 battle and stats systems work", 
-        battleResult?.hasOwnProperty("victory") && 
-        stats?.totalHeroes === 2 && 
-        typeof stats?.averageLevel === "number");
-    
-    // Test 4: Input validation - handles invalid inputs 🛡️
-    const invalidHero = createHero("", "invalidClass");
-    const invalidTrain = trainHero("NonExistent");
-    const invalidBattle = fightBug("NonExistent", -1);
-    recordTest("o2.5.4 input validation works", 
-        invalidHero === null && 
-        invalidTrain === false && 
-        invalidBattle?.victory === false);
-    
-    // Test 5: Return type validation - functions return correct types ⚡
-    const ranking = getHeroRanking();
-    recordTest("o2.5.5 return types are correct", 
-        typeof stats === "object" && 
-        Array.isArray(ranking) && 
-        ranking.length <= 3);
-};
-
-// Run automated tests 🏃‍♂️💨
-testRPGSystemAutomated();
-
-// Show test results 📊✨
-console.log('=== 🧪 Resultados de Tests del Reino ===');
-testResults.forEach(result => console.log(result));
-
-// Demo functions for admin/debugging 🔧
-const showLeagueStats = () => {
-    const stats = getLeagueStats();
-    console.log('📊 Estadísticas de la Liga:');
-    console.log(`👥 Total Héroes: ${stats?.totalHeroes || 0}`);
-    console.log(`📈 Nivel Promedio: ${stats?.averageLevel?.toFixed(1) || 0}`);
-    console.log(`🏆 Victorias Totales: ${stats?.totalVictories || 0}`);
-    console.log(`👑 Héroe Top: ${stats?.topHero?.name || 'N/A'}`);
-};
-
-const showHeroRanking = () => {
-    const ranking = getHeroRanking();
-    console.log('🏆 Ranking de Héroes:');
-    ranking.forEach((hero, index) => {
-        console.log(`${index + 1}. ${hero?.name} - ${hero?.victories} victorias`);
-    });
-};
-
-// User experience function - uncomment to run epic adventure! 🎮
-// runEpicDemo();
-
-console.log('\n🎮 Para iniciar la aventura épica, ejecuta: runEpicDemo() 🚀');
-console.log('📊 Para ver estadísticas, ejecuta: showLeagueStats() 📈');
-console.log('🏆 Para ver ranking, ejecuta: showHeroRanking() 👑');
+interface LeagueStats {
+  totalHeroes: number;
+  averageLevel: number;
+  totalVictories: number;
+  topHero: Hero | null;
+}
 ```
 
 ---
 
-#### 💡 Tips
+#### 🧪 Tests Automatizados
 
-🏭 Usa `Object.assign({}, heroClasses[clase])` para copiar stats sin referencia ✨  
-🎲 `Math.floor(Math.random() * 5) + 1` para números aleatorios 1-5 🎯  
-⚔️ Compara `(coding + debugging) / 2` vs `bugDifficulty * 10` para batalla épica 🐛  
-📊 Usa `reduce()` para calcular totales y promedios como un pro 🏆  
-🏆 Usa `sort()` con `slice(0, 3)` para top 3 ranking 👑  
-🔍 Usa optional chaining `?.` en todas las validaciones 🛡️  
-📱 `alert()` con formato épico para mostrar todo al usuario ✨  
+**✅ Test 1: Creación de héroes funciona correctamente**
+- Crear héroe "Fernanda" clase "frontend"
+- Verificar: `name === "Fernanda"`, `coding === 90`, `level === 1`, `experience === 0`
 
----
+**✅ Test 2: Reclutamiento y entrenamiento funcionan**
+- Reclutar Fernanda, crear "Mijael" backend y reclutarlo
+- Entrenar a Mijael: verificar `heroesLeague.length === 2`, `experience === 10`, retorno `true`
 
-#### 🌟 Motivación
+**✅ Test 3: Sistema de batalla y estadísticas**
+- Fernanda vs Bug nivel 5, obtener estadísticas
+- Verificar resultado con propiedad "victory" y stats con `totalHeroes === 2`
 
-¡Felicidades, crack! 🎓✨ Has creado un sistema RPG completo que integra TODO lo aprendido de forma magistral. Los objetos, arrays y funciones ahora trabajan en perfecta armonía como una sinfonía de código épico. 
+**✅ Test 4: Validación de entrada robusta**
+- Héroe con nombre vacío/clase inválida → `null`
+- Entrenar héroe inexistente → `false`
+- Batalla inválida (héroe inexistente, dificultad < 1) → `victory: false`
 
-🏰 Tu Reino Digital está protegido por el mejor sistema de gestión de héroes  
-⚔️ Los Bugs Malignos tiemblan ante tu código poderoso  
-🌟 Fernanda, Mijael, Fe, Elliot, Doky y Amorosa están orgullosos de su creador  
-
-¡Eres oficialmente un Héroe Programador de Nivel 2! 🚀👑🎮
-
-**🎯 Logros Desbloqueados:**
-- 🏆 Maestro de Objetos Mágicos
-- 📝 Señor de los Arrays Épicos  
-- ⚡ Rey de las Funciones Legendarias
-- 🎮 Creador de Sistemas RPG
-- 🌟 Héroe del Reino Digital
-
-¡Prepárate para el Nivel 3: Aventuras Asíncronas y APIs Mágicas! 🚀🌟
+**✅ Test 5: Tipos de retorno correctos**
+- `getLeagueStats()` retorna objeto con propiedades correctas
+- `getHeroRanking()` retorna array con máximo 3 elementos
 
 ---
 
-## 🎉 ¡Fin del Nivel 2!
+#### 💻 Código Base Completo
 
-¡Increíble! Has completado todos los desafíos de JavaScript Nivel 2 🚀✨ Ahora dominas:
+```javascript
+// Test system 🧪⚡
+const testResults = [];
+const recordTest = (testName, condition) => {
+  const emoji = condition ? "✅" : "❌";
+  testResults.push(`${emoji} ${testName}`);
+};
 
-🎯 **Objetos Mágicos** - Creación, propiedades y manipulación  
-📝 **Arrays Épicos** - Gestión de listas y operaciones  
-⚡ **Funciones Legendarias** - Arrow functions y lógica avanzada  
-🏰 **Sistemas Integrados** - Academia de héroes y RPG completo  
-🎮 **Aplicaciones Reales** - Manejo de datos y experiencia de usuario  
+// Hero class configuration 🏰⚔️
+const heroClasses = {
+  frontend: { 
+    health: 120, coding: 90, creativity: 95, debugging: 70,
+    specialty: "Interfaces Mágicas 🎨" 
+  },
+  backend: { 
+    health: 120, coding: 95, creativity: 70, debugging: 90,
+    specialty: "Lógica del Servidor 🔧" 
+  },
+  fullstack: { 
+    health: 110, coding: 85, creativity: 85, debugging: 85,
+    specialty: "Maestro Universal ⚡" 
+  },
+  devops: { 
+    health: 115, coding: 80, creativity: 75, debugging: 100,
+    specialty: "Automatización Épica 🚀" 
+  }
+};
 
-**🌟 Próximos Desafíos:**
-- Nivel 3: DOM Manipulation y Eventos 🎯
-- Nivel 4: Asincronía y APIs 🌐  
-- Nivel 5: Frameworks Modernos ⚡
-- Nivel 6: Proyectos Full-Stack 🏗️
+// Heroes league 👥🏆
+const heroesLeague = [];
 
-¡Sigue programando y conquistando nuevos reinos digitales! 👑💻✨
+// ✨ Create your epic functions here ✨
+
+const createHero = (name, heroClass) => {
+  // 🌟 Validation and hero creation magic ⚡
+  // Return null for invalid inputs, use spread operator
+};
+
+const recruitHero = (hero) => {
+  // 🏰 Recruitment validation magic 👥
+  // Check for valid hero and no duplicates by name
+};
+
+const trainHero = (heroName) => {
+  // 💪 Training magic with random improvements ⚡
+  // Random stats increase (1-5), +10 exp, level calculation
+};
+
+const fightBug = (heroName, bugDifficulty) => {
+  // ⚔️ Epic battle magic with full validation 🐛
+  // Power calculation, victory logic, experience rewards
+};
+
+const getLeagueStats = () => {
+  // 📊 Statistics calculation magic 🏆
+  // Use reduce for totals, handle division by zero
+};
+
+const getHeroRanking = () => {
+  // 🥇 Ranking magic with proper sorting 👑
+  // Sort by victories then level, return top 3
+};
+
+const generateEpicReport = () => {
+  // 📜 Epic multi-alert report magic 🌟
+  // Multiple alerts with epic formatting
+};
+
+const runEpicDemo = () => {
+  // 🎮 Complete epic adventure sequence ✨
+  // 8 heroes creation, training, battles, final report
+};
+
+// Automatic tests 🤖🧪
+const testRPGSystem = () => {
+  // Test 1: Hero creation works correctly 🌟
+  const fernanda = createHero("Fernanda", "frontend");
+  recordTest("o2.5.1 hero creation works correctly",
+    fernanda?.name === "Fernanda" && fernanda?.coding === 90 &&
+    fernanda?.level === 1 && fernanda?.experience === 0);
+
+  // Test 2: Recruitment and training work 🏰💪
+  recruitHero(fernanda);
+  const mijael = createHero("Mijael", "backend");
+  recruitHero(mijael);
+  const trainSuccess = trainHero("Mijael");
+  recordTest("o2.5.2 recruitment and training work",
+    heroesLeague.length === 2 && mijael?.experience === 10 && trainSuccess === true);
+
+  // Test 3: Battle and statistics systems work ⚔️📊
+  const battleResult = fightBug("Fernanda", 5);
+  const stats = getLeagueStats();
+  recordTest("o2.5.3 battle and stats systems work",
+    battleResult?.hasOwnProperty("victory") &&
+    stats?.totalHeroes === 2 && typeof stats?.averageLevel === "number");
+
+  // Test 4: Input validation works 🛡️
+  const invalidHero = createHero("", "invalidClass");
+  const invalidTrain = trainHero("NonExistent");
+  const invalidBattle = fightBug("NonExistent", -1);
+  recordTest("o2.5.4 input validation works",
+    invalidHero === null && invalidTrain === false && invalidBattle?.victory === false);
+
+  // Test 5: Return types are correct ⚡
+  const ranking = getHeroRanking();
+  recordTest("o2.5.5 return types are correct",
+    typeof stats === "object" && Array.isArray(ranking) && ranking.length <= 3);
+};
+
+// Run automatic tests 🤖🧪
+testRPGSystem();
+
+// Show results 📊✨
+console.log('=== 🧪 Resultados de Tests del Reino ===');
+testResults.forEach(result => console.log(result));
+
+// Show how to start the epic adventure 🚀
+console.log('\n🎮 Para iniciar la aventura épica, ejecuta: runEpicDemo() 🚀, pero comenta testRPGSystem()');
+// runEpicDemo();
+```
+
+---
+
+#### 💡 Tips Técnicos
+
+🚀 **Spread operator:** `{...heroClasses[heroClass], name, class: heroClass, level: 1, experience: 0, victories: 0}`  
+🎲 **Aleatorio 1-5:** `Math.floor(Math.random() * 5) + 1`  
+⚔️ **Poder de batalla:** `heroPower = (coding + debugging) / 2`, `victory = heroPower > bugDifficulty * 10`  
+📊 **Reduce pro:** `totalVictories = heroes.reduce((sum, hero) => sum + hero.victories, 0)`  
+🏆 **Sort + slice:** `[...heroesLeague].sort((a,b) => b.victories - a.victories || b.level - a.level).slice(0,3)`  
+🔍 **Optional chaining:** `hero?.name` para validaciones seguras  
+📱 **Alert épico:** Template literals con `\n\n` y emojis abundantes  
+⚡ **Validación robusta:** Verificar tipos con `typeof` y valores falsy
+
+---
+
+#### 🌟 Motivación Épica
+
+¡Felicidades, Héroe Programador Nivel 2! 🎓✨ Has dominado la integración completa de sistemas complejos usando JavaScript moderno. Tu Reino Digital es una obra maestra de arquitectura de código.
+
+🏰 **Sistema completo:** Objetos, arrays, funciones trabajando en perfecta armonía  
+⚔️ **Validación robusta:** Código defensivo que maneja todos los casos edge  
+🌟 **UX inmersiva:** Experiencia de usuario épica con narrativa envolvente  
+📊 **Gestión de datos:** Estadísticas, rankings y reportes como un sistema real  
+
+Tu código es elegante, funcional y épico. ¡Los Bugs Malignos tiemblan ante tu poder! 🚀👑🎮
