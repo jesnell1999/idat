@@ -131,17 +131,31 @@
       petCard.innerHTML = `
         <span class="pet-emoji">${pet.emoji}</span>
         <h2>${pet.name}</h2>
-        <p>Tipo: ${pet.type}</p>
-        <p>Especialidad: ${pet.specialty}</p>
-        <p>Nivel: ${pet.level}</p>
-        <button class="btn" onclick="showPetDetails('${pet.name}')">Ver Detalles</button>
+        <p>Tipo 🐾: ${pet.type}</p>
+        <p>Especialidad ⭐: ${pet.specialty}</p>
+        <p>Nivel 🏆: ${pet.level}</p>
+        <button class="btn" onclick="showPetDetails('${pet.name}')">👁️ Ver Detalles</button>
       `;
       return petCard;
     };
 
     const showPetDetails = (petName) => {
-      // 🖱️ Find pet and show epic alert with full details
-      // Handle case when pet doesn't exist
+      const pet = pets.find(p => p.name === petName);
+
+      if (!pet) {
+        alert("❌ Mascota \"" + petName + "\" no encontrada en la galería");
+        return;
+      };
+
+      const details = `
+        ${pet.emoji} ${pet.name} - ${pet.type}
+        ⭐ Especialidad: ${pet.specialty}
+        🏆 Nivel: ${pet.level}
+        🎯 Estado: Activo en la galería
+        ¡${pet.name} está listo para la aventura! 🚀
+      `;
+
+      alert(details);
     };
 
     const addNewPet = () => {
