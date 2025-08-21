@@ -24,6 +24,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
       gap: 1rem;
+      margin-block: 2rem;
     }
 
     .pet-card {
@@ -59,29 +60,32 @@
       }
     }
 
-
-    .add-btn {
+    .btn-add {
       background-color: #4ecdc4;
-      font-size: 1.125rem;
+
+      &:hover {
+        background-color: #389b94;
+        transform: scale(1.05);
+      }
+    }
+
+    .section {
+      padding-block: 2rem;
     }
   </style>
 </head>
 
 <body class="body">
-  <div class="container">
-    <h1>🖼️✨ Galería Mágica de Mascotas 🐾🎨</h1>
-    <p>¡Descubre a todas las mascotas épicas de nuestro grupo! 🌟</p>
-
-    <button class="btn add-btn" onclick="addNewPet()">➕ Agregar Nueva Mascota</button>
-
-    <div id="pet-gallery" class="pet-gallery">
-      <!-- Las tarjetas se generarán dinámicamente aquí -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">🖼️✨ Galería Mágica de Mascotas 🐾🎨</h1>
+      <p>¡Descubre a todas las mascotas épicas de nuestro grupo! 🌟</p>
+      <button class="btn btn-add" onclick="addNewPet()">➕ Agregar Nueva Mascota</button>
+      <div id="pet-gallery" class="pet-gallery">
+      </div>
+      <p>🎯 Haz click en "Ver Detalles" para conocer más sobre cada mascota</p>
     </div>
-
-    <div style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
-      🎯 Haz click en "Ver Detalles" para conocer más sobre cada mascota
-    </div>
-  </div>
+  </section>
 
   <script>
     "use strict";
@@ -104,25 +108,34 @@
       },
       {
         name: "Chocolate",
-        type: "Gato",
+        type: "Perro",
         emoji: "🍫",
-        specialty: "Experto en Debugging Nocturno",
+        specialty: "Experto en Debugging Diurno",
         level: 4
       },
       {
         name: "Chanchi",
-        type: "Gato",
-        emoji: "🐱",
+        type: "Chanchito",
+        emoji: "🐷",
         specialty: "Maestro del Código Elegante",
-        level: 3
+        level: 4
       }
     ];
 
     // ✨ Create your epic functions here ✨
 
-    const renderPetCard = (pet) => {
-      // 🎨 Create dynamic pet card with DOM manipulation
-      // Return HTMLElement ready to insert
+    const createPetCard = (pet) => {
+      const petCard = document.createElement("div");
+      petCard.className = "pet-card";
+      petCard.innerHTML = `
+        <span class="pet-emoji">${pet.emoji}</span>
+        <h2>${pet.name}</h2>
+        <p>Tipo: ${pet.type}</p>
+        <p>Especialidad: ${pet.specialty}</p>
+        <p>Nivel: ${pet.level}</p>
+        <button class="btn" onclick="showPetDetails('${pet.name}')">Ver Detalles</button>
+      `;
+      return petCard;
     };
 
     const showPetDetails = (petName) => {
@@ -133,22 +146,28 @@
     const addNewPet = () => {
       // ➕ Capture data with prompts, validate, add to array
       // Re-render gallery automatically
+      console.log("Adding new pet...");
     };
 
     const renderGallery = () => {
-      // 🎪 Clear container and render all pet cards
-      // Add event listeners using event delegation
+      const gallery = document.getElementById("pet-gallery");
+
+      gallery.innerHTML = "";
+
+      pets.forEach(pet => {
+        const petCard = createPetCard(pet);
+        gallery.appendChild(petCard);
+      });
     };
 
     const initializeGallery = () => {
-      // 🚀 Setup all event listeners and render initial gallery
-      // Configure event delegation for dynamic elements
+      renderGallery();
     };
 
     // Automatic tests 🤖🧪
     const testGallerySystem = () => {
       // Test 1: Card rendering works 🎨
-      const dokyCard = renderPetCard(pets[0]);
+      const dokyCard = createPetCard(pets[0]);
       recordTest("3.1.1 card rendering works correctly",
         dokyCard?.className?.includes("pet-card") &&
         dokyCard?.innerHTML?.includes("Doky") &&
@@ -178,12 +197,10 @@
     document.addEventListener('DOMContentLoaded', () => {
       initializeGallery();
 
-      // Run tests after initialization
-      setTimeout(() => {
-        testGallerySystem();
-        console.log('=== 🧪 Resultados Tests Galería ===');
-        testResults.forEach(result => console.log(result));
-      }, 500);
+      // Run tests
+      testGallerySystem();
+      console.log('=== 🧪 Resultados Tests Galería ===');
+      testResults.forEach(result => console.log(result));
     });
   </script>
 </body>
