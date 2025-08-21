@@ -25,16 +25,16 @@ Desde crear tu primera galería interactiva 🖼️🎨 hasta construir sistemas
     🎨🔍 DOM MANIPULATION               🖱️⚡ EVENTOS & INTERACTIVIDAD
     ┌──────────────────────────┐     ┌──────────────────────────┐
     │ • querySelector() 🎯     │     │ • addEventListener() 👂  │
-    │ • getElementById() 🆔     │     │ • click, input, submit   │
+    │ • getElementById() 🆔    │     │ • click, input, submit   │
     │ • innerHTML, textContent │ ──► │ • preventDefault() 🛑    │
-    │ • createElement() ➕      │     │ • event delegation 🎯    │
-    │ • setAttribute() 🏷️      │     │ • event.target 🎪       │
+    │ • createElement() ➕     │     │ • event delegation 🎯    │
+    │ • setAttribute() 🏷️      │     │ • event.target 🎪        │
     └──────────────────────────┘     └──────────────────────────┘
               │                              │
               ▼                              ▼
     💾🗄️ LOCAL STORAGE                 🛡️✨ STRICT MODE & FORMS
     ┌──────────────────────────┐     ┌──────────────────────────┐
-    │ • setItem/getItem 💾     │     │ • "use strict" 🛡️       │
+    │ • setItem/getItem 💾     │     │ • "use strict" 🛡️        │
     │ • removeItem/clear 🗑️    │     │ • mejor detección errors │
     │ • JSON stringify/parse   │ ◄── │ • validación tiempo real │
     │ • persistencia sesiones  │     │ • formularios dinámicos  │
@@ -45,7 +45,7 @@ Desde crear tu primera galería interactiva 🖼️🎨 hasta construir sistemas
     🎮🌐 APLICACIONES WEB REALES        🚀⚛️ PREPARACIÓN FRAMEWORKS
     ┌──────────────────────────┐     ┌──────────────────────────┐
     │ • interfaces dinámicas   │     │ • patrones de estado 📊  │
-    │ • CRUD con persistencia  │     │ • event handling pro ⚡  │
+    │ • CRUD con persistencia  │     │ • event handling pro ⚡   │
     │ • validación robusta 🛡️  │ ──► │ • componente thinking 🧩 │
     │ • UX fluida y responsive │     │ • data binding concepts  │
     │ • sistemas completos 🏗️  │     │ • base para React/Vue 🌟 │
