@@ -48,14 +48,15 @@
       padding: 0.5em 1em;
       border: none;
       border-radius: 1.5em;
-      background-color: #ff6b6b;
+      background-color: #b83a3a;
       color: #fefefe;
       font-size: 1rem;
+      font-weight: 700;
       cursor: pointer;
       transition: background-color 0.25s, transform 0.25s;
 
       &:hover {
-        background-color: #ff5252;
+        background-color: #ae2f2f;
         transform: scale(1.05);
       }
     }
@@ -158,6 +159,8 @@
         const petCard = createPetCard(pet);
         gallery.appendChild(petCard);
       });
+
+      // ToDo: Agregar event listeners a botones "Ver Detalles" usando event delegation
     };
 
     const initializeGallery = () => {
