@@ -76,19 +76,19 @@ Elliot 🤓 y Fe 🌟 quieren crear una galería digital súper interactiva para
 
 > **🎨 Como usuario, quiero ver tarjetas dinámicas de mascotas**
 ```javascript
-renderPetCard(pet): HTMLElement
+createPetCard(pet): HTMLElement
 ```
 - Crear elemento `div` con clase `pet-card`
 - Usar template string para HTML: nombre, tipo, emoji, botón "Ver Detalles"
 - Retornar elemento DOM listo para insertar
 
-> **🖱️ Como visitante, quiero hacer click para ver detalles**
+> **🎪 Como desarrollador, quiero renderizar toda la galería**
 ```javascript
-showPetDetails(petName): void
+renderGallery(): void
 ```
-- Buscar mascota por nombre en array `pets`
-- Mostrar `alert()` con información completa: "🐕 Doky - Perro\n⭐ Especialidad: Guardián Leal..."
-- Manejar caso cuando la mascota no existe
+- Limpiar contenedor `#pet-gallery` con `innerHTML = ""`
+- Iterar array `pets` y crear tarjeta para cada uno
+- Agregar event listeners a botones "Ver Detalles" usando event delegation
 
 > **➕ Como administrador, quiero agregar nuevas mascotas**
 ```javascript
@@ -98,13 +98,13 @@ addNewPet(): void
 - Validar que todos los campos tengan contenido (no vacíos)
 - Agregar al array `pets` y re-renderizar galería automáticamente
 
-> **🎪 Como desarrollador, quiero renderizar toda la galería**
+> **🖱️ Como visitante, quiero hacer click para ver detalles**
 ```javascript
-renderGallery(): void
+showPetDetails(petName): void
 ```
-- Limpiar contenedor `#pet-gallery` con `innerHTML = ""`
-- Iterar array `pets` y crear tarjeta para cada uno
-- Agregar event listeners a botones "Ver Detalles" usando event delegation
+- Buscar mascota por nombre en array `pets`
+- Mostrar `alert()` con información completa: "🐕 Doky - Perro\n⭐ Especialidad: Guardián Leal..."
+- Manejar caso cuando la mascota no existe
 
 > **🚀 Como sistema, quiero inicializar todo correctamente**
 ```javascript
@@ -241,7 +241,7 @@ const pet = {
 
         // ✨ Create your epic functions here ✨
         
-        const renderPetCard = (pet) => {
+        const createPetCard = (pet) => {
             // 🎨 Create dynamic pet card with DOM manipulation
             // Return HTMLElement ready to insert
         };
@@ -269,7 +269,7 @@ const pet = {
         // Automatic tests 🤖🧪
         const testGallerySystem = () => {
             // Test 1: Card rendering works 🎨
-            const dokyCard = renderPetCard(pets[0]);
+            const dokyCard = createPetCard(pets[0]);
             recordTest("3.1.1 card rendering works correctly",
                 dokyCard?.className?.includes("pet-card") && 
                 dokyCard?.innerHTML?.includes("Doky") &&

@@ -132,11 +132,58 @@
         <span class="pet-emoji">${pet.emoji}</span>
         <h2>${pet.name}</h2>
         <p>Tipo 🐾: ${pet.type}</p>
-        <p>Especialidad ⭐: ${pet.specialty}</p>
-        <p>Nivel 🏆: ${pet.level}</p>
         <button class="btn" onclick="showPetDetails('${pet.name}')">👁️ Ver Detalles</button>
       `;
       return petCard;
+    };
+
+    const renderGallery = () => {
+      const gallery = document.getElementById("pet-gallery");
+
+      gallery.innerHTML = "";
+
+      pets.forEach(pet => {
+        const petCard = createPetCard(pet);
+        gallery.appendChild(petCard);
+      });
+
+      // ToDo: Agregar event listeners a botones "Ver Detalles" usando event delegation
+    };
+
+    const addNewPet = () => {
+      const name = prompt("🐾 Ingrese el nombre de la mascota:");
+      const type = prompt("🐾 Ingrese el tipo de la mascota:");
+      const specialty = prompt("⭐ Ingrese la especialidad de la mascota:");
+
+      if (!name || !type || !specialty) {
+        alert("❌ Todos los campos son obligatorios.");
+        return;
+      }
+
+      const emojiMap = {
+        'perro': '🐕',
+        'gato': '🐱',
+        'ave': '🐦',
+        'pez': '🐟',
+        'conejo': '🐰',
+        'hamster': '🐹',
+        'serpiente': '🐍',
+        'tortuga': '🐢',
+        'pájaro': '🐦',
+        'loro': '🦜'
+      };
+
+      const newPet = {
+        name,
+        type,
+        emoji: emojiMap[type.toLowerCase()] || "🐾",
+        specialty,
+        level: 1
+      };
+
+      pets.push(newPet);
+      renderGallery();
+      alert("Nueva mascota agregada: " + newPet.name + " 🐾");
     };
 
     const showPetDetails = (petName) => {
@@ -156,25 +203,6 @@
       `;
 
       alert(details);
-    };
-
-    const addNewPet = () => {
-      // ➕ Capture data with prompts, validate, add to array
-      // Re-render gallery automatically
-      console.log("Adding new pet...");
-    };
-
-    const renderGallery = () => {
-      const gallery = document.getElementById("pet-gallery");
-
-      gallery.innerHTML = "";
-
-      pets.forEach(pet => {
-        const petCard = createPetCard(pet);
-        gallery.appendChild(petCard);
-      });
-
-      // ToDo: Agregar event listeners a botones "Ver Detalles" usando event delegation
     };
 
     const initializeGallery = () => {
