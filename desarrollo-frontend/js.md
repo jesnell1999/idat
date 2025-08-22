@@ -138,10 +138,9 @@ Este curso está diseñado con un enfoque práctico y progresivo 📈🎯, donde
 
 ### 💡🎯 Metodología de Retos 🏅✨
 
-Cada nivel incluye 5 retos cuidadosamente diseñados 🎨📋:
-- **Retos 1-3:** 🎯🔍 Conceptos individuales con práctica enfocada
-- **Reto 4:** 🧩⚡ Integración parcial de conceptos del nivel
-- **Reto 5:** 🏆🚀 Proyecto completo que consolida todo el aprendizaje
+Cada nivel incluye retos cuidadosamente diseñados 🎨📋:
+- **Retos fundamentales:** 🎯🔍 Conceptos individuales con práctica enfocada e 🧩⚡ Integración parcial de conceptos del nivel
+- **Reto avanzado:** 🏆🚀 Proyecto completo que consolida todo el aprendizaje
 
 ### 🏆💻 Preparación Frontend 🌟🚀
 
