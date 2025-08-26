@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🐉 Explorador de Guerreros Z</title>
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
@@ -16,9 +16,9 @@
         <p class="header-content__subtitle">Descubre el poder de los guerreros con APIs reales 🚀</p>
       </div>
       <div class="header-controls">
-        <div class="search-box">
-          <input type="text" class="search-box__input" id="characterSearch" placeholder="🔍 Buscar guerreros...">
-        </div>
+        <form class="search-box">
+          <input type="search" class="search-box__input" id="characterSearch" placeholder="🔍 Buscar guerreros...">
+        </form>
       </div>
     </header>
 
@@ -27,7 +27,7 @@
         <div class="filter-section">
           <h3 class="filter-section__title">🎛️ Filtros</h3>
           <div class="filter-group">
-            <label class="filter-group__label">Raza</label>
+            <label class="filter-group__label" for="raceFilter">Raza</label>
             <select class="filter-group__select" id="raceFilter">
               <option value="">Todas las razas</option>
               <option value="Saiyan">🔥 Saiyan</option>
@@ -38,7 +38,7 @@
             </select>
           </div>
           <div class="filter-group">
-            <label class="filter-group__label">Afiliación</label>
+            <label class="filter-group__label" for="affiliationFilter">Afiliación</label>
             <select class="filter-group__select" id="affiliationFilter">
               <option value="">Todas las afiliaciones</option>
               <option value="Z Fighter">⚡ Z Fighter</option>
@@ -122,7 +122,7 @@
     </div>
   </div>
 
-  <script type="module" src="js/app.js"></script>
+  <script type="module" src="./js/app.js"></script>
 </body>
 
 </html>
