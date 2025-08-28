@@ -14,7 +14,7 @@
 .character-card__image {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   background: var(--color-surface-light);
 }
 
@@ -47,8 +47,8 @@
   margin-bottom: var(--space-md);
   line-height: 1.5;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   overflow: hidden;
 }
 
