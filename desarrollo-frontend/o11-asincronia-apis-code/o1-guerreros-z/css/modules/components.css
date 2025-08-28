@@ -1,0 +1,106 @@
+.character-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.character-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.character-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: var(--color-surface-light);
+}
+
+.character-card__header {
+  padding: var(--space-lg);
+  background: var(--color-surface-light);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.character-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-dragon-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.character-card__race {
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.character-card__content {
+  padding: var(--space-lg);
+}
+
+.character-card__description {
+  color: var(--color-text-light);
+  margin-bottom: var(--space-md);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.character-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.character-stat {
+  text-align: center;
+}
+
+.character-stat__value {
+  display: block;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-dragon-power);
+  margin-bottom: var(--space-xs);
+}
+
+.character-stat__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.character-affiliation {
+  display: inline-block;
+  background: var(--color-dragon-primary);
+  color: white;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.loading-placeholder {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  min-height: 300px;
+}
+
+.loading-placeholder__text {
+  color: var(--color-text-light);
+  font-size: var(--font-size-lg);
+  margin-top: var(--space-lg);
+}

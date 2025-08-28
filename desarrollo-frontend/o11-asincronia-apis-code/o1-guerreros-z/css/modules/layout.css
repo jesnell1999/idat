@@ -1,0 +1,109 @@
+.dragon-explorer {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+
+.dragon-explorer__header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-content__title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-dragon-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.header-content__subtitle {
+  color: var(--color-text-light);
+  font-size: var(--font-size-lg);
+}
+
+.dragon-explorer__main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--space-xl);
+  padding: var(--space-xl);
+}
+
+.dragon-explorer__filters {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  height: fit-content;
+  border: 1px solid var(--color-border);
+}
+
+.dragon-explorer__content {
+  min-height: 500px;
+}
+
+.dragon-explorer__footer {
+  grid-area: footer;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-lg);
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.pagination-info {
+  min-width: 120px;
+  text-align: center;
+}
+
+.pagination-info__text {
+  color: var(--color-text-light);
+  font-weight: 600;
+}
+
+.stats-panel {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .dragon-explorer__main {
+    grid-template-columns: 1fr;
+  }
+
+  .dragon-explorer__header {
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: center;
+  }
+
+  .pagination-controls {
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+}
