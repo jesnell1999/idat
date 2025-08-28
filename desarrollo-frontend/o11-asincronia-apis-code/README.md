@@ -8,537 +8,603 @@ Con async/await conquistarás el tiempo ⏰✨, fetch API te conectará con el u
 
 ## 🎯 Objetivos del Nivel
 
-* ⚡ **Dominar Programación Asíncrona** con async/await, setTimeout y manejo profesional de promesas
-* 🌐 **Conectar con APIs Reales** usando fetch() para GET/POST requests con manejo de estados
-* 📦 **Organizar Código Modular** con ES6 import/export y arquitectura escalable
-* 🛡️ **Implementar Error Handling** robusto con try/catch y feedback visual de errores
-* 🔄 **Gestionar Estados de Carga** con spinners, timeouts y experiencia de usuario fluida
-* 🏗️ **Aplicar Patterns Modernos** para código mantenible y buenas prácticas profesionales
+* ⚡ **Dominar Programación Asíncrona** con async/await y manejo profesional de promesas
+* 🌐 **Conectar con APIs Reales** usando fetch() para obtener datos de Dragon Ball API
+* 📦 **Organizar Código Modular** con ES6 import/export simple y efectivo
+* 🛡️ **Implementar Error Handling** básico con try/catch y feedback visual
+* 🔄 **Gestionar Estados de Carga** con loading states y experiencia fluida
+* 🎨 **Aplicar UX Moderna** con componentes interactivos y diseño atractivo
 
 ---
 
 ## 📚✨ Conceptos a Aprender
 
 ```
-      🌱 ASINCRONÍA BÁSICA           🌿 APIs & MODULES              🌳 PATTERNS AVANZADOS
+      🌱 ASINCRONÍA BÁSICA           🌿 APIs REALES              🌳 ORGANIZACIÓN
 ┌──────────────────────────┐    ┌───────────────────────────┐    ┌──────────────────────────┐
 │ • async/await ⏰         │    │ • fetch() API 🌐          │    │ • ES6 modules 📦         │
-│ • Promise basics 🤝      │    │ • GET/POST requests 📡    │ ──►│ • import/export 📥📤     │
-│ • setTimeout() 🕒        │ ──►│ • JSON handling 📊        │    │ • Module patterns 🏗️     │
-│ • try/catch 🛡️           │    │ • Error states 🚨         │    │ • Code organization 📋   │
-│ • Loading states ⏳      │    │ • Response parsing 🔄     │    │ • Best practices 💎      │
+│ • Promise básico 🤝      │    │ • GET requests 📡         │ ──►│ • import/export 📥📤     │
+│ • try/catch 🛡️           │ ──►│ • JSON parsing 📊         │    │ • Service functions 🏗️   │
+│ • Loading states ⏳      │    │ • Error handling 🚨       │    │ • State management 📋    │
+│ • Event listeners 👆     │    │ • URL construction 🔧     │    │ • Clean code 💎          │
 └──────────────────────────┘    └───────────────────────────┘    └──────────────────────────┘
          │                              │                              │
          ▼                              ▼                              ▼
-🎯 Meta: Tiempo controlado       🎯 Meta: Datos externos         🎯 Meta: Código escalable
-   Operaciones que toman tiempo     Comunicación con servicios      Arquitectura profesional
-   Estados de carga visual          Manejo de respuestas           Reutilización de código
+🎯 Meta: Operaciones async       🎯 Meta: Datos reales         🎯 Meta: Código limpio
+   Manejo de timing               Conexión con servicios        Arquitectura simple
+   Estados visuales               Respuestas estructuradas      Funciones reutilizables
 ```
 
 ---
 
-## 🏆✨ Retos
+## 🏆✨ Reto 4.1: Explorador de Guerreros Z 🐉⚡
 
-### 🌟 **Reto 4.1:** Explorador de Guerreros Z 🐉⚡
+> Construye un explorador simple y elegante que consume la Dragon Ball API real, con estados de carga, paginación y filtros básicos
 
-> Construye tu primer sistema asíncrono real consumiendo la Dragon Ball API, con carga de datos, estados dinámicos y experiencia de usuario profesional
-
-**🧠 Fundamentos:** async/await, fetch API real, try/catch, loading states, paginación, JSON handling
+**🧠 Fundamentos:** async/await, fetch API, loading states, paginación, filtros básicos
 
 ---
 
-#### 🎯 Problema
+### 🎯 Problema
 
-El equipo de guerreros Z (Elliot 🤓, Fernanda 👧, Mijael 👦, Fe 🌟) necesita un explorador de personajes que consuma la Dragon Ball API real, mostrando estados de carga profesionales, manejando errores elegantemente, implementando paginación, y proporcionando una experiencia fluida mientras se conecta con la API oficial de Dragon Ball.
-
----
-
-#### ⚡ Funcionalidades Épicas
-
-> **🐉 Como fan de Dragon Ball, quiero explorar personajes con carga asíncrona**
-```javascript
-loadCharacterData(page = 1): Promise<CharacterResponse>
-displayLoadingState(): void
-```
-- Consumir Dragon Ball API real con paginación
-- Mostrar spinner elegante durante la carga
-- Actualizar UI cuando los datos estén listos
-
-> **⚡ Como desarrollador, quiero manejar operaciones asíncronas**
-```javascript
-async fetchCharacters(page, limit): Promise<ApiResponse>
-handleAsyncOperation(operation): Promise<Result>
-```
-- Usar async/await para operaciones de red reales
-- Implementar retry logic para fallos de conexión
-- Manejar múltiples operaciones asíncronas simultáneas
-
-> **🛡️ Como usuario, quiero manejo robusto de errores**
-```javascript
-handleApiError(error): void
-showErrorState(message, canRetry): void
-```
-- Try/catch para capturar errores de red reales
-- Mostrar mensajes de error específicos por tipo
-- Botón de "reintentar" con límite de intentos
-
-> **🎨 Como visitante, quiero navegación fluida**
-```javascript
-loadNextPage(): Promise<void>
-loadPreviousPage(): Promise<void>
-updatePaginationUI(meta): void
-```
-- Navegación entre páginas de personajes
-- Indicadores visuales de página actual
-- Botones habilitados/deshabilitados según disponibilidad
-
-> **🔍 Como explorador, quiero filtrar por raza y afiliación**
-```javascript
-filterByRace(race): Character[]
-filterByAffiliation(affiliation): Character[]
-```
-- Filtrar personajes por raza (Saiyan, Namekian, etc.)
-- Filtrar por afiliación (Z Fighter, Villain, etc.)
-- Búsqueda en tiempo real por nombre
+El equipo de guerreros Z (Elliot 🤓, Fernanda 👧, Mijael 👦, Fe 🌟) necesita un explorador de personajes que sea simple, rápido y eficiente. Debe consumir la Dragon Ball API real, mostrar los personajes con información relevante, permitir filtrado básico y tener una experiencia de usuario fluida.
 
 ---
 
-#### 🏗️ Tipos de Datos
+### ⚡ Funcionalidades Épicas
 
-```javascript
-// Dragon Ball API Response Structure
-const apiResponse = {
-  items: [
-    {
-      id: 1,
-      name: "Goku",
-      ki: "60.000.000",
-      maxKi: "90 Septillion", 
-      race: "Saiyan",
-      gender: "Male",
-      description: "El protagonista de la serie...",
-      image: "https://dragonball-api.com/characters/goku_normal.webp",
-      affiliation: "Z Fighter",
-      deletedAt: null
-    }
-  ],
+> **🐉 Como fan de Dragon Ball, quiero explorar personajes**
+- **Rol:** Usuario final
+- **Funciones:** Visualizar lista de personajes con imagen, nombre, raza y descripción
+- **Comportamiento:** Cargar automáticamente al abrir la app
+
+> **📖 Como explorador, quiero navegar entre páginas**
+- **Rol:** Usuario navegador
+- **Funciones:** Avanzar y retroceder páginas, ver indicador de página actual
+- **Comportamiento:** Botones habilitados según disponibilidad de páginas
+
+> **🔍 Como usuario, quiero filtrar personajes**
+- **Rol:** Usuario con preferencias
+- **Funciones:** Filtrar por raza (Saiyan, Human, etc.) y buscar por nombre
+- **Comportamiento:** Filtrado en tiempo real sobre datos cargados
+
+> **⏳ Como visitante, quiero feedback visual**
+- **Rol:** Usuario esperando
+- **Funciones:** Ver spinner durante carga, mensajes de error claros
+- **Comportamiento:** Estados visuales que comunican lo que está pasando
+
+> **🎲 Como explorador curioso, quiero sorprenderme**
+- **Rol:** Usuario aventurero
+- **Funciones:** Cargar personaje aleatorio con un clic
+- **Comportamiento:** Mostrar personaje random de la API
+
+---
+
+### 🏗️ Tipos de Datos
+
+```typescript
+// Dragon Ball API Response
+interface DragonBallResponse {
+  items: Character[]
   meta: {
-    totalItems: 58,
-    itemCount: 10,
-    itemsPerPage: 10,
-    totalPages: 6,
-    currentPage: 1
-  },
-  links: {
-    first: "https://dragonball-api.com/api/characters?limit=10",
-    previous: "",
-    next: "https://dragonball-api.com/api/characters?page=2&limit=10",
-    last: "https://dragonball-api.com/api/characters?page=6&limit=10"
+    totalItems: number
+    itemCount: number
+    itemsPerPage: number
+    totalPages: number
+    currentPage: number
   }
-};
+  links: {
+    first: string
+    previous?: string
+    next?: string
+    last: string
+  }
+}
 
-const appState = {
-  characters: [],
-  filteredCharacters: [],
-  isLoading: false,
-  currentPage: 1,
-  totalPages: 1,
-  currentFilter: { race: '', affiliation: '', search: '' },
-  loadingStats: { startTime: 0, endTime: 0 },
-  retryCount: 0,
-  maxRetries: 3
-};
+// Character Structure
+interface Character {
+  id: number
+  name: string
+  ki: string
+  maxKi: string
+  race: string
+  gender: string
+  description: string
+  image: string
+  affiliation: string
+  deletedAt: null
+}
 
-const loadingState = {
-  isLoading: false,
-  error: null,
-  data: null,
-  operation: 'idle' // 'loading', 'success', 'error'
-};
+// App State
+interface AppState {
+  characters: Character[]
+  filteredCharacters: Character[]
+  isLoading: boolean
+  currentPage: number
+  totalPages: number
+  totalItems: number
+  currentFilter: {
+    race: string
+    search: string
+  }
+  error: string | null
+}
+
+// Loading State
+interface LoadingState {
+  isLoading: boolean
+  message: string
+  startTime: number
+}
 ```
 
 ---
 
-#### 🧪 Tests Automatizados
+### 🧪 Tests Automatizados
 
-**✅ Test 1: Funcionalidad asíncrona con API real**
+**✅ Test 1: Funcionalidad asíncrona básica**
 - fetch() ejecuta correctamente con Dragon Ball API
-- async/await maneja respuestas de red apropiadamente
+- async/await maneja respuestas apropiadamente
 
-**✅ Test 2: Funcionalidad de paginación**
-- Navegación entre páginas funciona correctamente
-- Meta información se actualiza apropiadamente
+**✅ Test 2: Manejo de estados**
+- Estados de loading se muestran correctamente
+- Error states funcionan apropiadamente
 
-**✅ Test 3: Funcionalidad de manejo de errores de red**
-- try/catch captura errores de conexión reales
-- Retry logic funciona con límites apropiados
+**✅ Test 3: Filtrado y búsqueda**
+- Filtro por raza funciona correctamente
+- Búsqueda por nombre opera en tiempo real
 
-**✅ Test 4: Validaciones del sistema**
-- Sistema maneja respuestas malformadas graciosamente
-- Filtros funcionan con datos reales de la API
-- Estados de UI se mantienen consistentes
+**✅ Test 4: Paginación**
+- Navegación entre páginas funciona
+- Botones se habilitan/deshabilitan correctamente
 
-**✅ Test 5: Tipos de retorno de API real**
-- Respuestas de fetch mantienen estructura esperada
-- Parseo de JSON funciona correctamente
-- Datos de characters mantienen tipos apropiados
+**✅ Test 5: Integración de módulos**
+- import/export funcionan correctamente
+- Servicios se conectan apropiadamente
 
 ---
 
-#### 💻 Código Base
+### 💻 Código Base
 
-**📁 index.html**
+**📁 ./index.html**
 ```html
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🐉 Explorador de Guerreros Z</title>
-  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
-
 <body>
-  <div class="dragon-explorer">
-    <header class="dragon-explorer__header">
-      <div class="header-content">
-        <h1 class="header-content__title">🐉⚡ Explorador de Guerreros Z</h1>
-        <p class="header-content__subtitle">Descubre el poder de los guerreros con APIs reales 🚀</p>
+  <header class="header">
+    <div class="container">
+      <div class="header__content">
+        <h1 class="header__title">🐉⚡ Explorador de Guerreros Z</h1>
+        <p class="header__subtitle">Descubre el poder de los guerreros con APIs reales 🚀</p>
       </div>
-      <div class="header-controls">
-        <form class="search-box">
-          <input type="search" class="search-box__input" id="characterSearch" placeholder="🔍 Buscar guerreros...">
-        </form>
+      
+      <div class="header__search">
+        <input 
+          type="search" 
+          class="search-input" 
+          id="characterSearch" 
+          placeholder="🔍 Buscar guerreros..."
+        >
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main class="dragon-explorer__main">
-      <aside class="dragon-explorer__filters">
-        <div class="filter-section">
-          <h3 class="filter-section__title">🎛️ Filtros</h3>
-          <div class="filter-group">
-            <label class="filter-group__label" for="raceFilter">Raza</label>
-            <select class="filter-group__select" id="raceFilter">
-              <option value="">Todas las razas</option>
-              <option value="Saiyan">🔥 Saiyan</option>
-              <option value="Human">👤 Human</option>
-              <option value="Namekian">🐛 Namekian</option>
-              <option value="Majin">🌸 Majin</option>
-              <option value="Android">🤖 Android</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label class="filter-group__label" for="affiliationFilter">Afiliación</label>
-            <select class="filter-group__select" id="affiliationFilter">
-              <option value="">Todas las afiliaciones</option>
-              <option value="Z Fighter">⚡ Z Fighter</option>
-              <option value="Red Ribbon Army">🔴 Red Ribbon Army</option>
-              <option value="Freelancer">🆓 Freelancer</option>
-              <option value="Army of Frieza">❄️ Army of Frieza</option>
-            </select>
-          </div>
-          <button class="btn btn--secondary" id="loadRandomCharacter">
-            🎲 Guerrero Aleatorio
-          </button>
+  <main class="main">
+    <div class="container">
+      <aside class="sidebar">
+        <h3 class="sidebar__title">🎛️ Filtros</h3>
+        
+        <div class="filter-group">
+          <label class="filter-label" for="raceFilter">Raza</label>
+          <select class="filter-select" id="raceFilter">
+            <option value="">Todas las razas</option>
+            <option value="Saiyan">🔥 Saiyan</option>
+            <option value="Human">👤 Human</option>
+            <option value="Namekian">🐛 Namekian</option>
+            <option value="Majin">🌸 Majin</option>
+            <option value="Android">🤖 Android</option>
+          </select>
         </div>
+
+        <button class="btn btn--random" id="randomCharacterBtn">
+          🎲 Guerrero Aleatorio
+        </button>
       </aside>
 
-      <section class="dragon-explorer__content">
-        <div class="characters-grid" id="charactersGrid">
-          <div class="loading-placeholder">
-            <div class="loading-placeholder__spinner"></div>
-            <p class="loading-placeholder__text">Cargando guerreros del universo... 🐉</p>
-          </div>
+      <section class="content">
+        <!-- Loading State -->
+        <div class="loading" id="loadingState">
+          <div class="loading__spinner"></div>
+          <p class="loading__text">Cargando guerreros del universo... 🐉</p>
         </div>
 
-        <div class="pagination-controls" id="paginationControls" style="display: none;">
-          <button class="btn btn--secondary" id="prevPageBtn" disabled>
+        <!-- Characters Grid -->
+        <div class="characters-grid" id="charactersGrid"></div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="paginationControls">
+          <button class="btn btn--secondary" id="prevBtn" disabled>
             ⬅️ Anterior
           </button>
-          <div class="pagination-info">
-            <span class="pagination-info__text" id="paginationInfo">
-              Página 1 de 6
-            </span>
-          </div>
-          <button class="btn btn--secondary" id="nextPageBtn">
+          
+          <span class="pagination__info" id="paginationInfo">
+            Página 1 de 1
+          </span>
+          
+          <button class="btn btn--secondary" id="nextBtn">
             Siguiente ➡️
           </button>
         </div>
       </section>
-    </main>
+    </div>
+  </main>
 
-    <footer class="dragon-explorer__footer">
-      <div class="stats-panel" id="statsPanel">
-        <div class="stat-item">
-          <span class="stat-item__number" id="totalCharacters">0</span>
-          <span class="stat-item__label">Guerreros Cargados</span>
+  <footer class="footer">
+    <div class="container">
+      <div class="stats">
+        <div class="stat">
+          <span class="stat__number" id="totalCharacters">0</span>
+          <span class="stat__label">Guerreros Cargados</span>
         </div>
-        <div class="stat-item">
-          <span class="stat-item__number" id="loadingTime">0ms</span>
-          <span class="stat-item__label">Tiempo de API</span>
+        <div class="stat">
+          <span class="stat__number" id="loadingTime">0ms</span>
+          <span class="stat__label">Tiempo de Carga</span>
         </div>
-        <div class="stat-item">
-          <span class="stat-item__number" id="lastUpdate">--</span>
-          <span class="stat-item__label">Última Actualización</span>
+        <div class="stat">
+          <span class="stat__number" id="lastUpdate">--</span>
+          <span class="stat__label">Última Actualización</span>
         </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   <!-- Error Modal -->
-  <div class="modal-overlay" id="errorModal" style="display: none;">
-    <div class="modal modal--error">
-      <div class="modal__header">
-        <h3 class="modal__title">🚨 Error de Conexión con Dragon Ball API</h3>
-        <button class="modal__close" id="closeErrorModal">✕</button>
-      </div>
-      <div class="modal__content">
-        <div class="error-content">
-          <div class="error-content__icon">🐉</div>
-          <p class="error-content__message" id="errorMessage">
-            Error al conectar con la API de Dragon Ball
-          </p>
-          <div class="error-content__details" id="errorDetails"></div>
+  <div class="modal" id="errorModal">
+    <div class="modal__content">
+      <div class="error">
+        <div class="error__icon">🐉</div>
+        <h3 class="error__title">Error de Conexión</h3>
+        <p class="error__message" id="errorMessage">
+          No se pudo conectar con la API de Dragon Ball
+        </p>
+        <div class="error__actions">
+          <button class="btn btn--primary" id="retryBtn">
+            🔄 Reintentar
+          </button>
+          <button class="btn btn--secondary" id="closeErrorBtn">
+            ❌ Cerrar
+          </button>
         </div>
-      </div>
-      <div class="modal__actions">
-        <button class="btn btn--primary" id="retryLoadBtn">
-          🔄 Reintentar Carga
-        </button>
-        <button class="btn btn--secondary" id="cancelErrorBtn">
-          ❌ Cancelar
-        </button>
       </div>
     </div>
   </div>
 
   <script type="module" src="./js/app.js"></script>
 </body>
-
 </html>
 ```
 
-**📁 css/index.css**
+**📁 ./css/styles.css**
 ```css
-@import url("./modules/variables.css");
-@import url("./modules/reset.css");
-@import url("./modules/layout.css");
-@import url("./modules/components.css");
-@import url("./modules/elements.css");
-@import url("./modules/animations.css");
-```
-
-**📁 css/modules/variables.css**
-```css
+/* Variables */
 :root {
-  /* Dragon Ball Theme Colors */
-  --color-dragon-primary: #ff8c00;
-  --color-dragon-secondary: #ff4500; 
-  --color-dragon-accent: #ffd700;
-  --color-dragon-power: #ff6347;
-  --color-dragon-success: #32cd32;
-  --color-dragon-warning: #ffa500;
-  --color-dragon-error: #dc143c;
+  /* Dragon Ball Colors */
+  --color-primary: #ff8c00;
+  --color-secondary: #ff4500; 
+  --color-accent: #ffd700;
+  --color-success: #32cd32;
+  --color-error: #dc143c;
   
-  /* Space Surfaces */
-  --color-background: #0d1421;
-  --color-surface: #1a2332;
-  --color-surface-light: #243447;
-  --color-surface-hover: #2d4059;
+  /* Surfaces */
+  --color-bg: #0a0e1a;
+  --color-surface: #1a1f2e;
+  --color-surface-light: #252b3a;
+  --color-surface-hover: #2d3548;
   
-  /* Text Colors */
-  --color-text: #e8f4f8;
-  --color-text-light: #a2b9c7;
-  --color-text-muted: #6b7c8c;
-  --color-text-accent: --color-dragon-accent;
-  
-  /* Interactive */
-  --color-border: #3a4b5c;
-  --color-border-focus: #ff8c00;
-  --shadow-glow: 0 0 20px rgba(255, 140, 0, 0.3);
-  --shadow-error: 0 0 20px rgba(220, 20, 60, 0.2);
+  /* Text */
+  --color-text: #ffffff;
+  --color-text-light: #b0b7c3;
+  --color-text-muted: #6b7280;
   
   /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
   
-  /* Border Radius */
+  /* Typography */
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  
+  /* Radius */
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
-  
-  /* Typography */
-  --font-family: 'Segoe UI', system-ui, sans-serif;
-  --font-size-sm: 0.875rem;
-  --font-size-md: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  
-  /* Transitions */
-  --transition: all 0.2s ease;
-  --transition-slow: all 0.4s ease;
 }
-```
 
-**📁 css/modules/reset.css**
-```css
-*,
-*::before,
-*::after {
+/* Reset */
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html {
-  font-size: 16px;
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
 }
 
-body {
-  font-family: var(--font-family);
-  background: var(--color-background);
-  color: var(--color-text);
-  min-height: 100vh;
-  background-image: 
-    radial-gradient(circle at 20% 20%, rgba(255, 140, 0, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(255, 69, 0, 0.15) 0%, transparent 50%);
-}
-```
-
-**📁 css/modules/layout.css**
-```css
-.dragon-explorer {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas: 
-    "header"
-    "main"
-    "footer";
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
 }
 
-.dragon-explorer__header {
-  grid-area: header;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-lg) var(--space-xl);
+@media (width >= 768px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+}
+
+/* Header */
+.header {
   background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-surface-light);
+  padding: var(--space-md) 0;
 }
 
-.header-content__title {
-  font-size: var(--font-size-3xl);
+@media (width >= 768px) {
+  .header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.header__title {
+  font-size: var(--font-size-2xl);
+  color: var(--color-accent);
   font-weight: 800;
-  color: var(--color-dragon-accent);
   margin-bottom: var(--space-xs);
 }
 
-.header-content__subtitle {
+@media (width >= 768px) {
+  .header__title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: 0;
+  }
+}
+
+.header__subtitle {
+  color: var(--color-text-light);
+  margin-bottom: var(--space-sm);
+}
+
+@media (width >= 768px) {
+  .header__subtitle {
+    margin-bottom: 0;
+  }
+}
+
+.header__search {
+  width: 100%;
+}
+
+@media (width >= 768px) {
+  .header__search {
+    width: auto;
+  }
+}
+
+/* Main Layout */
+.main {
+  padding: var(--space-lg) 0;
+}
+
+@media (width >= 768px) {
+  .main .container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+/* Sidebar */
+.sidebar {
+  background: var(--color-surface);
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-lg);
+  height: fit-content;
+}
+
+@media (width >= 768px) {
+  .sidebar {
+    margin-bottom: 0;
+  }
+}
+
+.sidebar__title {
+  color: var(--color-accent);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-md);
+}
+
+/* Content */
+.content {
+  min-height: 60vh;
+}
+
+/* Form Elements */
+.search-input, .filter-select {
+  width: 100%;
+  padding: var(--space-sm);
+  background: var(--color-surface-light);
+  border: 1px solid var(--color-surface-hover);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.search-input:focus, .filter-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(255, 140, 0, 0.2);
+}
+
+.filter-group {
+  margin-bottom: var(--space-md);
+}
+
+.filter-label {
+  display: block;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-secondary);
+  transform: translateY(-1px);
+}
+
+.btn--secondary {
+  background: var(--color-surface-light);
+  color: var(--color-text);
+  border: 1px solid var(--color-surface-hover);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: var(--color-surface-hover);
+  border-color: var(--color-primary);
+}
+
+.btn--random {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  width: 100%;
+  justify-content: center;
+}
+
+.btn--random:hover {
+  background: #ffed4e;
+  transform: scale(1.05);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Loading */
+.loading {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  text-align: center;
+}
+
+.loading.show {
+  display: flex;
+}
+
+.loading__spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--color-surface-light);
+  border-top: 4px solid var(--color-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--space-md);
+}
+
+.loading__text {
   color: var(--color-text-light);
   font-size: var(--font-size-lg);
 }
 
-.dragon-explorer__main {
-  grid-area: main;
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: var(--space-xl);
-  padding: var(--space-xl);
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.dragon-explorer__filters {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg);
-  height: fit-content;
-  border: 1px solid var(--color-border);
-}
-
-.dragon-explorer__content {
-  min-height: 500px;
-}
-
-.dragon-explorer__footer {
-  grid-area: footer;
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-  padding: var(--space-lg);
-}
-
+/* Characters Grid */
 .characters-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--space-lg);
-  margin-bottom: var(--space-xl);
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
-.pagination-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-lg);
-  padding: var(--space-lg);
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-}
-
-.pagination-info {
-  min-width: 120px;
-  text-align: center;
-}
-
-.pagination-info__text {
-  color: var(--color-text-light);
-  font-weight: 600;
-}
-
-.stats-panel {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-xl);
-}
-
-@media (max-width: 768px) {
-  .dragon-explorer__main {
-    grid-template-columns: 1fr;
-  }
-  
-  .dragon-explorer__header {
-    flex-direction: column;
-    gap: var(--space-md);
-    text-align: center;
-  }
-  
-  .pagination-controls {
-    flex-wrap: wrap;
-    gap: var(--space-md);
+@media (width >= 480px) {
+  .characters-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-```
 
-**📁 css/modules/components.css**
-```css
+@media (width >= 768px) {
+  .characters-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width >= 1024px) {
+  .characters-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Character Card */
 .character-card {
   background: var(--color-surface);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
   overflow: hidden;
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .character-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-glow);
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
 }
 
 .character-card__image {
@@ -548,33 +614,29 @@ body {
   background: var(--color-surface-light);
 }
 
-.character-card__header {
-  padding: var(--space-lg);
-  background: var(--color-surface-light);
-  border-bottom: 1px solid var(--color-border);
+.character-card__content {
+  padding: var(--space-md);
 }
 
-.character-card__title {
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  color: var(--color-dragon-accent);
+.character-card__name {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-accent);
   margin-bottom: var(--space-xs);
 }
 
 .character-card__race {
-  color: var(--color-text-light);
+  color: var(--color-primary);
   font-size: var(--font-size-sm);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.character-card__content {
-  padding: var(--space-lg);
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-sm);
 }
 
 .character-card__description {
   color: var(--color-text-light);
-  margin-bottom: var(--space-md);
+  font-size: var(--font-size-sm);
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -582,334 +644,353 @@ body {
   overflow: hidden;
 }
 
-.character-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
-  margin-bottom: var(--space-md);
-}
-
-.character-stat {
-  text-align: center;
-}
-
-.character-stat__value {
-  display: block;
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  color: var(--color-dragon-power);
-  margin-bottom: var(--space-xs);
-}
-
-.character-stat__label {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-}
-
-.character-affiliation {
-  display: inline-block;
-  background: var(--color-dragon-primary);
-  color: white;
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-}
-
-.loading-placeholder {
-  grid-column: 1 / -1;
+/* Pagination */
+.pagination {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: var(--space-xl);
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
   background: var(--color-surface);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-  min-height: 300px;
 }
 
-.loading-placeholder__text {
+.pagination__info {
   color: var(--color-text-light);
-  font-size: var(--font-size-lg);
-  margin-top: var(--space-lg);
-}
-```
-
-**📁 css/modules/elements.css**
-```css
-.search-box {
-  position: relative;
-}
-
-.search-box__input {
-  padding: var(--space-md) var(--space-lg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface-light);
-  color: var(--color-text);
-  font-size: var(--font-size-md);
-  width: 300px;
-  transition: var(--transition);
-}
-
-.search-box__input:focus {
-  outline: none;
-  border-color: var(--color-border-focus);
-  box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
-}
-
-.filter-section__title {
-  font-size: var(--font-size-xl);
   font-weight: 600;
-  color: var(--color-dragon-accent);
-  margin-bottom: var(--space-lg);
-}
-
-.filter-group {
-  margin-bottom: var(--space-lg);
-}
-
-.filter-group__label {
-  display: block;
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: var(--space-sm);
-  font-size: var(--font-size-sm);
-}
-
-.filter-group__select {
-  width: 100%;
-  padding: var(--space-md);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface-light);
-  color: var(--color-text);
-  font-size: var(--font-size-md);
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  padding: var(--space-md) var(--space-lg);
-  border: none;
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.btn--primary {
-  background: var(--color-dragon-primary);
-  color: white;
-}
-
-.btn--primary:hover:not(:disabled) {
-  background: var(--color-dragon-secondary);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-glow);
-}
-
-.btn--secondary {
-  background: var(--color-surface-light);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-  min-width: 140px;
-}
-
-.btn--secondary:hover:not(:disabled) {
-  background: var(--color-surface-hover);
-  border-color: var(--color-dragon-primary);
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.stat-item {
+  min-width: 120px;
   text-align: center;
 }
 
-.stat-item__number {
+/* Footer */
+.footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-surface-light);
+  padding: var(--space-lg) 0;
+  margin-top: var(--space-xl);
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-md);
+  text-align: center;
+}
+
+.stat__number {
   display: block;
   font-size: var(--font-size-2xl);
   font-weight: 700;
-  color: var(--color-dragon-accent);
+  color: var(--color-accent);
   margin-bottom: var(--space-xs);
 }
 
-.stat-item__label {
+.stat__label {
   font-size: var(--font-size-sm);
-  color: var(--color-text-light);
+  color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.5px;
 }
 
-.modal-overlay {
+/* Modal */
+.modal {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+.modal.show {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  backdrop-filter: blur(4px);
-}
-
-.modal {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-  max-width: 500px;
-  width: 90%;
-  overflow: hidden;
-}
-
-.modal--error {
-  border-color: var(--color-dragon-error);
-  box-shadow: var(--shadow-error);
-}
-
-.modal__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-lg);
-  background: var(--color-surface-light);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.modal__title {
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  color: var(--color-dragon-error);
-}
-
-.modal__close {
-  background: transparent;
-  border: none;
-  color: var(--color-text-light);
-  font-size: var(--font-size-lg);
-  cursor: pointer;
-  padding: var(--space-sm);
-  border-radius: var(--radius-sm);
-  transition: var(--transition);
-}
-
-.modal__close:hover {
-  background: var(--color-surface-hover);
-  color: var(--color-text);
 }
 
 .modal__content {
-  padding: var(--space-lg);
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  max-width: 90%;
+  width: 400px;
+  border: 2px solid var(--color-error);
 }
 
-.modal__actions {
-  display: flex;
-  gap: var(--space-md);
-  justify-content: flex-end;
-  padding: var(--space-lg);
-  background: var(--color-surface-light);
-  border-top: 1px solid var(--color-border);
-}
-
-.error-content {
+/* Error */
+.error {
   text-align: center;
 }
 
-.error-content__icon {
-  font-size: 4rem;
+.error__icon {
+  font-size: 3rem;
   margin-bottom: var(--space-md);
 }
 
-.error-content__message {
-  color: var(--color-text);
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--space-md);
-  line-height: 1.5;
+.error__title {
+  color: var(--color-error);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-sm);
 }
 
-.error-content__details {
-  color: var(--color-text-muted);
-  font-size: var(--font-size-sm);
-  background: var(--color-surface-light);
-  padding: var(--space-md);
-  border-radius: var(--radius-md);
-  border-left: 3px solid var(--color-dragon-error);
-}
-```
-
-**📁 css/modules/animations.css**
-```css
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.error__message {
+  color: var(--color-text-light);
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+.error__actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
 }
 
+/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes dragonGlow {
-  0%, 100% { box-shadow: 0 0 10px rgba(255, 140, 0, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(255, 140, 0, 0.6), 0 0 30px rgba(255, 140, 0, 0.3); }
-}
-
-.loading-placeholder__spinner {
-  width: 50px;
-  height: 50px;
-  border: 3px solid var(--color-surface-light);
-  border-top: 3px solid var(--color-dragon-accent);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
 }
 
 .fade-in {
   animation: fadeIn 0.4s ease-out;
 }
 
-.slide-in {
-  animation: slideIn 0.3s ease-out;
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--color-text-muted);
 }
 
-.pulse {
-  animation: pulse 2s infinite;
+.empty-state__icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-md);
 }
 
-.dragon-glow {
-  animation: dragonGlow 2s ease-in-out infinite;
+.empty-state__text {
+  font-size: var(--font-size-lg);
 }
 ```
 
-**📁 js/app.js**
+**📁 ./js/app.js**
 ```javascript
-import { DragonBallService } from './services/DragonBallService.js';
-import { UIManager } from './managers/UIManager.js';
-import { ErrorHandler } from './utils/ErrorHandler.js';
+import { getCharacters, getRandomCharacter } from './services/dragonball-service.js';
 
 // ==========================================================================
-// Test system
+// App State Management
+// ==========================================================================
+const state = {
+  characters: [],
+  filteredCharacters: [],
+  isLoading: false,
+  currentPage: 1,
+  totalPages: 1,
+  totalItems: 0,
+  currentFilter: { race: '', search: '' },
+  error: null,
+  loadingStartTime: 0
+};
+
+// ==========================================================================
+// DOM Elements
+// ==========================================================================
+const elements = {
+  // Loading and content
+  loadingState: document.getElementById('loadingState'),
+  charactersGrid: document.getElementById('charactersGrid'),
+  
+  // Controls
+  searchInput: document.getElementById('characterSearch'),
+  raceFilter: document.getElementById('raceFilter'),
+  randomBtn: document.getElementById('randomCharacterBtn'),
+  
+  // Pagination
+  paginationControls: document.getElementById('paginationControls'),
+  paginationInfo: document.getElementById('paginationInfo'),
+  prevBtn: document.getElementById('prevBtn'),
+  nextBtn: document.getElementById('nextBtn'),
+  
+  // Stats
+  totalCharacters: document.getElementById('totalCharacters'),
+  loadingTime: document.getElementById('loadingTime'),
+  lastUpdate: document.getElementById('lastUpdate'),
+  
+  // Error modal
+  errorModal: document.getElementById('errorModal'),
+  errorMessage: document.getElementById('errorMessage'),
+  retryBtn: document.getElementById('retryBtn'),
+  closeErrorBtn: document.getElementById('closeErrorBtn')
+};
+
+// ==========================================================================
+// Core Functions - TODO: Implementar
+// ==========================================================================
+
+const loadCharacters = async (page = 1) => {
+  // TODO: Cargar personajes desde Dragon Ball API
+  // TODO: Actualizar estado de la aplicación
+  // TODO: Manejar estados de loading y errores
+  // TODO: Renderizar personajes en la UI
+};
+
+const renderCharacters = (characters) => {
+  // TODO: Renderizar lista de personajes
+  // TODO: Crear HTML para cada personaje
+  // TODO: Mostrar imagen, nombre, raza y descripción
+  // TODO: Manejar lista vacía con mensaje apropiado
+};
+
+const createCharacterCard = (character) => {
+  // TODO: Crear HTML para tarjeta de personaje
+  // TODO: Incluir imagen con fallback
+  // TODO: Mostrar información básica
+  // TODO: Aplicar clases CSS apropiadas
+  return `
+    <article class="character-card fade-in">
+      <img 
+        src="${character.image}" 
+        alt="${character.name}" 
+        class="character-card__image"
+        onerror="this.src='https://via.placeholder.com/200x200/1a1f2e/ffd700?text=${character.name}'"
+      >
+      <div class="character-card__content">
+        <h3 class="character-card__name">${character.name}</h3>
+        <p class="character-card__race">${character.race}</p>
+        <p class="character-card__description">${character.description}</p>
+      </div>
+    </article>
+  `;
+};
+
+const applyFilters = () => {
+  // TODO: Aplicar filtros de raza y búsqueda
+  // TODO: Filtrar sobre characters cargados
+  // TODO: Actualizar filteredCharacters
+  // TODO: Re-renderizar resultados
+};
+
+const updatePagination = () => {
+  // TODO: Actualizar controles de paginación
+  // TODO: Habilitar/deshabilitar botones
+  // TODO: Mostrar información de página actual
+};
+
+const updateStats = (loadingTime) => {
+  // TODO: Actualizar estadísticas en footer
+  // TODO: Mostrar total de personajes
+  // TODO: Mostrar tiempo de carga
+  // TODO: Actualizar timestamp
+};
+
+const showLoading = (show = true) => {
+  // TODO: Mostrar/ocultar estado de loading
+  // TODO: Controlar visibilidad de elementos
+  if (show) {
+    state.loadingStartTime = performance.now();
+    elements.loadingState.classList.add('show');
+    elements.charactersGrid.style.display = 'none';
+  } else {
+    elements.loadingState.classList.remove('show');
+    elements.charactersGrid.style.display = 'grid';
+  }
+};
+
+const showError = (message) => {
+  // TODO: Mostrar modal de error
+  // TODO: Configurar mensaje específico
+  elements.errorMessage.textContent = message;
+  elements.errorModal.classList.add('show');
+};
+
+const hideError = () => {
+  // TODO: Ocultar modal de error
+  elements.errorModal.classList.remove('show');
+};
+
+// ==========================================================================
+// Event Handlers - TODO: Implementar
+// ==========================================================================
+
+const handleSearch = (event) => {
+  // TODO: Manejar búsqueda en tiempo real
+  // TODO: Actualizar filtro de búsqueda
+  // TODO: Aplicar filtros y re-renderizar
+};
+
+const handleRaceFilter = (event) => {
+  // TODO: Manejar filtro por raza
+  // TODO: Actualizar estado del filtro
+  // TODO: Aplicar filtros combinados
+};
+
+const handleRandomCharacter = async () => {
+  // TODO: Cargar personaje aleatorio
+  // TODO: Mostrar en modal o reemplazar grid
+  // TODO: Manejar errores apropiadamente
+};
+
+const handlePrevPage = async () => {
+  // TODO: Ir a página anterior
+  // TODO: Verificar que no estamos en página 1
+  // TODO: Actualizar currentPage y cargar datos
+  if (state.currentPage > 1) {
+    await loadCharacters(state.currentPage - 1);
+  }
+};
+
+const handleNextPage = async () => {
+  // TODO: Ir a página siguiente
+  // TODO: Verificar que hay página siguiente
+  // TODO: Actualizar currentPage y cargar datos
+  if (state.currentPage < state.totalPages) {
+    await loadCharacters(state.currentPage + 1);
+  }
+};
+
+const handleRetry = async () => {
+  // TODO: Reintentar última operación
+  // TODO: Cerrar modal de error
+  // TODO: Recargar página actual
+  hideError();
+  await loadCharacters(state.currentPage);
+};
+
+// ==========================================================================
+// App Initialization
+// ==========================================================================
+
+const initializeApp = async () => {
+  // TODO: Inicializar aplicación
+  // TODO: Configurar event listeners
+  // TODO: Cargar primera página de personajes
+  // TODO: Manejar errores de inicialización
+  
+  try {
+    // Setup event listeners
+    elements.searchInput.addEventListener('input', handleSearch);
+    elements.raceFilter.addEventListener('change', handleRaceFilter);
+    elements.randomBtn.addEventListener('click', handleRandomCharacter);
+    elements.prevBtn.addEventListener('click', handlePrevPage);
+    elements.nextBtn.addEventListener('click', handleNextPage);
+    elements.retryBtn.addEventListener('click', handleRetry);
+    elements.closeErrorBtn.addEventListener('click', hideError);
+    
+    // Load initial data
+    await loadCharacters(1);
+    
+  } catch (error) {
+    console.error('Error initializing app:', error);
+    showError('Error al inicializar la aplicación');
+  }
+};
+
+// ==========================================================================
+// Test System
 // ==========================================================================
 const testResults = [];
 const recordTest = (testName, condition) => {
@@ -917,269 +998,75 @@ const recordTest = (testName, condition) => {
   testResults.push(`${emoji} ${testName}`);
 };
 
-// ==========================================================================
-// Application State
-// ==========================================================================
-const appState = {
-  characters: [],
-  filteredCharacters: [],
-  isLoading: false,
-  currentPage: 1,
-  totalPages: 1,
-  totalItems: 0,
-  currentFilter: { race: '', affiliation: '', search: '' },
-  loadingStats: { startTime: 0, endTime: 0 },
-  retryCount: 0,
-  maxRetries: 3,
-  lastOperation: null
-};
-
-// ==========================================================================
-// Main App Functions - TODO: Implementar estas funciones
-// ==========================================================================
-const loadCharacterData = async (page = 1) => {
-  // TODO: Cargar datos de personajes de Dragon Ball API
-  // TODO: Usar DragonBallService para obtener datos paginados
-  // TODO: Manejar estados de loading con UIManager
-  // TODO: Actualizar estadísticas de tiempo y metadatos
-  return null;
-};
-
-const displayLoadingState = () => {
-  // TODO: Mostrar estado de carga para personajes
-  // TODO: Activar spinner y mensaje de carga específico
-  // TODO: Deshabilitar controles de paginación durante la carga
-};
-
-const handleAsyncOperation = async (operation) => {
-  // TODO: Manejar cualquier operación asíncrona genérica
-  // TODO: Implementar try/catch para manejo de errores de red
-  // TODO: Mostrar estados de loading apropiados
-  // TODO: Implementar retry logic para fallos de conexión
-  // TODO: Retornar resultado o null en caso de error
-};
-
-const fetchCharacters = async (page = 1, limit = 10) => {
-  // TODO: Obtener personajes desde Dragon Ball API
-  // TODO: Construir URL con parámetros de paginación
-  // TODO: Manejar respuesta de API con estructura: {items, meta, links}
-  // TODO: Retornar datos estructurados o throw error
-};
-
-const handleApiError = (error) => {
-  // TODO: Procesar errores específicos de API
-  // TODO: Distinguir entre errores de red, timeout, parseo JSON
-  // TODO: Mostrar modal de error con ErrorHandler
-  // TODO: Actualizar UI para mostrar estado de error
-  // TODO: Limpiar estados de loading
-};
-
-const showErrorState = (message, canRetry = true) => {
-  // TODO: Mostrar estado de error en la UI
-  // TODO: Usar UIManager para mostrar modal de error
-  // TODO: Configurar botón de reintentar si canRetry es true
-  // TODO: Log error details para debugging
-};
-
-const loadNextPage = async () => {
-  // TODO: Cargar siguiente página de personajes
-  // TODO: Verificar que existe página siguiente
-  // TODO: Actualizar currentPage en appState
-  // TODO: Llamar loadCharacterData con nueva página
-};
-
-const loadPreviousPage = async () => {
-  // TODO: Cargar página anterior de personajes
-  // TODO: Verificar que existe página anterior
-  // TODO: Actualizar currentPage en appState
-  // TODO: Llamar loadCharacterData con nueva página
-};
-
-const updatePaginationUI = (meta) => {
-  // TODO: Actualizar controles de paginación
-  // TODO: Habilitar/deshabilitar botones según disponibilidad
-  // TODO: Actualizar texto informativo "Página X de Y"
-  // TODO: Mostrar controles si hay más de una página
-};
-
-const filterByRace = (race) => {
-  // TODO: Filtrar personajes por raza específica
-  // TODO: Trabajar con datos ya cargados en appState.characters
-  // TODO: Retornar array filtrado de personajes
-  // TODO: Actualizar UI con resultados filtrados
-};
-
-const filterByAffiliation = (affiliation) => {
-  // TODO: Filtrar personajes por afiliación específica
-  // TODO: Trabajar con datos ya cargados en appState.characters
-  // TODO: Retornar array filtrado de personajes
-  // TODO: Actualizar UI con resultados filtrados
-};
-
-// ==========================================================================
-// Event Handlers - TODO: Implementar estas funciones
-// ==========================================================================
-const handleSearchInput = async (event) => {
-  // TODO: Manejar búsqueda en tiempo real por nombre
-  // TODO: Debounce para evitar muchas búsquedas
-  // TODO: Filtrar personajes según término de búsqueda
-  // TODO: Actualizar display con resultados
-};
-
-const handleFilterChange = async (event) => {
-  // TODO: Manejar cambios en filtros de raza/afiliación
-  // TODO: Aplicar filtros combinados (raza + afiliación + búsqueda)
-  // TODO: Actualizar appState con filtros actuales
-  // TODO: Re-renderizar resultados filtrados
-};
-
-const handleLoadRandomCharacter = async () => {
-  // TODO: Cargar un personaje aleatorio
-  // TODO: Usar DragonBallService para obtener personaje random
-  // TODO: Mostrar loading state durante la operación
-  // TODO: Manejar errores apropiadamente
-};
-
-const handleNextPage = async () => {
-  // TODO: Manejar clic en botón "Siguiente"
-  // TODO: Verificar que no estamos en la última página
-  // TODO: Llamar loadNextPage()
-  // TODO: Actualizar UI de paginación
-};
-
-const handlePreviousPage = async () => {
-  // TODO: Manejar clic en botón "Anterior"
-  // TODO: Verificar que no estamos en la primera página
-  // TODO: Llamar loadPreviousPage()
-  // TODO: Actualizar UI de paginación
-};
-
-const handleRetryLoad = async () => {
-  // TODO: Reintentar operación fallida
-  // TODO: Cerrar modal de error
-  // TODO: Incrementar contador de reintentos
-  // TODO: Ejecutar última operación nuevamente
-  // TODO: Mostrar mensaje si se excede maxRetries
-};
-
-// ==========================================================================
-// App Initialization - TODO: Implementar esta función
-// ==========================================================================
-const initializeApp = async () => {
-  // TODO: Inicializar aplicación completa
-  // TODO: Configurar servicios (DragonBallService, UIManager, ErrorHandler)
-  // TODO: Configurar event listeners para búsqueda, filtros, paginación
-  // TODO: Cargar primera página de personajes
-  // TODO: Establecer estado inicial de la aplicación
-  // TODO: Manejar errores de inicialización
-};
-
-// ==========================================================================
-// Tests automatizados
-// ==========================================================================
 const runTests = () => {
-  // Test 1: Funcionalidad - Async/await with real API
+  // Test 1: Async functionality
   try {
     const asyncFunctionsExist = 
-      typeof loadCharacterData === "function" &&
-      typeof fetchCharacters === "function" &&
-      typeof handleAsyncOperation === "function";
+      typeof loadCharacters === "function" &&
+      typeof handleRandomCharacter === "function" &&
+      typeof initializeApp === "function";
     
-    // Check if functions are properly marked as async
-    const loadCharacterAsync = loadCharacterData.constructor.name === "AsyncFunction";
-    const fetchCharactersAsync = fetchCharacters.constructor.name === "AsyncFunction";
-    
-    recordTest("4.1.1 Async/await functionality with real API works correctly", 
-      asyncFunctionsExist && loadCharacterAsync && fetchCharactersAsync);
+    recordTest("4.1.1 Async/await functionality works correctly", asyncFunctionsExist);
   } catch (error) {
-    recordTest("4.1.1 Async/await functionality with real API works correctly", false);
+    recordTest("4.1.1 Async/await functionality works correctly", false);
   }
 
-  // Test 2: Funcionalidad - Pagination works correctly
+  // Test 2: State management
   try {
-    const paginationFunctionsExist = 
-      typeof loadNextPage === "function" &&
-      typeof loadPreviousPage === "function" &&
-      typeof updatePaginationUI === "function";
+    const stateManagementExists = 
+      typeof state === "object" &&
+      state !== null &&
+      'isLoading' in state &&
+      'currentPage' in state;
     
-    const paginationHandlersExist = 
-      typeof handleNextPage === "function" &&
-      typeof handlePreviousPage === "function";
-    
-    recordTest("4.1.2 Pagination functionality works correctly", 
-      paginationFunctionsExist && paginationHandlersExist);
+    recordTest("4.1.2 Loading and error states work correctly", stateManagementExists);
   } catch (error) {
-    recordTest("4.1.2 Pagination functionality works correctly", false);
+    recordTest("4.1.2 Loading and error states work correctly", false);
   }
 
-  // Test 3: Funcionalidad - Real API error handling works correctly
+  // Test 3: Filtering and search
   try {
-    const errorHandlingExists = typeof handleApiError === "function";
-    const errorStateExists = typeof showErrorState === "function";
-    const retryHandlerExists = typeof handleRetryLoad === "function";
-    
-    recordTest("4.1.3 Real API error handling functionality works correctly", 
-      errorHandlingExists && errorStateExists && retryHandlerExists);
-  } catch (error) {
-    recordTest("4.1.3 Real API error handling functionality works correctly", false);
-  }
-
-  // Test 4: Validaciones - System handles real API edge cases properly
-  try {
-    // Test filter functions exist
     const filterFunctionsExist = 
-      typeof filterByRace === "function" &&
-      typeof filterByAffiliation === "function";
+      typeof applyFilters === "function" &&
+      typeof handleSearch === "function" &&
+      typeof handleRaceFilter === "function";
     
-    // Test event handlers exist
-    const eventHandlersExist = 
-      typeof handleSearchInput === "function" &&
-      typeof handleFilterChange === "function" &&
-      typeof handleLoadRandomCharacter === "function";
-    
-    // Test app state management with pagination
-    const appStateExists = typeof appState === "object" && 
-                           appState !== null &&
-                           'currentPage' in appState &&
-                           'totalPages' in appState;
-    
-    recordTest("4.1.4 System handles real API validation correctly", 
-      filterFunctionsExist && eventHandlersExist && appStateExists);
+    recordTest("4.1.3 Filtering and search work correctly", filterFunctionsExist);
   } catch (error) {
-    recordTest("4.1.4 System handles real API validation correctly", false);
+    recordTest("4.1.3 Filtering and search work correctly", false);
   }
 
-  // Test 5: Return types - Functions return correct data types for API responses
+  // Test 4: Pagination
   try {
-    const functionTypesCorrect = 
-      typeof initializeApp === "function" &&
-      typeof loadCharacterData === "function" &&
-      typeof fetchCharacters === "function";
+    const paginationExists = 
+      typeof handlePrevPage === "function" &&
+      typeof handleNextPage === "function" &&
+      typeof updatePagination === "function";
     
-    // Test that async functions exist and are properly structured
-    const asyncFunctionPattern = loadCharacterData.toString().includes('async') ||
-                                loadCharacterData.constructor.name === "AsyncFunction";
-    
-    // Test API service integration
-    const serviceTypesCorrect = 
-      typeof DragonBallService !== "undefined" &&
-      typeof UIManager !== "undefined" &&
-      typeof ErrorHandler !== "undefined";
-    
-    recordTest("4.1.5 Functions return correct types for API responses", 
-      functionTypesCorrect && asyncFunctionPattern && serviceTypesCorrect);
+    recordTest("4.1.4 Pagination works correctly", paginationExists);
   } catch (error) {
-    recordTest("4.1.5 Functions return correct types for API responses", false);
+    recordTest("4.1.4 Pagination works correctly", false);
+  }
+
+  // Test 5: Module integration
+  try {
+    const moduleIntegrationExists = 
+      typeof getCharacters === "function" &&
+      typeof getRandomCharacter === "function";
+    
+    recordTest("4.1.5 Module integration works correctly", moduleIntegrationExists);
+  } catch (error) {
+    recordTest("4.1.5 Module integration works correctly", false);
   }
 };
 
 // ==========================================================================
-// App initialization
+// App Start
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', async () => {
   await initializeApp();
   
-  // Run tests after brief delay
+  // Run tests after initialization
   setTimeout(() => {
     runTests();
     console.log('=== 🧪 Test Results Reto 4.1 - Dragon Ball API ===');
@@ -1188,301 +1075,213 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 ```
 
-**📁 js/services/DragonBallService.js**
+**📁 ./js/services/dragonball-service.js**
 ```javascript
 // ==========================================================================
-// Dragon Ball API Service - Real API Integration
+// Dragon Ball API Service - Simple and Clean
 // ==========================================================================
-export class DragonBallService {
-  constructor() {
-    this.baseURL = 'https://dragonball-api.com/api';
-    this.defaultLimit = 10;
-    this.maxRetries = 3;
-    this.retryDelay = 1000; // ms
-  }
 
-  // TODO: Implementar método para obtener personajes con paginación
-  async getCharacters(page = 1, limit = this.defaultLimit) {
-    // TODO: Construir URL con parámetros de query
-    // TODO: Implementar fetch con manejo de errores
-    // TODO: Parsear respuesta JSON
-    // TODO: Retornar estructura: {items, meta, links}
-    // TODO: Manejar errores de red y respuestas inválidas
-  }
+const BASE_URL = 'https://dragonball-api.com/api';
+const DEFAULT_LIMIT = 12;
 
-  // TODO: Implementar método para obtener personaje por ID
-  async getCharacterById(id) {
-    // TODO: Construir URL específica para personaje
-    // TODO: Fetch individual character data
-    // TODO: Retornar datos del personaje o null si no existe
-    // TODO: Manejar errores 404 graciosamente
-  }
-
-  // TODO: Implementar método para obtener personaje aleatorio
-  async getRandomCharacter() {
-    // TODO: Primero obtener meta información para total de personajes
-    // TODO: Generar ID aleatorio válido
-    // TODO: Usar getCharacterById para obtener datos
-    // TODO: Retry si el personaje no existe
-  }
-
-  // TODO: Implementar método de retry con backoff
-  async fetchWithRetry(url, options = {}, retries = this.maxRetries) {
-    // TODO: Implementar lógica de retry con exponential backoff
-    // TODO: Manejar diferentes tipos de error (network, timeout, 5xx)
-    // TODO: Log intentos para debugging
-    // TODO: Throw error final si se agotan los retry attempts
-  }
-
-  // TODO: Implementar método para validar respuesta de API
-  validateApiResponse(response, data) {
-    // TODO: Verificar que response.ok es true
-    // TODO: Verificar estructura de datos esperada
-    // TODO: Validar tipos de datos críticos
-    // TODO: Throw descriptive errors para problemas específicos
-  }
-
-  // TODO: Implementar método para construir URLs con parámetros
-  buildURL(endpoint, params = {}) {
-    // TODO: Combinar baseURL con endpoint
-    // TODO: Agregar parámetros de query si existen
-    // TODO: Manejar encoding apropiado
-    // TODO: Retornar URL completa válida
-  }
-}
-```
-
-**📁 js/managers/UIManager.js**  
-```javascript
-// ==========================================================================
-// UI Manager - Handle all UI updates and interactions for Dragon Ball
-// ==========================================================================
-export class UIManager {
-  constructor() {
-    this.elements = {
-      charactersGrid: document.querySelector('#charactersGrid'),
-      paginationControls: document.querySelector('#paginationControls'),
-      paginationInfo: document.querySelector('#paginationInfo'),
-      prevPageBtn: document.querySelector('#prevPageBtn'),
-      nextPageBtn: document.querySelector('#nextPageBtn'),
-      errorModal: document.querySelector('#errorModal'),
-      errorMessage: document.querySelector('#errorMessage'),
-      errorDetails: document.querySelector('#errorDetails'),
-      totalCharacters: document.querySelector('#totalCharacters'),
-      loadingTime: document.querySelector('#loadingTime'),
-      lastUpdate: document.querySelector('#lastUpdate')
-    };
+// Get characters with pagination
+export const getCharacters = async (page = 1, limit = DEFAULT_LIMIT) => {
+  try {
+    const url = `${BASE_URL}/characters?page=${page}&limit=${limit}`;
+    const response = await fetch(url);
     
-    this.currentLoadingElement = null;
-  }
-
-  // TODO: Implementar método para renderizar personajes
-  renderCharacters(characters) {
-    // TODO: Limpiar grid actual
-    // TODO: Crear elementos de card para cada personaje
-    // TODO: Usar createCharacterCard para cada personaje
-    // TODO: Aplicar animaciones de entrada con fadeIn
-    // TODO: Manejar caso de lista vacía con mensaje apropiado
-  }
-
-  // TODO: Implementar método para mostrar loading
-  showLoading(message = "Cargando guerreros del universo... 🐉") {
-    // TODO: Crear y mostrar spinner con mensaje personalizado
-    // TODO: Deshabilitar controles de paginación y filtros
-    // TODO: Limpiar contenido anterior del grid
-    // TODO: Almacenar referencia del loading element
-  }
-
-  // TODO: Implementar método para ocultar loading  
-  hideLoading() {
-    // TODO: Remover spinner y mensaje de loading
-    // TODO: Restaurar controles interactivos
-    // TODO: Limpiar referencia del loading element
-    // TODO: Preparar grid para mostrar contenido
-  }
-
-  // TODO: Implementar método para mostrar errores
-  showError(message, details = "", canRetry = true) {
-    // TODO: Mostrar modal de error con mensaje específico
-    // TODO: Configurar detalles técnicos si se proporcionan
-    // TODO: Mostrar/ocultar botón de reintentar según canRetry
-    // TODO: Configurar event listeners para botones de modal
-  }
-
-  // TODO: Implementar método para ocultar errores
-  hideError() {
-    // TODO: Ocultar modal de error
-    // TODO: Limpiar mensajes de error anteriores
-    // TODO: Remover event listeners del modal
-    // TODO: Resetear estado de error en UI
-  }
-
-  // TODO: Implementar método para actualizar estadísticas
-  updateStats(totalCharacters, loadingTime, currentPage, totalPages) {
-    // TODO: Actualizar contador total de personajes
-    // TODO: Mostrar tiempo de carga de la API
-    // TODO: Actualizar timestamp de última actualización
-    // TODO: Aplicar animaciones suaves a los números
-  }
-
-  // TODO: Implementar método para actualizar paginación
-  updatePagination(currentPage, totalPages, hasNextPage, hasPreviousPage) {
-    // TODO: Actualizar texto "Página X de Y"
-    // TODO: Habilitar/deshabilitar botón Anterior
-    // TODO: Habilitar/deshabilitar botón Siguiente
-    // TODO: Mostrar/ocultar controles de paginación
-  }
-
-  // TODO: Implementar método para crear card de personaje
-  createCharacterCard(character) {
-    // TODO: Crear estructura HTML para card de personaje
-    // TODO: Agregar imagen con manejo de error de carga
-    // TODO: Mostrar información: nombre, raza, ki, afiliación
-    // TODO: Aplicar estilos específicos según raza/afiliación
-    // TODO: Truncar descripción si es muy larga
-    // TODO: Retornar elemento DOM completo
-  }
-
-  // TODO: Implementar método para manejar imágenes con fallback
-  handleImageError(imgElement, character) {
-    // TODO: Mostrar imagen placeholder si falla la carga
-    // TODO: Aplicar estilos apropiados para fallback
-    // TODO: Log error para debugging
-  }
-}
-```
-
-**📁 js/utils/ErrorHandler.js**
-```javascript
-// ==========================================================================
-// Error Handler - Centralized error management for Dragon Ball API
-// ==========================================================================
-export class ErrorHandler {
-  static logError(error, context = '', additionalInfo = {}) {
-    // TODO: Log error con contexto específico de Dragon Ball API
-    // TODO: Incluir timestamp y detalles del error
-    // TODO: Clasificar error por severidad (low, medium, high)
-    // TODO: Incluir información adicional como URL, parámetros
-    console.error(`[DragonBall API ${context}] Error:`, error, additionalInfo);
-  }
-
-  static getErrorMessage(error) {
-    // TODO: Convertir errores técnicos en mensajes amigables
-    // TODO: Manejar errores específicos de Dragon Ball API
-    // TODO: Considerar códigos de estado HTTP específicos
-    // TODO: Retornar mensaje apropiado para el usuario
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     
-    if (error.name === 'TypeError' && error.message.includes('fetch')) {
-      return 'Error de conexión con Dragon Ball API 📡';
-    }
-    if (error.name === 'SyntaxError') {
-      return 'Error procesando datos de los personajes 🔧';
-    }
-    if (error.status === 404) {
-      return 'Personajes no encontrados en la base de datos 🔍';
-    }
-    if (error.status >= 500) {
-      return 'El servidor de Dragon Ball está experimentando dificultades 🛠️';
-    }
-    return 'Error desconocido explorando el universo Dragon Ball 🐉';
+    const data = await response.json();
+    return data;
+    
+  } catch (error) {
+    console.error('Error fetching characters:', error);
+    throw new Error('No se pudieron cargar los personajes de Dragon Ball');
   }
+};
 
-  static handleNetworkError(error, operation, url = '') {
-    // TODO: Manejo especializado para errores de red
-    // TODO: Detectar si es timeout, conexión perdida, CORS, etc.
-    // TODO: Incluir información sobre la operación fallida
-    // TODO: Sugerir acciones específicas de recuperación
-    // TODO: Retornar objeto de error estructurado para UI
-    return {
-      message: this.getErrorMessage(error),
-      operation: operation,
-      url: url,
-      timestamp: new Date().toISOString(),
-      canRetry: this.canRetryError(error),
-      retryDelay: this.getRetryDelay(error)
-    };
+// Get random character
+export const getRandomCharacter = async () => {
+  try {
+    // First get total count
+    const firstPage = await getCharacters(1, 1);
+    const totalItems = firstPage.meta.totalItems;
+    
+    // Generate random ID (Dragon Ball API uses sequential IDs)
+    const randomId = Math.floor(Math.random() * totalItems) + 1;
+    
+    const url = `${BASE_URL}/characters/${randomId}`;
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const character = await response.json();
+    return character;
+    
+  } catch (error) {
+    console.error('Error fetching random character:', error);
+    throw new Error('No se pudo cargar un personaje aleatorio');
   }
+};
 
-  static canRetryError(error) {
-    // TODO: Determinar si un error específico permite retry
-    // TODO: Errores de red temporal: sí
-    // TODO: Errores 4xx: generalmente no
-    // TODO: Errores 5xx: sí
-    // TODO: Errores de parsing: no
-    if (error.status >= 500) return true;
-    if (error.name === 'TypeError' && error.message.includes('fetch')) return true;
-    if (error.status >= 400 && error.status < 500) return false;
-    return true;
-  }
+// Search characters by name (client-side filtering)
+export const searchCharacters = (characters, searchTerm) => {
+  if (!searchTerm.trim()) return characters;
+  
+  return characters.filter(character =>
+    character.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+};
 
-  static getRetryDelay(error) {
-    // TODO: Calcular delay apropiado para retry según tipo de error
-    // TODO: Usar exponential backoff para errores de servidor
-    // TODO: Delay mínimo para errores de red
-    // TODO: Considerar rate limiting
-    if (error.status >= 500) return 2000; // 2 seconds for server errors
-    if (error.status === 429) return 5000; // 5 seconds for rate limiting
-    return 1000; // 1 second default
+// Filter characters by race
+export const filterByRace = (characters, race) => {
+  if (!race) return characters;
+  
+  return characters.filter(character =>
+    character.race.toLowerCase() === race.toLowerCase()
+  );
+};
+
+// Apply combined filters
+export const applyFilters = (characters, filters) => {
+  let filtered = [...characters];
+  
+  // Apply race filter
+  if (filters.race) {
+    filtered = filterByRace(filtered, filters.race);
   }
-}
+  
+  // Apply search filter
+  if (filters.search) {
+    filtered = searchCharacters(filtered, filters.search);
+  }
+  
+  return filtered;
+};
 ```
 
 ---
 
-#### 💡 Tips Técnicos
+### 🧠 Solución Completa de Implementación
 
-⚡ **Real API Integration:** Siempre usar try/catch con fetch() para manejar errores de red  
-🔄 **Pagination Mastery:** Implementar navegación fluida con estados de botones dinámicos  
-🎯 **Error Boundaries:** Crear jerarquía especializada para errores de API externa  
-📦 **Service Layer:** Separar lógica de API en servicio dedicado y reutilizable  
-🎨 **Loading UX:** Estados visuales específicos para operaciones de red lentas  
-🛡️ **Graceful Degradation:** Sistema funcional incluso con API offline  
-💾 **Response Validation:** Validar estructura de datos de API antes de usar  
-🔍 **Debug Friendly:** Logs detallados para facilitar debugging de problemas de API
+**Complete app.js implementation:**
+```javascript
+import { 
+  getCharacters, 
+  getRandomCharacter, 
+  applyFilters as applyServiceFilters 
+} from './services/dragonball-service.js';
+
+// ... (previous code remains the same until Core Functions)
+
+const loadCharacters = async (page = 1) => {
+  try {
+    showLoading(true);
+    state.error = null;
+    
+    const data = await getCharacters(page);
+    
+    state.characters = data.items;
+    state.currentPage = data.meta.currentPage;
+    state.totalPages = data.meta.totalPages;
+    state.totalItems = data.meta.totalItems;
+    
+    applyFilters();
+    updatePagination();
+    
+    const loadingTime = performance.now() - state.loadingStartTime;
+    updateStats(loadingTime);
+    
+  } catch (error) {
+    state.error = error.message;
+    showError(error.message);
+  } finally {
+    showLoading(false);
+  }
+};
+
+const renderCharacters = (characters) => {
+  if (!characters || characters.length === 0) {
+    elements.charactersGrid.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state__icon">🔍</div>
+        <p class="empty-state__text">No se encontraron guerreros</p>
+      </div>
+    `;
+    return;
+  }
+  
+  const html = characters.map(character => createCharacterCard(character)).join('');
+  elements.charactersGrid.innerHTML = html;
+};
+
+const applyFilters = () => {
+  state.filteredCharacters = applyServiceFilters(state.characters, state.currentFilter);
+  renderCharacters(state.filteredCharacters);
+};
+
+const updatePagination = () => {
+  elements.paginationInfo.textContent = `Página ${state.currentPage} de ${state.totalPages}`;
+  elements.prevBtn.disabled = state.currentPage <= 1;
+  elements.nextBtn.disabled = state.currentPage >= state.totalPages;
+  
+  elements.paginationControls.style.display = state.totalPages > 1 ? 'flex' : 'none';
+};
+
+const updateStats = (loadingTime) => {
+  elements.totalCharacters.textContent = state.filteredCharacters.length;
+  elements.loadingTime.textContent = `${Math.round(loadingTime)}ms`;
+  elements.lastUpdate.textContent = new Date().toLocaleTimeString();
+};
+
+// Event Handlers
+const handleSearch = (event) => {
+  state.currentFilter.search = event.target.value;
+  applyFilters();
+};
+
+const handleRaceFilter = (event) => {
+  state.currentFilter.race = event.target.value;
+  applyFilters();
+};
+
+const handleRandomCharacter = async () => {
+  try {
+    showLoading(true);
+    const character = await getRandomCharacter();
+    
+    // Show single character
+    const html = createCharacterCard(character);
+    elements.charactersGrid.innerHTML = html;
+    
+    // Update stats
+    elements.totalCharacters.textContent = '1';
+    elements.lastUpdate.textContent = new Date().toLocaleTimeString();
+    
+  } catch (error) {
+    showError(error.message);
+  } finally {
+    showLoading(false);
+  }
+};
+
+// ... (rest of the implementation follows the same pattern)
+```
 
 ---
 
-#### 🌟 Motivación Épica
+### 💡 Conceptos Técnicos Clave
 
-¡INCREÍBLE, Maestro de APIs Dragon Ball! 🐉✨ Has construido tu primer sistema que se conecta con APIs reales del mundo exterior.
-
-⚡ **Real API Mastery:** Conexión exitosa con Dragon Ball API oficial  
-🔄 **Pagination Pro:** Navegación fluida entre páginas de datos  
-🛡️ **Network Resilience:** Sistema robusto que maneja fallos de conexión  
-📦 **Service Architecture:** Código organizado en servicios especializados  
-🎨 **Professional UX:** Estados de carga y error dignos de aplicaciones comerciales  
-
-¡Elliot 🤓, Fernanda 👧, Mijael 👦 y Fe 🌟 están asombrados de tu explorador de guerreros Z! Ahora pueden navegar por el universo Dragon Ball con datos reales y actualizados. 🌟💫
-
-**¡Estás oficialmente preparado para APIs complejas y frameworks modernos!** 🏆🌐💻
-
-
----
-
-## 🚀🎯 Siguientes Pasos
-
-¡FANTÁSTICO! Has dominado los fundamentos de JavaScript asíncrono 🎉⚡ Tu comprensión de async/await, manejo de errores y estados de UI te posiciona perfectamente para el desarrollo frontend moderno. ¡Es hora del gran salto! 🚀✨
-
-### 🌟💻 Próximas Aventuras Técnicas
-- ⚛️ **React Fundamentals** - Components, JSX, props, state management 🏗️🎯
-- 🔄 **API Integration** - REST APIs, authentication, data fetching patterns 📡🔐
-- 🎨 **Advanced CSS** - Flexbox/Grid mastery, animations, responsive design 📱💫
-- 📦 **Build Tools** - Webpack, Vite, package management, deployment 🛠️🚀
-
-🎊✨ **¡FELICITACIONES, MAESTRO DEL JAVASCRIPT ASÍNCRONO!** 🏆⚡ Has completado una transformación extraordinaria desde variables básicas hasta sistemas asíncronos profesionales.
-
-### 🌟 Tu Evolución Épica:
-📝 **Nivel 1** - Variables y lógica fundamental sólida como roca  
-🏗️ **Nivel 2** - Estructuras de datos complejas dominadas  
-🎨 **Nivel 3** - Interactividad web con DOM y persistencia  
-⚡ **Nivel 4** - Asincronía profesional y arquitectura escalable  
-
-### 🚀 Estás Preparado Para:
-✅ Frameworks modernos como React, Vue, Angular  
-✅ APIs reales con autenticación y manejo de estados  
-✅ Proyectos frontend complejos y escalables  
-✅ Colaboración en equipos de desarrollo profesional  
-
-¡Elliot 🤓, Fernanda 👧, Mijael 👦, Fe 🌟, Doky 🐕, Chocolate 🍫, Amorosa 💖 y Chanchi 🐱 están súper orgullosos de tu increíble progresión! Has demostrado que con dedicación y práctica gradual se puede dominar cualquier tecnología.
-
-**¡El ecosistema moderno del desarrollo web te está esperando!** 🌈💫🏆
+**🔄 Async/Await Pattern:** Manejo limpio de operaciones asíncronas sin callbacks anidados  
+**📦 ES6 Modules:** Separación clara de responsabilidades con import/export  
+**🎯 State Management:** Estado centralizado que refleja el estado actual de la aplicación  
+**⚡ Event-Driven:** Respuesta a interacciones del usuario con handlers específicos  
+**🛡️ Error Boundaries:** Manejo robusto de errores de red y API  
+**🎨 Progressive Enhancement:** UI que funciona desde mobile hasta desktop  
+**🔍 Client-side Filtering:** Filtrado eficiente sobre datos ya cargados  
+**📊 Real-time Feedback:** Estadísticas y estados que se actualizan dinámicamente
