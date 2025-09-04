@@ -57,11 +57,11 @@ npm init -y
 
 ### 📦 Instalación de dependencias
 
-Ahora vamos a instalar las librerías que necesitamos, separadas por tipo:
+Ahora vamos a instalar las librerías que necesitamos:
 
 ```bash
 # 🚀 Dependencias para producción (van al servidor final)
-npm install express
+npm install express cors
 
 # 🛠️ Dependencias solo para desarrollo (facilitan el trabajo)
 npm install --save-dev nodemon
@@ -69,6 +69,7 @@ npm install --save-dev nodemon
 
 > 💡 **¿Qué hace cada dependencia?**
 > - 🌐 **express**: Framework web para crear APIs fácilmente
+> - 🌍 **cors**: Permite que cualquier frontend consume tu API (¡súper importante!)
 > - 🔄 **nodemon**: Reinicia automáticamente el servidor cuando cambias código (¡súper útil!)
 
 ### 📝 Configurar package.json
@@ -91,7 +92,8 @@ Abre `package.json` y modifica **estas líneas específicas**:
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
@@ -135,24 +137,30 @@ Primero, vamos a crear un servidor súper simple! 🎯
 Crea `src/index.js`:
 
 ```javascript
-// 📦 Import Express
+// 📦 Import Express and CORS
 import express from 'express';
+import cors from 'cors';
 
 // 🏗️ Create Express application
 const app = express();
 const PORT = 3000;
 
+// 🌍 Enable CORS for all routes (allows frontend consumption)
+app.use(cors());
+
 // 🏠 Simple welcome route
 app.get('/', (req, res) => {
   res.json({ 
     message: "🎉 The server is running!",
-    status: "success"
+    status: "success",
+    corsEnabled: true
   });
 });
 
 // 🚀 Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🌍 CORS enabled - Frontend ready!`);
 });
 ```
 
@@ -166,7 +174,7 @@ npm run dev
 npm start
 ```
 
-Ve a `http://localhost:3000` y verás tu primer mensaje! 🎉
+Ve a `http://localhost:3000` y verás tu primer mensaje con CORS habilitado! 🎉
 
 > 💡 **¡Genial!** Con `npm run dev` el servidor se reinicia automáticamente cada vez que guardes cambios. ¡Súper conveniente para desarrollo! 🔄
 
@@ -427,11 +435,15 @@ Ahora **reemplaza completamente** el contenido de `src/index.js` con esta versi�
 ```javascript
 // 📦 Import dependencies
 import express from 'express';
+import cors from 'cors';
 import foodRouter from './routes/foodRoutes.js';
 
 // 🏗️ Create Express application
 const app = express();
 const PORT = 3000;
+
+// 🌍 Enable CORS for all routes (CRITICAL for frontend consumption)
+app.use(cors());
 
 // 🏠 Welcome route - API documentation endpoint
 app.get('/', (req, res) => {
@@ -440,12 +452,14 @@ app.get('/', (req, res) => {
     version: "1.0.0",
     description: "Discover the amazing flavors of Peru! 🍽️",
     totalFoods: 10,
+    corsEnabled: true,
     features: [
       "🔍 Search by name or description",
       "🏷️ Filter by category",
-      "🌶️ Filter by spiciness level",
+      "🌶️ Filter by spiciness level", 
       "💰 Filter by maximum price",
-      "📊 Detailed food information with images"
+      "📊 Detailed food information with images",
+      "🌍 CORS enabled - Ready for frontend consumption!"
     ],
     endpoints: {
       "📋 All foods": "/api/foods",
@@ -477,7 +491,8 @@ app.get('/api/stats', (req, res) => {
     averagePrice: 15.2,
     spicyFoods: 5,
     nonSpicyFoods: 5,
-    priceRange: { min: 6, max: 25 }
+    priceRange: { min: 6, max: 25 },
+    corsEnabled: true
   });
 });
 
@@ -489,7 +504,8 @@ app.get('/health', (req, res) => {
   res.json({
     status: "healthy! 💚",
     timestamp: new Date().toISOString(),
-    uptime: process.uptime()
+    uptime: process.uptime(),
+    corsEnabled: true
   });
 });
 
@@ -507,12 +523,13 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
   console.log(`📋 API Documentation: http://localhost:${PORT}/`);
   console.log(`🍽️ Foods endpoint: http://localhost:${PORT}/api/foods`);
+  console.log(`🌍 CORS: Enabled - Frontend ready!`);
   console.log(`🛠️ Development mode: npm run dev`);
   console.log(`🎉 Ready to serve delicious Peruvian food data!`);
 });
 ```
 
-> 🔄 **¡Importante!** Este paso **reemplaza** tu servidor básico inicial con la versión completa que incluye rutas modulares.
+> 🔄 **¡Importante!** Este paso **reemplaza** tu servidor básico inicial con la versión completa que incluye rutas modulares y CORS habilitado.
 
 ---
 
@@ -533,6 +550,7 @@ Deberías ver estos mensajes en consola:
 🚀 Server running on http://localhost:3000
 📋 API Documentation: http://localhost:3000/
 🍽️ Foods endpoint: http://localhost:3000/api/foods
+🌍 CORS: Enabled - Frontend ready!
 🛠️ Development mode: npm run dev
 🎉 Ready to serve delicious Peruvian food data!
 ```
@@ -550,22 +568,131 @@ Deberías ver estos mensajes en consola:
 | 🔍 `/api/foods?search=ceviche`   | Búsqueda por nombre                        |
 | 📊 `/api/stats`                  | Estadísticas de la API                     |
 
+### 🌍 Prueba rápida de CORS
+
+Crea un archivo `test-frontend.html` en cualquier lugar de tu computadora:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test API 🧪</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        button { background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #45a049; }
+        #results { margin-top: 20px; padding: 15px; border-radius: 5px; background: #f5f5f5; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+    <h1>🇵🇪 Testing Peruvian Food API</h1>
+    <p>This tests if your API works with CORS enabled from any frontend!</p>
+    
+    <button onclick="testAPI()">🚀 Test API Connection</button>
+    <button onclick="testSpicyFoods()">🌶️ Get Spicy Foods</button>
+    <button onclick="testCeviche()">🐟 Get Ceviche Details</button>
+    
+    <div id="results"></div>
+
+    <script>
+        const API_URL = 'http://localhost:3000';
+        
+        async function testAPI() {
+            showLoading();
+            try {
+                const response = await fetch(`${API_URL}/api/foods`);
+                const data = await response.json();
+                
+                showResults(`
+                    <h2>✅ API Works Perfect!</h2>
+                    <p><strong>CORS:</strong> Working! 🌍</p>
+                    <p><strong>Total Foods:</strong> ${data.total}</p>
+                    <p><strong>First Food:</strong> ${data.foods[0].name} - $${data.foods[0].price}</p>
+                `, 'success');
+            } catch (error) {
+                showResults(`
+                    <h2>❌ API Error</h2>
+                    <p>Error: ${error.message}</p>
+                    <p>Make sure your API is running: <code>npm run dev</code></p>
+                `, 'error');
+            }
+        }
+        
+        async function testSpicyFoods() {
+            showLoading();
+            try {
+                const response = await fetch(`${API_URL}/api/foods?spicy=true`);
+                const data = await response.json();
+                
+                const spicyList = data.foods.map(f => `${f.name} ($${f.price})`).join(', ');
+                
+                showResults(`
+                    <h2>🌶️ Spicy Foods Found!</h2>
+                    <p><strong>Count:</strong> ${data.total} spicy dishes</p>
+                    <p><strong>Foods:</strong> ${spicyList}</p>
+                `, 'success');
+            } catch (error) {
+                showResults(`<h2>❌ Error getting spicy foods</h2><p>${error.message}</p>`, 'error');
+            }
+        }
+        
+        async function testCeviche() {
+            showLoading();
+            try {
+                const response = await fetch(`${API_URL}/api/foods/1`);
+                const data = await response.json();
+                
+                showResults(`
+                    <h2>🐟 ${data.name} Details</h2>
+                    <p><strong>Category:</strong> ${data.category}</p>
+                    <p><strong>Price:</strong> $${data.price}</p>
+                    <p><strong>Spicy:</strong> ${data.isSpicy ? '🌶️ Yes' : '😊 No'}</p>
+                    <p><strong>Description:</strong> ${data.description}</p>
+                    <img src="${data.imageUrl}" alt="${data.name}" style="max-width: 300px; border-radius: 8px;">
+                `, 'success');
+            } catch (error) {
+                showResults(`<h2>❌ Error getting ceviche</h2><p>${error.message}</p>`, 'error');
+            }
+        }
+        
+        function showLoading() {
+            document.getElementById('results').innerHTML = '<p>⏳ Loading...</p>';
+        }
+        
+        function showResults(html, type) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = html;
+            resultsDiv.className = type;
+        }
+    </script>
+</body>
+</html>
+```
+
+Abre este archivo HTML en tu navegador y haz clic en los botones. **¡Si funciona, tu CORS está perfecto!** 🎉
+
+> 🌟 **¡Increíble!** Tu API ya puede ser consumida desde cualquier frontend: React, Vue, Angular, o HTML puro.
+
 ### 🛠️ Herramientas recomendadas
 
 - 🌐 **Navegador**: Para GET requests simples
 - 📞 **REST Client** (VS Code): Extension ligera para testing
+- 🧪 **Frontend HTML**: Como el ejemplo de arriba
 
 ---
 
 ## 🎉 ¡Felicidades!
 
-¡Has creado tu primera API modular y profesional con Node.js! 🏆
+¡Has creado tu primera API modular y profesional con Node.js que funciona perfectamente con frontends! 🏆
 
 ### ✅ Has dominado los fundamentos:
 
 - 🏗️ **Estructura modular**: Separación limpia de responsabilidades
 - 🛠️ **Entorno de desarrollo**: Scripts diferenciados para dev y producción
 - 📦 **Gestión de dependencias**: Producción vs desarrollo correctamente separadas
+- 🌍 **CORS habilitado**: Tu API funciona con cualquier frontend desde el día 1
 - 🛣️ **Routing avanzado**: Rutas organizadas y endpoints RESTful  
 - 📊 **Data modeling**: Estructura consistente y completa de datos
 - 🔍 **Query parameters**: Filtros dinámicos y búsqueda inteligente
@@ -580,7 +707,7 @@ Deberías ver estos mensajes en consola:
 📁 peruvian-food-api/
 ├── 📊 src/data/foods.js        ➜ 10 platos peruanos completos
 ├── 🛣️ src/routes/foodRoutes.js ➜ Lógica de filtrado y endpoints  
-├── 🚀 src/index.js            ➜ Servidor y configuración principal
+├── 🚀 src/index.js            ➜ Servidor con CORS + configuración principal
 ├── 🚫 .gitignore              ➜ Archivos a ignorar en git
 └── 📦 package.json            ➜ Configuración con scripts dev/prod
 ```
@@ -588,10 +715,20 @@ Deberías ver estos mensajes en consola:
 ### 🚀 ¿Qué sigue en Nivel 2?
 
 - ✏️ **CRUD completo**: POST, PUT, DELETE endpoints
-- 🛡️ **Middleware personalizado**: Validaciones y logging avanzado
-- 🗃️ **Persistencia real**: Guardar cambios en archivos JSON
-- 🧪 **Testing básico**: Pruebas automatizadas de endpoints
-- 🔐 **Seguridad**: Rate limiting y validaciones robustas
+- 🛡️ **Middleware avanzado**: Validaciones, logging y seguridad profesional
+- 🗃️ **Persistencia real**: Guardar cambios permanentemente en archivos JSON
+- 🧪 **Testing completo**: Pruebas automatizadas de todos los endpoints
+- 🔐 **Seguridad robusta**: Rate limiting, validaciones y headers de seguridad
+- 🌐 **CORS configurado**: Configuración avanzada para diferentes entornos
+
+### 🌍 Ventaja del CORS desde Nivel 1:
+
+**¡Ya puedes conectar tu API con cualquier frontend!** Sin configuración adicional, tu API funciona con:
+- ✅ React (`npm create react-app`)
+- ✅ Vue (`npm create vue@latest`)
+- ✅ Angular (`ng new`)
+- ✅ HTML + JavaScript puro
+- ✅ Cualquier framework moderno
 
 ### 🔧 Comandos esenciales
 
@@ -602,4 +739,31 @@ node --version      # 🔍 Ver versión de Node.js
 npm install         # 📦 Instalar todas las dependencias
 ```
 
-**¡Tu primera API está lista para el mundo! 🌍** Has creado algo que cualquier frontend puede consumir y cualquier equipo puede mantener. ¡Excelente trabajo! 🌟✨
+### 🧪 Verificación final
+
+1. ✅ Tu servidor corre en `http://localhost:3000`
+2. ✅ CORS habilitado (visible en `/health` y `/api/stats`)
+3. ✅ Filtros funcionando (`/api/foods?spicy=true`)
+4. ✅ Búsqueda activa (`/api/foods?search=ceviche`)
+5. ✅ Frontend HTML puede consumir la API sin errores
+
+**¡Tu primera API está lista para el mundo real! 🌍** Has creado algo que cualquier frontend puede consumir desde el primer día, con una arquitectura que cualquier equipo puede mantener y escalar. ¡Excelente trabajo! 🌟
+
+---
+
+## 📚 Recursos adicionales
+
+### 🔗 Enlaces útiles
+- [Express.js Documentation](https://expressjs.com/)
+- [CORS Documentation](https://github.com/expressjs/cors)
+- [REST API Best Practices](https://restfulapi.net/)
+- [HTTP Status Codes](https://httpstatuses.com/)
+
+### 🎯 Consejos profesionales
+- **Mantén consistencia**: Todos los responses con la misma estructura
+- **Documenta tus endpoints**: Como hiciste en la ruta `/`
+- **Valida siempre**: Como el `parseInt()` en el ID
+- **Mensajes claros**: Errores que realmente ayuden al desarrollador
+- **CORS desde el inicio**: Evita problemas futuros con frontends
+
+**¡Ahora estás listo para el Nivel 2 y crear APIs de nivel empresarial!** 🚀
