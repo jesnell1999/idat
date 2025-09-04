@@ -25,9 +25,6 @@ Ahora que dominas los **GET endpoints**, vamos a crear una **API REST completa**
 ```bash
 # 🔒 Dependencias para producción (seguridad y utilidades)
 npm install express-rate-limit helmet joi
-
-# 🛠️ Dependencias solo para desarrollo (ya tienes nodemon)
-npm install --save-dev nodemon
 ```
 
 > 💡 **¿Qué hace cada dependencia nueva?**
@@ -94,7 +91,6 @@ Crea `src/utils/fileManager.js` para manejar archivos JSON:
 ```javascript
 // 🗃️ File Manager - Handles JSON file operations safely
 import fs from 'fs/promises';
-import path from 'path';
 
 class FileManager {
   constructor(filePath) {
@@ -823,7 +819,7 @@ app.get('/health', async (req, res) => {
 });
 
 // ❌ 404 handler
-app.use('*', (req, res) => {
+app.use((req, res) => {
   res.status(404).json({
     error: "Route not found! 🔍",
     message: `Cannot ${req.method} ${req.originalUrl}`,
