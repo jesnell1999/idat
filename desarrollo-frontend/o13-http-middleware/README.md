@@ -1,6 +1,8 @@
-# 🚀 Node.js API Nivel 2 - CRUD Completo & Middleware
+# 🚀 Node.js API Nivel 2 - CRUD & Middleware
 
 ¡Construye APIs REST completas con operaciones CRUD y middleware profesional! 🎯
+
+> ⚠️ **PREREQUISITO:** Debes haber completado el **Nivel 1** de esta serie. Si no lo has hecho, [regresa al Nivel 1](../o12-nodejs-y-npm) primero.
 
 ---
 
@@ -9,30 +11,63 @@
 Ahora que dominas los **GET endpoints**, vamos a crear una **API REST completa** con:
 
 - ✏️ **CRUD completo**: POST, PUT, DELETE (Crear, Actualizar, Eliminar)
-- 🛡️ **Middleware personalizado**: Validaciones, logging, seguridad
+- 🛡️ **Middleware esencial**: CORS, validaciones, logging, seguridad
 - 📝 **Persistencia real**: Guardar cambios en archivos JSON
 - 🔐 **Seguridad básica**: Rate limiting y validaciones robustas
+- 🌐 **Lista para frontends**: CORS configurado para React, Vue, etc.
 - 🎯 **API REST profesional**: Estándares HTTP y mejores prácticas
 
-> 💡 **Analogía:** Si en Nivel 1 creaste una "biblioteca de lectura", ahora crearás una "biblioteca completa" donde puedes agregar libros, editarlos y eliminarlos!
+> 💡 **Analogía:** Si en Nivel 1 creaste una "api de lectura", ahora crearás una "api completa" donde puedes agregarlos, editarlos y eliminarlos, ¡y cualquier aplicación web puede usarla!
+
+---
+
+## 0. 🔗 Continuando desde Nivel 1
+
+### 📂 Tu estructura actual debería ser:
+
+```
+peruvian-food-api/
+├── src/
+│   ├── data/
+│   │   └── foods.js
+│   ├── routes/
+│   │   └── foodRoutes.js
+│   └── index.js
+├── .gitignore
+└── package.json
+```
+
+### ✅ Verificar que funciona
+
+```bash
+# 🧪 Test your Level 1 API
+npm run dev
+
+# 🌐 In another terminal, test endpoints
+curl http://localhost:3000/api/foods
+curl http://localhost:3000/api/foods/1
+```
+
+Si todo funciona correctamente, ¡continuemos! 🚀
 
 ---
 
 ## 1. 🏗️ Preparando el proyecto para CRUD
 
-### 📦 Nuevas dependencias necesarias
+### 📦 Dependencias necesarias
 
 ```bash
-# 🔒 Dependencias para producción (seguridad y utilidades)
-npm install express-rate-limit helmet joi
+# 🔒 Security, utilities and CORS dependencies
+npm install express-rate-limit helmet joi cors
 ```
 
-> 💡 **¿Qué hace cada dependencia nueva?**
+> 💡 **¿Qué hace cada dependencia?**
+> - 🌐 **cors**: Permite que frontends (React, Vue, etc.) consuman tu API
 > - 🛡️ **express-rate-limit**: Limita requests por IP (previene ataques)
 > - 🔒 **helmet**: Headers de seguridad automáticos
 > - ✅ **joi**: Validación de datos súper fácil y potente
 
-### 📝 Actualizar package.json
+### 📝 Package.json actualizado
 
 Tu `package.json` ahora se verá así:
 
@@ -48,6 +83,7 @@ Tu `package.json` ahora se verá así:
   },
   "dependencies": {
     "express": "^4.18.2",
+    "cors": "^2.8.5",
     "express-rate-limit": "^7.1.5",
     "helmet": "^7.1.0",
     "joi": "^17.11.0"
@@ -58,26 +94,26 @@ Tu `package.json` ahora se verá así:
 }
 ```
 
-### 📂 Nueva estructura de carpetas
+### 📂 Estructura de carpetas
 
 ```bash
-# 📁 Crear nuevas carpetas para funcionalidades avanzadas
+# 📁 Create organized folders
 mkdir -p src/middleware src/utils src/validators
 
-# 🔍 Verificar la estructura completa
+# 🔍 Check structure
 ls -la src/
 ```
 
-Tu estructura ahora será:
+Estructura final:
 ```
 peruvian-food-api/
 ├── src/
-│   ├── data/           # 📊 Datos (foods.js + foodsDatabase.json)
-│   ├── routes/         # 🛣️ Rutas/endpoints (foodRoutes.js)
-│   ├── middleware/     # 🛡️ Middleware personalizado
-│   ├── validators/     # ✅ Validaciones de datos
-│   ├── utils/          # 🔧 Utilidades (manejo de archivos)
-│   └── index.js        # 🚀 Servidor principal
+│   ├── data/           # 📊 Data (foods.js + foodsDatabase.json)
+│   ├── routes/         # 🛣️ Routes/endpoints (foodRoutes.js)
+│   ├── middleware/     # 🛡️ Middleware (CORS, security, validations)
+│   ├── validators/     # ✅ Data validations
+│   ├── utils/          # 🔧 Utilities (file handling)
+│   └── index.js        # 🚀 Main server
 ├── .gitignore
 └── package.json
 ```
@@ -86,10 +122,10 @@ peruvian-food-api/
 
 ## 2. 🔧 Utilidades para persistencia
 
-Crea `src/utils/fileManager.js` para manejar archivos JSON:
+Crea `src/utils/fileManager.js`:
 
 ```javascript
-// 🗃️ File Manager - Handles JSON file operations safely
+// 🗃️ File Manager - Handles JSON files safely and simply
 import fs from 'fs/promises';
 
 class FileManager {
@@ -103,26 +139,26 @@ class FileManager {
       const data = await fs.readFile(this.filePath, 'utf8');
       return JSON.parse(data);
     } catch (error) {
-      // 🔍 If file doesn't exist, return empty array
+      // If file doesn't exist, return empty array
       if (error.code === 'ENOENT') {
         return [];
       }
-      throw new Error(`Error reading file: ${error.message}`);
+      throw new Error(`Failed to read file: ${error.message}`);
     }
   }
 
-  // 💾 Write data to JSON file with pretty formatting
+  // 💾 Write data to JSON file (with pretty formatting)
   async writeData(data) {
     try {
       const jsonData = JSON.stringify(data, null, 2);
       await fs.writeFile(this.filePath, jsonData, 'utf8');
       return true;
     } catch (error) {
-      throw new Error(`Error writing file: ${error.message}`);
+      throw new Error(`Failed to write file: ${error.message}`);
     }
   }
 
-  // ✨ Initialize file with default data if it doesn't exist
+  // ✨ Create file with initial data if it doesn't exist
   async initializeFile(defaultData) {
     try {
       await fs.access(this.filePath);
@@ -137,16 +173,14 @@ class FileManager {
 export default FileManager;
 ```
 
-> 🎯 **¿Por qué esta clase?** Encapsula toda la lógica de archivos. Si después cambias a base de datos, solo cambias esta clase!
-
 ---
 
-## 3. ✅ Validadores con Joi
+## 3. ✅ Validadores
 
-Crea `src/validators/foodValidator.js` para validar datos:
+Crea `src/validators/foodValidator.js`:
 
 ```javascript
-// ✅ Food Validator - Validates food data using Joi
+// ✅ Food Validator - Validates data using Joi
 import Joi from 'joi';
 
 // 🍽️ Schema for creating new food (all fields required)
@@ -156,17 +190,17 @@ const createFoodSchema = Joi.object({
     .max(50)
     .required()
     .messages({
-      'string.min': 'Name must be at least 2 characters long',
-      'string.max': 'Name cannot exceed 50 characters',
-      'any.required': 'Name is required'
+      'string.min': 'Name must be at least 2 characters long 📝',
+      'string.max': 'Name cannot exceed 50 characters ✂️',
+      'any.required': 'Name is required 🏷️'
     }),
   
   category: Joi.string()
     .valid('main', 'appetizer', 'dessert', 'drink')
     .required()
     .messages({
-      'any.only': 'Category must be one of: main, appetizer, dessert, drink',
-      'any.required': 'Category is required'
+      'any.only': 'Category must be: main, appetizer, dessert, or drink 🍽️',
+      'any.required': 'Category is required 🏷️'
     }),
   
   description: Joi.string()
@@ -174,9 +208,9 @@ const createFoodSchema = Joi.object({
     .max(200)
     .required()
     .messages({
-      'string.min': 'Description must be at least 10 characters long',
-      'string.max': 'Description cannot exceed 200 characters',
-      'any.required': 'Description is required'
+      'string.min': 'Description must be at least 10 characters long 📝',
+      'string.max': 'Description cannot exceed 200 characters ✂️',
+      'any.required': 'Description is required 📖'
     }),
   
   ingredients: Joi.array()
@@ -185,15 +219,15 @@ const createFoodSchema = Joi.object({
     .max(15)
     .required()
     .messages({
-      'array.min': 'At least 1 ingredient is required',
-      'array.max': 'Cannot have more than 15 ingredients',
-      'any.required': 'Ingredients are required'
+      'array.min': 'At least 1 ingredient is required 🥕',
+      'array.max': 'Cannot have more than 15 ingredients 🛑',
+      'any.required': 'Ingredients are required 🧄'
     }),
   
   isSpicy: Joi.boolean()
     .required()
     .messages({
-      'any.required': 'Spicy status is required'
+      'any.required': 'Spicy status is required 🌶️'
     }),
   
   price: Joi.number()
@@ -201,17 +235,17 @@ const createFoodSchema = Joi.object({
     .max(999.99)
     .required()
     .messages({
-      'number.positive': 'Price must be a positive number',
-      'number.max': 'Price cannot exceed $999.99',
-      'any.required': 'Price is required'
+      'number.positive': 'Price must be a positive number 💰',
+      'number.max': 'Price cannot exceed $999.99 💸',
+      'any.required': 'Price is required 💵'
     }),
   
   imageUrl: Joi.string()
     .uri()
     .required()
     .messages({
-      'string.uri': 'Image URL must be a valid URL',
-      'any.required': 'Image URL is required'
+      'string.uri': 'Image URL must be valid 🖼️',
+      'any.required': 'Image URL is required 📸'
     })
 });
 
@@ -236,42 +270,56 @@ export const validateUpdateFood = (data) => {
 };
 ```
 
-> 💡 **Joi es genial porque:** Valida tipos, rangos, formatos y da mensajes de error súper claros. ¡Como TypeScript pero para datos!
-
 ---
 
-## 4. 🛡️ Middleware personalizado
+## 4. 🛡️ Middleware
 
-Crea `src/middleware/security.js` para seguridad básica:
+Crea `src/middleware/security.js`:
 
 ```javascript
-// 🛡️ Security Middleware - Basic security measures
+// 🛡️ Security Middleware - Basic security measures + CORS
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
+import cors from 'cors';
 
-// 🚦 Rate limiting configuration (prevents abuse)
+// 🌐 CORS Configuration - CRITICAL for frontends
+export const corsConfig = cors({
+  origin: [
+    'http://localhost:3000',    // React dev server
+    'http://localhost:3001',    // Backup React port  
+    'http://localhost:5173',    // Vite dev server (Vue, React)
+    'http://localhost:4200',    // Angular dev server
+    'http://127.0.0.1:5500',    // Live Server (HTML/JS)
+    'https://your-frontend.vercel.app', // Production (replace with your domain)
+  ],
+  credentials: true, // Allow cookies/auth headers
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+});
+
+// 🚦 Rate limiting - Prevents abuse
 export const createRateLimit = (windowMs = 15 * 60 * 1000, max = 100) => {
   return rateLimit({
     windowMs, // Time window in milliseconds
-    max, // Max requests per windowMs
+    max, // Maximum requests per window
     message: {
       error: "Too many requests! 🚫",
-      message: `You've exceeded the limit of ${max} requests per ${windowMs / 60000} minutes`,
+      message: `You have exceeded the limit of ${max} requests per ${windowMs / 60000} minutes`,
       retryAfter: Math.ceil(windowMs / 60000),
-      tip: "Please wait before making more requests"
+      tip: "Please wait before making more requests ⏳"
     },
-    standardHeaders: true, // Return rate limit info in headers
+    standardHeaders: true, // Headers with rate limit info
     legacyHeaders: false
   });
 };
 
-// 🔒 Basic helmet configuration (security headers)
+// 🔒 Basic security headers
 export const securityHeaders = helmet({
-  contentSecurityPolicy: false, // Disable CSP for API
+  contentSecurityPolicy: false, // Disabled for APIs
   crossOriginEmbedderPolicy: false // Allow embedding
 });
 
-// 📝 Request logging middleware (simple but effective)
+// 📝 Request logging (simple but effective)
 export const requestLogger = (req, res, next) => {
   const timestamp = new Date().toISOString();
   const method = req.method;
@@ -280,7 +328,7 @@ export const requestLogger = (req, res, next) => {
   
   console.log(`🌐 [${timestamp}] ${method} ${url} - IP: ${ip}`);
   
-  // Log response time
+  // Measure response time
   const startTime = Date.now();
   
   res.on('finish', () => {
@@ -294,7 +342,7 @@ export const requestLogger = (req, res, next) => {
   next();
 };
 
-// ✅ Validation middleware wrapper
+// ✅ Validation middleware
 export const validateData = (validationFunction) => {
   return (req, res, next) => {
     const { error, value } = validationFunction(req.body);
@@ -318,13 +366,11 @@ export const validateData = (validationFunction) => {
 };
 ```
 
-> 🎯 **Middleware = Filtros:** Como filtros de Instagram, procesan la request antes de llegar a tu ruta!
-
 ---
 
-## 5. 📊 Actualizando el modelo de datos
+## 5. 📊 Modelo de datos
 
-Actualiza `src/data/foods.js` para funcionar con persistencia:
+Actualiza `src/data/foods.js`:
 
 ```javascript
 // 🍽️ Foods Data Manager - Handles CRUD operations with file persistence
@@ -335,14 +381,14 @@ import path from 'path';
 const DB_PATH = path.join(process.cwd(), 'src', 'data', 'foodsDatabase.json');
 const fileManager = new FileManager(DB_PATH);
 
-// 🌟 Initial seed data (used only for initialization)
+// 🌟 Initial data (for initialization only)
 const initialFoods = [
   {
     id: 1,
     name: "Ceviche",
     category: "main",
-    description: "Fresh raw fish cured in citrus juices with onions and chili peppers",
-    ingredients: ["fish", "lime juice", "red onions", "chili peppers", "sweet potato"],
+    description: "Fresh raw fish cured in citrus juices with onions and chili",
+    ingredients: ["fish", "lime juice", "red onions", "chili", "sweet potato"],
     isSpicy: true,
     price: 25,
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/78/Cebiche_de_corvina.JPG",
@@ -365,15 +411,14 @@ const initialFoods = [
     id: 3,
     name: "Ají de Gallina",
     category: "main",
-    description: "Creamy chicken stew with yellow chili pepper sauce", 
-    ingredients: ["chicken", "yellow chili pepper", "bread", "milk", "cheese", "walnuts"],
+    description: "Creamy chicken stew with yellow chili sauce", 
+    ingredients: ["chicken", "yellow chili", "bread", "milk", "cheese", "walnuts"],
     isSpicy: true,
     price: 20,
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Aj%C3%AD_de_gallina.jpg/800px-Aj%C3%AD_de_gallina.jpg",
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
   }
-  // 🔄 Reduced to 3 foods for simpler demo - you can add more!
 ];
 
 // 🎯 Foods Database Class
@@ -486,13 +531,11 @@ class FoodsDatabase {
 export default new FoodsDatabase();
 ```
 
-> 💡 **Timestamps incluidos:** Ahora cada comida tiene `createdAt` y `updatedAt` para auditoría!
-
 ---
 
-## 6. 🛣️ Rutas CRUD completas
+## 6. 🛣️ Rutas CRUD
 
-Actualiza `src/routes/foodRoutes.js` con operaciones CRUD completas:
+Actualiza `src/routes/foodRoutes.js`:
 
 ```javascript
 // 🛣️ Food Routes - Complete CRUD operations
@@ -503,13 +546,13 @@ import { validateCreateFood, validateUpdateFood } from '../validators/foodValida
 
 const foodRouter = express.Router();
 
-// 📋 GET all foods with filtering (same as Level 1 but with database)
+// 📋 GET all foods with filtering
 foodRouter.get('/', async (req, res) => {
   try {
     let allFoods = await foodsDB.getAllFoods();
     let filteredFoods = allFoods;
     
-    // 🌶️ Filter by spiciness
+    // 🌶️ Filter by spicy
     if (req.query.spicy !== undefined) {
       const isSpicy = req.query.spicy === 'true';
       filteredFoods = filteredFoods.filter(food => food.isSpicy === isSpicy);
@@ -577,17 +620,7 @@ foodRouter.get('/:id', async (req, res) => {
       });
     }
     
-    // 👥 Get related foods
-    const allFoods = await foodsDB.getAllFoods();
-    const relatedFoods = allFoods
-      .filter(f => f.id !== id && f.category === food.category)
-      .slice(0, 3)
-      .map(f => ({ id: f.id, name: f.name }));
-    
-    res.json({
-      ...food,
-      relatedFoods: relatedFoods.length > 0 ? relatedFoods : null
-    });
+    res.json(food);
   } catch (error) {
     res.status(500).json({
       error: "Server error! 🚨", 
@@ -604,11 +637,7 @@ foodRouter.post('/', validateData(validateCreateFood), async (req, res) => {
     
     res.status(201).json({
       message: "Food created successfully! 🎉",
-      food: newFood,
-      links: {
-        self: `/api/foods/${newFood.id}`,
-        all: "/api/foods"
-      }
+      food: newFood
     });
   } catch (error) {
     res.status(500).json({
@@ -642,12 +671,7 @@ foodRouter.put('/:id', validateData(validateUpdateFood), async (req, res) => {
     
     res.json({
       message: "Food updated successfully! ✨",
-      food: updatedFood,
-      changes: Object.keys(req.body),
-      links: {
-        self: `/api/foods/${updatedFood.id}`,
-        all: "/api/foods"
-      }
+      food: updatedFood
     });
   } catch (error) {
     res.status(500).json({
@@ -658,7 +682,7 @@ foodRouter.put('/:id', validateData(validateUpdateFood), async (req, res) => {
   }
 });
 
-// ❌ DELETE - Remove food
+// ❌ DELETE - Delete food
 foodRouter.delete('/:id', async (req, res) => {
   try {
     const id = parseInt(req.params.id);
@@ -684,10 +708,6 @@ foodRouter.delete('/:id', async (req, res) => {
       deletedFood: {
         id: deletedFood.id,
         name: deletedFood.name
-      },
-      links: {
-        all: "/api/foods",
-        create: "POST /api/foods"
       }
     });
   } catch (error) {
@@ -702,86 +722,80 @@ foodRouter.delete('/:id', async (req, res) => {
 export default foodRouter;
 ```
 
-> 🎯 **CRUD completo:** Create (POST), Read (GET), Update (PUT), Delete (DELETE) - ¡Tu API puede hacer todo!
-
 ---
 
 ## 7. 🚀 Servidor con middleware y seguridad
 
-Actualiza `src/index.js` con todas las mejoras:
+Actualiza `src/index.js`:
 
 ```javascript
 // 🚀 Peruvian Food API v2.0 - Complete CRUD with Security
 import express from 'express';
 import foodRouter from './routes/foodRoutes.js';
 import foodsDB from './data/foods.js';
-import { createRateLimit, securityHeaders, requestLogger } from './middleware/security.js';
+import { corsConfig, createRateLimit, securityHeaders, requestLogger } from './middleware/security.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// 🔒 Security middleware (apply first)
+// 🌐 CORS - MUST BE FIRST (CRITICAL for frontends)
+app.use(corsConfig);
+
+// 🔒 Security middleware
 app.use(securityHeaders);
 app.use(requestLogger);
 
-// 📝 Parse JSON requests (needed for POST/PUT)
+// 📝 JSON Parser (needed for POST/PUT)
 app.use(express.json({ limit: '10mb' }));
 
-// 🚦 Rate limiting - different limits for different endpoints
+// 🚦 Rate limiting
 app.use('/api/foods', createRateLimit(15 * 60 * 1000, 100)); // 100 requests per 15 minutes
 app.use('/', createRateLimit(5 * 60 * 1000, 20)); // 20 requests per 5 minutes for docs
 
 // 🏠 API Documentation
 app.get('/', (req, res) => {
   res.json({
-    message: "🇵🇪 Welcome to Peruvian Food API v2.0",
+    name: "Peruvian Food API",
     version: "2.0.0",
-    description: "Complete CRUD API for Peruvian cuisine! 🍽️",
+    description: "Complete CRUD API for Peruvian food! 🍽️",
+    status: "active",
     features: [
-      "✅ Full CRUD operations (Create, Read, Update, Delete)",
+      "🌐 CORS enabled - Ready for frontends",
+      "✅ Complete CRUD operations",
       "🔍 Advanced filtering and search",
       "🛡️ Security middleware and rate limiting",
-      "📝 Data validation with detailed error messages",
+      "📝 Data validation with detailed messages",
       "💾 Persistent storage with JSON database",
       "📊 Real-time statistics",
       "🏥 Health monitoring"
     ],
     endpoints: {
-      "📋 All foods": "GET /api/foods",
-      "🔍 Food by ID": "GET /api/foods/{id}",
-      "➕ Create food": "POST /api/foods",
-      "✏️ Update food": "PUT /api/foods/{id}",
-      "❌ Delete food": "DELETE /api/foods/{id}",
-      "📊 Statistics": "GET /api/stats",
-      "🏥 Health check": "GET /health"
-    },
-    examples: {
-      "Get spicy foods": "GET /api/foods?spicy=true",
-      "Create new food": "POST /api/foods + JSON body",
-      "Update food": "PUT /api/foods/1 + JSON body",
-      "Delete food": "DELETE /api/foods/1"
-    },
-    security: {
-      "Rate limiting": "100 requests per 15 minutes",
-      "Request logging": "All requests logged with timestamp",
-      "Data validation": "Joi schema validation",
-      "Security headers": "Helmet protection"
+      getAllFoods: "/api/foods",
+      getFoodById: "/api/foods/1",
+      createFood: "POST /api/foods",
+      updateFood: "PUT /api/foods/1",
+      deleteFood: "DELETE /api/foods/1",
+      filterFoods: "/api/foods?search=ceviche",
+      combinedFilters: "/api/foods?search=gallina&category=main&isSpicy=true",
+      getStats: "/api/stats",
+      healthCheck: "/health"
     }
   });
 });
 
-// 📊 Dynamic API Stats
+// 📊 Dynamic API statistics
 app.get('/api/stats', async (req, res) => {
   try {
     const stats = await foodsDB.getStats();
     res.json({
       ...stats,
       lastUpdated: new Date().toISOString(),
-      apiVersion: "2.0.0"
+      apiVersion: "2.0.0",
+      corsEnabled: true
     });
   } catch (error) {
     res.status(500).json({
-      error: "Failed to get stats! 📊",
+      error: "Failed to get statistics! 📊",
       message: error.message
     });
   }
@@ -790,23 +804,18 @@ app.get('/api/stats', async (req, res) => {
 // 🛣️ Food routes
 app.use('/api/foods', foodRouter);
 
-// 🏥 Health check with database status
+// 🏥 Health check
 app.get('/health', async (req, res) => {
   try {
-    // Test database connection
     const foods = await foodsDB.getAllFoods();
     
     res.json({
       status: "healthy! 💚",
       timestamp: new Date().toISOString(),
-      uptime: Math.floor(process.uptime()),
+      uptime: Math.floor(process.uptime()) + "s",
       database: {
         status: "connected",
         totalRecords: foods.length
-      },
-      memory: {
-        used: Math.round(process.memoryUsage().heapUsed / 1024 / 1024) + " MB",
-        total: Math.round(process.memoryUsage().heapTotal / 1024 / 1024) + " MB"
       }
     });
   } catch (error) {
@@ -818,20 +827,12 @@ app.get('/health', async (req, res) => {
   }
 });
 
-// ❌ 404 handler
+// ❌ 404 Handler
 app.use((req, res) => {
   res.status(404).json({
     error: "Route not found! 🔍",
     message: `Cannot ${req.method} ${req.originalUrl}`,
-    suggestion: "Visit / for API documentation",
-    availableRoutes: [
-      "GET /",
-      "GET /api/foods",
-      "POST /api/foods",
-      "GET /api/foods/:id",
-      "PUT /api/foods/:id",
-      "DELETE /api/foods/:id"
-    ]
+    suggestion: "Visit / for API documentation"
   });
 });
 
@@ -840,7 +841,7 @@ app.use((error, req, res, next) => {
   console.error('🚨 Global Error:', error);
   res.status(500).json({
     error: "Internal server error! 🚨",
-    message: "Something went wrong on our end",
+    message: "Something went wrong on our side",
     timestamp: new Date().toISOString()
   });
 });
@@ -852,338 +853,258 @@ app.listen(PORT, () => {
   console.log(`🍽️ CRUD endpoints: http://localhost:${PORT}/api/foods`);
   console.log(`📊 Statistics: http://localhost:${PORT}/api/stats`);
   console.log(`🏥 Health check: http://localhost:${PORT}/health`);
-  console.log(`🛡️ Security: Rate limiting & validation enabled`);
+  console.log(`🌐 CORS: Enabled for frontends!`);
+  console.log(`🛡️ Security: Rate limiting and validation enabled`);
   console.log(`💾 Database: JSON file persistence active`);
   console.log(`🛠️ Development mode: npm run dev`);
-  console.log(`🎉 Ready for full CRUD operations!`);
+  console.log(`🎉 Ready for complete CRUD operations and frontend consumption!`);
 });
 ```
 
 ---
 
-## 8. 🧪 Probando tu API CRUD
+## 8. 🧪 Testing completo
 
-### ▶️ Iniciar tu API mejorada
+### ▶️ Iniciar tu API
 
 ```bash
-# 🛠️ Modo desarrollo (recomendado)
+# 🛠️ Development mode (recommended)
 npm run dev
 ```
 
-Deberías ver estos mensajes:
-```
-🚀 Peruvian Food API v2.0 running on http://localhost:3000
-📋 Documentation: http://localhost:3000/
-🍽️ CRUD endpoints: http://localhost:3000/api/foods
-📊 Statistics: http://localhost:3000/api/stats
-🏥 Health check: http://localhost:3000/health
-🛡️ Security: Rate limiting & validation enabled
-💾 Database: JSON file persistence active
-🛠️ Development mode: npm run dev
-🎉 Ready for full CRUD operations!
-```
+### 📊 Resumen de casos de prueba
 
-### 🌐 Endpoints CRUD para probar
+| #   | Endpoint                    | Método | Descripción                  | Status esperado |
+| --- | --------------------------- | ------ | ---------------------------- | --------------- |
+| 1   | `/`                         | GET    | API Documentation            | 200 ✅           |
+| 2   | `/health`                   | GET    | Health Check                 | 200 ✅           |
+| 3   | `/api/stats`                | GET    | API Statistics               | 200 ✅           |
+| 4   | `/api/foods`                | GET    | Get all foods                | 200 ✅           |
+| 5   | `/api/foods/1`              | GET    | Get food by ID (valid)       | 200 ✅           |
+| 6   | `/api/foods/999`            | GET    | Get food by ID (invalid)     | 404 ❌           |
+| 7   | `/api/foods/abc`            | GET    | Get food invalid format      | 400 ❌           |
+| 8   | `/api/foods?search=ceviche` | GET    | Search with filters          | 200 ✅           |
+| 9   | `/api/foods`                | POST   | Create food (valid data)     | 201 ✅           |
+| 10  | `/api/foods`                | POST   | Create food (invalid data)   | 400 ❌           |
+| 11  | `/api/foods`                | POST   | Create food (missing fields) | 400 ❌           |
+| 12  | `/api/foods/1`              | PUT    | Update food (valid data)     | 200 ✅           |
+| 13  | `/api/foods/999`            | PUT    | Update food (not found)      | 404 ❌           |
+| 14  | `/api/foods/2`              | PUT    | Update food (invalid data)   | 400 ❌           |
+| 15  | `/api/foods/3`              | DELETE | Delete food (valid ID)       | 200 ✅           |
+| 16  | `/api/foods/999`            | DELETE | Delete food (not found)      | 404 ❌           |
 
-| 🎯 **Método** | 📍 **Endpoint** | 📝 **Descripción**          | 📊 **Body requerido** |
-| ------------ | -------------- | -------------------------- | -------------------- |
-| GET          | `/api/foods`   | Lista todas las comidas    | ❌ No                 |
-| GET          | `/api/foods/1` | Obtiene comida específica  | ❌ No                 |
-| POST         | `/api/foods`   | Crea nueva comida          | ✅ Sí                 |
-| PUT          | `/api/foods/1` | Actualiza comida existente | ✅ Sí                 |
-| DELETE       | `/api/foods/1` | Elimina comida             | ❌ No                 |
+### 📞 Casos de prueba detallados
 
-### 📝 Ejemplo de JSON para POST (crear comida)
-
-```json
-{
-  "name": "Causa Limeña",
-  "category": "appetizer",
-  "description": "Layered potato dish with chicken or tuna salad filling",
-  "ingredients": ["potatoes", "lime juice", "aji amarillo", "chicken", "mayonnaise"],
-  "isSpicy": true,
-  "price": 14,
-  "imageUrl": "https://example.com/causa-limena.jpg"
-}
-```
-
-### 🔄 Ejemplo de JSON para PUT (actualizar comida)
-
-```json
-{
-  "price": 16,
-  "description": "Updated: Layered potato dish with premium chicken filling"
-}
-```
-
-### 🛠️ Herramientas para probar CRUD
-
-**📞 REST Client (VS Code Extension) - Recomendado:**
-
-Crea un archivo `test-api.http`:
+Crea `test-api.http`:
 
 ```http
-### Get all foods
+### ===============================================
+### 🏠 BASIC API TESTS (3 tests)
+### ===============================================
+
+### 1. API Documentation (should show CORS enabled)
+GET http://localhost:3000/
+
+### 2. Health Check (should show status: "healthy")
+GET http://localhost:3000/health
+
+### 3. API Statistics (should show corsEnabled: true)
+GET http://localhost:3000/api/stats
+
+### ===============================================
+### 📋 READ OPERATIONS - GET FOODS (5 tests)
+### ===============================================
+
+### 4. Get all foods
 GET http://localhost:3000/api/foods
 
-### Get food by ID  
+### 5. Get food by ID (existing)
 GET http://localhost:3000/api/foods/1
 
-### Create new food
+### 6. Get food by ID (non-existent) - Should return 404
+GET http://localhost:3000/api/foods/999
+
+### 7. Get food with invalid ID format - Should return 400
+GET http://localhost:3000/api/foods/abc
+
+### 8. Get foods with filters
+GET http://localhost:3000/api/foods?spicy=true&category=main&maxPrice=25&search=ceviche
+
+### ===============================================
+### ➕ CREATE OPERATIONS - POST FOODS (3 tests)
+### ===============================================
+
+### 9. Create new food (valid data) - Should return 201
 POST http://localhost:3000/api/foods
 Content-Type: application/json
 
 {
   "name": "Causa Limeña",
-  "category": "appetizer", 
-  "description": "Layered potato dish with chicken filling",
-  "ingredients": ["potatoes", "lime juice", "aji amarillo", "chicken"],
+  "category": "appetizer",
+  "description": "Layered potato dish with chicken or tuna filling, a classic appetizer",
+  "ingredients": ["potatoes", "lime juice", "yellow chili", "chicken", "mayonnaise", "avocado"],
   "isSpicy": true,
   "price": 14,
-  "imageUrl": "https://example.com/causa.jpg"
+  "imageUrl": "https://example.com/causa-limena.jpg"
 }
 
-### Update food
+### 10. Create food with invalid data - Should return 400
+POST http://localhost:3000/api/foods
+Content-Type: application/json
+
+{
+  "name": "X",
+  "category": "invalid-category",
+  "description": "Too short",
+  "ingredients": [],
+  "price": -5,
+  "imageUrl": "not-a-valid-url"
+}
+
+### 11. Create food with missing fields - Should return 400
+POST http://localhost:3000/api/foods
+Content-Type: application/json
+
+{
+  "name": "Anticuchos"
+}
+
+### ===============================================
+### ✏️ UPDATE OPERATIONS - PUT FOODS (3 tests)
+### ===============================================
+
+### 12. Update existing food (partial update) - Should return 200
 PUT http://localhost:3000/api/foods/1
 Content-Type: application/json
 
 {
   "price": 28,
-  "description": "Updated: Premium ceviche with fresh catch of the day"
+  "description": "Updated: Premium ceviche with fresh daily fish and special marinade"
 }
 
-### Delete food
-DELETE http://localhost:3000/api/foods/1
-```
+### 13. Update non-existent food - Should return 404
+PUT http://localhost:3000/api/foods/999
+Content-Type: application/json
 
----
-
-## 9. 🔍 Validaciones en acción
-
-### ✅ Ejemplos de validaciones exitosas
-
-**POST válido:**
-```json
 {
-  "name": "Tacu Tacu",
-  "category": "main",
-  "description": "Rice and beans mixed together with steak or fried egg",
-  "ingredients": ["rice", "beans", "beef", "eggs", "onions"],
+  "price": 20
+}
+
+### 14. Update food with invalid data - Should return 400
+PUT http://localhost:3000/api/foods/2
+Content-Type: application/json
+
+{
+  "name": "A",
+  "category": "invalid",
+  "price": -10
+}
+
+### ===============================================
+### ❌ DELETE OPERATIONS - DELETE FOODS (2 tests)  
+### ===============================================
+
+### 15. Delete existing food - Should return 200
+DELETE http://localhost:3000/api/foods/3
+
+### 16. Delete non-existent food - Should return 404
+DELETE http://localhost:3000/api/foods/999
+
+### ===============================================
+### 🌐 CORS VERIFICATION TESTS (Bonus)
+### ===============================================
+
+### Bonus 1: OPTIONS request (CORS preflight)
+OPTIONS http://localhost:3000/api/foods
+Origin: http://localhost:3001
+
+### Bonus 2: POST with CORS headers
+POST http://localhost:3000/api/foods
+Content-Type: application/json
+Origin: http://localhost:5173
+
+{
+  "name": "Tacu Tacu CORS",
+  "category": "main", 
+  "description": "Mixed rice and beans, testing CORS from Vite development server",
+  "ingredients": ["rice", "beans", "beef", "eggs", "onions", "garlic"],
   "isSpicy": false,
   "price": 18,
-  "imageUrl": "https://example.com/tacu-tacu.jpg"
-}
-```
-
-### ❌ Ejemplos de errores de validación
-
-**POST inválido:**
-```json
-{
-  "name": "X",
-  "category": "invalid",
-  "price": -5,
-  "imageUrl": "not-a-url"
-}
-```
-
-**Respuesta de error:**
-```json
-{
-  "error": "Validation failed! 📝",
-  "message": "Please check your data and try again",
-  "details": [
-    {
-      "field": "name",
-      "message": "Name must be at least 2 characters long",
-      "value": "X"
-    },
-    {
-      "field": "category", 
-      "message": "Category must be one of: main, appetizer, dessert, drink",
-      "value": "invalid"
-    },
-    {
-      "field": "description",
-      "message": "Description is required"
-    },
-    {
-      "field": "price",
-      "message": "Price must be a positive number",
-      "value": -5
-    }
-  ]
+  "imageUrl": "https://example.com/tacu-tacu-cors.jpg"
 }
 ```
 
 ---
 
-## 10. 🛡️ Seguridad implementada
+## 🎉 ¡Felicidades! Nivel 2 COMPLETO
 
-### 🚦 Rate Limiting en acción
+### ✅ **Ahora dominas:**
 
-Si haces demasiadas requests muy rápido:
+- 🏗️ **CRUD completo** con persistencia real
+- 🌐 **CORS configurado** - Tu API funciona con frontends
+- 🛡️ **Middleware profesional** - Seguridad, logging, validaciones
+- ✅ **Validaciones robustas** - Joi con mensajes claros
+- 📊 **Monitoreo integrado** - Health checks y estadísticas
+- 🧪 **Testing completo** - 16+ casos de prueba
 
-```json
-{
-  "error": "Too many requests! 🚫",
-  "message": "You've exceeded the limit of 100 requests per 15 minutes", 
-  "retryAfter": 15,
-  "tip": "Please wait before making more requests"
-}
-```
+### 🚀 **Tu API está lista para:**
 
-### 📝 Request Logging
+- ✅ **React/Vue/Angular apps** - CORS configurado
+- ✅ **Producción básica** - Seguridad y rate limiting
+- ✅ **Desarrollo profesional** - Estructura escalable
+- ✅ **Colaboración** - Fácil de entender y extender
 
-En tu consola verás:
-```
-🌐 [2024-01-15T10:30:25.123Z] GET /api/foods - IP: ::1
-✅ [2024-01-15T10:30:25.123Z] GET /api/foods - 200 - 45ms
-🌐 [2024-01-15T10:30:30.456Z] POST /api/foods - IP: ::1  
-✅ [2024-01-15T10:30:30.456Z] POST /api/foods - 201 - 78ms
-```
-
-### 🔒 Headers de seguridad
-
-Helmet agrega automáticamente headers como:
-- `X-Content-Type-Options: nosniff`
-- `X-Frame-Options: DENY`
-- `X-XSS-Protection: 1; mode=block`
+### 🎓 **Certificado de logros Nivel 2:**
+- ✅ API REST completa funcionando
+- ✅ CORS configurado para frontends
+- ✅ 16 tests pasando exitosamente
+- ✅ Persistencia de datos real
+- ✅ Arquitectura profesional
 
 ---
 
-## 11. 💾 Base de datos JSON
+## 🚀 Siguientes pasos - Nivel 3
 
-### 📁 Archivo generado automáticamente
+### 🏗️ **Arquitectura Empresarial**
+- **Clean Architecture**: Controllers, Services, Repositories
+- **Dependency Injection**: Inversión de control
+- **Design Patterns**: Factory, Strategy, Observer
+- **Error Handling**: Centralized error management
+- **Logging**: Winston, structured logging
 
-Tu API creará automáticamente `src/data/foodsDatabase.json`:
+### 💾 **Base de Datos Real**
+- **MongoDB**: NoSQL con Mongoose ODM
+- **PostgreSQL**: SQL con Prisma ORM
+- **Redis**: Caching y sessions
+- **Database Migrations**: Versionado de esquemas
+- **Connection Pooling**: Optimización de conexiones
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Ceviche",
-    "category": "main",
-    "description": "Fresh raw fish cured in citrus juices with onions and chili peppers",
-    "ingredients": ["fish", "lime juice", "red onions", "chili peppers", "sweet potato"],
-    "isSpicy": true,
-    "price": 25,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Cebiche_de_corvina.JPG",
-    "createdAt": "2024-01-15T10:15:30.123Z",
-    "updatedAt": "2024-01-15T10:15:30.123Z"
-  }
-]
-```
+### 🔐 **Autenticación y Autorización**
+- **JWT Tokens**: Stateless authentication
+- **OAuth 2.0**: Google, GitHub login
+- **Role-Based Access Control (RBAC)**
+- **API Keys**: Service-to-service auth
+- **Security Headers**: OWASP compliance
 
-### 🔄 Persistencia real
+### 📊 **Monitoreo y DevOps**
+- **Docker**: Containerización
+- **PM2**: Process management
+- **Prometheus + Grafana**: Métricas
+- **CI/CD**: GitHub Actions
+- **Load Balancing**: Nginx, HAProxy
 
-- ✅ **Crear comida:** Se guarda en el archivo JSON
-- ✅ **Actualizar comida:** El archivo se actualiza  
-- ✅ **Eliminar comida:** Se remueve del archivo
-- ✅ **Reiniciar servidor:** Los datos persisten
+### 🧪 **Testing Avanzado**
+- **Unit Tests**: Jest, Vitest
+- **Integration Tests**: Supertest
+- **E2E Tests**: Playwright
+- **Performance Tests**: Artillery
+- **Test Coverage**: 90%+ coverage
 
-> 💡 **¡Importante!** Agrega `src/data/foodsDatabase.json` a tu `.gitignore` si no quieres versionarlo
+### 🌐 **Microservicios**
+- **API Gateway**: Kong, Express Gateway
+- **Service Mesh**: Istio
+- **Event-Driven**: RabbitMQ, Apache Kafka
+- **gRPC**: High-performance communication
+- **Distributed Tracing**: Jaeger
 
----
-
-## 12. 📊 Monitoreo y estadísticas
-
-### 📈 Endpoint de estadísticas dinámicas
-
-`GET /api/stats` ahora muestra datos reales:
-
-```json
-{
-  "totalFoods": 5,
-  "categories": {
-    "main": 3,
-    "appetizer": 1, 
-    "dessert": 1
-  },
-  "averagePrice": 19.6,
-  "spicyFoods": 3,
-  "nonSpicyFoods": 2,
-  "priceRange": {
-    "min": 12,
-    "max": 28
-  },
-  "lastUpdated": "2024-01-15T10:45:12.456Z",
-  "apiVersion": "2.0.0"
-}
-```
-
-### 🏥 Health check avanzado
-
-`GET /health` incluye info del sistema:
-
-```json
-{
-  "status": "healthy! 💚",
-  "timestamp": "2024-01-15T10:45:12.456Z",
-  "uptime": 3600,
-  "database": {
-    "status": "connected",
-    "totalRecords": 5
-  },
-  "memory": {
-    "used": "25 MB",
-    "total": "50 MB"
-  }
-}
-```
-
----
-
-## 🎉 ¡Felicidades! Has completado el Nivel 2
-
-### ✅ **Dominas ahora:**
-
-- 🏗️ **CRUD completo**: Create, Read, Update, Delete operations
-- 📝 **Validaciones robustas**: Joi schemas con mensajes descriptivos
-- 🛡️ **Middleware personalizado**: Rate limiting, logging, seguridad
-- 💾 **Persistencia real**: Datos se guardan en archivos JSON
-- 🔒 **Seguridad básica**: Headers, rate limiting, validación de entrada
-- 📊 **Monitoreo**: Logs, estadísticas, health checks
-- 🎯 **API REST profesional**: Estándares HTTP, códigos de estado correctos
-- ⚡ **Async/await**: Manejo asíncrono correcto
-- 🏗️ **Arquitectura escalable**: Separación de responsabilidades
-
-### 🏆 **Tu arquitectura profesional:**
-
-```
-📁 peruvian-food-api/
-├── 📊 src/data/
-│   ├── foods.js                ➜ Database class con CRUD operations
-│   └── foodsDatabase.json      ➜ Archivo JSON persistente (auto-generado)
-├── 🛣️ src/routes/
-│   └── foodRoutes.js          ➜ Endpoints CRUD completos
-├── 🛡️ src/middleware/
-│   └── security.js            ➜ Rate limiting, logging, validation
-├── ✅ src/validators/
-│   └── foodValidator.js       ➜ Joi schemas para validación
-├── 🔧 src/utils/
-│   └── fileManager.js         ➜ Manejo de archivos JSON
-├── 🚀 src/index.js            ➜ Servidor con middleware y seguridad
-├── 🚫 .gitignore
-└── 📦 package.json            ➜ Dependencies profesionales
-```
-
-### 🌟 **Comandos que dominas:**
-
-```bash
-npm run dev         # 🛠️ Desarrollo con auto-reload
-npm start          # 🚀 Producción
-npm install        # 📦 Instalar dependencias
-```
-
-### 🚀 **¿Qué sigue en Nivel 3?**
-
-- 🗄️ **Bases de datos reales**: MongoDB, PostgreSQL
-- 🔐 **Autenticación JWT**: Login, register, protected routes
-- 📤 **File uploads**: Subida de imágenes
-- 🧪 **Testing automatizado**: Unit tests, integration tests
-- 🐳 **Deployment**: Docker, cloud deployment
-- 📡 **WebSockets**: Real-time updates
-- 🎯 **Advanced middleware**: Custom auth, caching
-
-**¡Tu API está lista para producción! 🌍** Puedes consumirla desde cualquier frontend (React, Vue, Angular) y tiene todas las características de una API profesional. ¡Excelente trabajo! 🌟✨
+**¡Tu viaje hacia arquitecto de software ha comenzado! 🌟**
