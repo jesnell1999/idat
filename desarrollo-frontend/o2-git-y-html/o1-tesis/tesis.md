@@ -21,6 +21,11 @@ This project will be conducted using Python and the Hugging Face Transformers li
 5. Deploy the fine-tuned LLM for use in answering questions based on the course.
 
 ## Methods
+1. Data collection: Gather a dataset of questions and answers from the course.
+2. Data preprocessing: Clean and preprocess the data to ensure it is in a suitable format for training the LLM.
+3. Model training: Train the LLM on the preprocessed data using a suitable training algorithm.
+4. Model evaluation: Evaluate the performance of the LLM on a test set to assess its accuracy and generalization capabilities.
+5. Model deployment: Deploy the fine-tuned LLM for use in answering questions based on the course.
 
 ## Results
 
