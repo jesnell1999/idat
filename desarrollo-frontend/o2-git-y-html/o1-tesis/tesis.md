@@ -35,5 +35,6 @@ This project will be conducted using Python and the Hugging Face Transformers li
 5. The fine-tuned LLM will be deployed for use in answering questions based on the course.
 
 ## Conclusions
+The collected dataset of questions and answers from the course will be used to train the LLM. The preprocessed data will be used to train the LLM. The LLM will be trained using a suitable training algorithm, such as GPT-3. The LLM will be evaluated on a test set to assess its accuracy and generalization capabilities. The fine-tuned LLM will be deployed for use in answering questions based on the course.
 
 ## References
