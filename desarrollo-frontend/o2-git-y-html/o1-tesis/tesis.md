@@ -14,6 +14,11 @@ The project will involve the following steps:
 This project will be conducted using Python and the Hugging Face Transformers library. The dataset will be collected from the course's website and will be available for download.
 
 ## Objectives
+1. Collect a dataset of questions and answers from the course.
+2. Preprocess the data to ensure it is in a suitable format for training the LLM.
+3. Train the LLM on the preprocessed data using a suitable training algorithm.
+4. Evaluate the performance of the LLM on a test set to assess its accuracy and generalization capabilities.
+5. Deploy the fine-tuned LLM for use in answering questions based on the course.
 
 ## Methods
 
