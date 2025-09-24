@@ -1,4 +1,4 @@
-# Tesis
+# LLM fine tuning for answering questions based on a software development course
 
 ## Introduction
 
