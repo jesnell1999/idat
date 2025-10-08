@@ -1,3 +1,10 @@
+/* Keyframes */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* Globals */
 :root {
   color-scheme: dark;
@@ -50,6 +57,13 @@
   font-size: clamp(0.875rem, 1.5vw, 1.125rem);
 }
 
+.hero__cover-decorators {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  animation: spin 10s linear infinite;
+}
+
 .list {
   list-style: none;
   padding: 0;
@@ -78,6 +92,39 @@
   border-radius: 50%;
 }
 
+.img--cover-decorators {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  padding: 0.5em;
+  border-radius: 50%;
+  background-color: white;
+
+  &:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+
+  &:nth-child(2) {
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%) rotate(-90deg);
+  }
+
+  &:nth-child(3) {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  &:nth-child(4) {
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
 .link {
   color: #fefefe;
   text-decoration: none;
@@ -92,6 +139,10 @@
 }
 
 /* Utils */
+.p-relative {
+  position: relative;
+}
+
 .d-flex {
   display: flex;
 }
