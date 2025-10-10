@@ -1,5 +1,13 @@
+/* Variables */
+:root {
+  --size: 0.25rem;
+  --primary-font: "Cormorant", serif;
+  --secondary-font: "Montserrat", sans-serif;
+}
+
 /* Globals */
 .body {
+  margin: 0;
   background-color: #f6efe4;
-  font-family: serif;
+  font-family: var(--primary-font);
 }
