@@ -11,6 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body class="body">
@@ -53,44 +54,46 @@
       </div>
     </article>
     <section class="section">
-      <div class="container">
+      <div class="container d-flex f-direction-column g-8">
         <h2 class="section__title t-align-center">Our Story</h2>
-        <p class="text text--lg t-align-center">
-          From the misty peaks of the Andes to the vibrant streets of Lima, Mikhuy celebrates Peru's extraordinary
-          culinary diversity. Each dish tells a story of ancient Incan traditions meeting contemporary artistry,
-          creating a symphony of flavors that dance on your palate.
-        </p>
-        <h3 class="t-align-center">"Mikhuyqa Kawsaymi" - "Food is life" - Ancient Quechua wisdom</h3>
-        <div>
-          <div>
+        <div class="d-flex f-direction-column g-4 t-align-center">
+          <p class="text text--lg">
+            From the misty peaks of the Andes to the vibrant streets of Lima, Mikhuy celebrates Peru's extraordinary
+            culinary diversity. Each dish tells a story of ancient Incan traditions meeting contemporary artistry,
+            creating a symphony of flavors that dance on your palate.
+          </p>
+          <h3 class="text text--lg">"Mikhuyqa Kawsaymi" - "Food is life" - Ancient Quechua wisdom</h3>
+        </div>
+        <div class="d-flex f-direction-column g-4 md:f-direction-row">
+          <div class="f-1 card">
             <span>
-              <i>X</i>
+              <i class="bi bi-fork-knife title"></i>
             </span>
-            <div>
-              <h4>Traditional Recipes</h4>
-              <p>
+            <div class="d-flex f-direction-column g-4">
+              <h4 class="title title--xs">Traditional Recipes</h4>
+              <p class="text">
                 Authentic dishes passed down through generations, honoring Peru's rich culinary heritage.
               </p>
             </div>
           </div>
-          <div>
+          <div class="f-1 card">
             <span>
-              <i>X</i>
+              <i class="bi bi-leaf title"></i>
             </span>
-            <div>
-              <h4>Fresh Ingredients</h4>
-              <p>
+            <div class="d-flex f-direction-column g-4">
+              <h4 class="title title--xs">Fresh Ingredients</h4>
+              <p class="text">
                 Locally sourced, premium ingredients from coast, Andes, and Amazon regions.
               </p>
             </div>
           </div>
-          <div>
+          <div class="f-1 card">
             <span>
-              <i>X</i>
+              <i class="bi bi-suit-heart title"></i>
             </span>
-            <div>
-              <h4>Family Heritage</h4>
-              <p>
+            <div class="d-flex f-direction-column g-4">
+              <h4 class="title title--xs">Family Heritage</h4>
+              <p class="text">
                 Every dish is crafted with love, bringing families together since generations.
               </p>
             </div>
