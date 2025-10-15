@@ -98,13 +98,28 @@
 }
 
 .button {
-  padding: 0.5em 1em;
+  --primary-button-color: var(--black-color);
+  padding: 0.75em 1.25em;
+  border: calc(var(--size) * 0.5) solid var(--primary-button-color);
   border-radius: 0.75em;
-  background-color: var(--primary-color);
+  background-color: var(--primary-button-color);
   color: var(--white-color);
+  /* ToDo: Update font */
+  font-family: var(--secondary-font);
   text-decoration: none;
 }
 
+.button--primary {
+  --primary-button-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.button--outline-white {
+  --primary-button-color: var(--white-color);
+  background-color: transparent;
+  color: var(--white-color);
+  backdrop-filter: blur(var(--size));
+}
 
 /* Utils */
 .d-flex {
@@ -129,6 +144,10 @@
 
 .g-4 {
   gap: calc(var(--size) * 4);
+}
+
+.g-8 {
+  gap: calc(var(--size) * 8);
 }
 
 .f-family-secondary {
