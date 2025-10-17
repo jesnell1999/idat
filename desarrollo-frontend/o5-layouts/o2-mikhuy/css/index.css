@@ -24,6 +24,18 @@
   margin-inline: auto;
 }
 
+.g-layout {
+  display: grid;
+}
+
+.g-layout--auto-fit-columns {
+  grid-template-columns: repeat(auto-fit, minmax(calc(var(--size) * 64), 1fr));
+}
+
+.g-layout--auto-fit-columns-lg {
+  grid-template-columns: repeat(auto-fit, minmax(calc(var(--size) * 80), 1fr));
+}
+
 /* Components */
 .header {
   position: fixed;
