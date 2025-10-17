@@ -79,7 +79,7 @@
 
 .card {
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
   border: 1px solid #bebebe;
   border-radius: 1rem;
   background-color: var(--shadow-color);
@@ -151,8 +151,7 @@
   border-radius: 0.75em;
   background-color: var(--primary-button-color);
   color: var(--white-color);
-  /* ToDo: Update font */
-  font-family: var(--secondary-font);
+  font-family: var(--tertiary-font);
   text-decoration: none;
 }
 
@@ -166,6 +165,13 @@
   background-color: transparent;
   color: var(--white-color);
   backdrop-filter: blur(var(--size));
+}
+
+.badge {
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: rgba(232, 94, 117, 0.125);
+  color: var(--primary-color);
 }
 
 /* Utils */
@@ -191,6 +197,10 @@
 
 .g-4 {
   gap: calc(var(--size) * 4);
+}
+
+.g-6 {
+  gap: calc(var(--size) * 6);
 }
 
 .g-8 {
