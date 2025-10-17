@@ -7,7 +7,7 @@
   --size: 0.25rem;
   --primary-font: "Cormorant", serif;
   --secondary-font: "Montserrat", sans-serif;
-  --tertiary-font: "Roboto", sans-serif;
+  --tertiary-font: "Inter", sans-serif;
 }
 
 /* Globals */
@@ -78,11 +78,18 @@
 }
 
 .card {
-  text-align: center;
-  padding: 2rem;
   border: 1px solid #bebebe;
   border-radius: 1rem;
   background-color: var(--shadow-color);
+  overflow: hidden;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--size) * 3);
+  padding: calc(var(--size) * 4);
+  background-color: var(--white-color);
 }
 
 /* Elements */
@@ -116,6 +123,14 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.text--xs {
+  font-size: calc(var(--size) * 3);
+}
+
+.text--sm {
+  font-size: calc(var(--size) * 3.5);
+}
+
 .text--lg {
   font-size: calc(var(--size) * 4.5);
 }
@@ -132,6 +147,11 @@
   height: 100%;
   inset: 0;
   filter: brightness(0.5);
+}
+
+.img--card {
+  width: 100%;
+  height: calc(var(--size) * 64);
 }
 
 .link {
@@ -209,6 +229,14 @@
 
 .f-1 {
   flex: 1;
+}
+
+.p-8 {
+  padding: calc(var(--size) * 8);
+}
+
+.c-primary {
+  color: var(--primary-color);
 }
 
 .f-family-secondary {
