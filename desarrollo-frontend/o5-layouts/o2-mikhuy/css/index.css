@@ -25,6 +25,15 @@
 }
 
 /* Components */
+.header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  width: 100%;
+  background-color: var(--shadow-color);
+  backdrop-filter: blur(calc(var(--size) * 2));
+}
+
 .nav {
   padding-block: calc(var(--size) * 4);
 }
