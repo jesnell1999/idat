@@ -1,0 +1,20 @@
+/* Variables */
+:root {
+  --color-scheme: dark;
+  --black-color: #010508;
+  --white-color: #fefefe;
+  --primary-font: monospace;
+}
+
+/* Global Styles */
+
+:root {
+  color-scheme: var(--color-scheme);
+}
+
+.body {
+  margin: 0;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  font-family: var(--primary-font);
+}
