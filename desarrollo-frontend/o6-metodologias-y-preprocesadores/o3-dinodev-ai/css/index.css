@@ -46,6 +46,14 @@
   justify-content: space-between;
 }
 
+.g-layout {
+  display: grid;
+}
+
+.g-layout--auto-fit-columns {
+  grid-template-columns: repeat(auto-fit, minmax(calc(var(--size) * 60), 1fr));
+}
+
 /* Components */
 .header {
   position: fixed;
@@ -63,6 +71,10 @@
 .banner {
   position: relative;
   height: calc(var(--size) * 128);
+}
+
+.section {
+  padding-block: calc(var(--size) * 8);
 }
 
 .list {
@@ -128,4 +140,8 @@
 
 .g-2 {
   gap: calc(var(--size) * 2);
+}
+
+.g-4 {
+  gap: calc(var(--size) * 4);
 }
