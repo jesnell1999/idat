@@ -1,13 +1,17 @@
 /* Variables */
 :root {
   --color-scheme: dark;
+
   --black-color: #010508;
   --white-color: #fefefe;
+  --light-shadow-color: #01050880;
+
   --primary-font: monospace;
+
+  --size: 0.25rem;
 }
 
-/* Global Styles */
-
+/* Global */
 :root {
   color-scheme: var(--color-scheme);
 }
@@ -17,4 +21,40 @@
   background-color: var(--black-color);
   color: var(--white-color);
   font-family: var(--primary-font);
+}
+
+/* Layout */
+.container {
+  max-width: 1280px;
+  padding-inline: calc(var(--size) * 4);
+  margin-inline: auto;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.flexbox--centered-spacing {
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Components */
+.header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  width: 100%;
+  background-color: var(--light-shadow-color);
+  backdrop-filter: blur(calc(var(--size) * 2));
+}
+
+.nav {
+  padding-block: calc(var(--size) * 2);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
