@@ -2,6 +2,7 @@
 :root {
   --color-scheme: dark;
 
+  --primary-color: #23b5e8;
   --black-color: #010508;
   --white-color: #fefefe;
   --light-shadow-color: #01050880;
@@ -9,6 +10,7 @@
   --primary-font: monospace;
 
   --size: 0.25rem;
+  --transition-duration: 0.25s;
 }
 
 /* Global */
@@ -57,4 +59,42 @@
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+/* Elements */
+.interactive {
+  margin: 0;
+  font-family: var(--primary-font);
+  font-size: calc(var(--size) * 3.5);
+  font-weight: 600;
+}
+
+.img {
+  display: block;
+  object-fit: cover;
+}
+
+.img--logo {
+  width: calc(var(--size) * 12);
+  height: calc(var(--size) * 12);
+  border-radius: 50%;
+}
+
+.link {
+  color: var(--white-color);
+  text-decoration: none;
+  transition: color var(--transition-duration);
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+/* Utils */
+.d-flex {
+  display: flex;
+}
+
+.g-2 {
+  gap: calc(var(--size) * 2);
 }
