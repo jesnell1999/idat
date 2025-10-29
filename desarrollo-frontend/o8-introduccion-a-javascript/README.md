@@ -1,458 +1,437 @@
-# 🚀✨ JavaScript Nivel 1: Fundamentos de Programación 💻🎯
-
-¡Bienvenido a tu primer paso en el mundo mágico de JavaScript! 🌟🎉 En este nivel aprenderás los conceptos más básicos pero esenciales para convertirte en un desarrollador frontend extraordinario. Desde mostrar tu primer "¡Hola Mundo!" 👋 hasta crear un simulador de batalla épica ⚔️🐲, cada reto te acercará más a dominar la programación como un verdadero mago del código. 🧙‍♂️💫
-
-Este nivel está diseñado para ser práctico, divertido y lleno de personalidad única. ¡Prepárate para programar aventuras increíbles con Mijael 👦, Fernanda 👧, Fe 🌟, Elliot 🤓, Doky 🐕, Amorosa 💖 y hasta chanchitos mágicos voladores! 🐷✨🚁
-
----
-
-## 🎯 Objetivos
-* 💻 **Dominar la sintaxis básica** de JavaScript (variables, console.log, operadores)
-* 🤝 **Entender la interacción con el usuario** mediante prompt() y alert()
-* 🧠 **Aplicar lógica condicional** para tomar decisiones en el código
-* 🎮 **Manipular datos básicos** como strings, números y arrays
-* 🧩 **Desarrollar pensamiento algorítmico** resolviendo problemas paso a paso
-* 🛡️ **Validar datos de entrada** para crear programas robustos
-* 📚 **Construir narrativas dinámicas** que cambien según la entrada del usuario
----
-
-## 📚✨ Conceptos a Aprender
+# 🌱 Nivel 1: Primeros Pasos en JavaScript ✨
 
 ```
-    🎭✨ VARIABLES & DATOS          🧠⚡ LÓGICA & DECISIONES
-    ┌──────────────────────┐       ┌──────────────────────┐
-    │ • const, let, var 📝 │       │ • if/else 🤔         │
-    │ • strings 📜         │       │ • operadores ➕➖    │
-    │ • numbers 🔢         │  ──►  │ • comparaciones ⚖️   │
-    │ • template strings 🎯│       │ • validaciones ✅    │
-    │ • typeof 🔍          │       │ • flujo de control 🌊│
-    └──────────────────────┘       └──────────────────────┘
-             │                             │
-             ▼                             ▼
-    🎲🎪 ALEATORIEDAD & ARRAYS      💬🎉 INTERACCIÓN USUARIO
-    ┌─────────────────────┐       ┌─────────────────────┐
-    │ • Math.random() 🎰  │       │ • prompt() 💭       │
-    │ • Math.floor() 📐   │       │ • alert() 🔔        │
-    │ • arrays básicos 📋 │  ◄──  │ • console.log 🖥️    │
-    │ • array.length 📏   │       │ • entrada/salida 🔄 │
-    │ • índices 🎯        │       │ • experiencia UX 🎨 │
-    └─────────────────────┘       └─────────────────────┘
-             │                             │
-             ▼                             ▼
-    🔄🌀 BUCLES & REPETICIÓN        🎮🚀 APLICACIONES
-    ┌─────────────────────┐       ┌───────────────────────┐
-    │ • while loops 🔁    │       │ • calculadoras 🧮     │
-    │ • condiciones 🎚️    │       │ • generadores 🎲      │
-    │ • iteración 🔄      │  ──►  │ • tests interactivos🧪│
-    │ • contadores 📊     │       │ • simuladores 🎭      │
-    │ • estados 📡        │       │ • mini-juegos 🎮      │
-    └─────────────────────┘       └───────────────────────┘
-
-        🎯🏆 RESULTADO: ¡Tu primera app JavaScript completa! 🎉✨
+   _____ _             _   
+  / ____| |           | |  
+ | (___ | |_ __ _ _ __| |_ 
+  \___ \| __/ _` | '__| __|
+  ____) | || (_| | |  | |_ 
+ |_____/ \__\__,_|_|   \__|
+                            
 ```
 
----
-
-## 🏆✨ Retos
-
-### 🧑‍💻 o1 ¡Hola, Programador!
-
-Crea un pequeño programa que salude al usuario usando su nombre 🖐️😊
-
-**🧠 Fundamentos:** `console.log`, variables, concatenación, template strings
+> **🎯 Objetivo:** Familiarizarte con console, variables, tipos de datos y entrada/salida básica 💻✨
 
 ---
 
-#### 🎯 Problemática
+## 🎮 Reto 1: Tu primer mensaje
 
-Queremos saludar al usuario de forma personalizada usando una variable con su nombre. El mensaje debe mostrarse por consola 🖥️
+**Descripción:** Muestra un mensaje de bienvenida en la consola
 
-> “¡Hola, Elliot! Bienvenido a tu camino como desarrollador.”
+**Funcionalidad:** Imprimir `"¡Hola, mundo! Estoy aprendiendo JavaScript 🚀"`
 
----
+**Casos de prueba:**
+- ✅ Debe aparecer el mensaje completo en consola
+- ✅ El mensaje debe incluir el emoji
+- 📦 Retorna `undefined` (console.log no retorna nada)
 
-#### ✅ Casos de prueba
+**Código base:**
+```javascript
+// Escribe tu código aquí
 
-```js
-// ✅ Happy paths
-const name = "Elliot";
-// expected output: "¡Hola, Elliot! Bienvenido a tu camino como desarrollador."
-
-const name = "Fe";
-// expected output: "¡Hola, Fe! Bienvenido a tu camino como desarrollador."
-
-const name = "Fernanda";
-// expected output: "¡Hola, Fernanda! Bienvenido a tu camino como desarrollador."
-
-// ❌ Validación básica: cadena vacía
-const name = "";
-// expected output: "¡Hola! Bienvenido a tu camino como desarrollador."
-// El software debe omitir el nombre si está vacío y mostrar solo el saludo general.
-
-// ❌ Validación de tipo: debe retornar string
-const name = 21;
-const message = `¡Hola, ${name}! Bienvenido a tu camino como desarrollador.`;
-// expected typeof message: "string"
 ```
 
+**Tips:**
+- 💡 Usa `console.log()`
+- 💡 Los strings van entre comillas
+
+**Motivación:** ¡Tu primer paso en JavaScript! Cada gran programador empezó exactamente aquí 🌟
+
 ---
 
-#### 💻 Código base
+## 🎮 Reto 2: Mensajes de colores
 
-```js
-// Declara una variable llamada 'name'
-// Usa console.log para mostrar un mensaje de saludo personalizado
+**Descripción:** Usa diferentes tipos de console para mostrar mensajes
+
+**Funcionalidad:** Mostrar un mensaje normal, una advertencia y un error
+
+**Casos de prueba:**
+- ✅ `console.log()` muestra mensaje normal
+- ✅ `console.warn()` muestra advertencia en amarillo
+- ✅ `console.error()` muestra error en rojo
+- 📦 Los tres retornan `undefined`
+
+**Código base:**
+```javascript
+// Mensaje normal
+
+
+// Advertencia
+
+
+// Error
+
 ```
 
----
+**Tips:**
+- 💡 Usa `console.log()`, `console.warn()` y `console.error()`
+- 💡 Observa los colores diferentes en la consola
 
-#### 💡 Tips
-
-✨ Usa `const` si el valor no cambia
-✨ Usa `` `template strings` `` para insertar variables fácilmente
-✨ Si el nombre está vacío, evita agregarlo al saludo
-✨ Asegúrate de que el mensaje sea siempre una cadena (`typeof === "string"`)
+**Motivación:** Cada tipo de mensaje tiene su propósito. ¡Aprende a comunicarte bien! 💬
 
 ---
 
-#### 🚀 Motivación
+## 🎮 Reto 3: Mi primera variable
 
-¡Este es tu **primer programa funcional en JavaScript**! 🚀
-Aprendes a declarar una variable, a **mostrar texto dinámico** y a **controlar el resultado** dependiendo del valor ingresado.
-Además, ¡te da la bienvenida con estilo a tu viaje como desarrollador frontend! 👨‍💻✨
+**Descripción:** Crea una variable con tu nombre y muéstrala en consola
 
----
+**Funcionalidad:** Usar `const` para almacenar tu nombre
 
-### 🧮 o2 Calculadora de Edad
+**Casos de prueba:**
+- ✅ La variable debe tener tu nombre
+- ✅ Debe mostrarse en consola correctamente
+- ⚠️ Debe usar `const` (no `let` ni `var`)
+- 📦 La variable es de tipo `string`
 
-Haz un programa que calcule la edad de una persona usando su año de nacimiento 🕰️
+**Código base:**
+```javascript
+// Crea una variable con tu nombre
 
-**🧠 Fundamentos:** `console.log`, variables, operaciones matemáticas, validación de datos
 
----
+// Muestra tu nombre en consola
 
-#### 🎯 Problemática
-
-El programa debe guardar el año de nacimiento de una persona (como Fernanda, Elliot, Mijael o Fe) en una variable llamada `birthYear`, calcular su edad actual y mostrarla en consola en el formato:
-
-> “Tienes 25 años.”
-
----
-
-#### ✅ Casos de prueba
-
-```js
-// ✅ Happy paths
-const birthYear = 1996;
-// expected output (en 2025): "Tienes 29 años."
-
-const birthYear = 1999;
-// expected output: "Tienes 26 años."
-
-const birthYear = 2023;
-// expected output: "Tienes 02 años."
-
-// ❌ Validación básica (vacío)
-const birthYear = "";
-// expected output: "Por favor, ingresa un año válido."
-// El software debe detectar que el campo está vacío y evitar hacer el cálculo
-
-// ❌ Validación de tipo del resultado
-const birthYear = 2004;
-const result = `Tienes ${new Date().getFullYear() - birthYear} años.`;
-// expected typeof result: "string"
 ```
 
+**Tips:**
+- 💡 `const nombre = "Tu Nombre";`
+- 💡 Usa `console.log()` para mostrar
+
+**Motivación:** ¡Las variables son como cajitas mágicas que guardan información! 📦
+
 ---
 
-#### 💻 Código base
+## 🎮 Reto 4: Constantes vs variables
 
-```js
-// Declara una variable llamada 'birthYear'
-// Calcula la edad usando el año actual
-// Muestra el mensaje en consola: "Tienes X años."
+**Descripción:** Crea variables con `const` y `let` para entender la diferencia
+
+**Funcionalidad:** Una variable que no cambia y otra que sí
+
+**Casos de prueba:**
+- ✅ Edad actual con `const` (no cambia)
+- ✅ Años de experiencia con `let` (puede cambiar)
+- ✅ Ambas deben mostrarse en consola
+- 📦 Ambas son tipo `number`
+
+**Código base:**
+```javascript
+// Tu edad actual (no cambia)
+
+
+// Años de experiencia programando (puede cambiar)
+
+
+// Muestra ambas en consola
+
+
 ```
 
----
+**Tips:**
+- 💡 Usa `const` para valores fijos
+- 💡 Usa `let` para valores que cambiarán
 
-#### 💡 Tips
-
-🧠 Usa `new Date().getFullYear()` para obtener el año actual
-🛑 Si `birthYear` está vacío, no calcules la edad
-📦 Usa template strings (`` ` ``) para mostrar el mensaje
-✅ El mensaje final siempre debe ser una cadena de texto (`typeof === "string"`)
+**Motivación:** Elegir el tipo correcto hace tu código más claro 🎯
 
 ---
 
-#### 🚀 Motivación
+## 🎮 Reto 5: Tipos de datos básicos
 
-¡Este reto te conecta con la realidad! 🎂
-Aprendes a validar datos, hacer operaciones y mostrar resultados dinámicos.
-Ideal para calcular la edad de **Fernanda, Elliot, Fe, Amorosa o incluso chanchitos** 🐷🧮✨
+**Descripción:** Crea variables de diferentes tipos
 
----
+**Funcionalidad:** Crear un string, number, boolean, undefined y null
 
-### 📝 o3 Generador de Historias Aleatorias
+**Casos de prueba:**
+- ✅ Un texto (string)
+- ✅ Un número (number)
+- ✅ Un verdadero/falso (boolean)
+- ✅ Una variable sin valor (undefined)
+- ✅ Un valor vacío intencional (null)
+- 📦 Cada uno debe ser del tipo correcto
 
-Crea una historia graciosa y aleatoria combinando palabras de diferentes listas 🎲📚
+**Código base:**
+```javascript
+// String (texto)
 
-**🧠 Fundamentos:** arrays, variables, `Math.random`, concatenación, funciones
 
----
+// Number (número)
 
-#### 🎯 Problemática
 
-El programa debe generar una historia cada vez que se ejecute, eligiendo aleatoriamente un nombre, una acción, un lugar y un objeto.
+// Boolean (verdadero/falso)
 
-Ejemplo:
 
-> "Fe navegó en una ratita gigante hacia el planeta 21."
+// Undefined (sin valor)
 
----
 
-#### ✅ Casos de prueba
+// Null (vacío intencional)
 
-```js
-// ✅ Happy paths
-// expected: "Fernanda voló sobre los chanchitos con una escoba mágica."
-// expected: "Amorosa bailó en la colina de las ratitas con una bufanda rosa."
-// expected: "Mijael saltó entre las estrellas con un dragón de peluche."
 
-// ❌ Validación básica (lista vacía)
-const names = [];
-// expected output: "No hay suficientes datos para crear una historia."
+// Muestra todos en consola
 
-// ❌ Validación de tipo del resultado
-const message = generarHistoria();
-typeof message === 'string';
-// expected: true ✅
+
+
+
+
 ```
 
+**Tips:**
+- 💡 Los strings van entre comillas
+- 💡 Los numbers son números sin comillas
+- 💡 Los booleans son `true` o `false`
+
+**Motivación:** JavaScript tiene diferentes tipos de datos. ¡Conócelos todos! 🎨
+
 ---
 
-#### 💻 Código base
+## 🎮 Reto 6: Detective de tipos
 
-```js
-// Declara arrays de nombres, acciones, lugares y objetos
-// Crea una función llamada generarHistoria()
-// Dentro de la función:
-// - Valida que todos los arrays tengan elementos
-// - Elige un elemento aleatorio de cada array
-// - Devuelve la historia como un string
+**Descripción:** Usa `typeof` para descubrir el tipo de cada variable
+
+**Funcionalidad:** Identificar el tipo de dato con el operador `typeof`
+
+**Casos de prueba:**
+- ✅ `typeof "Hola"` → "string"
+- ✅ `typeof 42` → "number"
+- ✅ `typeof true` → "boolean"
+- ✅ `typeof undefined` → "undefined"
+- 📦 `typeof` siempre retorna un `string`
+
+**Código base:**
+```javascript
+const texto = "JavaScript";
+const numero = 100;
+const activo = true;
+const vacio = undefined;
+
+// Muestra el tipo de cada variable usando typeof
+
+
+
+
 ```
 
----
+**Tips:**
+- 💡 `typeof variable` te dice el tipo
+- 💡 El resultado siempre es un string
 
-#### 💡 Tips
-
-🔁 Usa `Math.floor(Math.random() * array.length)`
-🧩 Verifica `.length` en cada array para saber si están vacíos
-🧪 Asegúrate de que `generarHistoria()` siempre devuelva un string con `typeof`
+**Motivación:** ¡Ser detective de tipos te evitará muchos errores! 🔍
 
 ---
 
-#### 🚀 Motivación
+## 🎮 Reto 7: Presentación con template strings
 
-Este reto te permite crear un pequeño mundo de magia, ternura y humor 🤩
-Practicas arrays, funciones y aleatoriedad… ¡y a la vez haces sonreír a Fernanda, Mijael, Doky, Amorosa y Fe con historias únicas! 🐶🐷🧸👧
+**Descripción:** Crea una presentación usando template strings
 
----
+**Funcionalidad:** Combinar texto y variables con backticks
 
-### ✨ o4 Test de Personalidad Mágico (con `prompt()` y `alert()`)
+**Casos de prueba:**
+- ✅ Debe incluir nombre y edad en el mensaje
+- ✅ Debe usar template strings (backticks)
+- ✅ Mensaje: `"Hola, soy [nombre] y tengo [edad] años"`
+- 📦 El resultado es un `string`
 
-Descubre qué tipo de mago eres según tus elecciones mágicas... ¡respondiendo preguntas en pantalla! 🧙‍♀️✨
+**Código base:**
+```javascript
+const miNombre = "Fernanda";
+const miEdad = 15;
 
-**🧠 Fundamentos:** `prompt()`, `alert()`, condicionales (`if/else`), validación
+// Crea el mensaje usando template strings (backticks)
 
----
 
-#### 🎯 Problemática 🔮
+// Muestra el mensaje
 
-El programa debe hacer 3 preguntas mágicas al usuario (usando `prompt()`):
-
-1. 🌞 ¿Prefieres el **día** o la **noche**?
-2. 🌡️ ¿Te gusta más el **frío** o el **calor**?
-3. 🕊️ ¿Preferirías **volar** o **teletransportarte**?
-
-Según las combinaciones, mostrará un tipo de mago:
-
-| Combinación                       | Resultado                                 |
-| --------------------------------- | ----------------------------------------- |
-| día + frío + volar                | 🧊 Eres un Mago del Hielo ❄️                |
-| noche + calor + teletransportarse | 🔥 Eres un Mago del Fuego 🔥                |
-| día + calor + teletransportarse   | 🌞 Eres un Mago del Sol ☀️                  |
-| cualquier otra combinación válida | 🌌 Eres un Mago Misterioso ✨               |
-| cualquier respuesta vacía         | ⚠️ Por favor, responde todas las preguntas |
-
----
-
-#### ✅ Casos de prueba 🧪
-
-```js
-// ✅ Happy paths (usando prompt o con valores manuales)
-tiempo = "día", clima = "frío", poder = "volar"
-// expected: "Eres un Mago del Hielo ❄️"
-
-tiempo = "noche", clima = "calor", poder = "teletransportarse"
-// expected: "Eres un Mago del Fuego 🔥"
-
-tiempo = "día", clima = "calor", poder = "teletransportarse"
-// expected: "Eres un Mago del Sol ☀️"
-
-// ❌ Validación básica
-tiempo = "día", clima = "", poder = "volar"
-// expected: "Por favor, responde todas las preguntas."
-
-// ❌ Validación de tipo del resultado
-const result = "Eres un Mago del Hielo ❄️";
-typeof result === 'string'; // expected: true ✅
 ```
 
+**Tips:**
+- 💡 Usa backticks: \`texto ${variable}\`
+- 💡 `${}` dentro del string inserta la variable
+
+**Motivación:** ¡Template strings hacen que combinar texto sea súper fácil! ✨
+
 ---
 
-#### 💻 Código base ⚙️
+## 🎮 Reto 8: Operaciones matemáticas básicas
 
-```js
-// Usa alert() para dar la bienvenida al test
-// Usa prompt() para obtener las 3 respuestas mágicas: time, weather y power
-// Valida que ninguna esté vacía
-// Usa condicionales para evaluar combinaciones exactas
-// Muestra el resultado final con alert()
+**Descripción:** Realiza operaciones con números
+
+**Funcionalidad:** Suma, resta, multiplicación y división
+
+**Casos de prueba:**
+- ✅ 10 + 5 → 15
+- ✅ 20 - 8 → 12
+- ✅ 6 * 7 → 42
+- ✅ 100 / 4 → 25
+- 📦 Todos retornan `number`
+
+**Código base:**
+```javascript
+const num1 = 10;
+const num2 = 5;
+
+// Suma
+
+
+// Resta
+
+
+// Multiplicación
+
+
+// División
+
+
+// Muestra todos los resultados
+
+
+
+
 ```
 
----
+**Tips:**
+- 💡 Usa `+`, `-`, `*`, `/`
+- 💡 Guarda cada resultado en una variable
 
-#### 💡 Tips ✏️
-
-💬 Usa `.toLowerCase()` para evitar errores con mayúsculas
-🧼 Usa `!variable` para validar si está vacía
-🌈 Muestra siempre un resultado con `alert()`
-🎨 Usa emojis para darle personalidad al test
-🪄 Usa `else` final para el caso de Mago Misterioso
+**Motivación:** ¡JavaScript es una calculadora súper poderosa! 🔢
 
 ---
 
-#### 🚀 Motivación ✨
+## 🎮 Reto 9: Mi primer alert
 
-Este reto es tu primer acercamiento real a la **interactividad con el usuario** 🧑‍💻
-Aprendes a **recibir datos**, **validarlos** y **tomar decisiones lógicas**.
-¡Además, es mágico, divertido y 100% personalizado para Fernanda, Fe, Mijael y hasta Amorosa! 🐶💫
+**Descripción:** Muestra un mensaje emergente al usuario
 
----
+**Funcionalidad:** Usar `alert()` para mostrar un saludo
 
-### 🐲 o5 Simulador de Batalla Épica
+**Casos de prueba:**
+- ✅ Debe aparecer una ventana emergente
+- ✅ El mensaje debe ser: "¡Bienvenido a JavaScript! 🎉"
+- 📦 `alert()` retorna `undefined`
 
-Simula una batalla mágica entre un guerrero y un dragón… ¡con decisiones del usuario! ⚔️🔥
-Crea una historia de combate por turnos, donde cada personaje ataca hasta que uno gane.
+**Código base:**
+```javascript
+// Muestra un alert con el saludo
 
-**🧠 Fundamentos:** `prompt()`, `alert()`, objetos, bucles `while`, operadores, validación de datos
-
----
-
-#### 🎯 Problemática ⚔️
-
-Debes pedir al usuario que defina:
-
-* 🧑‍🚀 El **nombre**, **vida** y **ataque** de un guerrero
-* 🐉 El **nombre**, **vida** y **ataque** de un dragón
-
-Ambos se turnarán atacándose.
-En cada turno:
-
-* El guerrero ataca primero y reduce la vida del dragón
-* Luego el dragón responde y reduce la vida del guerrero
-
-La batalla termina cuando uno de los dos llegue a **vida 0 o menos**.
-El programa debe mostrar quién ganó y narrar el combate con `alert()`.
-
----
-
-#### ✅ Casos de prueba 🧪
-
-```js
-// ✅ Happy paths
-// Guerrero: Doky (vida: 100, ataque: 15)
-// Dragón: Chocolate (vida: 80, ataque: 12)
-// expected: "👨‍🚀 El guerrero ganó el duelo 💥💥💥"
-
-const warrior = { name: "Fe", health: 80, attack: 10 };
-const dragon = { name: "Chanchitos", health: 100, attack: 16 };
-// expected: "🐉 El dragón ganó el duelo 💥💥💥"
-
-const warrior = { name: "Fernanda", health: 100, attack: 13 };
-const dragon = { name: "Ratitas", health: 100, attack: 13 };
-// expected: Uno gana después de varios turnos
-
-// ❌ Validación básica
-const warrior = { name: "Mijael", health: 100, attack: 0 };
-// expected: "⚠️ Los valores de ataque y vida deben ser positivos."
-
-// ❌ Validación de tipo del resultado
-let message = "👨‍🚀 El guerrero ganó el duelo 💥💥💥";
-typeof message === "string";
-// expected: true ✅
 ```
 
+**Tips:**
+- 💡 `alert("tu mensaje")`
+- 💡 El mensaje aparece en una ventana emergente
+
+**Motivación:** ¡Ahora puedes hablar directamente con el usuario! 💬
+
 ---
 
-#### 💻 Código base ⚙️
+## 🎮 Reto 10: Capturando información
 
-```js
-// Da la bienvenida al usuario con alert()
-// Pide nombre, vida y ataque del guerrero (prompt)
-// Pide nombre, vida y ataque del dragón (prompt)
-// Valida que todos los datos estén completos y sean números positivos
-// Simula la batalla con un bucle while
-// Alterna los ataques entre guerrero y dragón
-// Muestra los resultados con alert()
-// Al final, muestra un mensaje diciendo quién ganó
-// Usa typeof message === "string" para validar el tipo del resultado (opcional)
+**Descripción:** Pide el nombre al usuario con `prompt()`
+
+**Funcionalidad:** Capturar entrada del usuario y mostrarla
+
+**Casos de prueba:**
+- ✅ Debe aparecer una ventana pidiendo el nombre
+- ✅ Debe guardar lo que el usuario escriba
+- ✅ Debe mostrar el nombre en consola
+- 📦 `prompt()` retorna un `string` o `null`
+
+**Código base:**
+```javascript
+// Pide el nombre al usuario
+
+
+// Muestra el nombre en consola
+
 ```
 
----
+**Tips:**
+- 💡 `prompt("¿Cuál es tu nombre?")`
+- 💡 Guarda el resultado en una variable
 
-#### 💡 Tips 💬
-
-🧠 Usa `parseInt()` para convertir los valores a número
-🧼 Usa `isNaN()` para validar que los números sean válidos
-🔁 Usa `while (warriorHealth > 0 && dragonHealth > 0)` para el combate
-📢 Usa `alert()` en cada turno para narrar el duelo
-🔎 Usa `typeof` para validar que el resultado final sea una cadena
-🏷️ No olvides nombrar a tus guerreros como **Doky**, **Fe**, **Fernanda**, **Mijael**... ¡hazlo tuyo!
+**Motivación:** ¡Tu programa ya puede interactuar con personas reales! 🎮
 
 ---
 
-#### 🚀 Motivación 🎮
+## 🎮 Reto 11: Saludo personalizado
 
-Este reto cierra el Nivel 1 con todo lo aprendido:
-**input de usuario, validación, bucles, decisiones, narrativa e interactividad**.
-¡Una pequeña app sin HTML, pero con mucha lógica! 🎯🔥
-¡Ideal para jugar con tu hijo Mijael, dedicarle la victoria a Fernanda o enfrentar a Amorosa contra un dragón! 🐶💖🐲
+**Descripción:** Pide el nombre y muestra un saludo personalizado con `alert()`
+
+**Funcionalidad:** Combinar `prompt()`, template strings y `alert()`
+
+**Casos de prueba:**
+- ✅ Pide el nombre con `prompt()`
+- ✅ Crea mensaje: `"¡Hola, [nombre]! 👋"`
+- ✅ Muestra el mensaje con `alert()`
+- 📦 El mensaje final es un `string`
+
+**Código base:**
+```javascript
+// Pide el nombre
+
+
+// Crea el saludo personalizado
+
+
+// Muestra el saludo con alert
+
+```
+
+**Tips:**
+- 💡 Usa `prompt()` para capturar
+- 💡 Usa template strings para el mensaje
+- 💡 Usa `alert()` para mostrar
+
+**Motivación:** ¡Estás combinando varios conceptos! Eso es programar de verdad 🚀
 
 ---
 
-## 🚀🎯 Siguientes Pasos
+## 🎮 Reto 12: Mini perfil
 
-Una vez que completes este nivel, estarás listo para avanzar en el [JavaScript Roadmap](https://roadmap.sh/javascript) 🗺️✨:
+**Descripción:** Pide nombre y edad, luego muestra un perfil completo
 
-### 📈🚀 Nivel 2: Objetos, Arrays y Funciones
-- 🏗️ **Objetos JavaScript** - propiedades, métodos, object literals, destructuring 📦🔧
-- 📋 **Arrays dinámicos** - push, pop, forEach, find, manipulación de listas 🔄✨
-- ⚡ **Funciones Arrow** - sintaxis moderna, parámetros, return, scope 🏹💫
-- 🎮 **Integración completa** - sistemas que combinan objetos + arrays + funciones 🏰⚔️
+**Funcionalidad:** Capturar dos datos y combinarlos en un mensaje
 
-### 🔮🌟 Nivel 3: JavaScript Moderno & DOM
-- 🎨 **DOM Manipulation** - seleccionar elementos, eventos, HTML dinámico 🖱️🎭
-- ⏰ **JavaScript Asíncrono** - fetch, async/await, manejo de APIs 🔄⚡
-- ✨ **ES6+ Moderno** - destructuring, spread operator, modules 📚🎯
-- 💾 **Local Storage** - persistencia de datos en el navegador 🗄️💎
+**Casos de prueba:**
+- ✅ Pide nombre con `prompt()`
+- ✅ Pide edad con `prompt()`
+- ✅ Mensaje: `"Hola [nombre], tienes [edad] años ✨"`
+- ✅ Muestra con `alert()`
+- 📦 El perfil es un `string`
 
-### 🎨🚀 Nivel 4: React Foundations
-- ⚛️ **React Básico** - componentes, JSX, props, state 🎪🔥
-- 🎯 **Event Handling** - onClick, onChange, forms en React 🖱️⚡
-- 🔄 **State Management** - useState, lifting state up 📊🌊
-- 🎨 **Component Patterns** - reutilización, composición, children 🧩✨
+**Código base:**
+```javascript
+// Pide el nombre
+
+
+// Pide la edad
+
+
+// Crea el mensaje del perfil
+
+
+// Muestra el perfil
+
+```
+
+**Tips:**
+- 💡 Dos `prompt()` separados
+- 💡 Template strings con ambas variables
+- 💡 Un solo `alert()` al final
+
+**Motivación:** 🎉 ¡Proyecto final del Nivel 1! Has dominado los fundamentos. ¡Eres increíble! 💪
 
 ---
 
-🎉✨ **¡Felicidades por comenzar tu viaje épico como desarrollador!** 🚀💻 Cada línea de código que escribas te acerca más a crear aplicaciones increíbles y mágicas. ¡Fernanda 👧, Mijael 👦, Fe 🌟, Elliot 🤓, Doky 🐕, Amorosa 💖 y todos tus amigos estarán súper orgullosos de tu progreso! 💪✨🎯🏆
+## 📊 Resumen del Nivel 1
+
+**Has completado:**
+- ✅ Console: log, warn, error
+- ✅ Variables: let y const
+- ✅ Tipos de datos: string, number, boolean, undefined, null
+- ✅ Operador typeof
+- ✅ Template strings
+- ✅ Operaciones matemáticas básicas
+- ✅ Alert y prompt
+
+**Tiempo estimado:** 2-3 horas ⏰
+
+**Próximo nivel:** 🔧 Nivel 2 - Transformaciones y Lógica
+
+---
+
+💪 **¡Felicidades!** Has dado tus primeros pasos en JavaScript. Cada reto completado es una victoria. ¡Sigue así, campeón! 🏆✨
