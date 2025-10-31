@@ -10,419 +10,398 @@
                             
 ```
 
-> **🎯 Objetivo:** Familiarizarte con console, variables, tipos de datos y entrada/salida básica 💻✨
+> **🎯 Objetivo:** Dominar console, variables, tipos de datos, operadores y entrada/salida básica 💻✨
 
 ---
 
-## 🎮 Reto 1: Tu primer mensaje ✨
+## 💬 Reto 1: Console Básico
 
-**📝 Descripción:** Muestra un mensaje de bienvenida en la consola 💬
+**📝 Descripción:** Muestra diferentes mensajes usando console 🖥️
 
-**⚡ Funcionalidad:** Imprimir `"¡Hola, mundo! Estoy aprendiendo JavaScript 🚀"`
+**⚡ Funcionalidad:** Usar `console.log()`, `console.warn()` y `console.error()` para mostrar mensajes
 
 **✅ Casos de prueba:**
-- ✅ Debe aparecer el mensaje completo en consola 💻
-- ✅ El mensaje debe incluir el emoji 🚀
-- 📦 Retorna `undefined`
+- ✅ Mensaje normal aparece en color estándar 💬
+- ✅ Advertencia aparece en color amarillo/naranja ⚠️
+- ✅ Error aparece en color rojo ❌
+- ✅ Los tres mensajes se muestran sin errores de sintaxis 🎯
 
 **🏗️ Código base:**
 ```javascript
-// 🎯 Escribe tu código aquí 👇
-
+// Show a normal message
+// Show a warning
+// Show an error
 ```
 
 **💡 Tips:**
-- 🔹 Usa `console.log()` para mostrar mensajes
-- 🔹 Los strings van entre comillas `"texto"`
+- 🔹 `console.log()` para mensajes normales 💬
+- 🔹 `console.warn()` para advertencias ⚠️
+- 🔹 `console.error()` para errores ❌
+- 🔹 Abre la consola con F12 o clic derecho → Inspeccionar 🔍
 
-**🚀 Motivación:** ¡Tu primer paso en JavaScript! Cada gran programador empezó exactamente aquí 🌟✨
+**📁 Carpeta:** `o1-console-basics/`
+
+**🎨 HTML:**
+```html
+<title>💬 Console Básico 🖥️</title>
+<h1>💬 Console Básico 🖥️</h1>
+<h5>🔍 Abre la consola para ver los mensajes 💬</h5>
+```
+
+**🚀 Motivación:** ¡La consola es tu mejor amiga! Aquí verás todo lo que tu código hace 🌟✨
 
 ---
 
-## 🎮 Reto 2: Mensajes de colores 🎨
+## 📦 Reto 2: Primera Variable
 
-**📝 Descripción:** Usa diferentes tipos de console para mostrar mensajes 🌈
+**📝 Descripción:** Crea tu primera variable y muéstrala en consola ✍️
 
-**⚡ Funcionalidad:** Mostrar un mensaje normal 💬, una advertencia ⚠️ y un error ❌
+**⚡ Funcionalidad:** Usar `const` para guardar tu nombre y mostrarlo con `console.log()`
 
 **✅ Casos de prueba:**
-- ✅ `console.log()` muestra mensaje normal 💬
-- ✅ `console.warn()` muestra advertencia en amarillo ⚠️
-- ✅ `console.error()` muestra error en rojo ❌
-- 📦 Los tres retornan `undefined`
+- ✅ Variable declarada con `const` 🔒
+- ✅ Variable contiene un string con tu nombre 📝
+- ✅ El nombre se muestra correctamente en consola 💻
+- ✅ Usa nombres descriptivos en inglés (ejemplo: `name`, `myName`) 🎯
 
 **🏗️ Código base:**
 ```javascript
-// 💬 Mensaje normal
-
-
-// ⚠️ Advertencia
-
-
-// ❌ Error
-
+// Create a variable with your name
+// Show your name in console
 ```
 
 **💡 Tips:**
-- 🔹 Usa `console.log()`, `console.warn()` y `console.error()`
-- 🔹 Observa los colores diferentes en la consola 🎨
+- 🔹 `const name = "Tu Nombre";` 📦
+- 🔹 `console.log()` para mostrar 💬
+- 🔹 Los nombres de variables van en inglés 🌐
+- 🔹 Los mensajes al usuario van en español 🇪🇸
 
-**🚀 Motivación:** Cada tipo de mensaje tiene su propósito. ¡Aprende a comunicarte bien! 💬✨
+**📁 Carpeta:** `o2-first-variable/`
+
+**🎨 HTML:**
+```html
+<title>📦 Mi Primera Variable ✨</title>
+<h1>📦 Mi Primera Variable ✨</h1>
+<h5>🔍 Abre la consola para ver tu nombre 👤</h5>
+```
+
+**🚀 Motivación:** ¡Las variables son cajitas mágicas que guardan información! 📦✨
 
 ---
 
-## 🎮 Reto 3: Mi primera variable 📦
+## 🎨 Reto 3: Tipos de Datos
 
-**📝 Descripción:** Crea una variable con tu nombre y muéstrala en consola ✍️
+**📝 Descripción:** Crea variables de diferentes tipos de datos 🌈
 
-**⚡ Funcionalidad:** Usar `const` para almacenar tu nombre 🏷️
+**⚡ Funcionalidad:** Declarar string, number, boolean, undefined y null
 
 **✅ Casos de prueba:**
-- ✅ La variable debe tener tu nombre 👤
-- ✅ Debe mostrarse en consola correctamente 💻
-- ⚠️ Debe usar `const` (no `let` ni `var`) 🔒
-- 📦 La variable es de tipo `string`
+- ✅ Variable tipo string con texto 📝
+- ✅ Variable tipo number con un número 🔢
+- ✅ Variable tipo boolean (true o false) ✅
+- ✅ Variable undefined (sin valor asignado) ❓
+- ✅ Variable null (valor vacío intencional) ⭕
+- ✅ Todas se muestran correctamente en consola 💻
 
 **🏗️ Código base:**
 ```javascript
-// 📦 Crea una variable con tu nombre 👇
-
-
-// 💬 Muestra tu nombre en consola 👇
-
+// String: your favorite language
+// Number: your favorite number
+// Boolean: are you learning JavaScript?
+// Undefined: a variable without value
+// Null: an empty value
+// Show all in console
 ```
 
 **💡 Tips:**
-- 🔹 `const nombre = "Tu Nombre";` 📝
-- 🔹 Usa `console.log()` para mostrar 💬
+- 🔹 String: `"texto entre comillas"` 📝
+- 🔹 Number: `8` (sin comillas) 🔢
+- 🔹 Boolean: `true` o `false` ✅❌
+- 🔹 Undefined: declarar sin asignar valor ❓
+- 🔹 Null: `null` ⭕
 
-**🚀 Motivación:** ¡Las variables son como cajitas mágicas que guardan información! 📦✨
+**📁 Carpeta:** `o3-data-types/`
 
----
-
-## 🎮 Reto 4: Constantes vs variables 🔄
-
-**📝 Descripción:** Crea variables con `const` y `let` para entender la diferencia 🤔
-
-**⚡ Funcionalidad:** Una variable que no cambia 🔒 y otra que sí 🔄
-
-**✅ Casos de prueba:**
-- ✅ Año de nacimiento con `const` (no cambia) 🎂
-- ✅ Edad actual con `let` (puede cambiar cada año) 📆
-- ✅ Ambas deben mostrarse en consola 💻
-- 📦 Ambas son tipo `number`
-
-**🏗️ Código base:**
-```javascript
-// 🎂 Tu año de nacimiento (no cambia) 👇
-
-
-// 📆 Tu edad actual (cambia cada año) 👇
-
-
-// 💬 Muestra ambas en consola 👇
-
-
+**🎨 HTML:**
+```html
+<title>🎨 Tipos de Datos 🌈</title>
+<h1>🎨 Tipos de Datos 🌈</h1>
+<h5>🔍 Explora los diferentes tipos en la consola 📊</h5>
 ```
-
-**💡 Tips:**
-- 🔹 Usa `const` para valores fijos 🔒
-- 🔹 Usa `let` para valores que cambiarán 🔄
-- 🔹 El año de nacimiento NUNCA cambia, la edad SÍ 🎯
-
-**🚀 Motivación:** Elegir el tipo correcto hace tu código más claro 🎯✨
-
----
-
-## 🎮 Reto 5: Tipos de datos básicos 🎨
-
-**📝 Descripción:** Crea variables de diferentes tipos 🌈
-
-**⚡ Funcionalidad:** Crear un string 📝, number 🔢, boolean ✅, undefined ❓ y null ⭕
-
-**✅ Casos de prueba:**
-- ✅ Un texto (string) 📝
-- ✅ Un número (number) 🔢
-- ✅ Un verdadero/falso (boolean) ✅❌
-- ✅ Una variable sin valor (undefined) ❓
-- ✅ Un valor vacío intencional (null) ⭕
-- 📦 Cada uno debe ser del tipo correcto
-
-**🏗️ Código base:**
-```javascript
-// 📝 String (texto) 👇
-
-
-// 🔢 Number (número) 👇
-
-
-// ✅ Boolean (verdadero/falso) 👇
-
-
-// ❓ Undefined (sin valor) 👇
-
-
-// ⭕ Null (vacío intencional) 👇
-
-
-// 💬 Muestra todos en consola 👇
-
-
-
-
-
-```
-
-**💡 Tips:**
-- 🔹 Los strings van entre comillas 📝
-- 🔹 Los numbers son números sin comillas 🔢
-- 🔹 Los booleans son `true` o `false` ✅❌
-- 🔹 `undefined` se asigna automáticamente si no das valor
 
 **🚀 Motivación:** JavaScript tiene diferentes tipos de datos. ¡Conócelos todos! 🎨✨
 
 ---
 
-## 🎮 Reto 6: Detective de tipos 🔍
+## 🔍 Reto 4: Detective de Tipos
 
-**📝 Descripción:** Usa `typeof` para descubrir el tipo de cada variable 🕵️‍♂️
+**📝 Descripción:** Usa `typeof` para identificar el tipo de cada variable 🕵️‍♂️
 
-**⚡ Funcionalidad:** Identificar el tipo de dato con el operador `typeof` 🎯
+**⚡ Funcionalidad:** Descubrir el tipo de dato usando el operador `typeof`
 
 **✅ Casos de prueba:**
-- ✅ `typeof "Hola"` → "string" 📝
-- ✅ `typeof 42` → "number" 🔢
-- ✅ `typeof true` → "boolean" ✅
-- ✅ `typeof undefined` → "undefined" ❓
-- 📦 `typeof` siempre retorna un `string`
+- ✅ `typeof` de un string muestra "string" 📝
+- ✅ `typeof` de un number muestra "number" 🔢
+- ✅ `typeof` de un boolean muestra "boolean" ✅
+- ✅ `typeof` de undefined muestra "undefined" ❓
+- ✅ `typeof` de null muestra "object" (bug de JavaScript) ⭕
 
 **🏗️ Código base:**
 ```javascript
-const texto = "JavaScript";
-const numero = 100;
-const activo = true;
-const vacio = undefined;
-
-// 🔍 Muestra el tipo de cada variable usando typeof 👇
-
-
-
-
+const favoriteLanguage = 'JavaScript';
+const favoriteNumber = 8;
+const isLearning = true;
+let girlfriend;
+const isMarried = null;
+// Show the type of each variable using typeof
 ```
 
 **💡 Tips:**
-- 🔹 `typeof variable` te dice el tipo 🔍
-- 🔹 El resultado siempre es un string 📝
-- 🔹 Prueba también con `null` y observa algo curioso 👀
+- 🔹 `typeof variable` muestra el tipo 🔍
+- 🔹 `typeof` siempre retorna un string 📝
+- 🔹 ¡Sorpresa! `typeof null` es "object" (bug histórico) 🐛
+- 🔹 No necesitas paréntesis: `typeof x` (no `typeof(x)`) 🎯
 
-**🚀 Motivación:** ¡Ser detective de tipos te evitará muchos errores! 🔍✨
+**📁 Carpeta:** `o4-type-detective/`
 
----
-
-## 🎮 Reto 7: Presentación con template strings 🎤
-
-**📝 Descripción:** Crea una presentación usando template strings ✨
-
-**⚡ Funcionalidad:** Combinar texto y variables con backticks 🔗
-
-**✅ Casos de prueba:**
-- ✅ Debe incluir nombre y edad en el mensaje 👤
-- ✅ Debe usar template strings (backticks) \`\` 📝
-- ✅ Mensaje: `"Hola, soy [nombre] y tengo [edad] años"` 💬
-- 📦 El resultado es un `string`
-
-**🏗️ Código base:**
-```javascript
-const miNombre = "Fernanda";
-const miEdad = 15;
-
-// ✨ Crea el mensaje usando template strings (backticks) 👇
-
-
-// 💬 Muestra el mensaje 👇
-
+**🎨 HTML:**
+```html
+<title>🔍 Detective de Tipos 🕵️‍♂️</title>
+<h1>🔍 Detective de Tipos 🕵️‍♂️</h1>
+<h5>🎯 Investiga los tipos en la consola 🔬</h5>
 ```
 
-**💡 Tips:**
-- 🔹 Usa backticks: \`texto ${variable}\` 📝
-- 🔹 `${}` dentro del string inserta la variable 🔗
-- 🔹 Los backticks están al lado izquierdo del 1 en el teclado ⌨️
-
-**🚀 Motivación:** ¡Template strings hacen que combinar texto sea súper fácil! ✨💫
+**🚀 Motivación:** ¡Ser detective de tipos te evitará muchos bugs! 🔍✨
 
 ---
 
-## 🎮 Reto 8: Operaciones matemáticas básicas ➕➖✖️➗
+## ➕ Reto 5: Operadores Matemáticos
 
-**📝 Descripción:** Realiza operaciones con números 🔢
+**📝 Descripción:** Realiza operaciones matemáticas básicas 🧮
 
-**⚡ Funcionalidad:** Suma ➕, resta ➖, multiplicación ✖️ y división ➗
+**⚡ Funcionalidad:** Usar operadores `+`, `-`, `*`, `/` con números
 
 **✅ Casos de prueba:**
-- ✅ 10 + 5 → 15 ➕
-- ✅ 20 - 8 → 12 ➖
-- ✅ 6 * 7 → 42 ✖️
-- ✅ 100 / 4 → 25 ➗
-- 📦 Todos retornan `number`
+- ✅ Suma de dos números es correcta ➕
+- ✅ Resta de dos números es correcta ➖
+- ✅ Multiplicación de dos números es correcta ✖️
+- ✅ División de dos números es correcta ➗
+- ✅ Resultados mostrados con template strings 💬
 
 **🏗️ Código base:**
 ```javascript
-const num1 = 10;
-const num2 = 5;
-
-// ➕ Suma 👇
-
-
-// ➖ Resta 👇
-
-
-// ✖️ Multiplicación 👇
-
-
-// ➗ División 👇
-
-
-// 💬 Muestra todos los resultados 👇
-
-
-
-
+const number1 = 8;
+const number2 = 5;
+// Calculate sum
+// Calculate difference
+// Calculate product
+// Calculate quotient
+// Show results with template strings
 ```
 
 **💡 Tips:**
 - 🔹 Usa `+`, `-`, `*`, `/` para operaciones ➕➖✖️➗
-- 🔹 Guarda cada resultado en una variable 📦
-- 🔹 Usa template strings para mostrar los resultados 💬
+- 🔹 Guarda resultados en variables 📦
+- 🔹 Template strings: \`Suma: ${sum}\` 💬
+- 🔹 Nombres en inglés: `sum`, `difference`, `product`, `quotient` 🌐
+
+**📁 Carpeta:** `o5-math-operators/`
+
+**🎨 HTML:**
+```html
+<title>➕ Operadores Matemáticos 🧮</title>
+<h1>➕ Operadores Matemáticos 🧮</h1>
+<h5>🔢 Revisa los cálculos en la consola 🧮</h5>
+```
 
 **🚀 Motivación:** ¡JavaScript es una calculadora súper poderosa! 🔢✨
 
 ---
 
-## 🎮 Reto 9: Mi primer alert 🔔
+## ✨ Reto 6: Template Strings
 
-**📝 Descripción:** Muestra un mensaje emergente al usuario 📢
+**📝 Descripción:** Crea mensajes combinando texto y variables 🎤
 
-**⚡ Funcionalidad:** Usar `alert()` para mostrar un saludo 👋
+**⚡ Funcionalidad:** Usar template strings con backticks para interpolar variables
 
 **✅ Casos de prueba:**
-- ✅ Debe aparecer una ventana emergente 🪟
-- ✅ El mensaje debe ser: "¡Bienvenido a JavaScript! 🎉" 
-- 📦 `alert()` retorna `undefined`
+- ✅ Usa backticks (\`) en lugar de comillas 📝
+- ✅ Incluye al menos 2 variables en el mensaje 🔗
+- ✅ Usa `${}` para insertar variables ✨
+- ✅ El mensaje se muestra correctamente formateado 💬
 
 **🏗️ Código base:**
 ```javascript
-// 🔔 Muestra un alert con el saludo 👇
-
+const name = 'Fernanda';
+const age = 15;
+const favoriteAnimal = 'Doky';
+// Create a presentation message using template strings
+// Show the message in console
 ```
 
 **💡 Tips:**
-- 🔹 `alert("tu mensaje")` 🔔
-- 🔹 El mensaje aparece en una ventana emergente 🪟
-- 🔹 Este código solo funciona en navegadores 🌐
+- 🔹 Backticks: \`texto ${variable} más texto\` 📝
+- 🔹 `${}` inserta el valor de la variable 🔗
+- 🔹 Puedes hacer operaciones dentro: `${age + 1}` 🧮
+- 🔹 Más legible que concatenación: `"Hola " + name` ❌
+
+**📁 Carpeta:** `o6-template-strings/`
+
+**🎨 HTML:**
+```html
+<title>✨ Template Strings 🎤</title>
+<h1>✨ Template Strings 🎤</h1>
+<h5>💬 Mira tu presentación en la consola 🌟</h5>
+```
+
+**🚀 Motivación:** ¡Template strings hacen tu código más limpio y legible! ✨💫
+
+---
+
+## 🔔 Reto 7: Primer Alert
+
+**📝 Descripción:** Muestra un mensaje emergente al usuario 📢
+
+**⚡ Funcionalidad:** Usar `alert()` para mostrar una ventana emergente
+
+**✅ Casos de prueba:**
+- ✅ Aparece una ventana emergente 🪟
+- ✅ El mensaje incluye emojis ✨
+- ✅ El mensaje está en español para el usuario 🇪🇸
+- ✅ Solo hay un alert (no spamear al usuario) 🎯
+
+**🏗️ Código base:**
+```javascript
+// Show a welcome message with alert
+```
+
+**💡 Tips:**
+- 🔹 `alert("mensaje")` muestra ventana emergente 🔔
+- 🔹 Bloquea la página hasta que el usuario haga clic ⏸️
+- 🔹 Usa emojis para hacerlo más amigable 🎉
+- 🔹 Los mensajes siempre en español para el usuario 🇪🇸
+
+**📁 Carpeta:** `o7-first-alert/`
+
+**🎨 HTML:**
+```html
+<title>🔔 Mi Primer Alert 📢</title>
+<h1>🔔 Mi Primer Alert 📢</h1>
+```
 
 **🚀 Motivación:** ¡Ahora puedes hablar directamente con el usuario! 💬✨
 
 ---
 
-## 🎮 Reto 10: Capturando información ⌨️
+## ⌨️ Reto 8: Captura de Información
 
-**📝 Descripción:** Pide el nombre al usuario con `prompt()` 📥
+**📝 Descripción:** Captura información del usuario y muéstrala en consola 📥
 
-**⚡ Funcionalidad:** Capturar entrada del usuario y mostrarla 💬
+**⚡ Funcionalidad:** Usar `prompt()` para capturar input y `console.log()` para mostrarlo
 
 **✅ Casos de prueba:**
-- ✅ Debe aparecer una ventana pidiendo el nombre 🪟
-- ✅ Debe guardar lo que el usuario escriba 💾
-- ✅ Debe mostrar el nombre en consola 💻
-- 📦 `prompt()` retorna un `string` o `null`
+- ✅ `prompt()` muestra ventana de input 🪟
+- ✅ Lo que el usuario escribe se guarda en una variable 💾
+- ✅ El valor capturado se muestra en consola 💻
+- ✅ Usa template strings para el mensaje de bienvenida 💬
 
 **🏗️ Código base:**
 ```javascript
-// ⌨️ Pide el nombre al usuario 👇
-
-
-// 💬 Muestra el nombre en consola 👇
-
+// Ask for the user's name
+// Show a welcome message in console with their name
 ```
 
 **💡 Tips:**
-- 🔹 `prompt("¿Cuál es tu nombre?")` ⌨️
-- 🔹 Guarda el resultado en una variable 📦
-- 🔹 Este código solo funciona en navegadores 🌐
+- 🔹 `prompt("pregunta")` captura texto del usuario ⌨️
+- 🔹 Siempre retorna un string 📝
+- 🔹 Si el usuario cancela, retorna `null` ❌
+- 🔹 Usa template strings para el mensaje de bienvenida ✨
+
+**📁 Carpeta:** `o8-capture-input/`
+
+**🎨 HTML:**
+```html
+<title>⌨️ Captura de Información 📥</title>
+<h1>⌨️ Captura de Información 📥</h1>
+```
 
 **🚀 Motivación:** ¡Tu programa ya puede interactuar con personas reales! 🎮✨
 
 ---
 
-## 🎮 Reto 11: Saludo personalizado 👋
+## 👋 Reto 9: Saludo Personalizado
 
-**📝 Descripción:** Pide el nombre y muestra un saludo personalizado con `alert()` 🎉
+**📝 Descripción:** Captura el nombre del usuario y muestra un saludo con `alert()` 🎉
 
-**⚡ Funcionalidad:** Combinar `prompt()` ⌨️, template strings ✨ y `alert()` 🔔
+**⚡ Funcionalidad:** Combinar `prompt()`, template strings y `alert()`
 
 **✅ Casos de prueba:**
-- ✅ Pide el nombre con `prompt()` ⌨️
-- ✅ Crea mensaje: `"¡Hola, [nombre]! 👋"` 📝
-- ✅ Muestra el mensaje con `alert()` 🔔
-- 📦 El mensaje final es un `string`
+- ✅ `prompt()` captura el nombre del usuario ⌨️
+- ✅ Template string crea mensaje personalizado 📝
+- ✅ `alert()` muestra el saludo 🔔
+- ✅ El flujo es: capturar → procesar → mostrar 🔄
 
 **🏗️ Código base:**
 ```javascript
-// ⌨️ Pide el nombre 👇
-
-
-// ✨ Crea el saludo personalizado 👇
-
-
-// 🔔 Muestra el saludo con alert 👇
-
+// Ask for the user's name
+// Create a personalized greeting with template strings
+// Show the greeting with alert
 ```
 
 **💡 Tips:**
-- 🔹 Usa `prompt()` para capturar ⌨️
-- 🔹 Usa template strings para el mensaje 📝
-- 🔹 Usa `alert()` para mostrar 🔔
-- 🔹 ¡Estás combinando 3 conceptos! 🎯
+- 🔹 Captura con `prompt()` ⌨️
+- 🔹 Crea el mensaje con template strings 📝
+- 🔹 Muestra con `alert()` 🔔
+- 🔹 Puedes guardar el mensaje en una variable o mostrarlo directo 🎯
+
+**📁 Carpeta:** `o9-custom-greeting/`
+
+**🎨 HTML:**
+```html
+<title>👋 Saludo Personalizado 🎉</title>
+<h1>👋 Saludo Personalizado 🎉</h1>
+```
 
 **🚀 Motivación:** ¡Estás combinando varios conceptos! Eso es programar de verdad 🚀✨
 
 ---
 
-## 🎮 Reto 12: Mini perfil 👤
+## 👤 Reto 10: Mini Perfil
 
-**📝 Descripción:** Pide nombre y edad, luego muestra un perfil completo 📋
+**📝 Descripción:** Captura múltiples datos y crea un perfil completo 📋
 
-**⚡ Funcionalidad:** Capturar dos datos y combinarlos en un mensaje 🔗
+**⚡ Funcionalidad:** Usar varios `prompt()` y mostrar un perfil con `alert()`
 
 **✅ Casos de prueba:**
-- ✅ Pide nombre con `prompt()` 👤
-- ✅ Pide edad con `prompt()` 🔢
-- ✅ Mensaje: `"Hola [nombre], tienes [edad] años ✨"` 💬
-- ✅ Muestra con `alert()` 🔔
-- 📦 El perfil es un `string`
+- ✅ Captura al menos 3 datos del usuario 📊
+- ✅ Usa template strings para crear el perfil 📝
+- ✅ El perfil incluye todos los datos capturados 💬
+- ✅ Template strings con saltos de línea (\n o multiline) 📄
 
 **🏗️ Código base:**
 ```javascript
-// 👤 Pide el nombre 👇
-
-
-// 🔢 Pide la edad 👇
-
-
-// ✨ Crea el mensaje del perfil 👇
-
-
-// 🔔 Muestra el perfil 👇
-
+// Ask for name
+// Ask for last name
+// Ask for email
+// Create profile with template strings (multiline)
+// Show profile with alert
 ```
 
 **💡 Tips:**
-- 🔹 Dos `prompt()` separados ⌨️
-- 🔹 Template strings con ambas variables 🔗
-- 🔹 Un solo `alert()` al final 🔔
-- 🔹 ¡Este es tu proyecto final del nivel! 🎯
+- 🔹 Múltiples `prompt()` para capturar varios datos ⌨️
+- 🔹 Template strings multiline con backticks 📝
+- 🔹 Saltos de línea automáticos en template strings 📄
+- 🔹 Un solo `alert()` con todo el perfil 🔔
 
-**🚀 Motivación:** 🎉 ¡PROYECTO FINAL DEL NIVEL 1! Has dominado los fundamentos. ¡Eres increíble! 💪✨
+**📁 Carpeta:** `o10-mini-profile/`
+
+**🎨 HTML:**
+```html
+<title>👤 Mini Perfil 📋</title>
+<h1>👤 Mini Perfil 📋</h1>
+```
+
+**🚀 Motivación:** 🎉 ¡PROYECTO FINAL! Has integrado todo lo aprendido. ¡Eres increíble! 💪✨
 
 ---
 
@@ -430,12 +409,13 @@ const num2 = 5;
 
 **🎉 Has completado:**
 - ✅ Console: log, warn, error 💬
-- ✅ Variables: let y const 📦
+- ✅ Variables con const 📦
 - ✅ Tipos de datos: string, number, boolean, undefined, null 🎨
 - ✅ Operador typeof 🔍
-- ✅ Template strings ✨
-- ✅ Operaciones matemáticas básicas ➕➖✖️➗
+- ✅ Operadores matemáticos: +, -, *, / ➕➖✖️➗
+- ✅ Template strings con backticks ✨
 - ✅ Alert y prompt 🔔⌨️
+- ✅ Integración de conceptos 🔗
 
 **⏰ Tiempo estimado:** 2-3 horas 
 
