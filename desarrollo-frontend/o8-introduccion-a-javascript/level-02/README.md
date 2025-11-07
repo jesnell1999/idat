@@ -14,25 +14,24 @@
 
 ---
 
-## 🧪 Reto 1: Laboratorio de Pociones Mágicas
+## 🧪 Reto 1: Laboratorio de Pociones - Type Conversion
 
-**📖 Historia:** Fernanda acaba de abrir su laboratorio de pociones mágicas. Los ingredientes llegan en formatos caóticos: algunos números vienen como texto `"30"`, otros estados vienen como números `1` o `0`. ¡Necesita tu ayuda para convertirlos correctamente antes de que explote el caldero! 💥🧙‍♀️
+**📖 Historia:** Fernanda acaba de abrir su laboratorio de pociones mágicas 🧙‍♀️. Los ingredientes llegan en formatos caóticos: algunos números vienen como texto `"30"`, otros estados vienen como números `1` o `0`. ¡Necesita convertirlos al tipo correcto usando `String()`, `Number()` y `Boolean()` antes de que explote el caldero! 💥✨
 
-**📝 Descripción:** Convierte tres ingredientes mágicos a sus tipos correctos usando `String()`, `Number()` y `Boolean()`. Cada poción necesita su ingrediente en el formato exacto.
+**📝 Descripción:** Convierte tres ingredientes mágicos a sus tipos correctos. La Poción de Invisibilidad necesita duración en número, la Poción de Fuerza necesita nivel como texto, y la Poción de Velocidad necesita estado como booleano.
 
 **⚡ Funcionalidad:** 
-- Poción de Invisibilidad: duración en minutos (string → number)
-- Poción de Fuerza: nivel de poder (number → string)  
-- Poción de Velocidad: estado activo/inactivo (number → boolean)
+- Usar `Number()` para convertir strings a números
+- Usar `String()` para convertir números a texto  
+- Usar `Boolean()` para convertir números a true/false
 
 **✅ Casos de prueba:**
 
-| Ingrediente        | Input  | Output Esperado                  | Tipo      |
-| ------------------ | ------ | -------------------------------- | --------- |
-| Invisibilidad      | `'30'` | `30`                             | `number`  |
-| Fuerza             | `8`    | `'8'`                            | `string`  |
-| Velocidad          | `1`    | `true`                           | `boolean` |
-| **Tipo retornado** | -      | `"Pociones listas: 30, 8, true"` | `string`  |
+| Input                                                            | Expected Output                                           |
+| ---------------------------------------------------------------- | --------------------------------------------------------- |
+| `invisibilityDuration='30'`, `strengthLevel=8`, `speedActive=1`  | `durationNumber=30`, `levelString='8'`, `isActive=true`   |
+| `invisibilityDuration='45'`, `strengthLevel=10`, `speedActive=0` | `durationNumber=45`, `levelString='10'`, `isActive=false` |
+| `invisibilityDuration='60'`, `strengthLevel=5`, `speedActive=1`  | `durationNumber=60`, `levelString='5'`, `isActive=true`   |
 
 **💻 Código base:**
 
@@ -40,45 +39,42 @@
 const invisibilityDuration = '30';
 const strengthLevel = 8;
 const speedActive = 1;
-// Convert invisibilityDuration to number using Number()
-// Convert strengthLevel to string using String()
-// Convert speedActive to boolean using Boolean()
-// Create message with all three converted values
-// Show with console.log()
+// Convert invisibilityDuration to number
+// Convert strengthLevel to string
+// Convert speedActive to boolean
+// Create message: "Pociones listas! Invisibilidad: X min, Fuerza: Y, Velocidad: Z"
 ```
 
 **💡 Tips:**
-- 🔹 `Number("30")` convierte string a número ⚡
-- 🔹 `String(8)` convierte número a texto 📝
-- 🔹 `Boolean(1)` da `true`, `Boolean(0)` da `false` ✅❌
-- 🔹 Usa template strings para el mensaje final 💬
-- 🔹 NO uses if/else, solo conversiones 🎯
+- 🔹 `Number("30")` convierte string a número
+- 🔹 `String(8)` convierte número a string
+- 🔹 `Boolean(1)` da `true`, `Boolean(0)` da `false`
+- 🔹 Usa template strings para el mensaje
 
-**🚀 Motivación:** ¡Salva el laboratorio de Fernanda! Cada conversión correcta es una poción lista para la aventura 🧙‍♀️✨
+**🚀 Motivación:** ¡Salva el laboratorio de Fernanda dominando las conversiones! 🧪✨
 
-**📁 Carpeta:** `o1-magic-potions-lab/`
+**📁 Carpeta:** `o1-potions-type-conversion/`
 
 ---
 
-## ⚡ Reto 2: Convertidor Relámpago
+## ⚡ Reto 2: Convertidor Relámpago - Unary Plus
 
-**📖 Historia:** Elliot descubrió un poder mágico: puede convertir cualquier texto a número usando el operador unario `+` en un solo movimiento. Es como un rayo ⚡ que transforma instantáneamente. Mijael quiere probarlo con diferentes valores y ver qué pasa... ¡algunos se convierten en `NaN`! 🤯
+**📖 Historia:** Elliot descubrió el operador unario `+`, un poder que convierte texto a número en un rayo ⚡. Mijael quiere probarlo con edades, medidas en píxeles y decimales. También aprenderán `parseInt()` que extrae números de "100px" y `parseFloat()` que mantiene decimales como 3.14 🎯
 
-**📝 Descripción:** Usa el operador unario `+` para convertir strings a números rápidamente. También practica con `parseInt()` y `parseFloat()`.
+**📝 Descripción:** El operador `+` es la forma más rápida de convertir strings a números. `parseInt()` extrae enteros ignorando texto, y `parseFloat()` mantiene decimales.
 
 **⚡ Funcionalidad:** 
-- Convierte strings de números usando `+`
-- Extrae números de strings con unidades usando `parseInt()`
-- Mantiene decimales usando `parseFloat()`
+- Usar `+` para convertir strings de números
+- Usar `parseInt()` para extraer enteros
+- Usar `parseFloat()` para mantener decimales
 
 **✅ Casos de prueba:**
 
-| Input               | Conversión | Output Esperado | Tipo     |
-| ------------------- | ---------- | --------------- | -------- |
-| `+'42'`             | Unary +    | `42`            | `number` |
-| `+'3.14'`           | Unary +    | `3.14`          | `number` |
-| `parseInt('100px')` | parseInt   | `100`           | `number` |
-| **Tipo retornado**  | -          | `42`            | `number` |
+| Input                                                       | Expected Output                                                         |
+| ----------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `age='42'`, `pi='3.14'`, `width='100px'`, `height='50.5px'` | `ageNumber=42`, `piNumber=3.14`, `widthNumber=100`, `heightNumber=50.5` |
+| `age='25'`, `pi='2.71'`, `width='200px'`, `height='75.8px'` | `ageNumber=25`, `piNumber=2.71`, `widthNumber=200`, `heightNumber=75.8` |
+| `age='18'`, `pi='1.41'`, `width='150px'`, `height='30.3px'` | `ageNumber=18`, `piNumber=1.41`, `widthNumber=150`, `heightNumber=30.3` |
 
 **💻 Código base:**
 
@@ -87,362 +83,358 @@ const age = '42';
 const pi = '3.14';
 const width = '100px';
 const height = '50.5px';
-// Convert age using unary + operator
-// Convert pi using unary + operator
+// Convert age using unary +
+// Convert pi using unary +
 // Extract number from width using parseInt()
 // Extract number from height using parseFloat()
-// Show all results with console.log()
 ```
 
 **💡 Tips:**
-- 🔹 `+value` es la forma MÁS corta de convertir a número ⚡
-- 🔹 `parseInt("100px")` extrae solo 100 🎯
-- 🔹 `parseFloat("50.5px")` mantiene decimales 📊
-- 🔹 `+"abc"` da `NaN` (Not a Number) 🤯
-- 🔹 NO uses if/else, solo convierte y muestra 📝
+- 🔹 `+value` convierte instantáneamente
+- 🔹 `parseInt("100px")` extrae 100
+- 🔹 `parseFloat("50.5px")` mantiene decimales
+- 🔹 `+"abc"` da `NaN`
 
-**🚀 Motivación:** ¡Elliot y Mijael te enseñan el truco del rayo convertidor! El operador `+` es magia pura ⚡✨
+**🚀 Motivación:** ¡Elliot y Mijael te enseñan el truco del rayo convertidor! ⚡💫
 
-**📁 Carpeta:** `o2-lightning-converter/`
+**📁 Carpeta:** `o2-lightning-unary-plus/`
 
 ---
 
-## 🐷 Reto 3: El Chanchito de la Verdad
+## 🎲 Reto 3: Casino Mágico - Operadores Avanzados
 
-**📖 Historia:** En el reino mágico vive un chanchito especial llamado NN (sí, ese es su nombre 🐷). Este chanchito tiene un poder único: puede detectar si un valor es "verdadero" o "falso" en el mundo de JavaScript. Cuando le das algo **truthy** (número positivo, texto con contenido), hace "¡OINK! 🟢". Pero si le das algo **falsy** (0, "", null), hace "¡GRUÑIDO! 🔴". Fe quiere probarlo con diferentes valores...
+**📖 Historia:** Doky 🐕 abrió el Casino Mágico donde los números compiten en desafíos matemáticos. Ronda 1: **¿Par o impar?** (módulo `%`). Ronda 2: **Elevar al cuadrado** (potencia `**`). Ronda 3: **Contador de victorias** (incremento `++`). ¡BONUS! Aprende el **operador ternario** `? :` para decidir ganadores en una línea 🎯✨
 
-**📝 Descripción:** Evalúa diferentes valores para determinar si son truthy o falsy. Muestra el resultado usando el valor booleano directo.
+**📝 Descripción:** Usa operadores matemáticos avanzados y aprende el operador ternario para condicionales cortos. El ternario funciona así: `condición ? valorSiTrue : valorSiFalse`
 
 **⚡ Funcionalidad:** 
-- Evalúa valores truthy y falsy
-- Usa conversión con `Boolean()` o doble negación `!!`
-- Muestra si cada valor es truthy o falsy
+- Usar `%` para calcular residuos (par/impar)
+- Usar `**` para elevar al cuadrado
+- Usar `++` para incrementar
+- **NUEVO:** Usar `? :` (ternario) para decisiones rápidas
 
 **✅ Casos de prueba:**
 
-| Input              | Boolean(Input) | Truthy/Falsy | Output             |
-| ------------------ | -------------- | ------------ | ------------------ |
-| `8`                | `true`         | Truthy       | `"8 es truthy 🟢"`  |
-| `0`                | `false`        | Falsy        | `"0 es falsy 🔴"`   |
-| `'Fe'`             | `true`         | Truthy       | `"Fe es truthy 🟢"` |
-| **Tipo retornado** | -              | -            | `string`           |
+| Input                             | Expected Output                                                                             |
+| --------------------------------- | ------------------------------------------------------------------------------------------- |
+| `feNumber=8`, `amorosaNumber=7`   | `feRemainder=0`, `amorosaRemainder=1`, `feSquared=64`, `amorosaSquared=49`, `victories=1`   |
+| `feNumber=10`, `amorosaNumber=15` | `feRemainder=0`, `amorosaRemainder=1`, `feSquared=100`, `amorosaSquared=225`, `victories=1` |
+| `feNumber=5`, `amorosaNumber=6`   | `feRemainder=1`, `amorosaRemainder=0`, `feSquared=25`, `amorosaSquared=36`, `victories=1`   |
 
 **💻 Código base:**
 
 ```javascript
-const value1 = 8;
-const value2 = 0;
-const value3 = 'Fe';
-const value4 = '';
-const value5 = null;
-// Convert each to boolean using Boolean()
-// Show each result: "X es truthy 🟢" or "X es falsy 🔴"
-// Use template strings to create messages
-// NO uses if/else, solo muestra el resultado booleano
-```
-
-**💡 Tips:**
-- 🔹 `Boolean(8)` da `true` (truthy) ✅
-- 🔹 `Boolean(0)` da `false` (falsy) ❌
-- 🔹 **Falsy values:** `0`, `""`, `null`, `undefined`, `NaN`, `false` 🔴
-- 🔹 **Truthy values:** todo lo demás 🟢
-- 🔹 Puedes usar `!!value` como alternativa a `Boolean()` 💡
-- 🔹 Solo muestra los resultados, NO uses condicionales aún 📝
-
-**🚀 Motivación:** ¡El chanchito NN es el detector de valores del reino! Fe confía en él para entender truthy/falsy 🐷💫
-
-**📁 Carpeta:** `o3-truth-pig/`
-
----
-
-## 🎲 Reto 4: Casino Mágico de Operadores
-
-**📖 Historia:** Doky 🐕 acaba de abrir el casino más extraño del reino: ¡El Casino Mágico! 🎰✨ Aquí los números compiten en desafíos matemáticos. Ronda 1: **¿Tu número es par o impar?** (módulo %). Ronda 2: **¿Cuál es tu número al cuadrado?** (potencia **). Ronda 3: **Cuenta tus victorias** (incremento ++). Fe y Amorosa van a competir...
-
-**📝 Descripción:** Usa operadores matemáticos avanzados (`%`, `**`, `++`, `--`) para calcular resultados. Solo muestra los cálculos, sin decidir ganadores aún.
-
-**⚡ Funcionalidad:**
-- Usa `%` para calcular el residuo (par o impar)
-- Usa `**` para elevar números al cuadrado
-- Usa `++` para incrementar contadores
-
-**✅ Casos de prueba:**
-
-| Operación          | Input | Output | Explicación         |
-| ------------------ | ----- | ------ | ------------------- |
-| `8 % 2`            | `8`   | `0`    | Residuo 0 = par ✅   |
-| `7 % 2`            | `7`   | `1`    | Residuo 1 = impar 🎯 |
-| `5 ** 2`           | `5`   | `25`   | 5 al cuadrado 📈     |
-| **Tipo retornado** | -     | `25`   | `number`            |
-
-**💻 Código base:**
-
-```javascript
-const feNumber = 8;
-const amorosaNumber = 7;
+let feNumber = -1; // Change this
+let amorosaNumber = -1; // Change this
 let victories = 0;
-// Calculate: feNumber % 2 (is it even?)
-// Calculate: amorosaNumber % 2 (is it even?)
-// Calculate: feNumber ** 2
-// Calculate: amorosaNumber ** 2
-// Increment victories with ++
-// Show all calculations with console.log()
+// Calculate remainder for feNumber (% 2)
+// Calculate remainder for amorosaNumber (% 2)
+// Calculate feNumber squared (** 2)
+// Calculate amorosaNumber squared (** 2)
+// Increment victories
+// BONUS: Use ternary to check if number is even: number % 2 === 0 ? 'par' : 'impar'
 ```
 
 **💡 Tips:**
-- 🔹 `n % 2 === 0` → residuo 0 significa par 📊
-- 🔹 `n % 2 === 1` → residuo 1 significa impar 🎯
-- 🔹 `n ** 2` → n al cuadrado 📈
-- 🔹 `++counter` incrementa antes, `counter++` incrementa después 🔄
-- 🔹 Solo calcula y muestra, NO decidas quién gana aún ⚡
+- 🔹 `n % 2 === 0` → es par
+- 🔹 `n ** 2` → n al cuadrado
+- 🔹 `++counter` incrementa en 1
+- 🔹 **TERNARIO:** `edad >= 18 ? 'Mayor' : 'Menor'`
+- 🔹 El ternario reemplaza if/else cortos
 
-**🚀 Motivación:** ¡Matemáticas + diversión en el casino de Doky! Fe y Amorosa confían en ti para los cálculos 🎲💎
+**🚀 Motivación:** ¡Domina operadores y el ternario mágico en el casino de Doky! 🎲💎
 
-**📁 Carpeta:** `o4-magic-casino/`
+**📁 Carpeta:** `o3-casino-math-operators/`
 
 ---
 
-## 🔗 Reto 5: La Maldición del Signo +
+## 🐷 Reto 4: El Chanchito de la Verdad - Truthy y Falsy
 
-**📖 Historia:** Hace 100 años, una bruja malvada maldijo el símbolo `+` de JavaScript 🧙‍♀️🔮. Desde entonces, a veces suma números (como debe ser), ¡pero otras veces CONCATENA todo como strings! Mijael está confundido porque `5 + 3` da `8` pero `'5' + 3` da `'53'`. ¿Puedes mostrarle todos los casos para que entienda la maldición? 💫
+**📖 Historia:** En el reino vive el chanchito NN 🐷 que detecta si un valor es "verdadero" (truthy) o "falso" (falsy) en JavaScript. Cuando le das algo truthy (número positivo, texto), hace "¡OINK! 🟢". Si le das falsy (0, "", null), gruñe "¡GRUÑIDO! 🔴". Fe quiere probar diferentes valores usando el operador ternario que aprendiste antes 💡
 
-**📝 Descripción:** El operador `+` tiene comportamiento dual: suma números PERO concatena strings. Demuestra cuándo hace cada cosa mostrando diferentes ejemplos.
+**📝 Descripción:** Evalúa si valores son truthy o falsy usando `Boolean()` y el operador ternario `? :` para mostrar resultados.
 
-**⚡ Funcionalidad:**
-- Prueba `+` con números puros (suma)
-- Prueba `+` con strings puros (concatena)
-- Prueba `+` mezclando tipos (concatena)
-- Demuestra que el orden importa
+**⚡ Funcionalidad:** 
+- Convertir valores con `Boolean()`
+- Usar operador ternario para mensajes
+- Identificar valores falsy: `0`, `""`, `null`, `undefined`, `NaN`, `false`
 
 **✅ Casos de prueba:**
 
-| Expresión          | Tipo Operación | Output | Razón                         |
-| ------------------ | -------------- | ------ | ----------------------------- |
-| `5 + 3`            | Suma           | `8`    | number + number = suma ➕      |
-| `'5' + '3'`        | Concatenación  | `'53'` | string + string = concatena 🔗 |
-| `'5' + 3`          | Concatenación  | `'53'` | string + number = concatena 🎭 |
-| **Tipo retornado** | -              | `'53'` | `string`                      |
+| Input                                                            | Expected Output                                                                                                  |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `value1=8`, `value2=0`, `value3='Fe'`, `value4=''`               | `result1='8 es truthy'`, `result2='0 es falsy'`, `result3='Fe es truthy'`, `result4='(vacío) es falsy'`          |
+| `value1=100`, `value2=null`, `value3='Hola'`, `value4=undefined` | `result1='100 es truthy'`, `result2='null es falsy'`, `result3='Hola es truthy'`, `result4='undefined es falsy'` |
+| `value1=-5`, `value2=false`, `value3='0'`, `value4=NaN`          | `result1='-5 es truthy'`, `result2='false es falsy'`, `result3='0 es truthy'`, `result4='NaN es falsy'`          |
 
 **💻 Código base:**
 
 ```javascript
-const test1 = 5 + 3;
-const test2 = '5' + '3';
-const test3 = '5' + 3;
-const test4 = 5 + 3 + '2';
-const test5 = '2' + 5 + 3;
-// Show each result with console.log()
-// Show the type of each result with typeof
-// Explain what happened in each case with a message
+let value1 = -1; // Change this
+let value2 = -1; // Change this
+let value3 = ''; // Change this
+let value4 = null; // Change this
+// Convert each value to boolean
+// Use ternary operator to create messages
+// Example: Boolean(value1) ? 'truthy' : 'falsy'
 ```
 
 **💡 Tips:**
-- 🔹 `number + number` = suma ➕
-- 🔹 `string + string` = concatenación 🔗
-- 🔹 `string + number` = convierte todo a string y concatena 🎭
-- 🔹 JavaScript evalúa de izquierda a derecha ⬅️➡️
-- 🔹 `5 + 3 + '2'` = `(5 + 3) + '2'` = `'82'` ⚡
-- 🔹 Solo muestra los resultados, explica con mensajes 📝
+- 🔹 `Boolean(8)` da `true` (truthy)
+- 🔹 `Boolean(0)` da `false` (falsy)
+- 🔹 **Falsy:** `0`, `""`, `null`, `undefined`, `NaN`, `false`
+- 🔹 **Truthy:** todo lo demás
+- 🔹 Usa ternario: `Boolean(x) ? 'truthy 🟢' : 'falsy 🔴'`
 
-**🚀 Motivación:** ¡Rompe la maldición! Mijael necesita entender el misterioso comportamiento del + 🔮✨
+**🚀 Motivación:** ¡El chanchito NN te enseña truthy/falsy con el poder del ternario! 🐷💫
 
-**📁 Carpeta:** `o5-plus-curse/`
+**📁 Carpeta:** `o4-truth-pig-truthy-falsy/`
 
 ---
 
-## ⚖️ Reto 6: Tribunal de la Igualdad
+## 🔗 Reto 5: La Maldición del + - Concatenación vs Suma
 
-**📖 Historia:** Chocolate 🐕 ha sido nombrado Juez Supremo del Tribunal de la Igualdad. Su trabajo es comparar valores usando `===` (igualdad estricta) y `==` (igualdad suelta). Hoy tiene casos importantes: ¿Es `8` igual a `'8'`? ¿Es `0` igual a `false`? Muestra los resultados de las comparaciones para que Chocolate pueda dar su veredicto. ⚖️
+**📖 Historia:** Hace 100 años, una bruja maldijo el símbolo `+` 🧙‍♀️🔮. A veces suma números, ¡pero otras CONCATENA strings! Mijael está confundido: `5 + 3` da `8` pero `'5' + 3` da `'53'`. Demuestra todos los casos para romper la maldición 💫
 
-**📝 Descripción:** Compara valores usando `===` (estricto) y `==` (suelto). Solo muestra los resultados booleanos de las comparaciones.
+**📝 Descripción:** El operador `+` suma números PERO concatena si hay strings. JavaScript evalúa de izquierda a derecha.
 
-**⚡ Funcionalidad:**
-- Compara el mismo valor en diferentes tipos
-- Usa `===` (compara valor Y tipo)
-- Usa `==` (convierte tipos antes de comparar)
-- Muestra los resultados booleanos
+**⚡ Funcionalidad:** 
+- Probar `+` con números (suma)
+- Probar `+` con strings (concatena)
+- Probar mezclas (convierte todo a string)
 
 **✅ Casos de prueba:**
 
-| Comparación        | `===`     | `==`      | Explicación            |
-| ------------------ | --------- | --------- | ---------------------- |
-| `8 === '8'`        | `false`   | `true`    | Diferentes tipos ❌/✅   |
-| `0 === false`      | `false`   | `true`    | Diferentes tipos ❌/✅   |
-| `8 === 8`          | `true`    | `true`    | Mismo tipo y valor ✅/✅ |
-| **Tipo retornado** | `boolean` | `boolean` | Ambos dan booleanos    |
+| Input                                                  | Expected Output  |
+| ------------------------------------------------------ | ---------------- |
+| `number1 + number2` donde `number1=5`, `number2=3`     | `8` (number)     |
+| `string1 + string2` donde `string1='5'`, `string2='3'` | `'53'` (string)  |
+| `string1 + number2` donde `string1='5'`, `number2=3`   | `'53'` (string)  |
+| `number1 + number2 + string3` donde `5 + 3 + '2'`      | `'82'` (string)  |
+| `string1 + number2 + number3` donde `'2' + 5 + 3`      | `'253'` (string) |
 
 **💻 Código base:**
 
 ```javascript
-const num = 8;
-const str = '8';
-const zero = 0;
-const bool = false;
-// Compare num === str
-// Compare num == str
-// Compare zero === bool
-// Compare zero == bool
-// Show all results with console.log()
-// Show that === is more strict
+let number1 = -1; // Change this
+let number2 = -1; // Change this
+const string1 = '5';
+const string2 = '3';
+// Test 1: number + number
+// Test 2: string + string
+// Test 3: string + number
+// Test 4: number + number + string
+// Test 5: string + number + number
+// Show each result and its type with typeof
 ```
 
 **💡 Tips:**
-- 🔹 `===` compara valor Y tipo (estricto) ⚡
-- 🔹 `==` convierte tipos antes (suelto) 🎭
-- 🔹 Las comparaciones retornan `true` o `false` ✅❌
-- 🔹 `!==` es "no igual estricto", `!=` es "no igual suelto" 🚫
-- 🔹 Solo muestra las comparaciones, NO uses if/else aún 📝
+- 🔹 `number + number` = suma
+- 🔹 `string + string` = concatenación
+- 🔹 `string + number` = convierte todo a string
+- 🔹 Evalúa de izquierda a derecha
+- 🔹 `5 + 3 + '2'` = `(5 + 3) + '2'` = `'82'`
 
-**🚀 Motivación:** ¡Chocolate te enseña a comparar correctamente! Entender === vs == es fundamental 🐕⚖️✨
+**🚀 Motivación:** ¡Rompe la maldición entendiendo las reglas del +! Mijael cuenta contigo 🔮✨
 
-**📁 Carpeta:** `o6-equality-tribunal/`
+**📁 Carpeta:** `o5-plus-curse-concatenation/`
 
 ---
 
-## 🎓 Reto 7: Examen de Ingreso a Hogwarts
+## ⚖️ Reto 6: Tribunal de la Igualdad - Comparaciones
 
-**📖 Historia:** ¡Amorosa 💖 recibió su carta de Hogwarts! Pero para entrar, debe pasar el examen del Sombrero Seleccionador 🎩✨. El sombrero hará 3 preguntas mágicas y según sus respuestas, la asignará a una de las 4 casas: Gryffindor 🦁 (valientes), Slytherin 🐍 (astutos), Ravenclaw 🦅 (sabios) o Hufflepuff 🦡 (leales). ¡Ahora SÍ puedes usar if/else para decidir! 🔮
+**📖 Historia:** Chocolate 🐕 es Juez del Tribunal de la Igualdad. Debe decidir si valores son "realmente iguales" con `===` (estricto) o solo "parecidos" con `==` (suelto). ¿Es `8` igual a `'8'`? ¿Es `0` igual a `false`? ¡Muestra las comparaciones para que Chocolate juzgue! ⚖️
 
-**📝 Descripción:** Haz 3 preguntas con `prompt()` y usa condicionales `if/else` para asignar una casa según las respuestas.
+**📝 Descripción:** Compara valores con `===` (valor Y tipo) y `==` (convierte tipos). Muestra resultados booleanos.
 
-**⚡ Funcionalidad:**
-- Pregunta 1: ¿Eres valiente? (sí/no)
-- Pregunta 2: ¿Eres astuto? (sí/no)
-- Pregunta 3: ¿Eres leal? (sí/no)
-- Usa `if/else` para asignar casa
+**⚡ Funcionalidad:** 
+- Usar `===` para igualdad estricta
+- Usar `==` para igualdad suelta
+- Comparar diferentes tipos
 
 **✅ Casos de prueba:**
 
-| Valiente           | Astuto | Leal | Casa Asignada |
-| ------------------ | ------ | ---- | ------------- |
-| sí                 | no     | no   | Gryffindor 🦁  |
-| no                 | sí     | no   | Slytherin 🐍   |
-| no                 | sí     | sí   | Ravenclaw 🦅   |
-| **Tipo retornado** | -      | -    | `string`      |
+| Input                                 | Expected Output              |
+| ------------------------------------- | ---------------------------- |
+| `number1=8` vs `string1='8'`          | `strict=false`, `loose=true` |
+| `zero=0` vs `boolFalse=false`         | `strict=false`, `loose=true` |
+| `emptyString=''` vs `boolFalse=false` | `strict=false`, `loose=true` |
+| `number1=8` vs `number1=8`            | `strict=true`, `loose=true`  |
 
 **💻 Código base:**
 
 ```javascript
-// Welcome with alert
-// Ask 3 questions with prompt
-// Use .toLowerCase() to normalize answers
-// Use if/else if/else to determine house
-// Show result with alert
+let number1 = -1; // Change this
+const string1 = '8';
+let zero = -1; // Change this
+const boolFalse = false;
+const emptyString = '';
+// Compare number1 === string1
+// Compare number1 == string1
+// Compare zero === boolFalse
+// Compare zero == boolFalse
+// Show results
 ```
 
 **💡 Tips:**
-- 🔹 Usa `.toLowerCase()` para evitar errores con mayúsculas 🔄
-- 🔹 `if (brave === 'sí' && clever === 'no')` para Gryffindor 🦁
-- 🔹 `else if` para las demás casas 🔄
-- 🔹 `else` final para Hufflepuff (default) 🦡
+- 🔹 `===` compara valor Y tipo
+- 🔹 `==` convierte tipos antes
+- 🔹 **SIEMPRE usa `===`**
+- 🔹 `!==` es "no igual estricto"
 
-**🚀 Motivación:** ¡Amorosa finalmente entrará a Hogwarts! La magia de los condicionales la llevará a su casa 🎓✨
+**🚀 Motivación:** ¡Chocolate te enseña la importancia de ===! 🐕⚖️✨
 
-**📁 Carpeta:** `o7-hogwarts-exam/`
+**📁 Carpeta:** `o6-equality-tribunal-comparisons/`
 
 ---
 
-## 🐾 Reto 8: Test de Personalidad de Mascotas
+## 🎓 Reto 7: Examen de Hogwarts - If/Else
 
-**📖 Historia:** Mijael 👦 quiere adoptar una mascota mágica, pero no sabe cuál es la ideal para él. El Oráculo de las Mascotas 🔮 tiene un test especial: según tus preferencias de comida 🍕, actividad 🏃‍♂️ y lugar favorito 🏔️, te dice si eres más como un Perro 🐕 (activo y leal), Gato 🐱 (independiente), Hamster 🐹 (tranquilo) o ¡Dragón! 🐲 (aventurero). ¿Qué mascota le tocará a Mijael? 🎯
+**📖 Historia:** ¡Amorosa 💖 recibió su carta de Hogwarts! El Sombrero Seleccionador 🎩 hará 3 preguntas y según sus respuestas, la asignará a Gryffindor 🦁, Slytherin 🐍, Ravenclaw 🦅 o Hufflepuff 🦡. ¡Ahora SÍ puedes usar if/else para decidir! 🔮
 
-**📝 Descripción:** Test interactivo con 3 preguntas. Usa condicionales `if/else` para determinar la mascota ideal según las respuestas.
+**📝 Descripción:** Usa `if/else if/else` para asignar casa según respuestas a 3 preguntas.
 
-**⚡ Funcionalidad:**
-- Pregunta por comida favorita
-- Pregunta por actividad favorita
-- Pregunta por lugar favorito
-- Usa `if/else` para asignar mascota
+**⚡ Funcionalidad:** 
+- Usar `prompt()` para preguntas
+- Usar `if/else` para decisiones
+- Combinar condiciones con `&&`
 
 **✅ Casos de prueba:**
 
-| Comida             | Actividad | Lugar | Mascota   |
-| ------------------ | --------- | ----- | --------- |
-| pizza              | correr    | -     | Perro 🐕   |
-| sushi              | leer      | -     | Gato 🐱    |
-| -                  | dormir    | -     | Hamster 🐹 |
-| **Tipo retornado** | -         | -     | `string`  |
+| Input                                     | Expected Output      |
+| ----------------------------------------- | -------------------- |
+| `brave='sí'`, `clever='no'`, `loyal='no'` | `house='Gryffindor'` |
+| `brave='no'`, `clever='sí'`, `loyal='no'` | `house='Slytherin'`  |
+| `brave='no'`, `clever='sí'`, `loyal='sí'` | `house='Ravenclaw'`  |
+| `brave='no'`, `clever='no'`, `loyal='sí'` | `house='Hufflepuff'` |
 
 **💻 Código base:**
 
 ```javascript
-// Welcome with alert
-// Ask about favorite food
-// Ask about favorite activity  
-// Ask about favorite place
+// Ask: ¿Eres valiente? (sí/no)
+// Ask: ¿Eres astuto/a? (sí/no)
+// Ask: ¿Eres leal? (sí/no)
+// Use if/else to determine house
+// Gryffindor: brave && !clever
+// Slytherin: clever && !loyal
+// Ravenclaw: clever && loyal
+// Hufflepuff: default (else)
+```
+
+**💡 Tips:**
+- 🔹 Usa `.toLowerCase()` para validar
+- 🔹 `if (brave === 'sí' && clever === 'no')`
+- 🔹 `else if` para más casas
+- 🔹 `else` final para Hufflepuff
+
+**🚀 Motivación:** ¡Amorosa entrará a Hogwarts gracias a tus condicionales! 🎓✨
+
+**📁 Carpeta:** `o7-hogwarts-if-else/`
+
+---
+
+## 🐾 Reto 8: Test de Personalidad - If/Else Anidados
+
+**📖 Historia:** Mijael 👦 quiere una mascota mágica pero no sabe cuál. El Oráculo de las Mascotas 🔮 pregunta sobre comida, actividad y lugar favorito. Según las respuestas, eres: Perro 🐕 (activo), Gato 🐱 (independiente), Hamster 🐹 (tranquilo) o Dragón 🐲 (aventurero) 🎯
+
+**📝 Descripción:** Usa condicionales múltiples para determinar mascota ideal.
+
+**⚡ Funcionalidad:** 
+- Usar `prompt()` para 3 preguntas
+- Usar `if/else` con múltiples condiciones
+- Combinar respuestas con `&&`
+
+**✅ Casos de prueba:**
+
+| Input                               | Expected Output |
+| ----------------------------------- | --------------- |
+| `food='pizza'`, `activity='correr'` | `pet='Perro'`   |
+| `food='sushi'`, `activity='leer'`   | `pet='Gato'`    |
+| `activity='dormir'`                 | `pet='Hamster'` |
+| Otros casos                         | `pet='Dragón'`  |
+
+**💻 Código base:**
+
+```javascript
+// Ask: ¿Comida favorita? (pizza/sushi/galletas)
+// Ask: ¿Actividad favorita? (correr/leer/dormir)
+// Ask: ¿Lugar favorito? (parque/casa/cama)
 // Use if/else to determine pet
-// Show result with alert
+// Dog: pizza && correr
+// Cat: sushi && leer
+// Hamster: dormir
+// Dragon: else (default)
 ```
 
 **💡 Tips:**
-- 🔹 Usa `.toLowerCase()` para validar 🔄
-- 🔹 Combina respuestas con `&&` (AND) 🧩
-- 🔹 El dragón es el `else` final (caso raro) 🐲
-- 🔹 Usa emojis para hacer el resultado divertido 🎨
+- 🔹 `.toLowerCase()` para normalizar
+- 🔹 Combina con `&&`
+- 🔹 Orden importa: verifica casos específicos primero
+- 🔹 `else` final para dragón
 
-**🚀 Motivación:** ¡Mijael encontrará su mascota perfecta! La lógica condicional lo ayudará 🐾✨
+**🚀 Motivación:** ¡Mijael encontrará su mascota perfecta! 🐾✨
 
-**📁 Carpeta:** `o8-pet-personality/`
+**📁 Carpeta:** `o8-pet-personality-if-else/`
 
 ---
 
-## 🎚️ Reto 9: Selector de Misión Épica
+## 🎚️ Reto 9: Selector de Misión - Switch Statement
 
-**📖 Historia:** Chocolate el perro 🐕 es un guerrero legendario (sí, un perro guerrero). Cada día de la semana tiene una misión diferente asignada por el Rey Fe 🤴. Los lunes entrena con espadas ⚔️, los miércoles explora mazmorras 🗝️, los viernes descansa en la taberna 🍺, y los domingos... ¡fiesta en el castillo! 🎉 Usa `switch` para mostrar la misión del día. 🗓️
+**📖 Historia:** Chocolate el perro 🐕 es un guerrero legendario. Cada día tiene una misión del Rey Fe 🤴: Lunes=entrenar ⚔️, Miércoles=mazmorras 🗝️, Viernes=taberna 🍺, Domingo=fiesta 🎉. Usa `switch` para mostrar la misión del día 🗓️
 
-**📝 Descripción:** Pide un número del 1-7 (día de la semana) y usa `switch` para asignar la misión correspondiente a Chocolate.
+**📝 Descripción:** Usa `switch` para asignar misiones según número de día (1-7).
 
-**⚡ Funcionalidad:**
-- Lunes-Viernes: misiones diferentes
-- Sábado-Domingo: descanso/fiesta
-- Número inválido: error
-- Usa `switch` con `break`
+**⚡ Funcionalidad:** 
+- Usar `switch` con casos
+- Usar `break` correctamente
+- Usar `default` para inválidos
 
 **✅ Casos de prueba:**
 
-| Día                | Número | Misión                  |
-| ------------------ | ------ | ----------------------- |
-| Lunes              | 1      | Entrenar con espadas ⚔️  |
-| Miércoles          | 3      | Explorar mazmorras 🗝️    |
-| Domingo            | 7      | Fiesta en el castillo 🎉 |
-| **Tipo retornado** | -      | `string`                |
+| Input    | Expected Output                            |
+| -------- | ------------------------------------------ |
+| `day=1`  | `mission='Lunes: Entrenar con espadas'`    |
+| `day=3`  | `mission='Miércoles: Explorar mazmorras'`  |
+| `day=7`  | `mission='Domingo: Fiesta en el castillo'` |
+| `day=10` | `mission='Día no válido'`                  |
 
 **💻 Código base:**
 
 ```javascript
-// Ask for day number (1-7) with prompt
-// Convert to number with +
-// Use switch statement
-// Assign mission for each day
-// Use break after each case
-// Use default for invalid days
-// Show mission with alert
+let day = -1; // Change this (1-7)
+let mission = '';
+// Use switch(day)
+// case 1: Monday mission + break
+// case 2: Tuesday mission + break
+// ...
+// case 7: Sunday mission + break
+// default: invalid day
 ```
 
 **💡 Tips:**
-- 🔹 `switch (day) { case 1: ... break; }` 🎚️
-- 🔹 Usa `break` para salir de cada case 🛑
-- 🔹 `default` para días inválidos 🎯
-- 🔹 Puedes agrupar casos si quieres 🔗
+- 🔹 `switch (day) { case 1: ... }`
+- 🔹 `break` para salir
+- 🔹 `default` para casos no contemplados
+- 🔹 Switch usa `===` (estricto)
 
-**🚀 Motivación:** 🎉 ¡PROYECTO FINAL! Chocolate tiene aventuras épicas toda la semana. El `switch` hace que cada día sea único 🐕⚔️✨
+**🚀 Motivación:** 🎉 ¡PROYECTO FINAL! Chocolate tiene misiones épicas toda la semana 🐕⚔️✨
 
-**📁 Carpeta:** `o9-epic-mission-selector/`
+**📁 Carpeta:** `o9-mission-selector-switch/`
 
 ---
 
 ## 📊 Resumen del Nivel 2 🎯
 
 **🎉 Has completado:**
-- ✅ Conversiones explícitas: `String()`, `Number()`, `Boolean()` 🧪
-- ✅ Operador unario `+`, `parseInt()`, `parseFloat()` ⚡
-- ✅ Truthy y Falsy values 🐷
-- ✅ Operadores avanzados: `%`, `**`, `++` 🎲
-- ✅ Concatenación vs Suma 🔗
-- ✅ Comparaciones: `===` vs `==` ⚖️
-- ✅ Condicionales: `if/else` 🎓
-- ✅ Test de personalidad 🐾
-- ✅ Switch statements 🎚️
+- ✅ Type Conversion: `String()`, `Number()`, `Boolean()`
+- ✅ Operador unario `+`, `parseInt()`, `parseFloat()`
+- ✅ Operadores matemáticos: `%`, `**`, `++`
+- ✅ **Operador ternario `? :`**
+- ✅ Truthy y Falsy values
+- ✅ Concatenación vs Suma
+- ✅ Comparaciones: `===` vs `==`
+- ✅ Condicionales: `if/else`
+- ✅ Switch statements
 
 **⏰ Tiempo estimado:** 2-3 horas 
 
@@ -450,4 +442,4 @@ const bool = false;
 
 ---
 
-💪 **¡Felicidades!** Has dominado las transformaciones y la lógica. Fernanda, Mijael, Fe, Elliot, Chocolate, Amorosa y NN están orgullosos de ti. ¡Eres un mago del código! 🏆✨🚀
+💪 **¡Felicidades!** Fernanda, Mijael, Fe, Elliot, Chocolate, Amorosa y NN están orgullosos. ¡Eres un mago del código! 🏆✨🚀
