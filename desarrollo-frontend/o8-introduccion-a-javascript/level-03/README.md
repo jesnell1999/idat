@@ -1,445 +1,313 @@
-# 🔧 Nivel 2: Transformaciones y Lógica Mágica ⚡
+# 🔁 Nivel 3: Loops y Repetición Mágica 🌀
 
 ```
-  _                            __                         
- | |                          / _|                        
- | |_ _ __ __ _ _ __  ___    | |_ ___  _ __ _ __ ___  ___
- | __| '__/ _` | '_ \/ __|   |  _/ _ \| '__| '_ ` _ \/ __|
- | |_| | | (_| | | | \__ \   | || (_) | |  | | | | | \__ \
-  \__|_|  \__,_|_| |_|___/   |_| \___/|_|  |_| |_| |_|___/
-                                                            
+  _                          
+ | |                         
+ | | ___   ___  _ __  ___    
+ | |/ _ \ / _ \| '_ \/ __|   
+ | | (_) | (_) | |_) \__ \   
+ |_|\___/ \___/| .__/|___/   
+               | |            
+               |_|            
 ```
 
-> **🎯 Objetivo:** Dominar conversiones de tipos, operadores avanzados, comparaciones y control de flujo con MAGIA ✨
+> **🎯 Objetivo:** Dominar bucles for y while para automatizar tareas repetitivas con magia ✨
 
 ---
 
-## 🧪 Reto 1: Laboratorio de Pociones - Type Conversion
+## 🔢 Reto 1: Contador de Números - For Loop Básico
 
-**📖 Historia:** Fernanda acaba de abrir su laboratorio de pociones mágicas 🧙‍♀️. Los ingredientes llegan en formatos caóticos: algunos números vienen como texto `"30"`, otros estados vienen como números `1` o `0`. ¡Necesita convertirlos al tipo correcto usando `String()`, `Number()` y `Boolean()` antes de que explote el caldero! 💥✨
+**📖 Historia:** Fe 🌟 necesita contar del 1 al 10 para un ritual mágico, pero hacerlo manualmente es aburrido. ¡Aprende el bucle `for` para automatizar el conteo! El bucle tiene 3 partes: inicio `let i = 1`, condición `i <= 10`, incremento `i++`. Es como una máquina que cuenta sola 🔄✨
 
-**📝 Descripción:** Convierte tres ingredientes mágicos a sus tipos correctos. La Poción de Invisibilidad necesita duración en número, la Poción de Fuerza necesita nivel como texto, y la Poción de Velocidad necesita estado como booleano.
+**📝 Descripción:** El bucle `for` repite código un número específico de veces. Es perfecto cuando sabes cuántas iteraciones necesitas.
 
 **⚡ Funcionalidad:** 
-- Usar `Number()` para convertir strings a números
-- Usar `String()` para convertir números a texto  
-- Usar `Boolean()` para convertir números a true/false
+- Usar `for` para contar números
+- Acumular suma de números
+- Contar números pares e impares
 
 **✅ Casos de prueba:**
 
-| Input                                                            | Expected Output                                           |
-| ---------------------------------------------------------------- | --------------------------------------------------------- |
-| `invisibilityDuration='30'`, `strengthLevel=8`, `speedActive=1`  | `durationNumber=30`, `levelString='8'`, `isActive=true`   |
-| `invisibilityDuration='45'`, `strengthLevel=10`, `speedActive=0` | `durationNumber=45`, `levelString='10'`, `isActive=false` |
-| `invisibilityDuration='60'`, `strengthLevel=5`, `speedActive=1`  | `durationNumber=60`, `levelString='5'`, `isActive=true`   |
+| Input                | Expected Output               |
+| -------------------- | ----------------------------- |
+| `start=1`, `end=10`  | `sum=55`, `evens=5`, `odds=5` |
+| `start=1`, `end=5`   | `sum=15`, `evens=2`, `odds=3` |
+| `start=10`, `end=15` | `sum=75`, `evens=3`, `odds=3` |
 
 **💻 Código base:**
 
 ```javascript
-const invisibilityDuration = '30';
-const strengthLevel = 8;
-const speedActive = 1;
-// Convert invisibilityDuration to number
-// Convert strengthLevel to string
-// Convert speedActive to boolean
-// Create message: "Pociones listas! Invisibilidad: X min, Fuerza: Y, Velocidad: Z"
+let start = -1; // Change this
+let end = -1; // Change this
+let sum = 0;
+let evens = 0;
+let odds = 0;
+// Use for loop: for (let i = start; i <= end; i++)
+// Inside loop: add i to sum
+// Check if i is even or odd and count
 ```
 
 **💡 Tips:**
-- 🔹 `Number("30")` convierte string a número
-- 🔹 `String(8)` convierte número a string
-- 🔹 `Boolean(1)` da `true`, `Boolean(0)` da `false`
-- 🔹 Usa template strings para el mensaje
+- 🔹 `for (let i = start; i <= end; i++)` estructura básica
+- 🔹 `sum += i` acumula valores
+- 🔹 `i % 2 === 0` detecta pares
+- 🔹 Usa contadores para pares e impares
 
-**🚀 Motivación:** ¡Salva el laboratorio de Fernanda dominando las conversiones! 🧪✨
+**🚀 Motivación:** ¡Fe cuenta hasta 10 en un segundo! Los bucles son superpoderes 🔢⚡
 
-**📁 Carpeta:** `o1-potions-type-conversion/`
+**📁 Carpeta:** `o1-counter-for-loop/`
 
 ---
 
-## ⚡ Reto 2: Convertidor Relámpago - Unary Plus
+## 🔁 Reto 2: Tabla de Multiplicar - For Loop Anidado
 
-**📖 Historia:** Elliot descubrió el operador unario `+`, un poder que convierte texto a número en un rayo ⚡. Mijael quiere probarlo con edades, medidas en píxeles y decimales. También aprenderán `parseInt()` que extrae números de "100px" y `parseFloat()` que mantiene decimales como 3.14 🎯
+**📖 Historia:** Elliot 🤓 necesita generar la tabla de multiplicar del 8 (su número favorito) del 1 al 12. Pero no solo eso: ¡también quiere todas las tablas del 1 al 5! Aprende bucles anidados: un `for` dentro de otro `for`. El exterior controla la tabla, el interior los multiplicadores 🧮✨
 
-**📝 Descripción:** El operador `+` es la forma más rápida de convertir strings a números. `parseInt()` extrae enteros ignorando texto, y `parseFloat()` mantiene decimales.
+**📝 Descripción:** Los bucles anidados son bucles dentro de bucles. Perfectos para patrones bidimensionales como tablas.
 
 **⚡ Funcionalidad:** 
-- Usar `+` para convertir strings de números
-- Usar `parseInt()` para extraer enteros
-- Usar `parseFloat()` para mantener decimales
+- Usar bucle exterior para la tabla
+- Usar bucle interior para multiplicadores
+- Generar array de resultados
 
 **✅ Casos de prueba:**
 
-| Input                                                       | Expected Output                                                         |
-| ----------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `age='42'`, `pi='3.14'`, `width='100px'`, `height='50.5px'` | `ageNumber=42`, `piNumber=3.14`, `widthNumber=100`, `heightNumber=50.5` |
-| `age='25'`, `pi='2.71'`, `width='200px'`, `height='75.8px'` | `ageNumber=25`, `piNumber=2.71`, `widthNumber=200`, `heightNumber=75.8` |
-| `age='18'`, `pi='1.41'`, `width='150px'`, `height='30.3px'` | `ageNumber=18`, `piNumber=1.41`, `widthNumber=150`, `heightNumber=30.3` |
+| Input                | Expected Output                                          |
+| -------------------- | -------------------------------------------------------- |
+| `table=8`, `upTo=5`  | `results=[8,16,24,32,40]`, `totalSum=120`                |
+| `table=5`, `upTo=10` | `results=[5,10,15,20,25,30,35,40,45,50]`, `totalSum=275` |
+| `table=3`, `upTo=4`  | `results=[3,6,9,12]`, `totalSum=30`                      |
 
 **💻 Código base:**
 
 ```javascript
-const age = '42';
-const pi = '3.14';
-const width = '100px';
-const height = '50.5px';
-// Convert age using unary +
-// Convert pi using unary +
-// Extract number from width using parseInt()
-// Extract number from height using parseFloat()
+let table = -1; // Change this
+let upTo = -1; // Change this
+let results = [];
+let totalSum = 0;
+// Use for loop: for (let i = 1; i <= upTo; i++)
+// Calculate: table * i
+// Add to results array
+// Add to totalSum
 ```
 
 **💡 Tips:**
-- 🔹 `+value` convierte instantáneamente
-- 🔹 `parseInt("100px")` extrae 100
-- 🔹 `parseFloat("50.5px")` mantiene decimales
-- 🔹 `+"abc"` da `NaN`
+- 🔹 `for (let i = 1; i <= upTo; i++)` para multiplicadores
+- 🔹 `results.push(table * i)` agrega al array
+- 🔹 `totalSum += (table * i)` acumula
+- 🔹 Para bucles anidados: exterior = tabla, interior = multiplicador
 
-**🚀 Motivación:** ¡Elliot y Mijael te enseñan el truco del rayo convertidor! ⚡💫
+**🚀 Motivación:** ¡Elliot genera tablas instantáneamente! Bucles anidados son magia pura 🧮🔥
 
-**📁 Carpeta:** `o2-lightning-unary-plus/`
+**📁 Carpeta:** `o2-multiplication-for-nested/`
 
 ---
 
-## 🎲 Reto 3: Casino Mágico - Operadores Avanzados
+## 🌀 Reto 3: Busca el Tesoro - While Loop
 
-**📖 Historia:** Doky 🐕 abrió el Casino Mágico donde los números compiten en desafíos matemáticos. Ronda 1: **¿Par o impar?** (módulo `%`). Ronda 2: **Elevar al cuadrado** (potencia `**`). Ronda 3: **Contador de victorias** (incremento `++`). ¡BONUS! Aprende el **operador ternario** `? :` para decidir ganadores en una línea 🎯✨
+**📖 Historia:** Mijael 👦 busca un tesoro escondido en cofres numerados. No sabe en cuál está, pero sabe que debe buscar hasta encontrarlo o llegar al cofre 20. El bucle `while` es perfecto: repite MIENTRAS la condición sea verdadera. A diferencia del `for`, no sabes cuántas veces iterará 🏴‍☠️💰
 
-**📝 Descripción:** Usa operadores matemáticos avanzados y aprende el operador ternario para condicionales cortos. El ternario funciona así: `condición ? valorSiTrue : valorSiFalse`
+**📝 Descripción:** El bucle `while` repite mientras la condición sea true. Ideal cuando no sabes cuántas iteraciones necesitas.
 
 **⚡ Funcionalidad:** 
-- Usar `%` para calcular residuos (par/impar)
-- Usar `**` para elevar al cuadrado
-- Usar `++` para incrementar
-- **NUEVO:** Usar `? :` (ternario) para decisiones rápidas
+- Usar `while` para buscar un número
+- Contar intentos hasta encontrarlo
+- Parar cuando se encuentra o llega al límite
 
 **✅ Casos de prueba:**
 
-| Input                             | Expected Output                                                                             |
-| --------------------------------- | ------------------------------------------------------------------------------------------- |
-| `feNumber=8`, `amorosaNumber=7`   | `feRemainder=0`, `amorosaRemainder=1`, `feSquared=64`, `amorosaSquared=49`, `victories=1`   |
-| `feNumber=10`, `amorosaNumber=15` | `feRemainder=0`, `amorosaRemainder=1`, `feSquared=100`, `amorosaSquared=225`, `victories=1` |
-| `feNumber=5`, `amorosaNumber=6`   | `feRemainder=1`, `amorosaRemainder=0`, `feSquared=25`, `amorosaSquared=36`, `victories=1`   |
+| Input                     | Expected Output                                                |
+| ------------------------- | -------------------------------------------------------------- |
+| `treasure=7`, `limit=20`  | `found=true`, `attempts=7`, `message='¡Tesoro encontrado!'`    |
+| `treasure=15`, `limit=20` | `found=true`, `attempts=15`, `message='¡Tesoro encontrado!'`   |
+| `treasure=25`, `limit=20` | `found=false`, `attempts=20`, `message='Tesoro no encontrado'` |
 
 **💻 Código base:**
 
 ```javascript
-let feNumber = -1; // Change this
-let amorosaNumber = -1; // Change this
-let victories = 0;
-// Calculate remainder for feNumber (% 2)
-// Calculate remainder for amorosaNumber (% 2)
-// Calculate feNumber squared (** 2)
-// Calculate amorosaNumber squared (** 2)
-// Increment victories
-// BONUS: Use ternary to check if number is even: number % 2 === 0 ? 'par' : 'impar'
+let treasure = -1; // Change this (target number)
+let limit = 20;
+let found = false;
+let attempts = 0;
+let current = 1;
+let message = '';
+// Use while loop: while (current <= limit && !found)
+// Check if current === treasure
+// If yes: found = true
+// Increment current and attempts
+// Set message based on found
 ```
 
 **💡 Tips:**
-- 🔹 `n % 2 === 0` → es par
-- 🔹 `n ** 2` → n al cuadrado
-- 🔹 `++counter` incrementa en 1
-- 🔹 **TERNARIO:** `edad >= 18 ? 'Mayor' : 'Menor'`
-- 🔹 El ternario reemplaza if/else cortos
+- 🔹 `while (condition)` repite mientras sea true
+- 🔹 `!found` significa "not found"
+- 🔹 Combina condiciones con `&&`
+- 🔹 Incrementa variables dentro del loop
+- 🔹 ¡Cuidado con loops infinitos! Siempre modifica la condición
 
-**🚀 Motivación:** ¡Domina operadores y el ternario mágico en el casino de Doky! 🎲💎
+**🚀 Motivación:** ¡Mijael encuentra el tesoro! While loops para búsquedas dinámicas 🏴‍☠️✨
 
-**📁 Carpeta:** `o3-casino-math-operators/`
+**📁 Carpeta:** `o3-treasure-hunt-while/`
 
 ---
 
-## 🐷 Reto 4: El Chanchito de la Verdad - Truthy y Falsy
+## 🎯 Reto 4: Adivina el Número - While con Break
 
-**📖 Historia:** En el reino vive el chanchito NN 🐷 que detecta si un valor es "verdadero" (truthy) o "falso" (falsy) en JavaScript. Cuando le das algo truthy (número positivo, texto), hace "¡OINK! 🟢". Si le das falsy (0, "", null), gruñe "¡GRUÑIDO! 🔴". Fe quiere probar diferentes valores usando el operador ternario que aprendiste antes 💡
+**📖 Historia:** Amorosa 💖 pensó un número del 1 al 100 y Chocolate 🐕 debe adivinarlo. Chocolate tiene 7 intentos. Después de cada intento, Amorosa dice "mayor" o "menor". Aprende `break` para salir del loop cuando adivine, sin esperar a los 7 intentos. Break es como una salida de emergencia 🎲🚪
 
-**📝 Descripción:** Evalúa si valores son truthy o falsy usando `Boolean()` y el operador ternario `? :` para mostrar resultados.
+**📝 Descripción:** El comando `break` sale del loop inmediatamente. Útil cuando encuentras lo que buscas.
 
 **⚡ Funcionalidad:** 
-- Convertir valores con `Boolean()`
-- Usar operador ternario para mensajes
-- Identificar valores falsy: `0`, `""`, `null`, `undefined`, `NaN`, `false`
+- Usar `while` con contador de intentos
+- Comparar con número secreto
+- Usar `break` para salir al adivinar
+- Dar pistas "mayor" o "menor"
 
 **✅ Casos de prueba:**
 
-| Input                                                            | Expected Output                                                                                                  |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `value1=8`, `value2=0`, `value3='Fe'`, `value4=''`               | `result1='8 es truthy'`, `result2='0 es falsy'`, `result3='Fe es truthy'`, `result4='(vacío) es falsy'`          |
-| `value1=100`, `value2=null`, `value3='Hola'`, `value4=undefined` | `result1='100 es truthy'`, `result2='null es falsy'`, `result3='Hola es truthy'`, `result4='undefined es falsy'` |
-| `value1=-5`, `value2=false`, `value3='0'`, `value4=NaN`          | `result1='-5 es truthy'`, `result2='false es falsy'`, `result3='0 es truthy'`, `result4='NaN es falsy'`          |
+| Input                                    | Expected Output                                        |
+| ---------------------------------------- | ------------------------------------------------------ |
+| `secret=42`, `guess=42` (primer intento) | `won=true`, `attempts=1`, `hint='¡Correcto!'`          |
+| `secret=42`, `guess=30`                  | `won=false`, `attempts=1`, `hint='El número es mayor'` |
+| `secret=42`, `guess=50`                  | `won=false`, `attempts=1`, `hint='El número es menor'` |
 
 **💻 Código base:**
 
 ```javascript
-let value1 = -1; // Change this
-let value2 = -1; // Change this
-let value3 = ''; // Change this
-let value4 = null; // Change this
-// Convert each value to boolean
-// Use ternary operator to create messages
-// Example: Boolean(value1) ? 'truthy' : 'falsy'
+let secret = 42;
+let guess = -1; // Change this (user's guess)
+let maxAttempts = 7;
+let attempts = 0;
+let won = false;
+let hint = '';
+// Use while loop: while (attempts < maxAttempts)
+// Check if guess === secret
+// If yes: won = true, hint = '¡Correcto!', break
+// Else: give hint (mayor/menor)
+// Increment attempts
+// For now, just one guess (next level: multiple)
 ```
 
 **💡 Tips:**
-- 🔹 `Boolean(8)` da `true` (truthy)
-- 🔹 `Boolean(0)` da `false` (falsy)
-- 🔹 **Falsy:** `0`, `""`, `null`, `undefined`, `NaN`, `false`
-- 🔹 **Truthy:** todo lo demás
-- 🔹 Usa ternario: `Boolean(x) ? 'truthy 🟢' : 'falsy 🔴'`
+- 🔹 `break` sale del loop inmediatamente
+- 🔹 Útil para encontrar algo y parar
+- 🔹 `guess < secret` → "mayor"
+- 🔹 `guess > secret` → "menor"
+- 🔹 Este reto solo valida un intento, el juego completo vendrá después
 
-**🚀 Motivación:** ¡El chanchito NN te enseña truthy/falsy con el poder del ternario! 🐷💫
+**🚀 Motivación:** ¡Chocolate adivina con pistas! Break para salidas inteligentes 🎯🐕
 
-**📁 Carpeta:** `o4-truth-pig-truthy-falsy/`
+**📁 Carpeta:** `o4-guess-number-break/`
 
 ---
 
-## 🔗 Reto 5: La Maldición del + - Concatenación vs Suma
+## ⏭️ Reto 5: Números Primos - While con Continue
 
-**📖 Historia:** Hace 100 años, una bruja maldijo el símbolo `+` 🧙‍♀️🔮. A veces suma números, ¡pero otras CONCATENA strings! Mijael está confundido: `5 + 3` da `8` pero `'5' + 3` da `'53'`. Demuestra todos los casos para romper la maldición 💫
+**📖 Historia:** Fe 🌟 necesita encontrar los primeros 5 números primos para un hechizo. Un número primo solo es divisible por 1 y él mismo. Usa `continue` para saltar números que NO son primos sin romper el loop. Continue es como "siguiente, por favor" 🔢✨
 
-**📝 Descripción:** El operador `+` suma números PERO concatena si hay strings. JavaScript evalúa de izquierda a derecha.
+**📝 Descripción:** El comando `continue` salta a la siguiente iteración del loop sin ejecutar el código restante.
 
 **⚡ Funcionalidad:** 
-- Probar `+` con números (suma)
-- Probar `+` con strings (concatena)
-- Probar mezclas (convierte todo a string)
+- Usar `while` para buscar primos
+- Verificar si un número es primo
+- Usar `continue` para saltar no-primos
+- Recolectar primos en un array
 
 **✅ Casos de prueba:**
 
-| Input                                                  | Expected Output  |
-| ------------------------------------------------------ | ---------------- |
-| `number1 + number2` donde `number1=5`, `number2=3`     | `8` (number)     |
-| `string1 + string2` donde `string1='5'`, `string2='3'` | `'53'` (string)  |
-| `string1 + number2` donde `string1='5'`, `number2=3`   | `'53'` (string)  |
-| `number1 + number2 + string3` donde `5 + 3 + '2'`      | `'82'` (string)  |
-| `string1 + number2 + number3` donde `'2' + 5 + 3`      | `'253'` (string) |
+| Input     | Expected Output                           |
+| --------- | ----------------------------------------- |
+| `count=5` | `primes=[2,3,5,7,11]`, `checked=12`       |
+| `count=3` | `primes=[2,3,5]`, `checked=6`             |
+| `count=7` | `primes=[2,3,5,7,11,13,17]`, `checked=18` |
 
 **💻 Código base:**
 
 ```javascript
-let number1 = -1; // Change this
-let number2 = -1; // Change this
-const string1 = '5';
-const string2 = '3';
-// Test 1: number + number
-// Test 2: string + string
-// Test 3: string + number
-// Test 4: number + number + string
-// Test 5: string + number + number
-// Show each result and its type with typeof
+let count = -1; // Change this (how many primes to find)
+let primes = [];
+let checked = 0;
+let current = 2;
+// Use while loop: while (primes.length < count)
+// Check if current is prime
+// Helper: function to check if number is prime
+// If not prime: continue (skip to next)
+// If prime: add to primes array
+// Increment current and checked
 ```
 
 **💡 Tips:**
-- 🔹 `number + number` = suma
-- 🔹 `string + string` = concatenación
-- 🔹 `string + number` = convierte todo a string
-- 🔹 Evalúa de izquierda a derecha
-- 🔹 `5 + 3 + '2'` = `(5 + 3) + '2'` = `'82'`
+- 🔹 `continue` salta a la siguiente iteración
+- 🔹 Para verificar primo: divide entre 2 hasta n-1
+- 🔹 Si ninguno divide exactamente, es primo
+- 🔹 2 es el primer primo
+- 🔹 Usa función auxiliar `isPrime(n)` para claridad
 
-**🚀 Motivación:** ¡Rompe la maldición entendiendo las reglas del +! Mijael cuenta contigo 🔮✨
+**🚀 Motivación:** ¡Fe encuentra primos mágicos! Continue para saltos inteligentes 🔢🌟
 
-**📁 Carpeta:** `o5-plus-curse-concatenation/`
+**📁 Carpeta:** `o5-prime-numbers-continue/`
 
 ---
 
-## ⚖️ Reto 6: Tribunal de la Igualdad - Comparaciones
+## 🌟 Reto 6: Pirámide de Estrellas - Bucles Anidados
 
-**📖 Historia:** Chocolate 🐕 es Juez del Tribunal de la Igualdad. Debe decidir si valores son "realmente iguales" con `===` (estricto) o solo "parecidos" con `==` (suelto). ¿Es `8` igual a `'8'`? ¿Es `0` igual a `false`? ¡Muestra las comparaciones para que Chocolate juzgue! ⚖️
+**📖 Historia:** Fernanda 👧 quiere dibujar una pirámide de estrellas para decorar su cuarto. Usa bucles anidados: el exterior controla las filas (altura), el interior controla las estrellas por fila. Cada fila tiene más estrellas que la anterior. ¡Es como construir con bloques de código! 🌟🏗️
 
-**📝 Descripción:** Compara valores con `===` (valor Y tipo) y `==` (convierte tipos). Muestra resultados booleanos.
+**📝 Descripción:** Los bucles anidados permiten crear patrones 2D como pirámides, triángulos y cuadrículas.
 
 **⚡ Funcionalidad:** 
-- Usar `===` para igualdad estricta
-- Usar `==` para igualdad suelta
-- Comparar diferentes tipos
+- Usar bucle exterior para filas
+- Usar bucle interior para estrellas
+- Cada fila i tiene i estrellas
+- Construir array de strings
 
 **✅ Casos de prueba:**
 
-| Input                                 | Expected Output              |
-| ------------------------------------- | ---------------------------- |
-| `number1=8` vs `string1='8'`          | `strict=false`, `loose=true` |
-| `zero=0` vs `boolFalse=false`         | `strict=false`, `loose=true` |
-| `emptyString=''` vs `boolFalse=false` | `strict=false`, `loose=true` |
-| `number1=8` vs `number1=8`            | `strict=true`, `loose=true`  |
+| Input      | Expected Output                                            |
+| ---------- | ---------------------------------------------------------- |
+| `height=4` | `pyramid=['*','**','***','****']`, `totalStars=10`         |
+| `height=3` | `pyramid=['*','**','***']`, `totalStars=6`                 |
+| `height=5` | `pyramid=['*','**','***','****','*****']`, `totalStars=15` |
 
 **💻 Código base:**
 
 ```javascript
-let number1 = -1; // Change this
-const string1 = '8';
-let zero = -1; // Change this
-const boolFalse = false;
-const emptyString = '';
-// Compare number1 === string1
-// Compare number1 == string1
-// Compare zero === boolFalse
-// Compare zero == boolFalse
-// Show results
+let height = -1; // Change this
+let pyramid = [];
+let totalStars = 0;
+// Use outer loop: for (let i = 1; i <= height; i++)
+// Use inner loop: for (let j = 1; j <= i; j++)
+// Build row string with stars
+// Add row to pyramid array
+// Count total stars
 ```
 
 **💡 Tips:**
-- 🔹 `===` compara valor Y tipo
-- 🔹 `==` convierte tipos antes
-- 🔹 **SIEMPRE usa `===`**
-- 🔹 `!==` es "no igual estricto"
+- 🔹 Exterior: `for (let i = 1; i <= height; i++)`
+- 🔹 Interior: `for (let j = 1; j <= i; j++)`
+- 🔹 Construye string: `row += '*'`
+- 🔹 `totalStars += i` (fila i tiene i estrellas)
 
-**🚀 Motivación:** ¡Chocolate te enseña la importancia de ===! 🐕⚖️✨
+**🚀 Motivación:** ¡Fernanda dibuja pirámides con código! Bucles anidados = arte digital 🌟🎨
 
-**📁 Carpeta:** `o6-equality-tribunal-comparisons/`
-
----
-
-## 🎓 Reto 7: Examen de Hogwarts - If/Else
-
-**📖 Historia:** ¡Amorosa 💖 recibió su carta de Hogwarts! El Sombrero Seleccionador 🎩 hará 3 preguntas y según sus respuestas, la asignará a Gryffindor 🦁, Slytherin 🐍, Ravenclaw 🦅 o Hufflepuff 🦡. ¡Ahora SÍ puedes usar if/else para decidir! 🔮
-
-**📝 Descripción:** Usa `if/else if/else` para asignar casa según respuestas a 3 preguntas.
-
-**⚡ Funcionalidad:** 
-- Usar `prompt()` para preguntas
-- Usar `if/else` para decisiones
-- Combinar condiciones con `&&`
-
-**✅ Casos de prueba:**
-
-| Input                                     | Expected Output      |
-| ----------------------------------------- | -------------------- |
-| `brave='sí'`, `clever='no'`, `loyal='no'` | `house='Gryffindor'` |
-| `brave='no'`, `clever='sí'`, `loyal='no'` | `house='Slytherin'`  |
-| `brave='no'`, `clever='sí'`, `loyal='sí'` | `house='Ravenclaw'`  |
-| `brave='no'`, `clever='no'`, `loyal='sí'` | `house='Hufflepuff'` |
-
-**💻 Código base:**
-
-```javascript
-// Ask: ¿Eres valiente? (sí/no)
-// Ask: ¿Eres astuto/a? (sí/no)
-// Ask: ¿Eres leal? (sí/no)
-// Use if/else to determine house
-// Gryffindor: brave && !clever
-// Slytherin: clever && !loyal
-// Ravenclaw: clever && loyal
-// Hufflepuff: default (else)
-```
-
-**💡 Tips:**
-- 🔹 Usa `.toLowerCase()` para validar
-- 🔹 `if (brave === 'sí' && clever === 'no')`
-- 🔹 `else if` para más casas
-- 🔹 `else` final para Hufflepuff
-
-**🚀 Motivación:** ¡Amorosa entrará a Hogwarts gracias a tus condicionales! 🎓✨
-
-**📁 Carpeta:** `o7-hogwarts-if-else/`
+**📁 Carpeta:** `o6-star-pyramid-nested/`
 
 ---
 
-## 🐾 Reto 8: Test de Personalidad - If/Else Anidados
-
-**📖 Historia:** Mijael 👦 quiere una mascota mágica pero no sabe cuál. El Oráculo de las Mascotas 🔮 pregunta sobre comida, actividad y lugar favorito. Según las respuestas, eres: Perro 🐕 (activo), Gato 🐱 (independiente), Hamster 🐹 (tranquilo) o Dragón 🐲 (aventurero) 🎯
-
-**📝 Descripción:** Usa condicionales múltiples para determinar mascota ideal.
-
-**⚡ Funcionalidad:** 
-- Usar `prompt()` para 3 preguntas
-- Usar `if/else` con múltiples condiciones
-- Combinar respuestas con `&&`
-
-**✅ Casos de prueba:**
-
-| Input                               | Expected Output |
-| ----------------------------------- | --------------- |
-| `food='pizza'`, `activity='correr'` | `pet='Perro'`   |
-| `food='sushi'`, `activity='leer'`   | `pet='Gato'`    |
-| `activity='dormir'`                 | `pet='Hamster'` |
-| Otros casos                         | `pet='Dragón'`  |
-
-**💻 Código base:**
-
-```javascript
-// Ask: ¿Comida favorita? (pizza/sushi/galletas)
-// Ask: ¿Actividad favorita? (correr/leer/dormir)
-// Ask: ¿Lugar favorito? (parque/casa/cama)
-// Use if/else to determine pet
-// Dog: pizza && correr
-// Cat: sushi && leer
-// Hamster: dormir
-// Dragon: else (default)
-```
-
-**💡 Tips:**
-- 🔹 `.toLowerCase()` para normalizar
-- 🔹 Combina con `&&`
-- 🔹 Orden importa: verifica casos específicos primero
-- 🔹 `else` final para dragón
-
-**🚀 Motivación:** ¡Mijael encontrará su mascota perfecta! 🐾✨
-
-**📁 Carpeta:** `o8-pet-personality-if-else/`
-
----
-
-## 🎚️ Reto 9: Selector de Misión - Switch Statement
-
-**📖 Historia:** Chocolate el perro 🐕 es un guerrero legendario. Cada día tiene una misión del Rey Fe 🤴: Lunes=entrenar ⚔️, Miércoles=mazmorras 🗝️, Viernes=taberna 🍺, Domingo=fiesta 🎉. Usa `switch` para mostrar la misión del día 🗓️
-
-**📝 Descripción:** Usa `switch` para asignar misiones según número de día (1-7).
-
-**⚡ Funcionalidad:** 
-- Usar `switch` con casos
-- Usar `break` correctamente
-- Usar `default` para inválidos
-
-**✅ Casos de prueba:**
-
-| Input    | Expected Output                            |
-| -------- | ------------------------------------------ |
-| `day=1`  | `mission='Lunes: Entrenar con espadas'`    |
-| `day=3`  | `mission='Miércoles: Explorar mazmorras'`  |
-| `day=7`  | `mission='Domingo: Fiesta en el castillo'` |
-| `day=10` | `mission='Día no válido'`                  |
-
-**💻 Código base:**
-
-```javascript
-let day = -1; // Change this (1-7)
-let mission = '';
-// Use switch(day)
-// case 1: Monday mission + break
-// case 2: Tuesday mission + break
-// ...
-// case 7: Sunday mission + break
-// default: invalid day
-```
-
-**💡 Tips:**
-- 🔹 `switch (day) { case 1: ... }`
-- 🔹 `break` para salir
-- 🔹 `default` para casos no contemplados
-- 🔹 Switch usa `===` (estricto)
-
-**🚀 Motivación:** 🎉 ¡PROYECTO FINAL! Chocolate tiene misiones épicas toda la semana 🐕⚔️✨
-
-**📁 Carpeta:** `o9-mission-selector-switch/`
-
----
-
-## 📊 Resumen del Nivel 2 🎯
+## 📊 Resumen del Nivel 3 🎯
 
 **🎉 Has completado:**
-- ✅ Type Conversion: `String()`, `Number()`, `Boolean()`
-- ✅ Operador unario `+`, `parseInt()`, `parseFloat()`
-- ✅ Operadores matemáticos: `%`, `**`, `++`
-- ✅ **Operador ternario `? :`**
-- ✅ Truthy y Falsy values
-- ✅ Concatenación vs Suma
-- ✅ Comparaciones: `===` vs `==`
-- ✅ Condicionales: `if/else`
-- ✅ Switch statements
+- ✅ Bucle `for` básico para contar
+- ✅ Bucles `for` anidados para tablas
+- ✅ Bucle `while` para búsquedas
+- ✅ `break` para salir de loops
+- ✅ `continue` para saltar iteraciones
+- ✅ Bucles anidados para patrones 2D
 
 **⏰ Tiempo estimado:** 2-3 horas 
 
-**🔜 Próximo nivel:** 🔁 Nivel 3 - Loops y Repetición Mágica
+**🔜 Próximo nivel:** 🏗️ Nivel 4 - Estructuras de Datos (Arrays y Objects)
 
 ---
 
-💪 **¡Felicidades!** Fernanda, Mijael, Fe, Elliot, Chocolate, Amorosa y NN están orgullosos. ¡Eres un mago del código! 🏆✨🚀
+💪 **¡Felicidades!** Fe, Mijael, Elliot, Fernanda, Chocolate y Amorosa están orgullosos. ¡Dominas los loops! 🔁✨🚀
