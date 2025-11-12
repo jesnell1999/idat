@@ -1,4 +1,4 @@
-# 🔁 Nivel 3: Loops y Repetición Mágica 🌀
+# 🔁 Nivel 3: Loops y Operadores Lógicos 🌀
 
 ```
   _                          
@@ -11,28 +11,28 @@
                |_|            
 ```
 
-> **🎯 Objetivo:** Dominar bucles for y while para automatizar tareas repetitivas con magia ✨
+> **🎯 Objetivo:** Dominar bucles for y while, break/continue, y operadores lógicos para automatizar tareas ✨
 
 ---
 
-## 🔢 Reto 1: Contador de Números - For Loop Básico
+## 🔢 Reto 1: Contador Mágico - For Loop
 
-**📖 Historia:** Fe 🌟 necesita contar del 1 al 10 para un ritual mágico, pero hacerlo manualmente es aburrido. ¡Aprende el bucle `for` para automatizar el conteo! El bucle tiene 3 partes: inicio `let i = 1`, condición `i <= 10`, incremento `i++`. Es como una máquina que cuenta sola 🔄✨
+**📖 Historia:** Fe 🌟 necesita contar del 1 al 10 y sumar todos los números para un ritual mágico. Hacerlo manualmente es aburrido, ¡usa el bucle `for`! El bucle tiene 3 partes: **inicio** `let i = 1`, **condición** `i <= 10`, **incremento** `i++`. Es como una máquina que cuenta sola 🔄✨
 
 **📝 Descripción:** El bucle `for` repite código un número específico de veces. Es perfecto cuando sabes cuántas iteraciones necesitas.
 
 **⚡ Funcionalidad:** 
 - Usar `for` para contar números
 - Acumular suma de números
-- Contar números pares e impares
+- Mostrar cada número en consola
 
 **✅ Casos de prueba:**
 
-| Input                | Expected Output               |
-| -------------------- | ----------------------------- |
-| `start=1`, `end=10`  | `sum=55`, `evens=5`, `odds=5` |
-| `start=1`, `end=5`   | `sum=15`, `evens=2`, `odds=3` |
-| `start=10`, `end=15` | `sum=75`, `evens=3`, `odds=3` |
+| Input               | Expected Output |
+| ------------------- | --------------- |
+| `start=1`, `end=10` | `sum=55`        |
+| `start=1`, `end=5`  | `sum=15`        |
+| `start=5`, `end=10` | `sum=45`        |
 
 **💻 Código base:**
 
@@ -40,274 +40,357 @@
 let start = -1; // Change this
 let end = -1; // Change this
 let sum = 0;
-let evens = 0;
-let odds = 0;
 // Use for loop: for (let i = start; i <= end; i++)
-// Inside loop: add i to sum
-// Check if i is even or odd and count
+// Inside loop: console.log(i) and sum += i
 ```
 
 **💡 Tips:**
 - 🔹 `for (let i = start; i <= end; i++)` estructura básica
 - 🔹 `sum += i` acumula valores
-- 🔹 `i % 2 === 0` detecta pares
-- 🔹 Usa contadores para pares e impares
+- 🔹 `console.log(i)` muestra cada número
 
 **🚀 Motivación:** ¡Fe cuenta hasta 10 en un segundo! Los bucles son superpoderes 🔢⚡
 
-**📁 Carpeta:** `o1-counter-for-loop/`
+**📁 Carpeta:** `o1-magic-counter-for/`
 
 ---
 
-## 🔁 Reto 2: Tabla de Multiplicar - For Loop Anidado
+## ✖️ Reto 2: Tabla de Multiplicar - For Simple
 
-**📖 Historia:** Elliot 🤓 necesita generar la tabla de multiplicar del 8 (su número favorito) del 1 al 12. Pero no solo eso: ¡también quiere todas las tablas del 1 al 5! Aprende bucles anidados: un `for` dentro de otro `for`. El exterior controla la tabla, el interior los multiplicadores 🧮✨
+**📖 Historia:** Elliot 🤓 necesita la tabla del 8 (su número favorito) del 1 al 12. En lugar de calcular cada multiplicación manualmente, usa un bucle `for` que muestre cada resultado. ¡Es como tener una calculadora automática! 🧮✨
 
-**📝 Descripción:** Los bucles anidados son bucles dentro de bucles. Perfectos para patrones bidimensionales como tablas.
+**📝 Descripción:** Usa un bucle `for` simple para generar una tabla de multiplicar. Muestra cada operación con `console.log()`.
 
 **⚡ Funcionalidad:** 
-- Usar bucle exterior para la tabla
-- Usar bucle interior para multiplicadores
-- Generar array de resultados
+- Usar `for` para multiplicar
+- Mostrar cada operación en consola
+- Acumular suma total
 
 **✅ Casos de prueba:**
 
-| Input                | Expected Output                                          |
-| -------------------- | -------------------------------------------------------- |
-| `table=8`, `upTo=5`  | `results=[8,16,24,32,40]`, `totalSum=120`                |
-| `table=5`, `upTo=10` | `results=[5,10,15,20,25,30,35,40,45,50]`, `totalSum=275` |
-| `table=3`, `upTo=4`  | `results=[3,6,9,12]`, `totalSum=30`                      |
+| Input               | Expected Output                     |
+| ------------------- | ----------------------------------- |
+| `table=8`, `upTo=3` | Consola: `8 x 1 = 8`, etc, `sum=24` |
+| `table=5`, `upTo=4` | Suma total: `50`                    |
+| `table=3`, `upTo=5` | Suma total: `45`                    |
 
 **💻 Código base:**
 
 ```javascript
-let table = -1; // Change this
+const table = 8;
 let upTo = -1; // Change this
-let results = [];
-let totalSum = 0;
+let sum = 0;
 // Use for loop: for (let i = 1; i <= upTo; i++)
-// Calculate: table * i
-// Add to results array
-// Add to totalSum
+// Calculate: const result = table * i
+// Show: console.log(`${table} x ${i} = ${result}`)
+// Accumulate: sum += result
 ```
 
 **💡 Tips:**
-- 🔹 `for (let i = 1; i <= upTo; i++)` para multiplicadores
-- 🔹 `results.push(table * i)` agrega al array
-- 🔹 `totalSum += (table * i)` acumula
-- 🔹 Para bucles anidados: exterior = tabla, interior = multiplicador
+- 🔹 `const result = table * i` calcula
+- 🔹 Template strings para mostrar bonito
+- 🔹 `sum += result` acumula
+- 🔹 Usa `console.log()` en cada iteración
 
-**🚀 Motivación:** ¡Elliot genera tablas instantáneamente! Bucles anidados son magia pura 🧮🔥
+**🚀 Motivación:** ¡Elliot genera su tabla favorita instantáneamente! 🧮🔥
 
-**📁 Carpeta:** `o2-multiplication-for-nested/`
+**📁 Carpeta:** `o2-multiplication-table-for/`
 
 ---
 
-## 🌀 Reto 3: Busca el Tesoro - While Loop
+## 🔄 Reto 3: While vs For - Misma Tarea, Diferente Estilo
 
-**📖 Historia:** Mijael 👦 busca un tesoro escondido en cofres numerados. No sabe en cuál está, pero sabe que debe buscar hasta encontrarlo o llegar al cofre 20. El bucle `while` es perfecto: repite MIENTRAS la condición sea verdadera. A diferencia del `for`, no sabes cuántas veces iterará 🏴‍☠️💰
+**📖 Historia:** Mijael 👦 quiere hacer lo mismo que Fe (contar y sumar), pero con `while`. El bucle `while` repite MIENTRAS la condición sea verdadera. A diferencia del `for`, solo tiene la condición. Tú controlas el inicio y el incremento manualmente. ¡Ojo! Si olvidas incrementar, tendrás un loop infinito 🌀✨
 
-**📝 Descripción:** El bucle `while` repite mientras la condición sea true. Ideal cuando no sabes cuántas iteraciones necesitas.
+**📝 Descripción:** El bucle `while` repite mientras la condición sea true. Debes manejar el contador manualmente.
 
 **⚡ Funcionalidad:** 
-- Usar `while` para buscar un número
-- Contar intentos hasta encontrarlo
-- Parar cuando se encuentra o llega al límite
+- Usar `while` para contar números
+- Acumular suma
+- Incrementar contador manualmente (¡CRÍTICO!)
 
 **✅ Casos de prueba:**
 
-| Input                     | Expected Output                                                |
-| ------------------------- | -------------------------------------------------------------- |
-| `treasure=7`, `limit=20`  | `found=true`, `attempts=7`, `message='¡Tesoro encontrado!'`    |
-| `treasure=15`, `limit=20` | `found=true`, `attempts=15`, `message='¡Tesoro encontrado!'`   |
-| `treasure=25`, `limit=20` | `found=false`, `attempts=20`, `message='Tesoro no encontrado'` |
+| Input               | Expected Output |
+| ------------------- | --------------- |
+| `start=1`, `end=10` | `sum=55`        |
+| `start=1`, `end=5`  | `sum=15`        |
+| `start=3`, `end=8`  | `sum=33`        |
 
 **💻 Código base:**
 
 ```javascript
-let treasure = -1; // Change this (target number)
-let limit = 20;
+let start = -1; // Change this
+let end = -1; // Change this
+let sum = 0;
+let current = start;
+// Use while loop: while (current <= end)
+// Inside loop: console.log(current) and sum += current
+// CRITICAL: current++ at the end!
+```
+
+**💡 Tips:**
+- 🔹 `while (current <= end)` condición
+- 🔹 `sum += current` acumula
+- 🔹 `current++` CRUCIAL para avanzar
+- 🔹 ¡Olvidas `current++` = loop infinito! ⚠️
+
+**🚀 Motivación:** ¡Mijael domina while! Mismo resultado, diferente herramienta 🔄💫
+
+**📁 Carpeta:** `o3-counter-while-basic/`
+
+---
+
+## 🎯 Reto 4: Operadores Lógicos - AND, OR, NOT
+
+**📖 Historia:** Fernanda 👧 organiza una fiesta. Para entrar necesitas: ser mayor de edad (18+) **Y** tener invitación. Para la zona VIP: ser VIP **O** tener pase especial. Si estás en la lista negra, **NO** puedes entrar. Usa operadores: `&&` (AND), `||` (OR), `!` (NOT) 🎉🔒
+
+**📝 Descripción:** Los operadores lógicos combinan condiciones booleanas. Son fundamentales para decisiones complejas.
+
+**⚡ Funcionalidad:** 
+- Usar `&&` (ambas deben ser true)
+- Usar `||` (al menos una true)
+- Usar `!` (invierte el valor)
+
+**✅ Casos de prueba:**
+
+| Input                         | Expected Output              |
+| ----------------------------- | ---------------------------- |
+| `age=20`, `hasInvite=true`    | `canEnter=true` (AND)        |
+| `age=16`, `hasInvite=true`    | `canEnter=false` (AND fails) |
+| `isVIP=false`, `hasPass=true` | `canEnterVIP=true` (OR)      |
+| `isBanned=true`               | `canEnterParty=false` (NOT)  |
+
+**💻 Código base:**
+
+```javascript
+let age = -1; // Change this
+let hasInvite = true; // Change this
+let isVIP = false; // Change this
+let hasPass = false; // Change this
+let isBanned = false; // Change this
+
+// AND: canEnter = age >= 18 && hasInvite
+// OR: canEnterVIP = isVIP || hasPass
+// NOT: canEnterParty = !isBanned
+// Combine: const finalAccess = canEnter && canEnterParty
+```
+
+**💡 Tips:**
+- 🔹 `&&` = AND (ambas deben ser true)
+- 🔹 `||` = OR (al menos una true)
+- 🔹 `!` = NOT (invierte true↔false)
+- 🔹 `true && false` → false
+- 🔹 `true || false` → true
+- 🔹 `!true` → false
+
+**🚀 Motivación:** ¡Fernanda controla su fiesta con lógica! Operadores para decisiones complejas 🧩🎉
+
+**📁 Carpeta:** `o4-logical-operators/`
+
+---
+
+## 🚪 Reto 5: Busca el Número - Break para Salir
+
+**📖 Historia:** Chocolate 🐕 busca su número favorito del 1 al 50. Tiene que revisar cada número, pero cuando lo encuentra, ¡ya no necesita seguir buscando! Usa `break` para salir del loop inmediatamente. Break es como una puerta de salida de emergencia 🎲🚪
+
+**📝 Descripción:** Usa `break` para salir del loop cuando encuentres lo que buscas, sin continuar iteraciones innecesarias.
+
+**⚡ Funcionalidad:** 
+- Usar `for` o `while` para iterar
+- Comparar números
+- Usar `break` para salir al encontrar
+
+**✅ Casos de prueba:**
+
+| Input                    | Expected Output                |
+| ------------------------ | ------------------------------ |
+| `target=25`, `limit=50`  | `found=true`, `iterations=25`  |
+| `target=5`, `limit=50`   | `found=true`, `iterations=5`   |
+| `target=100`, `limit=50` | `found=false`, `iterations=50` |
+
+**💻 Código base:**
+
+```javascript
+const target = -1; // Change this (number to find)
+const limit = 50;
 let found = false;
-let attempts = 0;
-let current = 1;
-let message = '';
-// Use while loop: while (current <= limit && !found)
-// Check if current === treasure
-// If yes: found = true
-// Increment current and attempts
-// Set message based on found
-```
-
-**💡 Tips:**
-- 🔹 `while (condition)` repite mientras sea true
-- 🔹 `!found` significa "not found"
-- 🔹 Combina condiciones con `&&`
-- 🔹 Incrementa variables dentro del loop
-- 🔹 ¡Cuidado con loops infinitos! Siempre modifica la condición
-
-**🚀 Motivación:** ¡Mijael encuentra el tesoro! While loops para búsquedas dinámicas 🏴‍☠️✨
-
-**📁 Carpeta:** `o3-treasure-hunt-while/`
-
----
-
-## 🎯 Reto 4: Adivina el Número - While con Break
-
-**📖 Historia:** Amorosa 💖 pensó un número del 1 al 100 y Chocolate 🐕 debe adivinarlo. Chocolate tiene 7 intentos. Después de cada intento, Amorosa dice "mayor" o "menor". Aprende `break` para salir del loop cuando adivine, sin esperar a los 7 intentos. Break es como una salida de emergencia 🎲🚪
-
-**📝 Descripción:** El comando `break` sale del loop inmediatamente. Útil cuando encuentras lo que buscas.
-
-**⚡ Funcionalidad:** 
-- Usar `while` con contador de intentos
-- Comparar con número secreto
-- Usar `break` para salir al adivinar
-- Dar pistas "mayor" o "menor"
-
-**✅ Casos de prueba:**
-
-| Input                                    | Expected Output                                        |
-| ---------------------------------------- | ------------------------------------------------------ |
-| `secret=42`, `guess=42` (primer intento) | `won=true`, `attempts=1`, `hint='¡Correcto!'`          |
-| `secret=42`, `guess=30`                  | `won=false`, `attempts=1`, `hint='El número es mayor'` |
-| `secret=42`, `guess=50`                  | `won=false`, `attempts=1`, `hint='El número es menor'` |
-
-**💻 Código base:**
-
-```javascript
-let secret = 42;
-let guess = -1; // Change this (user's guess)
-let maxAttempts = 7;
-let attempts = 0;
-let won = false;
-let hint = '';
-// Use while loop: while (attempts < maxAttempts)
-// Check if guess === secret
-// If yes: won = true, hint = '¡Correcto!', break
-// Else: give hint (mayor/menor)
-// Increment attempts
-// For now, just one guess (next level: multiple)
+let iterations = 0;
+// Use for loop: for (let i = 1; i <= limit; i++)
+// Increment iterations
+// Check if i === target
+// If yes: found = true, break
+// console.log each attempt
 ```
 
 **💡 Tips:**
 - 🔹 `break` sale del loop inmediatamente
-- 🔹 Útil para encontrar algo y parar
-- 🔹 `guess < secret` → "mayor"
-- 🔹 `guess > secret` → "menor"
-- 🔹 Este reto solo valida un intento, el juego completo vendrá después
+- 🔹 Útil cuando encuentras lo que buscas
+- 🔹 Ahorra iteraciones innecesarias
+- 🔹 Cuenta solo hasta encontrar o llegar al límite
 
-**🚀 Motivación:** ¡Chocolate adivina con pistas! Break para salidas inteligentes 🎯🐕
+**🚀 Motivación:** ¡Chocolate encuentra su número y para! Break para salidas inteligentes 🎯🐕
 
-**📁 Carpeta:** `o4-guess-number-break/`
+**📁 Carpeta:** `o5-break-search/`
 
 ---
 
-## ⏭️ Reto 5: Números Primos - While con Continue
+## ⏭️ Reto 6: Solo Números Pares - Continue para Saltar
 
-**📖 Historia:** Fe 🌟 necesita encontrar los primeros 5 números primos para un hechizo. Un número primo solo es divisible por 1 y él mismo. Usa `continue` para saltar números que NO son primos sin romper el loop. Continue es como "siguiente, por favor" 🔢✨
+**📖 Historia:** Amorosa 💖 debe contar del 1 al 20, pero SOLO quiere procesar números pares. No quiere perder tiempo con impares. Usa `continue` para SALTAR los impares sin romper el loop. Continue es como decir "siguiente, por favor" ⏭️✨
 
-**📝 Descripción:** El comando `continue` salta a la siguiente iteración del loop sin ejecutar el código restante.
+**📝 Descripción:** Usa `continue` para saltar iteraciones que no necesitas procesar, sin romper el loop.
 
 **⚡ Funcionalidad:** 
-- Usar `while` para buscar primos
-- Verificar si un número es primo
-- Usar `continue` para saltar no-primos
-- Recolectar primos en un array
+- Usar `for` del 1 al límite
+- Detectar números impares
+- Usar `continue` para saltarlos
+- Sumar solo pares
 
 **✅ Casos de prueba:**
 
-| Input     | Expected Output                           |
-| --------- | ----------------------------------------- |
-| `count=5` | `primes=[2,3,5,7,11]`, `checked=12`       |
-| `count=3` | `primes=[2,3,5]`, `checked=6`             |
-| `count=7` | `primes=[2,3,5,7,11,13,17]`, `checked=18` |
+| Input      | Expected Output                    |
+| ---------- | ---------------------------------- |
+| `limit=10` | `sum=30` (2+4+6+8+10), `count=5`   |
+| `limit=20` | `sum=110` (2+4+...+20), `count=10` |
+| `limit=6`  | `sum=12` (2+4+6), `count=3`        |
 
 **💻 Código base:**
 
 ```javascript
-let count = -1; // Change this (how many primes to find)
-let primes = [];
-let checked = 0;
-let current = 2;
-// Use while loop: while (primes.length < count)
-// Check if current is prime
-// Helper: function to check if number is prime
-// If not prime: continue (skip to next)
-// If prime: add to primes array
-// Increment current and checked
+let limit = -1; // Change this
+let sum = 0;
+let count = 0;
+// Use for loop: for (let i = 1; i <= limit; i++)
+// Check if i is odd: if (i % 2 !== 0) continue
+// If we reach here, it's even
+// sum += i and count++
+// console.log even numbers processed
 ```
 
 **💡 Tips:**
 - 🔹 `continue` salta a la siguiente iteración
-- 🔹 Para verificar primo: divide entre 2 hasta n-1
-- 🔹 Si ninguno divide exactamente, es primo
-- 🔹 2 es el primer primo
-- 🔹 Usa función auxiliar `isPrime(n)` para claridad
+- 🔹 `i % 2 !== 0` detecta impares
+- 🔹 Después de `continue`, el código restante no se ejecuta
+- 🔹 Solo los pares llegan al `sum += i`
 
-**🚀 Motivación:** ¡Fe encuentra primos mágicos! Continue para saltos inteligentes 🔢🌟
+**🚀 Motivación:** ¡Amorosa procesa solo lo que necesita! Continue para saltos elegantes ⏭️💫
 
-**📁 Carpeta:** `o5-prime-numbers-continue/`
+**📁 Carpeta:** `o6-continue-even-numbers/`
 
 ---
 
-## 🌟 Reto 6: Pirámide de Estrellas - Bucles Anidados
+## 🌟 Reto 7: Pirámide de Estrellas - For Anidado
 
-**📖 Historia:** Fernanda 👧 quiere dibujar una pirámide de estrellas para decorar su cuarto. Usa bucles anidados: el exterior controla las filas (altura), el interior controla las estrellas por fila. Cada fila tiene más estrellas que la anterior. ¡Es como construir con bloques de código! 🌟🏗️
+**📖 Historia:** Elliot 🤓 quiere dibujar una pirámide de estrellas. Usa bucles anidados: el exterior controla las FILAS (altura), el interior controla las ESTRELLAS por fila. Fila 1 tiene 1 estrella, fila 2 tiene 2 estrellas, etc. ¡Es como construir con bloques de código! 🌟🏗️
 
-**📝 Descripción:** Los bucles anidados permiten crear patrones 2D como pirámides, triángulos y cuadrículas.
+**📝 Descripción:** Los bucles anidados son bucles dentro de bucles. El exterior itera, el interior itera por cada iteración del exterior.
 
 **⚡ Funcionalidad:** 
 - Usar bucle exterior para filas
 - Usar bucle interior para estrellas
-- Cada fila i tiene i estrellas
-- Construir array de strings
+- Fila i tiene i estrellas
+- Mostrar cada fila con `console.log()`
 
 **✅ Casos de prueba:**
 
-| Input      | Expected Output                                            |
-| ---------- | ---------------------------------------------------------- |
-| `height=4` | `pyramid=['*','**','***','****']`, `totalStars=10`         |
-| `height=3` | `pyramid=['*','**','***']`, `totalStars=6`                 |
-| `height=5` | `pyramid=['*','**','***','****','*****']`, `totalStars=15` |
+| Input      | Expected Output                           |
+| ---------- | ----------------------------------------- |
+| `height=3` | Consola: `*`, `**`, `***`, `totalStars=6` |
+| `height=4` | Hasta `****`, `totalStars=10`             |
+| `height=5` | Hasta `*****`, `totalStars=15`            |
 
 **💻 Código base:**
 
 ```javascript
 let height = -1; // Change this
-let pyramid = [];
 let totalStars = 0;
 // Use outer loop: for (let i = 1; i <= height; i++)
+// Initialize row string: let row = ''
 // Use inner loop: for (let j = 1; j <= i; j++)
-// Build row string with stars
-// Add row to pyramid array
-// Count total stars
+// Build row: row += '*'
+// Show row: console.log(row)
+// Count total: totalStars += i
 ```
 
 **💡 Tips:**
 - 🔹 Exterior: `for (let i = 1; i <= height; i++)`
 - 🔹 Interior: `for (let j = 1; j <= i; j++)`
-- 🔹 Construye string: `row += '*'`
-- 🔹 `totalStars += i` (fila i tiene i estrellas)
+- 🔹 Fila i tiene i estrellas
+- 🔹 `totalStars` suma 1+2+3+...+height
 
-**🚀 Motivación:** ¡Fernanda dibuja pirámides con código! Bucles anidados = arte digital 🌟🎨
+**🚀 Motivación:** ¡Elliot dibuja pirámides con código! Bucles anidados = arte digital 🌟🎨
 
-**📁 Carpeta:** `o6-star-pyramid-nested/`
+**📁 Carpeta:** `o7-star-pyramid-nested/`
+
+---
+
+## 🔍 Reto 8: Busca en Cuadrícula - While Anidado
+
+**📖 Historia:** Fe 🌟 busca un cristal mágico escondido en una cuadrícula de 5x5 (25 posiciones). Usa `while` anidado: el exterior recorre filas, el interior recorre columnas. Debe buscar hasta encontrar el cristal O revisar toda la cuadrícula. Usa `break` para salir de ambos loops cuando lo encuentre 💎🗺️
+
+**📝 Descripción:** Los bucles `while` también pueden anidarse. Debes manejar contadores para filas y columnas, y usar `break` con banderas.
+
+**⚡ Funcionalidad:** 
+- Usar `while` exterior para filas
+- Usar `while` interior para columnas
+- Buscar posición específica (fila, columna)
+- Usar `break` y bandera para salir
+
+**✅ Casos de prueba:**
+
+| Input                          | Expected Output                        |
+| ------------------------------ | -------------------------------------- |
+| `targetRow=3`, `targetCol=2`   | `found=true`, `checked=12`             |
+| `targetRow=1`, `targetCol=1`   | `found=true`, `checked=1`              |
+| `targetRow=10`, `targetCol=10` | `found=false`, `checked=25` (all grid) |
+
+**💻 Código base:**
+
+```javascript
+const gridSize = 5;
+const targetRow = -1; // Change this
+const targetCol = -1; // Change this
+let row = 1;
+let found = false;
+let checked = 0;
+
+// Outer while: while (row <= gridSize && !found)
+// Inner while: let col = 1; while (col <= gridSize && !found)
+// Check: if (row === targetRow && col === targetCol)
+// If found: found = true, break inner
+// Increment col++ and checked++
+// After inner: increment row++
+```
+
+**💡 Tips:**
+- 🔹 Usa `!found` en ambas condiciones para salir
+- 🔹 Exterior maneja filas, interior maneja columnas
+- 🔹 `checked` cuenta todas las posiciones revisadas
+- 🔹 Reinicia `col = 1` en cada fila nueva
+
+**🚀 Motivación:** ¡Fe encuentra el cristal en la cuadrícula! While anidado para búsquedas 2D 💎🔍
+
+**📁 Carpeta:** `o8-grid-search-nested-while/`
 
 ---
 
 ## 📊 Resumen del Nivel 3 🎯
 
 **🎉 Has completado:**
-- ✅ Bucle `for` básico para contar
-- ✅ Bucles `for` anidados para tablas
-- ✅ Bucle `while` para búsquedas
-- ✅ `break` para salir de loops
-- ✅ `continue` para saltar iteraciones
-- ✅ Bucles anidados para patrones 2D
+- ✅ For loop básico (contar y sumar)
+- ✅ For con multiplicación (tabla)
+- ✅ While básico (mismo objetivo que for)
+- ✅ Operadores lógicos: `&&`, `||`, `!`
+- ✅ Break para salir del loop
+- ✅ Continue para saltar iteraciones
+- ✅ For anidado (pirámide)
+- ✅ While anidado con break (búsqueda 2D)
 
 **⏰ Tiempo estimado:** 2-3 horas 
 
-**🔜 Próximo nivel:** 🏗️ Nivel 4 - Estructuras de Datos (Arrays y Objects)
+**🔜 Próximo nivel:** 🏗️ Nivel 4 - Arrays y Objects
 
 ---
 
-💪 **¡Felicidades!** Fe, Mijael, Elliot, Fernanda, Chocolate y Amorosa están orgullosos. ¡Dominas los loops! 🔁✨🚀
+💪 **¡Felicidades!** Fe, Mijael, Elliot, Fernanda, Chocolate y Amorosa están orgullosos. ¡Dominas loops y operadores lógicos! 🔁✨🚀
