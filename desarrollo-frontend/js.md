@@ -1,348 +1,361 @@
-# 🚀 JavaScript Moderno: Temario Completo del Curso ✨
+# 🚀 JavaScript Moderno: De Cero a Crear Apps
 
-> **Objetivo:** 🎯 Dominar JavaScript desde cero hasta crear aplicaciones web interactivas y modernas 💻
-
----
-
-## 📚 Estructura del Curso
-
-### 🌱 **Nivel 1: Primeros Pasos en JavaScript**
-**Tu primer contacto con la programación** 
-
-#### 🎮 Introducción a JavaScript
-- ¿Qué es JavaScript y para qué sirve? 🤔
-- JavaScript en el navegador vs otros entornos 🌐
-- Tu primer "Hello World" 👋
-- Herramientas: navegador y consola de desarrollador 🛠️
-
-#### 💬 Console
-- `console.log()` - tu mejor amigo 🤝
-- `console.error()`, `console.warn()` 🚨
-- `console.table()` para visualizar datos 📊
-- Debugging básico con console 🐛
-
-#### 📦 Variables
-- `let` - variables que pueden cambiar 🔄
-- `const` - valores constantes 🔒
-- ¿Cuándo usar let vs const? 🤷‍♂️
-- Naming conventions y buenas prácticas ✨
-- `var` - el pasado de JavaScript (por qué evitarlo) ⏳
-
-#### 🎨 Tipos de Datos
-- **Primitivos:** 
-  - `string` - textos y cadenas 📝
-  - `number` - números enteros y decimales 🔢
-  - `boolean` - verdadero o falso ✅❌
-  - `undefined` - sin valor asignado ❓
-  - `null` - valor intencionalmente vacío ⭕
-- `typeof` operator - identifica el tipo 🔍
-- Template strings con backticks \`${}\` 🎯
-
-#### 🔔 Alert y Prompt
-- `alert()` - mensajes al usuario 📢
-- `prompt()` - capturar input del usuario ⌨️
-- `confirm()` - preguntas de sí/no ✅❌
-- Limitaciones y alternativas modernas 🚫
+> **Aprende JavaScript moderno con práctica desde el día 1** ⚡
 
 ---
 
-### 🔧 **Nivel 2: Transformaciones y Lógica**
-**Aprendiendo a manipular y comparar datos**
+## 🌱 Nivel 1: Tu Primer Código
 
-#### 🔄 Type Casting
-- Conversión implícita vs explícita 🎭
-- `String()`, `Number()`, `Boolean()` 🔀
-- `parseInt()`, `parseFloat()` 🔢
-- **Operador unario `+`** - conversión rápida a número ⚡
-- Truthy y Falsy values 💡
-- `NaN` y cómo manejarlo 🤯
-- `isNaN()` vs `Number.isNaN()` 🔍
+#### 📦 Variables y Console
+- `console.log()` - mostrar mensajes en la consola
+- `let` - variables que pueden cambiar
+- `const` - valores constantes (no cambian)
+- Diferencia entre `let` y `const`
+- Naming conventions (camelCase)
+- ❌ No enseñar `var` (obsoleto, confunde)
 
-#### ➕ Operators (Básicos)
-- Aritméticos: `+`, `-`, `*`, `/`, `%`, `**` ➗
-- Incremento/Decremento: `++`, `--` 📈
-- Concatenación de strings ✂️
-- Operador `typeof` 🔍
-- **Operador unario `+`** para conversiones 🎯
+#### 🎨 Tipos Primitivos
+- `string` - textos con comillas simples/dobles
+- `number` - enteros y decimales
+- `boolean` - true/false
+- `typeof` - identificar el tipo de dato
+- Template literals con backticks `` `Hola ${nombre}` ``
 
-#### ⚖️ Equality Comparisons
-- `==` vs `===` - la diferencia crucial ⚡
-- `!=` vs `!==` 🚫
-- Por qué siempre usar `===` y `!==` 💎
-- Comparación de objetos y referencias 🏗️
+#### 🔔 Interacción Básica
+- `alert()` - mostrar mensajes al usuario
+- `prompt()` - capturar texto del usuario
+- `confirm()` - preguntas sí/no
+- Guardar resultado de prompt en variables
 
-#### 🧠 Control Flow
-- `if`, `else if`, `else` 🔀
-- Operador ternario `? :` 🎯
-- `switch` statements - múltiples casos 🎚️
-- Truthy/Falsy en condiciones 💭
-- Guard clauses y early returns 🛡️
+**5 Retos** • 1.5-2 horas
 
 ---
 
-### 🔁 **Nivel 3: Repetición y Expresiones**
-**Automatizando tareas**
+## 🔧 Nivel 2: Operaciones y Decisiones
 
-#### 🌀 Loops and Iterations
-- `for` loop clásico 🔄
-- `while` - cuando no sabes cuántas veces iterar ⏰
-- `break` y `continue` 🛑
-- Loops anidados 🪆
-- Cuidado con loops infinitos ⚠️
+#### 🔄 Type Casting (Conversión de Tipos)
+- Por qué `prompt()` siempre devuelve string
+- `Number()` - convertir a número
+- `String()` - convertir a texto
+- **Operador unario `+`** - conversión rápida: `+prompt()`
+- `parseInt()` y `parseFloat()` - para casos específicos
+- `NaN` y cómo detectarlo con `isNaN()`
 
-#### 🎯 Expressions & Operators (Avanzados)
-- Operadores lógicos: `&&`, `||`, `!` 🧩
-- Short-circuit evaluation ⚡
-- Nullish coalescing `??` 🆕
-- Optional chaining `?.` 🔗
-- Operadores de asignación compuestos `+=`, `-=` 📝
+#### ➕ Operadores Aritméticos
+- Básicos: `+`, `-`, `*`, `/`
+- Módulo: `%` (residuo de división)
+- Potencia: `**` (exponenciación)
+- Incremento/Decremento: `++`, `--`
+- Concatenación de strings con `+`
+- Operadores de asignación: `+=`, `-=`, `*=`, `/=`
+
+#### ⚖️ Comparaciones
+- **Siempre usar:** `===` y `!==` (igualdad estricta)
+- ❌ **Nunca usar:** `==` y `!=` (explica brevemente por qué)
+- Comparaciones: `>`, `<`, `>=`, `<=`
+- Comparar strings (orden alfabético)
+
+#### 🧠 Control de Flujo
+- `if`, `else if`, `else` - tomar decisiones
+- Operador ternario: `condicion ? valorTrue : valorFalse`
+- Truthy y Falsy values - qué valores se consideran "falsos"
+- Guard clauses - retornos tempranos
+
+**6 Retos** • 2 horas
 
 ---
 
-### 🏗️ **Nivel 4: Estructuras de Datos**
-**Organizando información**
+## 🔁 Nivel 3: Repetir Tareas
 
-#### 📋 Arrays (Arreglos)
-- Crear arrays: `[]` y `new Array()` 📦
-- Índices y `.length` 📏
-- **Métodos de modificación:**
-  - `push()`, `pop()` - final del array ⬆️⬇️
-  - `shift()`, `unshift()` - inicio del array ⬅️➡️
-  - `splice()` - insertar/eliminar en cualquier posición ✂️
-  - `slice()` - extraer un segmento 📤
-- **Métodos de consulta:**
-  - `includes()` - verificar existencia ✅
-  - `indexOf()`, `lastIndexOf()` - buscar posición 🔍
-  - `find()`, `findIndex()` - búsqueda con condición 🎯
-- **Métodos de iteración:**
-  - `forEach()` - iterar cada elemento 🔄
-  - `map()` - transformar array 🔀
-  - `filter()` - filtrar elementos 🎯
-  - `reduce()` - reducir a un valor 📊
-- Spread operator `[...]` 📤
-- Destructuring de arrays 📦
-- Arrays multidimensionales 🧊
+#### 🌀 For Loop
+- Sintaxis: `for (inicio; condicion; incremento)`
+- Casos de uso: contar, acumular, iterar
+- Estructura básica: `for (let i = 0; i < 10; i++)`
 
-#### 🏛️ Objects (Objetos)
-- Object literals `{}` 📝
-- Propiedades y valores clave-valor 🗝️
-- Dot notation vs bracket notation 🔍
-- Propiedades dinámicas 🎪
-- Objetos anidados 🪆
-- Métodos dentro de objetos ⚙️
-- Spread operator `{...}` 📤
-- Destructuring de objetos 📦
-- `Object.keys()`, `Object.values()`, `Object.entries()` 🔑
-- Shorthand properties 🎯
+#### 🔄 While Loop
+- Sintaxis: `while (condicion)`
+- Diferencia con for: control manual del contador
+- ⚠️ Cuidado con loops infinitos
+- Cuándo usar while vs for
+
+#### 🛑 Control de Loops
+- `break` - salir del loop inmediatamente
+- `continue` - saltar a la siguiente iteración
+- Casos de uso de cada uno
+
+#### 🪆 Loops Anidados
+- For dentro de for
+- While dentro de while
+- Patrones 2D: filas y columnas
+- Aplicaciones prácticas
+
+#### 🧩 Operadores Lógicos
+- `&&` (AND) - ambas condiciones deben ser true
+- `||` (OR) - al menos una debe ser true
+- `!` (NOT) - invierte el valor booleano
+- Combinar en condiciones complejas
+- Tabla de verdad básica
+
+**6 Retos** • 2 horas
+
+---
+
+## 📦 Nivel 4: Arrays (Listas)
+
+#### 📋 Arrays Básicos
+- Crear arrays: `[]`
+- Índices y `.length`
+- Acceder y modificar: `array[0]`
+
+#### ➕➖ Métodos de Modificación
+- `push()`, `pop()` - Añadir/quitar al final
+- `shift()`, `unshift()` - Añadir/quitar al inicio
+
+#### 🔍 Métodos de Búsqueda
+- `includes()` - Verificar si existe
+- `indexOf()` - Encontrar posición
+- `slice()` - Extraer porción
+
+#### 🔄 Métodos de Iteración (Lo Importante)
+- `forEach()` - Iterar cada elemento
+- `map()` - Transformar array
+- `filter()` - Filtrar elementos
+- `find()` - Buscar con condición
+
+#### 🎯 Operadores Modernos
+- Spread `...array` - Copiar/combinar
+- Destructuring `[a, b] = array` - Extraer valores
+
+**7 Retos** • 2 horas
+
+---
+
+## 🏛️ Nivel 5: Objects (Objetos)
+
+#### 📦 Objects Básicos
+- Object literals: `{}`
+- Propiedades clave-valor
+- Dot notation: `obj.nombre`
+- Bracket notation: `obj['nombre']`
+
+#### 🔧 Trabajar con Objects
+- Añadir/modificar propiedades
+- Objects anidados
+- Arrays de objects
+- Shorthand properties
+
+#### 🔑 Métodos Útiles
+- `Object.keys()` - Array de claves
+- `Object.values()` - Array de valores
+- `Object.entries()` - Array de pares
+
+#### 🆕 Operadores Modernos
+- **Optional Chaining:** `obj?.propiedad?.subpropiedad`
+- **Nullish Coalescing:** `valor ?? 'default'`
+- Spread para objects: `{...obj}`
+- Destructuring: `const {nombre, edad} = persona`
 
 #### 📄 JSON
-- ¿Qué es JSON? 🌐
-- `JSON.stringify()` - objeto a string 📤
-- `JSON.parse()` - string a objeto 📥
-- Uso práctico de JSON 💼
-- Manejo de errores en parsing ⚠️
+- `JSON.stringify()` - Object a string
+- `JSON.parse()` - String a object
+
+**7 Retos** • 2 horas
 
 ---
 
-### ⚡ **Nivel 5: Funciones**
-**Reutilizando código como un pro**
+## ⚡ Nivel 6: Funciones
 
-#### 🎯 Functions (Funciones)
-- Function declarations 📢
-- Function expressions 📝
-- **Arrow functions `() => {}`** 🏹
-  - Sintaxis corta vs larga 📏
-  - Return implícito ⚡
-  - Cuándo usar arrow functions 🤔
-- Parámetros y argumentos 📥
-- Return values 📤
-- **Default parameters** 🎁
-- **Rest parameters `...args`** 📦
-- **Spread en llamadas a funciones** 📤
-- Funciones puras 💎
-- Higher-order functions 🎪
-- Callbacks básicos 🔄
-- Scope y closures 🔒
-- IIFE (Immediately Invoked Function Expressions) ⚡
+#### 🎯 Funciones Básicas
+- Function declaration (breve mención)
+- Function expression (breve mención)
+- Parámetros y argumentos
+- Return values
+- Scope básico de funciones
 
----
+#### 🏹 Arrow Functions (El Estándar Moderno)
+- Sintaxis básica: `() => {}`
+- Con un parámetro: `x => {}`
+- Return implícito: `x => x * 2`
+- Con múltiples líneas: `() => { ... }`
+- Cuándo usar arrow functions
 
-### 🎨 **Nivel 6: Interacción con el DOM**
-**Dando vida a tus páginas web**
+#### 🎁 Parámetros Avanzados
+- Default parameters: `(x = 10) => {}`
+- Rest parameters: `(...nums) => {}`
+- Spread en llamadas: `funcion(...array)`
 
-#### 🌐 DOM (Document Object Model)
-- ¿Qué es el DOM? 🏗️
-- El árbol del DOM 🌳
-- **Selección de elementos:**
-  - `getElementById()` 🎯
-  - `querySelector()`, `querySelectorAll()` 🔍
-  - `getElementsByClassName()`, `getElementsByTagName()` 📋
-- **Manipulación de contenido:**
-  - `textContent`, `innerHTML` 📝
-  - `innerText` vs `textContent` 🤔
-  - `setAttribute()`, `getAttribute()`, `removeAttribute()` 🏷️
-  - `dataset` - data attributes 📊
-  - `classList` (add, remove, toggle, contains) 🎨
-  - `style` - manipulación de estilos inline 🎨
-- **Crear y eliminar elementos:**
-  - `createElement()`, `appendChild()` ➕
-  - `insertBefore()`, `insertAdjacentHTML()` 📌
-  - `remove()`, `removeChild()` 🗑️
-  - `cloneNode()` 📋
-- **Navegación por el DOM:**
-  - `parentElement`, `children` 👨‍👩‍👧‍👦
-  - `nextElementSibling`, `previousElementSibling` ↔️
-- **Eventos:**
-  - `addEventListener()`, `removeEventListener()` 👂
-  - Event types: click, submit, input, change, keyup, keydown 🖱️⌨️
-  - Event object y sus propiedades 📦
-  - `preventDefault()`, `stopPropagation()` 🛡️
-  - Event delegation - eventos en padres 🎯
-  - Event bubbling y capturing 🫧
-- **Formularios:**
-  - Captura de datos de inputs 📊
-  - `value`, `checked`, `selected` ✅
-  - Validación básica ✅
-  - Submit events y preventDefault 📤
-  - FormData API (opcional) 📋
-- **Storage:**
-  - `localStorage` - persistencia de datos 💾
-  - `setItem()`, `getItem()`, `removeItem()`, `clear()` 🔄
-  - `sessionStorage` - datos de sesión 🕐
-  - Almacenar objetos con JSON 📦
+**6 Retos** • 1.5-2 horas
 
 ---
 
-### 🛡️ **Nivel 7: Mejores Prácticas**
-**Escribiendo código profesional**
+## 🎨 Nivel 7: DOM - Manipular la Página
 
-#### ⚡ Strict Mode
-- `"use strict"` - activando modo estricto 📋
-- Beneficios y restricciones 🏆
-- Errores comunes que previene 🐛
-- Scope de strict mode 🎯
-- Variables sin declarar ⚠️
-- Asignaciones inválidas 🚫
-- Palabras reservadas 📝
+#### 🔍 Seleccionar Elementos
+- `document.getElementById('id')`
+- `document.querySelector('.class')` ← El más usado
+- `document.querySelectorAll('.class')` - Múltiples
 
----
+#### ✏️ Manipular Contenido
+- `textContent` - Texto plano
+- `innerHTML` - HTML (usar con cuidado)
+- `value` - Para inputs
 
-### 🚀 **Nivel 8: JavaScript Asíncrono**
-**Trabajando con tiempo y espera**
+#### 🎨 Estilos y Clases
+- `classList.add('clase')`
+- `classList.remove('clase')`
+- `classList.toggle('clase')`
+- `style.propiedad` - Estilos inline (breve)
 
-#### ⏰ Asynchronous JavaScript
-- Sincronía vs Asincronía 🤔
-- El Event Loop - cómo funciona 🔄
-- Call Stack, Task Queue, Microtask Queue 📚
-- **Timers:**
-  - `setTimeout()` - ejecutar después de X tiempo ⏲️
-  - `setInterval()` - ejecutar cada X tiempo 🔁
-  - `clearTimeout()`, `clearInterval()` ⏹️
-- **Callbacks:**
-  - ¿Qué es un callback? 🔄
-  - Callback hell y sus problemas 😱
-- **Promises:**
-  - ¿Qué es una Promise? 🤝
-  - Estados: pending, fulfilled, rejected 🚦
-  - `.then()`, `.catch()`, `.finally()` ⛓️
-  - Promise chaining 🔗
-  - `Promise.all()`, `Promise.race()` 🏁
-  - Crear tus propias Promises 🏗️
-- **Async/Await:**
-  - Sintaxis `async`/`await` ✨
-  - `try/catch/finally` para manejo de errores 🛡️
-  - Await con múltiples Promises ⚡
-  - Ventajas sobre Promises tradicionales 🏆
-  - Top-level await 🆕
+#### ➕ Crear/Eliminar (Breve)
+- `document.createElement()`
+- `elemento.appendChild()`
+- `elemento.remove()`
+
+**6 Retos** • 2 horas
 
 ---
 
-### 🌐 **Nivel 9: Trabajando con APIs**
-**Conectando con el mundo exterior**
+## 👂 Nivel 8: Eventos - Interactividad
 
-#### 📡 APIs (Application Programming Interfaces)
-- ¿Qué es una API? 🌍
-- APIs REST - conceptos básicos 📮
-- HTTP methods: GET, POST, PUT, DELETE 🔄
-- Status codes comunes: 200, 404, 500 📊
-- **Fetch API:**
-  - Sintaxis de `fetch()` 🌊
-  - GET requests simples 📥
-  - POST requests con body 📤
-  - PUT y DELETE requests 🔄🗑️
-  - Headers y configuración 🏷️
-  - Manejo de respuestas JSON 📊
-  - `.json()`, `.text()`, `.blob()` 📦
-  - Estados de carga (loading states) ⏳
-  - Error handling con try/catch 🚨
-  - Network errors vs HTTP errors ⚠️
-- **Trabajando con datos:**
-  - Transformar respuestas 🔀
-  - Mostrar datos en el DOM 🎨
-  - Actualizar UI basado en respuestas 🔄
-- APIs públicas para practicar 🎮
+#### 🖱️ Eventos Básicos
+- `addEventListener('evento', callback)`
+- `removeEventListener()` (breve mención)
+- Event object y sus propiedades
 
----
+#### 🎯 Tipos de Eventos Esenciales
+- `click` - Click en elementos
+- `submit` - Envío de formularios
+- `input` - Escribir en inputs (tiempo real)
+- `change` - Cambio en selects/checkboxes
+- `event.target` - Elemento que disparó el evento
 
-### 📦 **Nivel 10: Organización de Código**
-**Proyectos escalables y mantenibles**
+#### 🛡️ Control de Eventos
+- `event.preventDefault()` - Prevenir acción default
+- Caso común: evitar submit de formulario
 
-#### 🏗️ Modules (Módulos ES6)
-- ¿Por qué usar módulos? 🤔
-- Módulos vs scripts tradicionales 🆚
-- **Export:**
-  - Named exports 🏷️
-  - Default exports ⭐
-  - Export individual vs al final 📤
-  - Re-exporting 🔄
-- **Import:**
-  - Importar named exports 📥
-  - Importar default exports 🌟
-  - Importar todo como namespace 📦
-  - Importar y renombrar 🔀
-  - Import dinámico `import()` 🚀
-- **Organización:**
-  - Estructura de carpetas 🗂️
-  - Un módulo por funcionalidad 🎯
-  - Archivo de barril (index.js) 📋
-  - Buenas prácticas de naming 📝
-- **En el navegador:**
-  - `type="module"` en script tags 🌐
-  - CORS y módulos 🔒
-  - Compatibilidad 🔄
+#### 📋 Trabajar con Formularios
+- Capturar evento `submit`
+- Obtener valores: `input.value`
+- Validación básica de campos
+- Resetear formulario: `form.reset()`
+
+**6 Retos** • 2 horas
 
 ---
 
-## 🎓 Metodología de Aprendizaje
+## 💾 Nivel 9: Guardar Datos
 
-### 📈 Progresión Natural
-Cada nivel construye sobre los anteriores de forma orgánica 🌱. Empiezas con lo más básico y vas escalando hasta crear aplicaciones web completas e interactivas.
+#### 📦 LocalStorage
+- `localStorage.setItem('key', 'value')` - Guardar
+- `localStorage.getItem('key')` - Recuperar
+- `localStorage.removeItem('key')` - Eliminar
+- `localStorage.clear()` - Limpiar todo
 
-### 🎯 Enfoque Práctico
-- Ejemplos del mundo real 🌍
-- Ejercicios progresivos 📊
-- Mini-proyectos integrados 🎨
-- Debugging y resolución de problemas 🐛
+#### 🔄 Storage con Objetos
+- Guardar objects: `JSON.stringify(objeto)`
+- Recuperar objects: `JSON.parse(string)`
+- Manejo de errores al parsear
 
-### 💡 Conceptos Modernos
-Todo el contenido está actualizado con las mejores prácticas actuales de JavaScript ES6+ 🚀
+#### 💡 Casos de Uso
+- Guardar preferencias del usuario
+- Persistir estado de la aplicación
+- Recordar datos entre sesiones
 
----
-
-## 🏆 Al Finalizar el Curso
-
-Serás capaz de:
-- ✅ Escribir código JavaScript limpio y mantenible
-- ✅ Crear interfaces web interactivas y dinámicas
-- ✅ Trabajar con datos y estructuras complejas
-- ✅ Manipular el DOM con confianza y eficiencia
-- ✅ Consumir APIs y manejar datos asíncronos
-- ✅ Organizar proyectos con módulos ES6
-- ✅ Aplicar mejores prácticas profesionales
-- ✅ Resolver problemas de forma algorítmica
-- ✅ Debuggear y solucionar errores efectivamente
-- ✅ Entender el flujo asíncrono de JavaScript
+**4 Retos** • 1.5 horas
 
 ---
 
-🎉 **¡Prepárate para una aventura increíble!** Cada concepto que aprendas te acercará más a convertirte en un desarrollador web capaz de crear experiencias digitales asombrosas. ¡Vamos a programar! 💻🚀✨
+## ⏰ Nivel 10: JavaScript Asíncrono
+
+#### 🔄 Conceptos Básicos
+- Sincronía vs Asincronía (teoría breve)
+- El Event Loop (concepto simple)
+
+#### ⏲️ Timers
+- `setTimeout()` - Ejecutar después
+- `setInterval()` - Ejecutar cada X tiempo
+- `clearTimeout()`, `clearInterval()`
+
+#### 🤝 Promises
+- Qué es una Promise
+- `.then()` - Manejar éxito
+- `.catch()` - Manejar error
+- `.finally()` - Siempre ejecutar
+
+#### ✨ Async/Await (El Estándar Moderno)
+- `async` function
+- `await` - Esperar resultado
+- `try/catch` - Manejar errores
+- Por qué async/await > promises
+
+**7 Retos** • 2 horas
+
+---
+
+## 🌐 Nivel 11: Conectar con APIs
+
+#### 📡 Conceptos de APIs
+- Qué es una API REST (simple)
+- HTTP methods: GET, POST
+- Status codes: 200, 404, 500
+
+#### 🌊 Fetch API
+- `fetch(url)` - Traer datos
+- `.json()` - Parsear respuesta
+- GET requests
+- POST requests con body
+- Headers básicos
+
+#### 🎨 En la Práctica
+- Mostrar datos en el DOM
+- Loading states
+- Error handling
+
+**6 Retos** • 2 horas
+
+---
+
+## 📦 Nivel 12: Organizar tu Código
+
+#### 🏗️ Módulos ES6
+- Por qué usar módulos
+- `type="module"` en HTML
+- Named exports: `export const funcion = () => {}`
+- Default export: `export default funcion`
+- Import named: `import { funcion } from './archivo.js'`
+- Import default: `import funcion from './archivo.js'`
+- Estructura de carpetas recomendada
+
+#### ✨ Buenas Prácticas
+- Naming conventions consistentes
+- DRY - Don't Repeat Yourself
+- Comentarios útiles (no obvios)
+- `"use strict"` (breve mención)
+- Console para debugging
+
+**5 Retos** • 1.5-2 horas
+
+---
+
+## 📊 Hoja de Ruta
+
+```
+Nivel 1  → Variables y tipos
+Nivel 2  → Operadores y decisiones
+Nivel 3  → Loops y lógica
+Nivel 4  → Arrays
+Nivel 5  → Objects
+Nivel 6  → Funciones
+Nivel 7  → DOM
+Nivel 8  → Eventos
+Nivel 9  → Storage
+Nivel 10 → Async
+Nivel 11 → APIs
+Nivel 12 → Módulos
+```
+
+**Total:** 12 niveles • ~70 retos • 20-24 horas
+
+---
+
+✨ **Al terminar podrás crear aplicaciones web modernas e interactivas** ✨
