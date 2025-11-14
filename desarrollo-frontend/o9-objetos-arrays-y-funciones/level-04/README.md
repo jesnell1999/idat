@@ -216,11 +216,11 @@ console.log(typeof totalKilos === 'number');
 
 **📖 Historia:** Amorosa 💖 tiene niveles de poder: `[45, 78, 92, 60, 88, 55, 95]`. Con `filter()` debe encontrar TODOS con poder >70 (élite). Con `find()` debe encontrar el PRIMERO con poder >90 (legendario). ¡Filter devuelve array, find devuelve elemento! 🛡️
 
-**📝 Descripción:** `filter()` retorna array con todos, `find()` retorna primer elemento o `undefined`.
+**📝 Descripción:** `filter()` retorna array con todos los elementos que cumplen la condición, `find()` retorna el primer elemento que cumple la condición o `undefined`.
 
 **⚡ Funcionalidad:** 
-- `filter(elem => condición)` - retorna array con TODOS
-- `find(elem => condición)` - retorna PRIMER elemento
+- `filter(elem => condición)` - retorna array con TODOS los elementos que cumplen la condición
+- `find(elem => condición)` - retorna PRIMER elemento que cumple la condición
 
 **✅ Casos de prueba:**
 
