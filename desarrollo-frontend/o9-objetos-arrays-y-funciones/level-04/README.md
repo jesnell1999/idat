@@ -3,7 +3,7 @@
 ```
                                   
    __ _ _ __ _ __ __ _ _   _ ___ 
-  / _` | '__| '__/ _` | | | / __|
+  / _` | '__| '--/ _` | | | / __|
  | (_| | |  | | | (_| | |_| \__ \
   \__,_|_|  |_|  \__,_|\__, |___/
                         __/ |    
@@ -14,9 +14,9 @@
 
 ---
 
-## 🎒 Reto 1: La Mochila Mágica - Crear y Manipular Arrays
+## 🎨 Reto 1: La Paleta Mágica - Crear, Modificar, Push y Pop
 
-**📖 Historia:** Fernanda 🧙‍♀️ tiene una mochila mágica que guarda pociones en orden. Cada posición tiene un número (índice) que empieza en 0. Necesita crear su inventario, ver cuántas pociones tiene, acceder a la primera y última, cambiar una poción y agregar/quitar pociones con `push()` y `pop()` 💼✨
+**📖 Historia:** Fernanda 🧙‍♀️ es una artista mágica que guarda colores en su paleta. Cada color tiene una posición (índice) que empieza en 0. Necesita crear su paleta con 3 colores: `'azul'`, `'morado'`, `'verde'`. Luego debe cambiar el morado por `'blanco'`, agregar `'negro'` al final con `push()` y quitar los últimos 2 colores con `pop()` 🎨✨
 
 **📝 Descripción:** Domina lo básico de arrays: crear, acceder por índice, `.length`, modificar valores, `push()` y `pop()`.
 
@@ -24,48 +24,32 @@
 - Crear array: `const arr = ['a', 'b', 'c']`
 - Acceder: `arr[0]`, `arr[arr.length - 1]`
 - Modificar: `arr[1] = 'nuevo'`
-- `push()` - agregar al final
+- `push(elemento)` - agregar al final
 - `pop()` - quitar del final
 
 **✅ Casos de prueba:**
 
-| Operación                                  | Expected Output                                      |
-| ------------------------------------------ | ---------------------------------------------------- |
-| Array inicial: `['roja', 'azul', 'verde']` | `length=3`, `primera='roja'`, `última='verde'`       |
-| Cambiar `'azul'` por `'dorada'`            | `arr[1]='dorada'`                                    |
-| `push('morada')`                           | `['roja', 'dorada', 'verde', 'morada']`              |
-| `pop()` dos veces                          | `['roja', 'dorada']`, retorna `'verde'` y `'morada'` |
+| Operación                                | Expected Output |
+| ---------------------------------------- | --------------- |
+| `colors.length === 2`                    | `true`          |
+| `colors[0] === 'azul'`                   | `true`          |
+| `colors[colors.length - 1] === 'blanco'` | `true`          |
+| `colors[1] === 'blanco'`                 | `true`          |
+| `typeof colors === 'object'`             | `true`          |
 
 **💻 Código base:**
 
 ```javascript
-// 1. CREATE array with 3 potions
-const potions = ['roja', 'azul', 'verde'];
+const colors = []; // edit this line 🎨
 
-console.log('Inventario inicial:', potions);
-console.log('Total de pociones:', potions.length);
+// your code here 💻
+// modify, push, pop
 
-// 2. ACCESS first and last
-const firstPotion = potions[0];
-const lastPotion = potions[potions.length - 1];
-
-console.log('Primera poción:', firstPotion);
-console.log('Última poción:', lastPotion);
-
-// 3. MODIFY: change 'azul' to 'dorada'
-potions[1] = 'dorada';
-console.log('Después de cambiar azul:', potions);
-
-// 4. PUSH: add 'morada' at the end
-potions.push('morada');
-console.log('Después de push:', potions);
-
-// 5. POP: remove last potion twice
-const removed1 = potions.pop();
-const removed2 = potions.pop();
-
-console.log('Pociones removidas:', removed1, removed2);
-console.log('Inventario final:', potions);
+console.log(colors.length === 2);
+console.log(colors[0] === 'azul');
+console.log(colors[colors.length - 1] === 'blanco');
+console.log(colors[1] === 'blanco');
+console.log(typeof colors === 'object');
 ```
 
 **💡 Tips:**
@@ -73,17 +57,17 @@ console.log('Inventario final:', potions);
 - 🔹 Último elemento: `arr[arr.length - 1]`
 - 🔹 `push()` retorna nueva longitud
 - 🔹 `pop()` retorna elemento removido
-- 🔹 Ambos modifican el array original
+- 🔹 Modifica con: `arr[indice] = nuevoValor`
 
-**🚀 Motivación:** ¡Domina lo esencial de arrays con la mochila de Fernanda! 🎒✨
+**🚀 Motivación:** ¡Domina lo esencial de arrays con la paleta de Fernanda! 🎨✨
 
-**📁 Carpeta:** `p1-magic-backpack/`
+**📁 Carpeta:** `o1-array-basics-palette/`
 
 ---
 
-## 🚂 Reto 2: El Tren Mágico - Shift, Unshift e Includes
+## 🚂 Reto 2: El Tren Expreso - Shift, Unshift e Includes
 
-**📖 Historia:** Elliot ⚡ maneja el Tren Mágico con vagones: `['Vagón1', 'Vagón2', 'Vagón3']`. Los pasajeros pueden subir al frente con `unshift()` o bajar del frente con `shift()`. También necesita verificar si ciertos vagones están en el tren con `includes()` antes de venderle boletos a los pasajeros 🚂💨
+**📖 Historia:** Elliot ⚡ maneja el Tren Expreso con vagones: `['Vagón1', 'Vagón2', 'Vagón3']`. Debe agregar `'Locomotora'` al frente con `unshift()`, quitarla con `shift()`, agregar `'VIP'` al inicio y verificar con `includes()` si ciertos vagones existen antes de vender boletos 🚂💨
 
 **📝 Descripción:** Aprende `shift()`, `unshift()` para manipular el inicio del array, y `includes()` para buscar elementos.
 
@@ -94,442 +78,313 @@ console.log('Inventario final:', potions);
 
 **✅ Casos de prueba:**
 
-| Operación                                 | Expected Output                                          |
-| ----------------------------------------- | -------------------------------------------------------- |
-| Inicial: `['Vagón1', 'Vagón2', 'Vagón3']` | `length=3`                                               |
-| `unshift('Locomotora')`                   | `['Locomotora', 'Vagón1', 'Vagón2', 'Vagón3']`           |
-| `shift()`                                 | `['Vagón1', 'Vagón2', 'Vagón3']`, retorna `'Locomotora'` |
-| `includes('Vagón2')`                      | `true`                                                   |
-| `includes('VIP')`                         | `false`                                                  |
-| `unshift('VIP')` y `includes('VIP')`      | `true`                                                   |
+| Operación                              | Expected Output |
+| -------------------------------------- | --------------- |
+| `train.length === 4`                   | `true`          |
+| `train[0] === 'VIP'`                   | `true`          |
+| `train.includes('VIP') === true`       | `true`          |
+| `train.includes('Fantasma') === false` | `true`          |
+| `Array.isArray(train) === true`        | `true`          |
 
 **💻 Código base:**
 
 ```javascript
-// 1. CREATE train
-const train = ['Vagón1', 'Vagón2', 'Vagón3'];
+const train = []; // edit this line 🚂
 
-console.log('Tren inicial:', train);
+// your code here 💻
+// unshift, shift, includes
 
-// 2. UNSHIFT: add 'Locomotora' at front
-train.unshift('Locomotora');
-console.log('Después de unshift:', train);
-
-// 3. SHIFT: remove first wagon
-const removed = train.shift();
-console.log('Vagón removido:', removed);
-console.log('Después de shift:', train);
-
-// 4. INCLUDES: check if 'Vagón2' exists
-const hasVagon2 = train.includes('Vagón2');
-console.log('¿Tiene Vagón2?', hasVagon2);
-
-// 5. INCLUDES: check if 'VIP' exists
-const hasVIP = train.includes('VIP');
-console.log('¿Tiene VIP?', hasVIP);
-
-// 6. Add 'VIP' and check again
-train.unshift('VIP');
-const hasVIPNow = train.includes('VIP');
-console.log('Después de agregar VIP:', train);
-console.log('¿Tiene VIP ahora?', hasVIPNow);
+console.log(train.length === 4);
+console.log(train[0] === 'VIP');
+console.log(train.includes('VIP') === true);
+console.log(train.includes('Fantasma') === false);
+console.log(Array.isArray(train) === true);
 ```
 
 **💡 Tips:**
 - 🔹 `unshift()` agrega al inicio (índice 0)
 - 🔹 `shift()` quita el primero y lo retorna
-- 🔹 `includes()` es más simple que `indexOf()`
 - 🔹 `includes()` retorna booleano
-- 🔹 shift/unshift son más lentos (reordenan índices)
+- 🔹 shift/unshift reordenan todos los índices
 
 **🚀 Motivación:** ¡Elliot necesita tu ayuda para manejar el tren! 🚂⚡
 
-**📁 Carpeta:** `p2-magic-train/`
+**📁 Carpeta:** `o2-shift-unshift-train/`
 
 ---
 
-## 🔍 Reto 3: Detective de Números - IndexOf y Slice
+## 🔍 Reto 3: Búsqueda y Corte - IndexOf y Slice
 
-**📖 Historia:** Doky 🐕 es detective y tiene una lista de números sospechosos: `[10, 25, 30, 25, 45, 30, 60]`. Necesita encontrar la POSICIÓN del primer `25` con `indexOf()`, verificar si existe el `100`, y extraer los números del medio (posición 2 a 5) con `slice()` sin alterar la lista original 🔎
+**📖 Historia:** Doky 🐕 es detective con números sospechosos: `[10, 25, 30, 25, 45, 30, 60]`. Debe encontrar la POSICIÓN del primer `25` con `indexOf()`, verificar si existe `100`, y extraer números del medio (índice 2 al 5) con `slice()` sin alterar el original 🔎
 
-**📝 Descripción:** Usa `indexOf()` para encontrar posiciones y `slice()` para extraer porciones sin modificar el array original.
+**📝 Descripción:** Usa `indexOf()` para encontrar posiciones y `slice()` para extraer porciones sin modificar el array.
 
 **⚡ Funcionalidad:** 
-- `indexOf(elemento)` - retorna índice o `-1` si no existe
+- `indexOf(elemento)` - retorna índice o `-1`
 - `slice(inicio, fin)` - extrae porción (fin NO incluido)
-- `slice()` NO modifica el original
+- `slice(-n)` - últimos n elementos
 
 **✅ Casos de prueba:**
 
-| Operación                                       | Expected Output                  |
-| ----------------------------------------------- | -------------------------------- |
-| `indexOf(25)` en `[10, 25, 30, 25, 45, 30, 60]` | `1` (primera aparición)          |
-| `indexOf(30)`                                   | `2` (primera aparición)          |
-| `indexOf(100)`                                  | `-1` (no existe)                 |
-| `slice(2, 5)`                                   | `[30, 25, 45]` (índices 2, 3, 4) |
-| `slice(-3)`                                     | `[45, 30, 60]` (últimos 3)       |
-| Array original                                  | Sin cambios                      |
+| Operación                        | Expected Output |
+| -------------------------------- | --------------- |
+| `position25 === 1`               | `true`          |
+| `position100 === -1`             | `true`          |
+| `middleNumbers.length === 3`     | `true`          |
+| `lastThree[0] === 45`            | `true`          |
+| `typeof position25 === 'number'` | `true`          |
 
 **💻 Código base:**
 
 ```javascript
-// 1. CREATE suspect list
-const suspects = [10, 25, 30, 25, 45, 30, 60];
+const suspects = []; // edit this line 🔍
 
-console.log('Lista de sospechosos:', suspects);
+const position25 = -2; // your code here 💻
+const position100 = -2; // your code here 💻
+const middleNumbers = []; // your code here 💻 (slice 2 to 5)
+const lastThree = []; // your code here 💻 (slice -3)
 
-// 2. INDEXOF: find first position of 25
-const position25 = suspects.indexOf(25);
-console.log('Primera posición de 25:', position25);
-
-// 3. INDEXOF: find first position of 30
-const position30 = suspects.indexOf(30);
-console.log('Primera posición de 30:', position30);
-
-// 4. INDEXOF: check if 100 exists
-const position100 = suspects.indexOf(100);
-console.log('Posición de 100:', position100);
-
-// 5. SLICE: extract middle numbers (index 2 to 5)
-const middleNumbers = suspects.slice(2, 5);
-console.log('Números del medio (2 a 5):', middleNumbers);
-
-// 6. SLICE: get last 3 numbers
-const lastThree = suspects.slice(-3);
-console.log('Últimos 3 números:', lastThree);
-
-// 7. Verify original is unchanged
-console.log('Lista original (sin cambios):', suspects);
+console.log(position25 === 1);
+console.log(position100 === -1);
+console.log(middleNumbers.length === 3);
+console.log(lastThree[0] === 45);
+console.log(typeof position25 === 'number');
 ```
 
 **💡 Tips:**
 - 🔹 `indexOf()` retorna `-1` si no encuentra
 - 🔹 Solo encuentra la PRIMERA aparición
 - 🔹 `slice(inicio, fin)` → fin NO incluido
-- 🔹 `slice(-n)` → últimos n elementos
-- 🔹 `slice()` crea nuevo array (inmutable)
+- 🔹 `slice()` NO modifica el original
 
 **🚀 Motivación:** ¡Doky necesita tus habilidades de detective! 🐕🔍
 
-**📁 Carpeta:** `p3-number-detective/`
+**📁 Carpeta:** `o3-indexof-slice-detective/`
 
 ---
 
-## 🔄 Reto 4: Fábrica de Transformación - ForEach y Map
+## 🔄 Reto 4: Iteración vs Transformación - ForEach y Map
 
-**📖 Historia:** Fe 👨‍🍳 tiene números que representan kilos de harina: `[5, 10, 15, 20]`. Con `forEach()` debe recorrer y SUMAR todos los kilos (solo iterar). Con `map()` debe DUPLICAR cada valor para hacer el doble de pan (crear nuevo array). ¡Map transforma, forEach solo recorre! 🍞
+**📖 Historia:** Fe 👨‍🍳 tiene kilos de harina: `[5, 10, 15, 20]`. Con `forEach()` debe sumar todos (solo iterar). Con `map()` debe duplicar cada valor (crear nuevo array). ¡Map transforma y retorna, forEach solo recorre! 🍞
 
-**📝 Descripción:** Entiende la diferencia: `forEach()` solo itera sin retornar, `map()` transforma y retorna nuevo array.
+**📝 Descripción:** `forEach()` itera sin retornar, `map()` transforma y retorna nuevo array.
 
 **⚡ Funcionalidad:** 
 - `forEach(elemento => {...})` - itera, NO retorna
-- `map(elemento => nuevoValor)` - transforma, SÍ retorna nuevo array
-- Diferencia clave: forEach para efectos, map para transformaciones
+- `map(elemento => nuevoValor)` - transforma, SÍ retorna
 
 **✅ Casos de prueba:**
 
-| Input             | forEach (suma) | map (duplicar)     |
-| ----------------- | -------------- | ------------------ |
-| `[5, 10, 15, 20]` | `total=50`     | `[10, 20, 30, 40]` |
-| `[2, 4, 6]`       | `total=12`     | `[4, 8, 12]`       |
-| `[100]`           | `total=100`    | `[200]`            |
+| Operación                        | Expected Output |
+| -------------------------------- | --------------- |
+| `totalKilos === 50`              | `true`          |
+| `doubledKilos[0] === 10`         | `true`          |
+| `doubledKilos.length === 4`      | `true`          |
+| `flourKilos[0] === 5`            | `true`          |
+| `typeof totalKilos === 'number'` | `true`          |
 
 **💻 Código base:**
 
 ```javascript
-// 1. CREATE flour quantities
-const flourKilos = [5, 10, 15, 20];
+const flourKilos = []; // edit this line 🍞
 
-console.log('Kilos de harina:', flourKilos);
-
-// 2. FOREACH: sum all kilos (just iterate)
 let totalKilos = 0;
+// your code here 💻 (forEach to sum)
 
-flourKilos.forEach(kilos => {
-  totalKilos = totalKilos + kilos;
-});
+const doubledKilos = []; // your code here 💻 (map to double)
 
-console.log('Total de kilos:', totalKilos);
-
-// 3. MAP: double each quantity (transform)
-const doubledKilos = flourKilos.map(kilos => {
-  return kilos * 2;
-});
-
-console.log('Kilos duplicados:', doubledKilos);
-console.log('Kilos originales:', flourKilos);
-
-// 4. MAP with shorter syntax: triple each
-const tripledKilos = flourKilos.map(kilos => kilos * 3);
-console.log('Kilos triplicados:', tripledKilos);
-
-// 5. FOREACH: show each with message
-console.log('\nMensajes de cada kilo:');
-flourKilos.forEach(kilos => {
-  console.log(`- Tenemos ${kilos} kilos`);
-});
+console.log(totalKilos === 50);
+console.log(doubledKilos[0] === 10);
+console.log(doubledKilos.length === 4);
+console.log(flourKilos[0] === 5);
+console.log(typeof totalKilos === 'number');
 ```
 
 **💡 Tips:**
-- 🔹 `forEach()` NO retorna nada (undefined)
+- 🔹 `forEach()` NO retorna nada
 - 🔹 `map()` SÍ retorna nuevo array
-- 🔹 Usa forEach para logs, sumas, efectos
-- 🔹 Usa map para transformar datos
-- 🔹 Map NO modifica el original
+- 🔹 Usa forEach para logs, sumas
+- 🔹 Usa map para transformar
 
-**🚀 Motivación:** ¡Fe necesita procesar su harina eficientemente! 👨‍🍳🍞
+**🚀 Motivación:** ¡Fe necesita procesar su harina! 👨‍🍳🍞
 
-**📁 Carpeta:** `p4-transformation-factory/`
+**📁 Carpeta:** `o4-foreach-map-factory/`
 
 ---
 
-## 🎯 Reto 5: Guardianes del Reino - Filter y Find
+## 🎯 Reto 5: Todos vs Uno - Filter y Find
 
-**📖 Historia:** Amorosa 💖 entrena guardianes con diferentes niveles de poder: `[45, 78, 92, 60, 88, 55, 95]`. Con `filter()` debe encontrar TODOS los guardianes con poder mayor a 70 (élite). Con `find()` debe encontrar el PRIMER guardián con poder mayor a 90 (legendario). ¡Filter devuelve varios, find solo uno! 🛡️
+**📖 Historia:** Amorosa 💖 tiene niveles de poder: `[45, 78, 92, 60, 88, 55, 95]`. Con `filter()` debe encontrar TODOS con poder >70 (élite). Con `find()` debe encontrar el PRIMERO con poder >90 (legendario). ¡Filter devuelve array, find devuelve elemento! 🛡️
 
-**📝 Descripción:** `filter()` retorna array con todos los que cumplen condición, `find()` retorna el primer elemento que cumple.
+**📝 Descripción:** `filter()` retorna array con todos, `find()` retorna primer elemento o `undefined`.
 
 **⚡ Funcionalidad:** 
-- `filter(elemento => condición)` - retorna array con TODOS
-- `find(elemento => condición)` - retorna PRIMER elemento o `undefined`
-- Filter siempre retorna array (puede ser vacío)
+- `filter(elem => condición)` - retorna array con TODOS
+- `find(elem => condición)` - retorna PRIMER elemento
 
 **✅ Casos de prueba:**
 
-| Input                          | filter (>70)       | find (>90)  |
-| ------------------------------ | ------------------ | ----------- |
-| `[45, 78, 92, 60, 88, 55, 95]` | `[78, 92, 88, 95]` | `92`        |
-| `[45, 60, 55]`                 | `[]` (vacío)       | `undefined` |
-| `[80, 95, 100]`                | `[80, 95, 100]`    | `95`        |
+| Operación                                | Expected Output |
+| ---------------------------------------- | --------------- |
+| `eliteGuardians.length === 4`            | `true`          |
+| `firstLegendary === 92`                  | `true`          |
+| `Array.isArray(eliteGuardians) === true` | `true`          |
+| `guardians.length === 7`                 | `true`          |
+| `typeof firstLegendary === 'number'`     | `true`          |
 
 **💻 Código base:**
 
 ```javascript
-// 1. CREATE power levels
-const guardians = [45, 78, 92, 60, 88, 55, 95];
+const guardians = []; // edit this line 🛡️
 
-console.log('Niveles de poder:', guardians);
+const eliteGuardians = []; // your code here 💻 (filter >70)
+const firstLegendary = null; // your code here 💻 (find >90)
 
-// 2. FILTER: get ALL guardians with power > 70 (elite)
-const eliteGuardians = guardians.filter(power => {
-  return power > 70;
-});
-
-console.log('Guardianes élite (>70):', eliteGuardians);
-
-// 3. FILTER: get ALL with power > 90 (legendary)
-const legendaryGuardians = guardians.filter(power => power > 90);
-console.log('Guardianes legendarios (>90):', legendaryGuardians);
-
-// 4. FIND: get FIRST guardian with power > 90
-const firstLegendary = guardians.find(power => power > 90);
-console.log('Primer legendario (>90):', firstLegendary);
-
-// 5. FIND: try to find power > 100 (doesn't exist)
-const superGuardian = guardians.find(power => power > 100);
-console.log('Guardián super (>100):', superGuardian);
-
-// 6. FILTER: guardians between 60 and 80
-const mediumGuardians = guardians.filter(power => {
-  return power >= 60 && power <= 80;
-});
-console.log('Guardianes medios (60-80):', mediumGuardians);
+console.log(eliteGuardians.length === 4);
+console.log(firstLegendary === 92);
+console.log(Array.isArray(eliteGuardians) === true);
+console.log(guardians.length === 7);
+console.log(typeof firstLegendary === 'number');
 ```
 
 **💡 Tips:**
-- 🔹 `filter()` retorna array (puede estar vacío `[]`)
+- 🔹 `filter()` retorna array (puede ser `[]`)
 - 🔹 `find()` retorna elemento o `undefined`
-- 🔹 Filter: TODOS los que cumplen
-- 🔹 Find: PRIMER elemento que cumple
-- 🔹 Ambos NO modifican el original
+- 🔹 Filter: TODOS, Find: PRIMERO
+- 🔹 Ninguno modifica el original
 
-**🚀 Motivación:** ¡Amorosa necesita clasificar sus guardianes! 💖🛡️
+**🚀 Motivación:** ¡Amorosa necesita clasificar guardianes! 💖🛡️
 
-**📁 Carpeta:** `p5-kingdom-guardians/`
+**📁 Carpeta:** `o5-filter-find-guardians/`
 
 ---
 
-## 🌟 Reto 6: Fusión Mágica - Spread Operator
+## 🌟 Reto 6: Copiar y Combinar - Spread Operator
 
-**📖 Historia:** Los clanes mágicos deben unirse. Mijael tiene `['espada', 'escudo']`, Chocolate tiene `['arco', 'flecha']`. Con el spread operator `...` pueden COPIAR arrays y COMBINARLOS sin destruir los originales. También pueden agregar elementos nuevos al inicio o final. ¡Es la magia de la expansión! ⚡
+**📖 Historia:** Mijael tiene `['espada', 'escudo']`, Chocolate tiene `['arco', 'flecha']`. Con spread `...` deben copiar y combinar arrays sin destruir los originales. También agregar `'hacha'` al inicio y `'lanza'` al final. ¡Magia inmutable! ⚡
 
-**📝 Descripción:** Usa spread `...` para copiar y combinar arrays de forma inmutable (sin modificar originales).
+**📝 Descripción:** Usa spread `...` para copiar y combinar arrays sin modificar originales.
 
 **⚡ Funcionalidad:** 
 - `[...array]` - copia completa
-- `[...arr1, ...arr2]` - combinar arrays
-- `['nuevo', ...array]` - agregar al inicio
-- `[...array, 'nuevo']` - agregar al final
+- `[...arr1, ...arr2]` - combinar
+- `['nuevo', ...arr]` - agregar al inicio
 
 **✅ Casos de prueba:**
 
-| Operación                     | Expected Output                          |
-| ----------------------------- | ---------------------------------------- |
-| Copiar `['espada', 'escudo']` | `['espada', 'escudo']` (nuevo array)     |
-| Combinar dos clanes           | `['espada', 'escudo', 'arco', 'flecha']` |
-| Agregar `'hacha'` al inicio   | `['hacha', 'espada', 'escudo']`          |
-| Combinar 3 arrays             | Array con todos los elementos            |
+| Operación                            | Expected Output |
+| ------------------------------------ | --------------- |
+| `backupClan.length === 2`            | `true`          |
+| `unitedClan.length === 4`            | `true`          |
+| `clanWithAxe[0] === 'hacha'`         | `true`          |
+| `mijaelClan.length === 2`            | `true`          |
+| `Array.isArray(unitedClan) === true` | `true`          |
 
 **💻 Código base:**
 
 ```javascript
-// 1. CREATE two clans
-const mijaelClan = ['espada', 'escudo'];
-const chocolateClan = ['arco', 'flecha'];
+const mijaelClan = []; // edit this line ⚔️
+const chocolateClan = []; // edit this line 🏹
 
-console.log('Clan Mijael:', mijaelClan);
-console.log('Clan Chocolate:', chocolateClan);
+const backupClan = []; // your code here 💻 (spread copy)
+const unitedClan = []; // your code here 💻 (combine both)
+const clanWithAxe = []; // your code here 💻 (add 'hacha' at start)
 
-// 2. SPREAD: copy mijaelClan
-const backupClan = [...mijaelClan];
-
-console.log('Copia de seguridad:', backupClan);
-
-// 3. SPREAD: combine both clans
-const unitedClan = [...mijaelClan, ...chocolateClan];
-
-console.log('Clan unido:', unitedClan);
-
-// 4. SPREAD: add 'hacha' at the beginning
-const clanWithAxe = ['hacha', ...mijaelClan];
-
-console.log('Clan con hacha al inicio:', clanWithAxe);
-
-// 5. SPREAD: add 'lanza' at the end
-const clanWithSpear = [...mijaelClan, 'lanza'];
-
-console.log('Clan con lanza al final:', clanWithSpear);
-
-// 6. SPREAD: combine 3 arrays
-const dokyClan = ['magia', 'báculo'];
-const megaClan = [...mijaelClan, ...chocolateClan, ...dokyClan];
-
-console.log('Mega clan:', megaClan);
-
-// 7. Verify originals are UNCHANGED
-console.log('\n¿Originales sin cambios?');
-console.log('Mijael:', mijaelClan);
-console.log('Chocolate:', chocolateClan);
+console.log(backupClan.length === 2);
+console.log(unitedClan.length === 4);
+console.log(clanWithAxe[0] === 'hacha');
+console.log(mijaelClan.length === 2);
+console.log(Array.isArray(unitedClan) === true);
 ```
 
 **💡 Tips:**
 - 🔹 `...` expande elementos del array
-- 🔹 NO modifica arrays originales (inmutable)
-- 🔹 Crea copias superficiales rápidamente
-- 🔹 Combina múltiples arrays fácilmente
-- 🔹 ES6+ sintaxis moderna y limpia
+- 🔹 NO modifica originales (inmutable)
+- 🔹 Crea copias rápidamente
+- 🔹 Combina múltiples arrays fácil
 
-**🚀 Motivación:** ¡Los clanes se unen sin perder su identidad! 🌟✨
+**🚀 Motivación:** ¡Los clanes se unen sin perder identidad! 🌟✨
 
-**📁 Carpeta:** `p6-magic-fusion/`
+**📁 Carpeta:** `o6-spread-clan-fusion/`
 
 ---
 
-## 🎁 Reto 7: Cofre del Tesoro - Destructuring Arrays
+## 🎁 Reto 7: Extracción Elegante - Destructuring
 
-**📖 Historia:** Elliot ⚡ encontró un cofre con tesoros ordenados: `['diamante', 'rubí', 'esmeralda', 'zafiro', 'perla']`. En lugar de usar índices (`tesoros[0]`, `tesoros[1]`), usará destructuring para EXTRAER directamente en variables. También aprenderá a SALTAR elementos y capturar el RESTO con `...rest`. ¡Es extracción mágica! 💎
+**📖 Historia:** Elliot ⚡ encontró tesoros: `['diamante', 'rubí', 'esmeralda', 'zafiro', 'perla']`. En vez de usar índices, usará destructuring para extraer en variables. También aprenderá a saltar elementos y capturar el resto con `...rest`. ¡Extracción mágica! 💎
 
-**📝 Descripción:** Usa destructuring `[a, b] = array` para extraer valores en variables de forma elegante.
+**📝 Descripción:** Usa destructuring `[a, b] = array` para extraer valores elegantemente.
 
 **⚡ Funcionalidad:** 
-- `[a, b, c] = array` - extraer primeros elementos
+- `[a, b, c] = array` - extraer primeros
 - `[primero, ...resto] = array` - primero + resto
-- `[, , tercero] = array` - saltar elementos
-- `[a, b] = [b, a]` - intercambiar valores
+- `[, , tercero] = array` - saltar con comas
+- `[a, b] = [b, a]` - swap
 
 **✅ Casos de prueba:**
 
-| Operación            | Expected Output                                                     |
-| -------------------- | ------------------------------------------------------------------- |
-| Extraer primeros 3   | `first='diamante'`, `second='rubí'`, `third='esmeralda'`            |
-| Primero + resto      | `first='diamante'`, `rest=['rubí', 'esmeralda', 'zafiro', 'perla']` |
-| Saltar y extraer 3ro | `third='esmeralda'`                                                 |
-| Swap `a=5, b=10`     | `a=10, b=5`                                                         |
+| Operación                            | Expected Output |
+| ------------------------------------ | --------------- |
+| `first === 'diamante'`               | `true`          |
+| `restJewels.length === 4`            | `true`          |
+| `a === 10 && b === 5`                | `true`          |
+| `typeof first === 'string'`          | `true`          |
+| `Array.isArray(restJewels) === true` | `true`          |
 
 **💻 Código base:**
 
 ```javascript
-// 1. CREATE treasure chest
-const treasures = ['diamante', 'rubí', 'esmeralda', 'zafiro', 'perla'];
+const treasures = []; // edit this line 💎
 
-console.log('Cofre completo:', treasures);
+const first = ''; // your code here 💻 (destructure)
+const second = ''; // your code here 💻
+const restJewels = []; // your code here 💻 ([firstJewel, ...restJewels])
 
-// 2. DESTRUCTURING: extract first three
-const [first, second, third] = treasures;
-
-console.log('Primer tesoro:', first);
-console.log('Segundo tesoro:', second);
-console.log('Tercer tesoro:', third);
-
-// 3. DESTRUCTURING: first + rest
-const [firstJewel, ...restJewels] = treasures;
-
-console.log('Primera joya:', firstJewel);
-console.log('Resto de joyas:', restJewels);
-
-// 4. DESTRUCTURING: skip first two, get third
-const [, , thirdJewel] = treasures;
-
-console.log('Tercera joya (saltando 2):', thirdJewel);
-
-// 5. DESTRUCTURING: skip first, get second and fourth
-const [, secondJewel, , fourthJewel] = treasures;
-
-console.log('Segunda joya:', secondJewel);
-console.log('Cuarta joya:', fourthJewel);
-
-// 6. DESTRUCTURING: swap two values
 let a = 5;
 let b = 10;
+// your code here 💻 (swap using destructuring)
 
-console.log('\nAntes del swap:', 'a=' + a, 'b=' + b);
-
-[a, b] = [b, a];
-
-console.log('Después del swap:', 'a=' + a, 'b=' + b);
-
-// 7. DESTRUCTURING: get first 2 and rest
-const [treasure1, treasure2, ...remainingTreasures] = treasures;
-
-console.log('\nPrimeros 2:', treasure1, treasure2);
-console.log('Restantes:', remainingTreasures);
+console.log(first === 'diamante');
+console.log(restJewels.length === 4);
+console.log(a === 10 && b === 5);
+console.log(typeof first === 'string');
+console.log(Array.isArray(restJewels) === true);
 ```
 
 **💡 Tips:**
 - 🔹 `[a, b] = array` extrae en variables
-- 🔹 `[a, ...rest]` captura el resto en array
+- 🔹 `[a, ...rest]` captura el resto
 - 🔹 `[, , c]` usa comas para saltar
 - 🔹 `[a, b] = [b, a]` swap elegante
-- 🔹 ES6+ sintaxis muy legible
 
-**🚀 Motivación:** 🎉 ¡PROYECTO FINAL! Elliot domina la extracción mágica de tesoros ⚡💎✨
+**🚀 Motivación:** 🎉 ¡PROYECTO FINAL! Elliot domina la extracción ⚡💎✨
 
-**📁 Carpeta:** `p7-treasure-chest/`
+**📁 Carpeta:** `o7-destructuring-treasure/`
 
 ---
 
 ## 📊 Resumen del Nivel 4 🎯
 
 **🎉 Has completado:**
-- ✅ **Arrays básicos:** Crear `[]`, acceder `[i]`, `.length`, modificar
-- ✅ **Modificación:** `push()`, `pop()`, `shift()`, `unshift()`
-- ✅ **Búsqueda:** `includes()`, `indexOf()`, `slice()`
-- ✅ **Iteración:** `forEach()`, `map()`, `filter()`, `find()`
+- ✅ **Arrays básicos:** Crear, acceder, `.length`, modificar, `push()`, `pop()`
+- ✅ **Inicio del array:** `shift()`, `unshift()`, `includes()`
+- ✅ **Búsqueda:** `indexOf()`, `slice()`
+- ✅ **Iteración:** `forEach()` vs `map()`
+- ✅ **Filtrado:** `filter()` vs `find()`
 - ✅ **Operadores modernos:** Spread `...`, Destructuring `[a, b]`
 
 **⏰ Tiempo estimado:** 2-3 horas 
 
-**🎓 Conceptos clave dominados:**
+**🎓 Conceptos clave:**
 - Arrays son colecciones ordenadas (índices desde 0)
 - Métodos que modifican: push, pop, shift, unshift
-- Métodos que NO modifican: slice, map, filter, includes, indexOf
-- forEach itera sin retornar, map transforma y retorna
-- filter retorna array, find retorna elemento o undefined
-- Spread crea copias inmutables
-- Destructuring extrae valores elegantemente
+- Métodos inmutables: slice, map, filter, includes, indexOf
+- forEach NO retorna, map SÍ retorna
+- filter retorna array, find retorna elemento
+- Spread crea copias, destructuring extrae valores
 
 **🔜 Próximo nivel:** 🏛️ Nivel 5 - Objects (Objetos)
 
 ---
 
-💪 **¡Felicidades!** Has dominado los arrays y sus superpoderes. Fernanda, Mijael, Fe, Elliot, Chocolate, Amorosa y Doky están orgullosos de ti. ¡Eres un maestro de las listas mágicas! 🏆✨🚀
+💪 **¡Felicidades!** Fernanda, Mijael, Fe, Elliot, Chocolate, Amorosa y Doky están orgullosos. ¡Eres un maestro de arrays! 🏆✨🚀
