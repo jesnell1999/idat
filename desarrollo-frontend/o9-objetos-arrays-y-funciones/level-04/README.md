@@ -3,7 +3,7 @@
 ```
                                   
    __ _ _ __ _ __ __ _ _   _ ___ 
-  / _` | '__| '--/ _` | | | / __|
+  / _` | '__| '__/ _` | | | / __|
  | (_| | |  | | | (_| | |_| \__ \
   \__,_|_|  |_|  \__,_|\__, |___/
                         __/ |    
@@ -18,14 +18,14 @@
 
 **📖 Historia:** Fernanda 🧙‍♀️ es una artista mágica que guarda colores en su paleta. Cada color tiene una posición (índice) que empieza en 0. Necesita crear su paleta con 3 colores: `'azul'`, `'morado'`, `'verde'`. Luego debe cambiar el morado por `'blanco'`, agregar `'negro'` al final con `push()` y quitar los últimos 2 colores con `pop()` 🎨✨
 
-**📝 Descripción:** Domina lo básico de arrays: crear, acceder por índice, `.length`, modificar valores, `push()` y `pop()`.
+**📝 Descripción:** Tu programa debe crear una paleta de colores, modificar uno de ellos, agregar un color nuevo y finalmente eliminar los dos últimos para dejar solo 2 colores en la paleta.
 
-**⚡ Funcionalidad:** 
-- Crear array: `const arr = ['a', 'b', 'c']`
-- Acceder: `arr[0]`, `arr[arr.length - 1]`
-- Modificar: `arr[1] = 'nuevo'`
-- `push(elemento)` - agregar al final
-- `pop()` - quitar del final
+**⚙️ Funcionalidades:**
+- Crear array con 3 colores iniciales
+- Modificar el color del índice 1
+- Agregar color al final con `push()`
+- Eliminar últimos 2 colores con `pop()`
+- Validar resultado final con 2 colores
 
 **✅ Casos de prueba:**
 
@@ -69,12 +69,14 @@ console.log(typeof colors === 'object');
 
 **📖 Historia:** Elliot ⚡ maneja el Tren Expreso con vagones: `['Vagón1', 'Vagón2', 'Vagón3']`. Debe agregar `'Locomotora'` al frente con `unshift()`, quitarla con `shift()`, agregar `'VIP'` al inicio y verificar con `includes()` si ciertos vagones existen antes de vender boletos 🚂💨
 
-**📝 Descripción:** Aprende `shift()`, `unshift()` para manipular el inicio del array, y `includes()` para buscar elementos.
+**📝 Descripción:** Tu programa debe gestionar vagones de un tren agregando y quitando elementos del inicio del array, y verificando si ciertos vagones existen para validar boletos.
 
-**⚡ Funcionalidad:** 
-- `unshift(elemento)` - agregar al inicio
-- `shift()` - quitar del inicio
-- `includes(elemento)` - verificar existencia (retorna `true`/`false`)
+**⚙️ Funcionalidades:**
+- Agregar 'Locomotora' al inicio con `unshift()`
+- Quitar primer vagón con `shift()`
+- Agregar vagón 'VIP' al inicio
+- Verificar existencia de vagones con `includes()`
+- Validar que el tren tenga 4 vagones al final
 
 **✅ Casos de prueba:**
 
@@ -117,12 +119,14 @@ console.log(Array.isArray(train) === true);
 
 **📖 Historia:** Doky 🐕 es detective con números sospechosos: `[10, 25, 30, 25, 45, 30, 60]`. Debe encontrar la POSICIÓN del primer `25` con `indexOf()`, verificar si existe `100`, y extraer números del medio (índice 2 al 5) con `slice()` sin alterar el original 🔎
 
-**📝 Descripción:** Usa `indexOf()` para encontrar posiciones y `slice()` para extraer porciones sin modificar el array.
+**📝 Descripción:** Tu programa debe buscar la posición de números específicos en una lista de sospechosos y extraer segmentos de la lista sin modificar el array original.
 
-**⚡ Funcionalidad:** 
-- `indexOf(elemento)` - retorna índice o `-1`
-- `slice(inicio, fin)` - extrae porción (fin NO incluido)
-- `slice(-n)` - últimos n elementos
+**⚙️ Funcionalidades:**
+- Encontrar posición del primer 25 con `indexOf()`
+- Buscar número inexistente (retorna -1)
+- Extraer segmento del medio con `slice()`
+- Extraer últimos 3 números con `slice()`
+- Verificar que el array original no se modifique
 
 **✅ Casos de prueba:**
 
@@ -167,11 +171,14 @@ console.log(typeof position25 === 'number');
 
 **📖 Historia:** Fe 👨‍🍳 tiene kilos de harina: `[5, 10, 15, 20]`. Con `forEach()` debe sumar todos (solo iterar). Con `map()` debe duplicar cada valor (crear nuevo array). ¡Map transforma y retorna, forEach solo recorre! 🍞
 
-**📝 Descripción:** `forEach()` itera sin retornar, `map()` transforma y retorna nuevo array.
+**📝 Descripción:** Tu programa debe procesar cantidades de harina de dos formas: calcular el total sumando todos los valores, y crear una nueva lista con cada cantidad duplicada.
 
-**⚡ Funcionalidad:** 
-- `forEach(elemento => {...})` - itera, NO retorna
-- `map(elemento => nuevoValor)` - transforma, SÍ retorna
+**⚙️ Funcionalidades:**
+- Sumar todos los kilos usando `forEach()`
+- Duplicar cada cantidad usando `map()`
+- Crear nuevo array sin modificar el original
+- Validar que el array original permanezca intacto
+- Comparar comportamiento de forEach vs map
 
 **✅ Casos de prueba:**
 
@@ -212,15 +219,18 @@ console.log(typeof totalKilos === 'number');
 
 ---
 
-## 🎯 Reto 5: Todos vs Uno - Filter y Find
+## 🎯 Reto 5: Filtrar y Encontrar - Filter y Find
 
-**📖 Historia:** Amorosa 💖 tiene niveles de poder: `[45, 78, 92, 60, 88, 55, 95]`. Con `filter()` debe encontrar TODOS con poder >70 (élite). Con `find()` debe encontrar el PRIMERO con poder >90 (legendario). ¡Filter devuelve array, find devuelve elemento! 🛡️
+**📖 Historia:** Amorosa 💖 tiene niveles de poder: `[45, 78, 92, 60, 88, 55, 95]`. Con `filter()` debe encontrar TODOS los guardianes con poder >70 (élite). Con `find()` debe encontrar el PRIMERO con poder >90 (legendario). ¡Filter devuelve múltiples, find devuelve solo uno! 🛡️
 
-**📝 Descripción:** `filter()` retorna array con todos los elementos que cumplen la condición, `find()` retorna el primer elemento que cumple la condición o `undefined`.
+**📝 Descripción:** Tu programa debe clasificar guardianes por nivel de poder: obtener todos los élite que superen 70 de poder, y encontrar el primer legendario que supere 90.
 
-**⚡ Funcionalidad:** 
-- `filter(elem => condición)` - retorna array con TODOS los elementos que cumplen la condición
-- `find(elem => condición)` - retorna PRIMER elemento que cumple la condición
+**⚙️ Funcionalidades:**
+- Filtrar TODOS los guardianes élite (>70) con `filter()`
+- Encontrar el PRIMER guardián legendario (>90) con `find()`
+- Crear nuevo array con los filtrados
+- Retornar un solo elemento con find
+- Validar que el array original no cambie
 
 **✅ Casos de prueba:**
 
@@ -250,7 +260,8 @@ console.log(typeof firstLegendary === 'number');
 **💡 Tips:**
 - 🔹 `filter()` retorna array (puede ser `[]`)
 - 🔹 `find()` retorna elemento o `undefined`
-- 🔹 Filter: TODOS, Find: PRIMERO
+- 🔹 Filter: obtiene MÚLTIPLES elementos
+- 🔹 Find: obtiene PRIMER elemento que cumple
 - 🔹 Ninguno modifica el original
 
 **🚀 Motivación:** ¡Amorosa necesita clasificar guardianes! 💖🛡️
@@ -263,12 +274,14 @@ console.log(typeof firstLegendary === 'number');
 
 **📖 Historia:** Mijael tiene `['espada', 'escudo']`, Chocolate tiene `['arco', 'flecha']`. Con spread `...` deben copiar y combinar arrays sin destruir los originales. También agregar `'hacha'` al inicio y `'lanza'` al final. ¡Magia inmutable! ⚡
 
-**📝 Descripción:** Usa spread `...` para copiar y combinar arrays sin modificar originales.
+**📝 Descripción:** Tu programa debe crear copias de arrays y combinarlos sin modificar los originales, usando el operador spread para expansión de elementos.
 
-**⚡ Funcionalidad:** 
-- `[...array]` - copia completa
-- `[...arr1, ...arr2]` - combinar
-- `['nuevo', ...arr]` - agregar al inicio
+**⚙️ Funcionalidades:**
+- Crear copia de seguridad con spread
+- Combinar dos clanes en uno solo
+- Agregar elemento al inicio de un array
+- Validar que los originales no se modifiquen
+- Demostrar inmutabilidad con spread
 
 **✅ Casos de prueba:**
 
@@ -313,13 +326,14 @@ console.log(Array.isArray(unitedClan) === true);
 
 **📖 Historia:** Elliot ⚡ encontró tesoros: `['diamante', 'rubí', 'esmeralda', 'zafiro', 'perla']`. En vez de usar índices, usará destructuring para extraer en variables. También aprenderá a saltar elementos y capturar el resto con `...rest`. ¡Extracción mágica! 💎
 
-**📝 Descripción:** Usa destructuring `[a, b] = array` para extraer valores elegantemente.
+**📝 Descripción:** Tu programa debe extraer valores del array directamente en variables usando destructuring, capturar múltiples elementos con rest, e intercambiar valores entre variables.
 
-**⚡ Funcionalidad:** 
-- `[a, b, c] = array` - extraer primeros
-- `[primero, ...resto] = array` - primero + resto
-- `[, , tercero] = array` - saltar con comas
-- `[a, b] = [b, a]` - swap
+**⚙️ Funcionalidades:**
+- Extraer primeros elementos en variables individuales
+- Capturar elementos restantes con `...rest`
+- Saltar elementos usando comas
+- Intercambiar valores de dos variables (swap)
+- Validar tipos de datos extraídos
 
 **✅ Casos de prueba:**
 
