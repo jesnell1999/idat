@@ -44,11 +44,11 @@ const hero = {}; // edit this line 🦸
 // your code here 💻
 // create properties, modify level, add active
 
-console.log(hero.name);
-console.log(hero.power);
-console.log(hero.level);
-console.log(hero.active);
-console.log(typeof hero);
+console.log(hero.name === 'Elliot');
+console.log(hero.power === 'rayo');
+console.log(hero.level === 95);
+console.log(hero.active === true);
+console.log(typeof hero === 'object');
 ```
 
 **💡 Tips:**
@@ -96,11 +96,11 @@ const metal = 'plata'; // variable for dynamic access
 // your code here 💻
 // create properties, modify bronce, add diamante
 
-console.log(chest['oro']);
-console.log(chest[metal]);
-console.log(chest['bronce']);
-console.log(chest['diamante']);
-console.log(Object.keys(chest).length);
+console.log(chest['oro'] === 100);
+console.log(chest[metal] === 50);
+console.log(chest['bronce'] === 30);
+console.log(chest['diamante'] === 200);
+console.log(Object.keys(chest).length === 4);
 ```
 
 **💡 Tips:**
@@ -146,11 +146,11 @@ const kingdom = {}; // edit this line 🏰
 // your code here 💻
 // create nested structure, modify age, add power
 
-console.log(kingdom.name);
-console.log(kingdom.king.name);
-console.log(kingdom.king.age);
-console.log(kingdom.king.power);
-console.log(kingdom.population);
+console.log(kingdom.name === 'Arendelle');
+console.log(kingdom.king.name === 'Fe');
+console.log(kingdom.king.age === 36);
+console.log(kingdom.king.power === 'fuego');
+console.log(kingdom.population === 5000);
 ```
 
 **💡 Tips:**
@@ -196,11 +196,11 @@ const heroes = []; // edit this line 🦸
 // your code here 💻
 // create array with 2 heroes, add third hero
 
-console.log(heroes.length);
-console.log(heroes[0].name);
-console.log(heroes[0].level);
-console.log(heroes[2].name);
-console.log(Array.isArray(heroes));
+console.log(heroes.length === 3);
+console.log(heroes[0].name === 'Elliot');
+console.log(heroes[0].level === 92);
+console.log(heroes[2].name === 'Mijael');
+console.log(Array.isArray(heroes) === true);
 ```
 
 **💡 Tips:**
@@ -250,11 +250,11 @@ const recipeCopy = {}; // your code here 💻 (spread copy)
 const recipeName = ''; // your code here 💻 (destructure name)
 const cookTime = 0; // your code here 💻 (destructure time)
 
-console.log(fullRecipe.name);
-console.log(fullRecipe.temp);
-console.log(Object.keys(fullRecipe).length);
-console.log(recipeName);
-console.log(recipe1.name);
+console.log(fullRecipe.name === 'Pizza');
+console.log(fullRecipe.temp === 200);
+console.log(Object.keys(fullRecipe).length === 4);
+console.log(recipeName === 'Pizza');
+console.log(recipe1.name === 'Pizza');
 ```
 
 **💡 Tips:**
@@ -300,11 +300,11 @@ const hero = {}; // edit this line ⚡
 const heroJSON = ''; // your code here 💻 (stringify)
 const recoveredHero = null; // your code here 💻 (parse heroJSON)
 
-console.log(typeof heroJSON);
-console.log(heroJSON.includes('Elliot'));
-console.log(typeof recoveredHero);
-console.log(recoveredHero.name);
-console.log(recoveredHero.level);
+console.log(typeof heroJSON === 'string');
+console.log(heroJSON.includes('Elliot') === true);
+console.log(typeof recoveredHero === 'object');
+console.log(recoveredHero.name === 'Elliot');
+console.log(recoveredHero.level === 92);
 ```
 
 **💡 Tips:**
