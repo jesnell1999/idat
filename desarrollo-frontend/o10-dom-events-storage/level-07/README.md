@@ -84,7 +84,7 @@
 **📝 Descripción:** Tu programa debe manipular contenido de dos formas: usar `innerHTML` para agregar HTML con etiquetas dentro de un div, y usar `value` para leer y modificar el contenido de un input de texto.
 
 **⚙️ Funcionalidades:**
-- Seleccionar div con `querySelector('#container')`
+- Seleccionar div con `getElementById('container')`
 - Usar `innerHTML` para agregar HTML: `'<h2>Hola</h2><p>Mundo</p>'`
 - Seleccionar input con `querySelector('#nameInput')`
 - Establecer valor del input con `value = 'Elliot'`
