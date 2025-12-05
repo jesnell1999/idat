@@ -1,10 +1,3 @@
-// your code here 💻
-// select textarea
-// load saved note from localStorage
-// add input event listener
-// save to localStorage on every change
-
-// tests (run after implementation)
 const runTests = () => {
   console.log('=== Tests ===');
   console.log(noteText.value.includes('Hola'));
@@ -14,5 +7,12 @@ const runTests = () => {
   console.log(noteText.value === '');
 };
 
-// uncomment to run tests
+const noteText = document.getElementById('noteText');
+
+noteText.value = localStorage.getItem('note') || '';
+
+noteText.addEventListener('input', () => {
+  localStorage.setItem('note', noteText.value);
+});
+
 // runTests();
