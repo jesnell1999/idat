@@ -1,10 +1,30 @@
-// your code here 💻
-// create palette object with 3 colors
-// save palette as JSON string to localStorage
-// load palette from localStorage and parse
-// apply colors to DOM elements
+const colorPrimary = document.getElementById('colorPrimary');
+const colorSecondary = document.getElementById('colorSecondary');
+const colorAccent = document.getElementById('colorAccent');
+const saveBtn = document.getElementById('saveBtn');
 
-// tests (run after click save button)
+const colorPalette = {
+  primary: '#e74c3c',
+  secondary: '#3498db',
+  accent: '#2ecc71'
+};
+
+saveBtn.addEventListener('click', () => {
+  localStorage.setItem('palette', JSON.stringify(colorPalette));
+  renderPalette();
+  runTests();
+});
+
+const renderPalette = () => {
+  const pallete = JSON.parse(localStorage.getItem('palette') || '{}');
+
+  colorPrimary.querySelector('.palette__box').style.backgroundColor = pallete.primary;
+  colorSecondary.querySelector('.palette__box').style.backgroundColor = pallete.secondary;
+  colorAccent.querySelector('.palette__box').style.backgroundColor = pallete.accent;
+};
+
+renderPalette();
+
 const runTests = () => {
   console.log('=== Tests ===');
   const saved = localStorage.getItem('palette');
@@ -16,6 +36,3 @@ const runTests = () => {
   console.log(typeof palette === 'object');
   console.log(saved.includes('primary') === true);
 };
-
-// uncomment to run tests
-// runTests();
