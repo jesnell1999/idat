@@ -1,14 +1,24 @@
-let tasks = []; // array de tareas 📋
+let tasks = ['Aprender JS'];
 
-// your code here 💻
-// load tasks from localStorage
-// render tasks to DOM
-// add submit event listener
-// implement addTask function
-// implement deleteTask function
-// save tasks to localStorage after changes
+const taskForm = document.getElementById('taskForm');
+const taskList = document.getElementById('taskList');
 
-// tests (run after adding tasks)
+taskForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const newTask = taskForm['task'].value;
+  tasks.push(newTask);
+
+  taskList.innerHTML = '';
+
+  tasks.forEach(task => {
+    taskList.innerHTML += `
+      <li class="tasks__item">
+        <span class="tasks__text">${task}</span>
+      </li>
+    `;
+  });
+});
+
 const runTests = () => {
   console.log('=== Tests ===');
   console.log(tasks.includes('Estudiar JS'));
@@ -18,5 +28,4 @@ const runTests = () => {
   console.log(typeof tasks === 'object');
 };
 
-// uncomment to run tests
 // runTests();
