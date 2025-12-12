@@ -1,15 +1,10 @@
-let tasks = ['Aprender JS'];
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 const taskForm = document.getElementById('taskForm');
 const taskList = document.getElementById('taskList');
 
-taskForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const newTask = taskForm['task'].value;
-  tasks.push(newTask);
-
+const renderTasks = () => {
   taskList.innerHTML = '';
-
   tasks.forEach(task => {
     taskList.innerHTML += `
       <li class="tasks__item">
@@ -17,7 +12,18 @@ taskForm.addEventListener('submit', e => {
       </li>
     `;
   });
+};
+
+taskForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const newTask = taskForm['task'].value;
+  tasks.push(newTask);
+
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  renderTasks();
 });
+
+renderTasks();
 
 const runTests = () => {
   console.log('=== Tests ===');
