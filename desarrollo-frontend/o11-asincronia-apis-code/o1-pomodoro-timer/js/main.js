@@ -1,13 +1,34 @@
-let timeLeft = 1500; // 25 minutos en segundos ⏱️
+let timeLeft = 1500;
 let intervalId = null;
 let isRunning = false;
 
-// your code here 💻
-// select elements
-// create formatTime function (converts seconds to MM:SS)
-// create startTimer function with setInterval
-// create resetTimer function with clearInterval
-// add event listeners
+const display = document.getElementById('display');
+const startBtn = document.getElementById('startBtn');
+const resetBtn = document.getElementById('resetBtn');
+
+const formatTime = (time) => {
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+};
+
+const updateDisplay = () => {
+  display.textContent = formatTime(timeLeft);
+};
+
+const startTimer = () => {
+  isRunning = true;
+  startBtn.textContent = '⏸️ Pausar';
+
+  setInterval(() => {
+    timeLeft--;
+    updateDisplay();
+  }, 1000);
+};
+
+startBtn.addEventListener('click', startTimer);
+
+updateDisplay();
 
 // tests (run after timer starts)
 const runTests = () => {
