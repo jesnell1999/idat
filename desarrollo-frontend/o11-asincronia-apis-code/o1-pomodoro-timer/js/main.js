@@ -1,4 +1,4 @@
-let timeLeft = 1500;
+let timeLeft = 5;
 let intervalId = null;
 let isRunning = false;
 
@@ -17,16 +17,33 @@ const updateDisplay = () => {
 };
 
 const startTimer = () => {
+  if (isRunning) return;
   isRunning = true;
   startBtn.textContent = '⏸️ Pausar';
 
-  setInterval(() => {
+  intervalId = setInterval(() => {
     timeLeft--;
     updateDisplay();
+
+    if (timeLeft === 0) {
+      alert('¡Tiempo terminado!');
+      resetTimer();
+      clearInterval(intervalId);
+    }
   }, 1000);
 };
 
+const resetTimer = () => {
+  if (!isRunning) return;
+  isRunning = false;
+  clearInterval(intervalId);
+  startBtn.textContent = '▶️ Iniciar';
+  timeLeft = 1500;
+  updateDisplay();
+};
+
 startBtn.addEventListener('click', startTimer);
+resetBtn.addEventListener('click', resetTimer);
 
 updateDisplay();
 
