@@ -9,9 +9,20 @@ const renderTasks = () => {
     taskList.innerHTML += `
       <li class="tasks__item">
         <span class="tasks__text">${task}</span>
+        <button class="tasks__delete" onclick="deleteTask(${tasks.indexOf(task)})">❌</button>
       </li>
     `;
   });
+};
+
+const saveTasks = () => {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+
+const deleteTask = index => {
+  tasks.splice(index, 1);
+  saveTasks();
+  renderTasks();
 };
 
 taskForm.addEventListener('submit', e => {
@@ -19,7 +30,8 @@ taskForm.addEventListener('submit', e => {
   const newTask = taskForm['task'].value;
   tasks.push(newTask);
 
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  taskForm.reset();
+  saveTasks();
   renderTasks();
 });
 
