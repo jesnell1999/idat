@@ -1,4 +1,4 @@
-let timeLeft = 5;
+let timeLeft = 1500;
 let intervalId = null;
 let isRunning = false;
 
@@ -17,8 +17,16 @@ const updateDisplay = () => {
 };
 
 const startTimer = () => {
-  if (isRunning) return;
+  if (isRunning) {
+    clearInterval(intervalId);
+    isRunning = false;
+    startBtn.textContent = '▶️ Iniciar';
+    startBtn.style.opacity = 0.75;
+    return;
+  };
+
   isRunning = true;
+  startBtn.style.opacity = 1;
   startBtn.textContent = '⏸️ Pausar';
 
   intervalId = setInterval(() => {
