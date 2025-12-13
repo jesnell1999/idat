@@ -42,7 +42,6 @@ const startTimer = () => {
 };
 
 const resetTimer = () => {
-  if (!isRunning) return;
   isRunning = false;
   clearInterval(intervalId);
   startBtn.textContent = '▶️ Iniciar';
