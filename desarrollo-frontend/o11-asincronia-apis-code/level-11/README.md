@@ -9,37 +9,38 @@
   ╚═╝     ╚══════╝   ╚═╝    ╚═════╝╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝     ╚═╝
 ```
 
-> **🎯 Objetivo:** Dominar Fetch API desde cero: traer datos reales, manejar errores, loading states y crear apps conectadas 🚀
+> **🎯 Objetivo:** Dominar Fetch API desde cero: traer datos reales 🌍, manejar errores 🛡️, loading states ⏳ y crear apps conectadas 🚀✨
 
 ---
 
-## 🐕 Reto 1: Galería de Perritos - GET Request
+## 🐕 Reto 1: Galería de Perritos - GET Request 📸
 
-**📖 Historia:** Doky 🐕 está solo en casa y extraña a sus amigos perrunos. Descubre una API mágica que le muestra fotos aleatorias de perritos de todo el mundo. Cada vez que hace click en "Nuevo Perrito", la API le trae una foto diferente. Ahora tiene compañía virtual infinita. Usa `fetch()` para traer las imágenes, maneja el loading mientras espera, y si falla la conexión, muestra un error amigable. ¡Doky nunca se sentirá solo otra vez! 🐶💖
+**📖 Historia:** Doky 🐕 está solo en casa y extraña a sus amigos perrunos 😢. Descubre una API mágica 🪄 que le muestra fotos aleatorias de perritos de todo el mundo 🌎. Cada vez que hace click en "Nuevo Perrito" 🎲, la API le trae una foto diferente 🖼️. Ahora tiene compañía virtual infinita ♾️. Usa `fetch()` para traer las imágenes 📡, maneja el loading mientras espera ⏳, y si falla la conexión 📵, muestra un error amigable 💔. ¡Doky nunca se sentirá solo otra vez! 🐶💖✨
 
-**📝 Descripción:** Tu programa debe usar `fetch()` con método GET para consumir la API pública Dog CEO (https://dog.ceo/api/breeds/image/random), parsear la respuesta con `.json()`, mostrar un loading spinner mientras carga, renderizar la imagen en el DOM cuando llegue, manejar errores de red con `.catch()`, y validar el status code de la respuesta.
+**📝 Descripción:** Tu programa debe usar `fetch()` con método GET para consumir la API pública Dog CEO 🐕 (https://dog.ceo/api/breeds/image/random), parsear la respuesta con `.json()` 📋, mostrar un loading spinner mientras carga ⏳, renderizar la imagen en el DOM cuando llegue 🖼️, manejar errores de red con `.catch()` 🛡️, y validar el status code de la respuesta ✅.
 
 **⚙️ Funcionalidades:**
-- Hacer petición GET con `fetch(url)`
-- Parsear respuesta JSON con `.json()`
-- Mostrar loading state mientras espera
-- Renderizar imagen en el DOM
-- Manejar errores con `.catch()`
-- Botón para cargar nueva foto
+- Hacer petición GET con `fetch(url)` 📡
+- Parsear respuesta JSON con `.json()` 📋
+- Mostrar loading state mientras espera ⏳
+- Renderizar imagen en el DOM 🖼️
+- Manejar errores con `try/catch` 🛡️
+- Botón para cargar nueva foto 🎲
+- Tests automáticos en el DOM ✅
 
 **✅ Casos de prueba:**
 
-| Test                                       | Expected Output                     |
-| ------------------------------------------ | ----------------------------------- |
-| `typeof fetch`                             | `'function'`                        |
-| Response después de fetch exitoso          | `response.status === 200`           |
-| Datos parseados tienen propiedad `message` | `true`                              |
-| URL de imagen es string                    | `typeof imageUrl === 'string'`      |
-| Imagen se renderiza en DOM                 | `dogImage.src.includes('https://')` |
+| Test 🧪                            | Expected Output 🎯                   |
+| --------------------------------- | ----------------------------------- |
+| `typeof fetchDog`                 | `'function'`                        |
+| Response después de fetch exitoso | `response.status === 200`           |
+| URL de imagen es string           | `typeof imageUrl === 'string'`      |
+| URL incluye https                 | `imageUrl.includes('https')`        |
+| Imagen se renderiza en DOM        | `dogImage.src.includes('https://')` |
 
 **💻 Código base:**
 
-**📁 Estructura:**
+**📁 Estructura**
 ```
 o1-dog-gallery/
   ├── index.html
@@ -49,7 +50,7 @@ o1-dog-gallery/
       └── main.js
 ```
 
-**index.html:**
+**index.html**
 ```html
 <!DOCTYPE html>
 <html lang="es">
@@ -63,20 +64,22 @@ o1-dog-gallery/
   <main class="app">
     <header class="app__header">
       <h1 class="app__title">🐕 Galería de Perritos</h1>
-      <p class="app__subtitle">Fetch API - GET | Abre la consola para ver resultados</p>
+      <p class="app__subtitle">Fetch API - GET 📡 | Tests en el DOM ✅</p>
     </header>
 
     <section class="gallery">
       <div id="imageContainer" class="gallery__container">
         <div id="loading" class="loading" style="display: none;">
           <div class="loading__spinner"></div>
-          <p class="loading__text">Cargando perrito...</p>
+          <p class="loading__text">Cargando perrito... 🐕</p>
         </div>
-        <img id="dogImage" class="gallery__image" alt="Perrito aleatorio">
+        <img id="dogImage" class="gallery__image" alt="Perrito aleatorio 🐶">
         <p id="error" class="gallery__error" style="display: none;"></p>
       </div>
       <button id="newDogBtn" class="btn">🎲 Nuevo Perrito</button>
     </section>
+
+    <aside id="testResults" class="tests"></aside>
   </main>
 
   <script src="./js/main.js"></script>
@@ -84,7 +87,7 @@ o1-dog-gallery/
 </html>
 ```
 
-**css/styles.css:**
+**css/styles.css**
 ```css
 body {
   margin: 0;
@@ -209,6 +212,39 @@ body {
   transform: translateY(0);
 }
 
+.tests {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  display: none;
+}
+
+.tests__title {
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.tests__item {
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.tests__item--pass {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.tests__item--fail {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
 @media (max-width: 768px) {
   .app {
     padding: 30px 20px;
@@ -224,7 +260,7 @@ body {
 }
 ```
 
-**js/main.js:**
+**js/main.js**
 ```javascript
 const API_URL = 'https://dog.ceo/api/breeds/image/random';
 
@@ -232,67 +268,83 @@ let imageUrl = '';
 let response = null;
 
 // your code here 💻
-// select elements
-// create fetchDog async function
-// show loading, hide image and error
-// use fetch() to get data
-// parse with .json()
-// handle success and errors
-// render image in DOM
+// select elements 🎯
+// create fetchDog async function 🐕
+// show loading, hide image and error ⏳
+// use fetch() to get data 📡
+// parse with .json() 📋
+// handle success and errors 🛡️
+// render image in DOM 🖼️
+// create runTests function ✅
+// call runTests in finally block 🎯
 
-// 🧪 TESTS: Hacer click en "Nuevo Perrito", esperar 2 segundos, pegar esto en consola:
-/*
-console.log('=== Tests ===');
-console.log('Test 1:', typeof fetch === 'function');
-console.log('Test 2:', response && response.status === 200);
-console.log('Test 3:', imageUrl.includes('https://'));
-console.log('Test 4:', typeof imageUrl === 'string');
-console.log('Test 5:', dogImage.src.includes('https://'));
-*/
+// 🧪 Tests function (add this at the end)
+const runTests = () => {
+  const testResults = document.getElementById('testResults');
+  testResults.style.display = 'block';
+  
+  const tests = [
+    { name: 'fetchDog es función', result: typeof fetchDog === 'function' },
+    { name: 'Response status es 200', result: response && response.status === 200 },
+    { name: 'imageUrl es string', result: typeof imageUrl === 'string' },
+    { name: 'imageUrl incluye https', result: imageUrl.includes('https') },
+    { name: 'Imagen renderizada en DOM', result: dogImage.src.includes('https://') }
+  ];
+  
+  let html = '<p class="tests__title">🧪 Resultados de Tests:</p>';
+  tests.forEach(test => {
+    const status = test.result ? '✅' : '❌';
+    const className = test.result ? 'tests__item--pass' : 'tests__item--fail';
+    html += `<div class="tests__item ${className}">${status} ${test.name}: ${test.result}</div>`;
+  });
+  
+  testResults.innerHTML = html;
+};
 ```
 
 **💡 Tips:**
-- 🔹 `fetch(url)` retorna una Promise
-- 🔹 `response.json()` también es Promise
-- 🔹 Usa `async/await` para código limpio
-- 🔹 Verifica `response.ok` antes de parsear
-- 🔹 `try/catch` para manejar errores
+- 🔹 `fetch(url)` retorna una Promise 🎁
+- 🔹 `response.json()` también es Promise 📋
+- 🔹 Usa `async/await` para código limpio ✨
+- 🔹 Verifica `response.ok` antes de parsear ✅
+- 🔹 `try/catch/finally` para manejar errores 🛡️
+- 🔹 Llama `runTests()` en el `finally` 🎯
 
-**🚀 Motivación:** ¡Doky tiene amigos perritos infinitos! 🐕💖
+**🚀 Motivación:** ¡Doky tiene amigos perritos infinitos! 🐕💖✨
 
 ---
 
-## 🌤️ Reto 2: App del Clima - POST y Error Handling Completo
+## 🤖 Reto 2: Portal Rick and Morty - GET con Query Params 🌌
 
-**📖 Historia:** Fernanda 🧙‍♀️ viaja por todo el mundo lanzando hechizos, pero el clima afecta su magia: con lluvia sus hechizos de fuego fallan, con sol son más poderosos. Necesita una app que le diga el clima de cualquier ciudad. Escribe "Lima" y ¡boom! Temperatura, descripción, humedad. Usa una API real de clima (WeatherAPI), maneja errores si escribe mal la ciudad, muestra loading mientras busca, y guarda el historial de búsquedas en localStorage. ¡Fernanda nunca será sorprendida por la lluvia otra vez! 🌦️✨
+**📖 Historia:** Elliot ⚡ es fan #1 de Rick and Morty 🧪. Quiere crear un portal dimensional 🌀 que le muestre todos los personajes 👽 de la serie. Escribe un nombre en el buscador 🔍 ("Rick", "Morty", "Summer") y ¡BOOM! 💥 aparecen todas las cards con fotos 📸, nombre 📛, especie 🧬, y status (Alive/Dead) 💀. Implementa loading state ⏳, manejo de errores si no encuentra personajes 🚫, y muestra los resultados en una grid bonita 🎨. ¡Wubba Lubba Dub Dub! 🎉🌈
 
-**📝 Descripción:** Tu programa debe usar `fetch()` con método GET a WeatherAPI, capturar input del usuario, construir URL dinámica con query params, mostrar loading state, parsear respuesta JSON con datos del clima, manejar múltiples tipos de errores (404 ciudad no encontrada, 500 error servidor, sin internet), renderizar datos en tarjeta visual, guardar historial en localStorage, y mostrar últimas 3 búsquedas.
+**📝 Descripción:** Tu programa debe usar `fetch()` con query parameters para buscar personajes en la Rick and Morty API 🤖 (https://rickandmortyapi.com/api/character/?name=rick), capturar input del usuario 📝, construir URL dinámica con el nombre 🔧, mostrar loading mientras espera ⏳, parsear respuesta JSON 📋, renderizar múltiples cards en el DOM 🎴, manejar error 404 cuando no encuentra resultados 🚫, y validar datos recibidos ✅.
 
 **⚙️ Funcionalidades:**
-- Capturar input de ciudad desde formulario
-- Construir URL con query parameters
-- Hacer petición GET a WeatherAPI
-- Mostrar loading mientras espera
-- Parsear y renderizar datos del clima
-- Manejar errores 404, 500, network
-- Guardar historial en localStorage
-- Mostrar últimas búsquedas
+- Capturar input de búsqueda desde formulario 📝
+- Construir URL con query parameters 🔧
+- Hacer petición GET a Rick and Morty API 📡
+- Mostrar loading mientras espera ⏳
+- Parsear y renderizar cards de personajes 🎴
+- Manejar error 404 (no encontrado) 🚫
+- Grid responsive para las cards 📱
+- Tests automáticos en el DOM ✅
 
 **✅ Casos de prueba:**
 
-| Test                           | Expected Output                      |
-| ------------------------------ | ------------------------------------ |
-| `typeof fetch`                 | `'function'`                         |
-| Buscar ciudad válida           | `weatherData.temp !== undefined`     |
-| Buscar ciudad inválida         | Muestra error "Ciudad no encontrada" |
-| Historial en localStorage      | `Array.isArray(history)`             |
-| Historial tiene máximo 3 items | `history.length <= 3`                |
+| Test 🧪                        | Expected Output 🎯                   |
+| ----------------------------- | ----------------------------------- |
+| `typeof searchCharacters`     | `'function'`                        |
+| Buscar "Rick"                 | `characters.length > 0`             |
+| Primer personaje tiene `name` | `characters[0].name !== undefined`  |
+| Response status               | `response.status === 200`           |
+| Cards renderizadas en DOM     | `characterList.children.length > 0` |
 
 **💻 Código base:**
 
-**📁 Estructura:**
+**📁 Estructura**
 ```
-o2-weather-app/
+o2-rick-morty-portal/
   ├── index.html
   ├── css/
   │   └── styles.css
@@ -300,63 +352,45 @@ o2-weather-app/
       └── main.js
 ```
 
-**index.html:**
+**index.html**
 ```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🌤️ App del Clima</title>
+  <title>🤖 Portal Rick and Morty</title>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
   <main class="app">
     <header class="app__header">
-      <h1 class="app__title">🌤️ App del Clima</h1>
-      <p class="app__subtitle">Fetch API - Real | Abre la consola para ver resultados</p>
+      <h1 class="app__title">🤖 Portal Rick and Morty</h1>
+      <p class="app__subtitle">Fetch API - Query Params 🔍 | Tests en el DOM ✅</p>
     </header>
 
     <form id="searchForm" class="search">
       <input 
         type="text" 
-        id="cityInput" 
-        name="city"
+        id="searchInput" 
+        name="character"
         class="search__input" 
-        placeholder="Escribe una ciudad... 🌍"
+        placeholder="Busca un personaje... 👽"
         required
       >
       <button type="submit" class="search__btn">🔍 Buscar</button>
     </form>
 
-    <section id="weatherCard" class="weather" style="display: none;">
-      <div class="weather__icon">☀️</div>
-      <h2 id="cityName" class="weather__city"></h2>
-      <div id="temperature" class="weather__temp"></div>
-      <p id="description" class="weather__desc"></p>
-      <div class="weather__details">
-        <div class="weather__detail">
-          <span>💧 Humedad:</span>
-          <strong id="humidity"></strong>
-        </div>
-        <div class="weather__detail">
-          <span>💨 Viento:</span>
-          <strong id="wind"></strong>
-        </div>
-      </div>
-    </section>
-
     <div id="loading" class="loading" style="display: none;">
       <div class="loading__spinner"></div>
-      <p class="loading__text">Buscando clima...</p>
+      <p class="loading__text">Abriendo portal... 🌀</p>
     </div>
 
     <p id="error" class="error" style="display: none;"></p>
 
-    <aside id="history" class="history" style="display: none;">
-      <h3 class="history__title">📜 Últimas búsquedas</h3>
-      <ul id="historyList" class="history__list"></ul>
-    </aside>
+    <section id="characterList" class="characters"></section>
+
+    <aside id="testResults" class="tests"></aside>
   </main>
 
   <script src="./js/main.js"></script>
@@ -364,7 +398,7 @@ o2-weather-app/
 </html>
 ```
 
-**css/styles.css:**
+**css/styles.css**
 ```css
 body {
   margin: 0;
@@ -372,9 +406,6 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
   background-image: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -384,9 +415,9 @@ body {
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   padding: 40px;
-  max-width: 500px;
+  max-width: 1200px;
   width: 100%;
-  margin: 20px;
+  margin: 20px auto;
   box-sizing: border-box;
 }
 
@@ -410,7 +441,10 @@ body {
 .search {
   display: flex;
   gap: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .search__input {
@@ -445,59 +479,12 @@ body {
   transform: translateY(-2px);
 }
 
-.weather {
-  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 30px;
-  border-radius: 15px;
-  color: white;
-  text-align: center;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-}
-
-.weather__icon {
-  font-size: 4rem;
-  margin-bottom: 15px;
-}
-
-.weather__city {
-  margin: 0 0 15px 0;
-  font-size: 2rem;
-}
-
-.weather__temp {
-  font-size: 3.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.weather__desc {
-  margin: 0 0 20px 0;
-  font-size: 1.2rem;
-  opacity: 0.9;
-  text-transform: capitalize;
-}
-
-.weather__details {
-  display: flex;
-  justify-content: space-around;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.weather__detail {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  font-size: 0.9rem;
-}
-
 .loading {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  padding: 30px;
+  padding: 40px;
   box-sizing: border-box;
 }
 
@@ -528,44 +515,109 @@ body {
   border-left: 4px solid #e74c3c;
   border-radius: 8px;
   color: #c0392b;
+  text-align: center;
   box-sizing: border-box;
 }
 
-.history {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 2px solid #e0e0e0;
+.characters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.character {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 }
 
-.history__title {
-  margin: 0 0 15px 0;
-  font-size: 1.1rem;
+.character:hover {
+  transform: translateY(-5px);
+}
+
+.character__image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.character__info {
+  padding: 15px;
+}
+
+.character__name {
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.character__detail {
+  margin: 5px 0;
+  font-size: 0.95rem;
   color: #666;
 }
 
-.history__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.character__status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-top: 8px;
 }
 
-.history__item {
-  padding: 10px 15px;
+.character__status--alive {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.character__status--dead {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.character__status--unknown {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.tests {
+  margin-top: 30px;
+  padding: 20px;
   background-color: #f8f9fa;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  color: #555;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  border-radius: 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  display: none;
   box-sizing: border-box;
 }
 
-.history__item:hover {
-  background-color: #e9ecef;
+.tests__title {
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.tests__item {
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.tests__item--pass {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.tests__item--fail {
+  background-color: #f8d7da;
+  color: #721c24;
 }
 
 @media (max-width: 768px) {
@@ -577,79 +629,92 @@ body {
     font-size: 2rem;
   }
   
-  .weather__temp {
-    font-size: 3rem;
+  .characters {
+    grid-template-columns: 1fr;
   }
 }
 ```
 
-**js/main.js:**
+**js/main.js**
 ```javascript
-// API Key gratuita de WeatherAPI (funciona sin registro)
-const API_KEY = '3045dd712a53400ea1c202335241506';
-const API_URL = 'https://api.weatherapi.com/v1/current.json';
+const API_URL = 'https://rickandmortyapi.com/api/character/';
 
-let weatherData = null;
-let history = [];
+let characters = [];
+let response = null;
 
 // your code here 💻
-// select elements
-// load history from localStorage
-// create fetchWeather async function
-// construct URL with city param
-// show loading, hide others
-// fetch weather data
-// handle errors (404, 500, network)
-// render weather card
-// save to history (max 3)
-// render history list
+// select elements 🎯
+// create searchCharacters async function 🔍
+// construct URL with query param: ?name=value 🔧
+// show loading, hide others ⏳
+// fetch character data 📡
+// parse with .json() 📋
+// handle 404 error (no results) 🚫
+// render character cards in DOM 🎴
+// create runTests function ✅
+// call runTests in finally block 🎯
 
-// 🧪 TESTS: Buscar "Lima", esperar 2 segundos, pegar esto en consola:
-/*
-console.log('=== Tests ===');
-console.log('Test 1:', typeof fetch === 'function');
-console.log('Test 2:', weatherData && weatherData.temp !== undefined);
-console.log('Test 3:', Array.isArray(history));
-console.log('Test 4:', history.length <= 3);
-console.log('Test 5:', cityName.textContent === 'Lima');
-*/
-
-// Para probar error 404: buscar "XYZ123" y verificar mensaje de error
+// 🧪 Tests function (add this at the end)
+const runTests = () => {
+  const testResults = document.getElementById('testResults');
+  testResults.style.display = 'block';
+  
+  const tests = [
+    { name: 'searchCharacters es función', result: typeof searchCharacters === 'function' },
+    { name: 'characters tiene datos', result: characters.length > 0 },
+    { name: 'Primer personaje tiene name', result: characters[0] && characters[0].name !== undefined },
+    { name: 'Response status es 200', result: response && response.status === 200 },
+    { name: 'Cards renderizadas', result: characterList.children.length > 0 }
+  ];
+  
+  let html = '<p class="tests__title">🧪 Resultados de Tests:</p>';
+  tests.forEach(test => {
+    const status = test.result ? '✅' : '❌';
+    const className = test.result ? 'tests__item--pass' : 'tests__item--fail';
+    html += `<div class="tests__item ${className}">${status} ${test.name}: ${test.result}</div>`;
+  });
+  
+  testResults.innerHTML = html;
+};
 ```
 
 **💡 Tips:**
-- 🔹 URL con params: `${API_URL}?key=${API_KEY}&q=${city}`
-- 🔹 Verifica `response.status` para errores
-- 🔹 Status 404 = ciudad no encontrada
-- 🔹 Usa `try/catch` para network errors
-- 🔹 Historia: `[city, ...history].slice(0, 3)`
+- 🔹 URL con query: `${API_URL}?name=${searchTerm}` 🔧
+- 🔹 La API retorna array en `data.results` 📋
+- 🔹 Status 404 = no encontró personajes 🚫
+- 🔹 Renderiza cada card con `createElement` 🎴
+- 🔹 Status: Alive ✅, Dead ❌, Unknown ❓
+- 🔹 `finally` ejecuta siempre para tests 🎯
 
-**🚀 Motivación:** 🎉 ¡PROYECTO FINAL! Fernanda predice el clima para su magia 🧙‍♀️🌤️✨
+**🚀 Motivación:** 🎉 ¡PROYECTO FINAL! Elliot abre portales dimensionales 🤖🌌✨
 
 ---
 
 ## 📊 Resumen del Nivel 11 🎯
 
 **🎉 Has completado:**
-- ✅ **Fetch API:** `fetch(url)`, `.json()`
-- ✅ **GET requests:** Traer datos de APIs públicas
-- ✅ **Error handling:** Status codes, network errors
-- ✅ **Loading states:** UX mientras espera
-- ✅ **Renderizado dinámico:** Mostrar datos en DOM
+- ✅ **Fetch API** `fetch(url)` 📡, `.json()` 📋
+- ✅ **GET requests** Traer datos de APIs públicas 🌍
+- ✅ **Query parameters** Búsquedas dinámicas 🔍
+- ✅ **Error handling** Status codes, network errors 🛡️
+- ✅ **Loading states** UX mientras espera ⏳
+- ✅ **Renderizado dinámico** Mostrar datos en DOM 🎴
+- ✅ **Tests automáticos** Validación en el DOM ✅
 
-**⏰ Tiempo estimado:** 2 horas 
+**⏰ Tiempo estimado** 2 horas ⏰
 
 **🎓 Conceptos clave:**
-- `fetch()` hace peticiones HTTP
-- Retorna Promise que se resuelve con Response
-- `.json()` parsea el body de la respuesta
-- Siempre verificar `response.ok` o `response.status`
-- `try/catch` para errores de red
-- Loading states mejoran UX
-- APIs públicas permiten practicar gratis
+- `fetch()` hace peticiones HTTP 📡
+- Retorna Promise que se resuelve con Response 🎁
+- `.json()` parsea el body de la respuesta 📋
+- Siempre verificar `response.ok` o `response.status` ✅
+- `try/catch/finally` para errores y cleanup 🛡️
+- Query params: `?key=value&key2=value2` 🔧
+- Loading states mejoran UX ⏳
+- APIs públicas permiten practicar gratis 🆓
 
-**🔜 Próximo nivel:** 📦 Nivel 12 - Módulos ES6
+**🔜 Próximo nivel** 📦 Nivel 12 - Módulos ES6
 
 ---
 
-💪 **¡Felicidades!** Fernanda, Mijael, Fe, Elliot, Chocolate, Amorosa y Doky están orgullosos. ¡Eres un maestro de las APIs! 🏆✨🚀
+💪 **¡Felicidades!** 🎉 Fernanda 🧙‍♀️, Mijael 👦, Fe 🔥, Elliot ⚡, Chocolate 🐕, Amorosa 💖 y Doky 🐶 están orgullosos. ¡Eres un maestro de las APIs! 🏆✨�
