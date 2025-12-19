@@ -3,6 +3,48 @@ const API_URL = 'https://rickandmortyapi.com/api/character/';
 let characters = [];
 let response = null;
 
+const loading = document.getElementById('loading');
+const characterList = document.getElementById('characterList');
+
+const fetchCharacters = async () => {
+  try {
+    loading.style.display = 'flex';
+    characterList.style.display = 'none';
+
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    characters = data.results;
+
+    renderCharacters();
+    characterList.style.display = 'grid';
+  } catch (error) {
+    console.error(error);
+  } finally {
+    loading.style.display = 'none';
+  }
+};
+
+const renderCharacters = () => {
+  characterList.innerHTML = '';
+
+  characters.forEach(character => {
+    const { name, status, species, image } = character;
+
+    characterList.innerHTML += `
+      <div class="character">
+        <img class="character__image" src="${image}" alt="${name}">
+        <div class="character__info">
+          <h3 class="character__name">${name}</h3>
+          <p class="character__detail">${species}</p>
+          <p class="character__status character__status--${status}">${status}</p>
+        </div>
+      </div>
+    `;
+  });
+};
+
+fetchCharacters();
+
 // your code here 💻
 // select elements 🎯
 // create searchCharacters async function 🔍
