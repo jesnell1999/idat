@@ -1,4 +1,4 @@
-const ToDoList = ({ todos }) => {
+const ToDoList = ({ todos, onDeleteTodo, onToggleTodo }) => {
   if (todos.length === 0) {
     return (
       <div className="todo-list todo-list--empty">
@@ -20,6 +20,8 @@ const ToDoList = ({ todos }) => {
             <input
               type="checkbox"
               className="todo-item__checkbox"
+              checked={todo.completed}
+              onChange={() => onToggleTodo(todo.id)}
             />
             <span className="todo-item__text">
               {todo.text}
@@ -28,6 +30,7 @@ const ToDoList = ({ todos }) => {
           <button
             type="button"
             className="todo-item__delete"
+            onClick={() => onDeleteTodo(todo.id)}
           >
             ❌
           </button>
