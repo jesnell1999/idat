@@ -1,8 +1,12 @@
+import { Route, Routes } from 'react-router';
+
 function App() {
   return (
-    <>
-      <h1>Rick and Morty</h1>
-    </>
+    <Routes>
+      <Route path="/" element={<h1>HomePage</h1>} />
+      <Route path="/characters" element={<h1>CharactersPage</h1>} />
+      <Route path="/characters/:id" element={<h1>CharacterPage</h1>} />
+    </Routes>
   );
 }
 
