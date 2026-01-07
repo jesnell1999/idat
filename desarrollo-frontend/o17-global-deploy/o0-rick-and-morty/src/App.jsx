@@ -1,11 +1,14 @@
 import { Route, Routes } from 'react-router';
+import CharacterPage from './pages/CharacterPage';
+import CharactersPage from './pages/CharactersPage';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<h1>HomePage</h1>} />
-      <Route path="/characters" element={<h1>CharactersPage</h1>} />
-      <Route path="/characters/:id" element={<h1>CharacterPage</h1>} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/characters" element={<CharactersPage />} />
+      <Route path="/characters/:id" element={<CharacterPage />} />
     </Routes>
   );
 }
