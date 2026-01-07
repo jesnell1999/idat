@@ -21,7 +21,7 @@ const Footer = () => {
             </li>
             <li className="ms-3">
               <a className="text-body-secondary h4" href="#" aria-label="Facebook">
-                <i class="bi bi-facebook"></i>
+                <i className="bi bi-facebook"></i>
               </a>
             </li>
           </ul>
