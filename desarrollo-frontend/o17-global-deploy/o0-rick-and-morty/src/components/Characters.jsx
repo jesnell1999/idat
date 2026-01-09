@@ -1,4 +1,8 @@
+import { useCharactersStore } from '../store/characters.store';
+
 const Characters = ({ data }) => {
+  const { setCharactersData } = useCharactersStore();
+
   return (
     <section className="album py-5 bg-body-tertiary">
       <div className="container">
@@ -29,7 +33,10 @@ const Characters = ({ data }) => {
                       <small
                         className="text-body-secondary">9 mins
                       </small>
-                      <button className="btn btn-primary">
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => setCharactersData(character)}
+                      >
                         Join
                       </button>
                     </div>

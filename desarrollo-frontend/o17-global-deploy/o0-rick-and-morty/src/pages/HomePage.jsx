@@ -14,9 +14,9 @@ const HomePage = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(charactersData);
-  }, [charactersData]);
+  // useEffect(() => {
+  //   console.log(charactersData);
+  // }, [charactersData]);
 
   return (
     <>
