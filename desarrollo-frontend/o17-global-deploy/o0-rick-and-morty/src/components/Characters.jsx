@@ -1,32 +1,37 @@
 const Characters = ({ data }) => {
   return (
-    <section class="album py-5 bg-body-tertiary">
-      <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <section className="album py-5 bg-body-tertiary">
+      <div className="container">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           {data.map((character) => {
             const { id, name, status, species, gender, image } = character;
+
             return (
-              <div class="col" key={id}>
-                <div class="card shadow-sm">
+              <div className="col" key={id}>
+                <div className="card shadow-sm">
                   <img
                     src={image}
                     alt={name}
-                    class="card-img-top object-fit-cover"
+                    className="card-img-top object-fit-cover"
                     height="225"
                   />
-                  <div class="card-body">
-                    <p class="card-text">{name} - {gender}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                  <div className="card-body">
+                    <p className="card-text">{name} - {gender}</p>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div className="btn-group">
+                        <button type="button" className="btn btn-sm btn-outline-secondary">
                           {status}
                         </button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                        <button type="button" className="btn btn-sm btn-outline-secondary">
                           {species}
                         </button>
                       </div>
                       <small
-                        class="text-body-secondary">9 mins</small>
+                        className="text-body-secondary">9 mins
+                      </small>
+                      <button className="btn btn-primary">
+                        Join
+                      </button>
                     </div>
                   </div>
                 </div>
